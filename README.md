@@ -18,7 +18,7 @@
 - ❌ Error-prone and mind-numbingly tedious
 
 **"Enterprise" Tools:**
-- 💸 **$50,000+/year** licensing costs
+- 💸 **$15,000+/year** licensing costs
 - 🕐 **Months of setup** with IT departments
 - 🎓 **Weeks of training** for your team
 - ☁️ **Cloud-only** (your data leaves your building)
