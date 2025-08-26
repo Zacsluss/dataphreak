@@ -3,6 +3,26 @@
 
 > **What if enterprise-grade data analysis worked in 30 seconds instead of 30 days?**
 
+<div align="center">
+
+**🌐 Try Online Instantly** *(No Download Required)*
+
+<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
+<img src="https://img.shields.io/badge/🚀%20LAUNCH%20DATAPHREAK-Online%20Demo-22c55e?style=for-the-badge&logoColor=white&labelColor=333333" alt="Launch DATAPHREAK Online" />
+</a>
+
+**💾 Download for Offline Use**
+
+<a href="./DATAPHREAK.html">
+<img src="https://img.shields.io/badge/💾%20DOWNLOAD%20FILE-Offline%20Version-38bdf8?style=for-the-badge&logoColor=white&labelColor=333333" alt="Download DATAPHREAK" />
+</a>
+
+*Professional data analysis that anyone can use instantly*
+
+</div>
+
+---
+
 **DATAPHREAK** makes the impossible possible: **professional data analysis that anyone can use instantly**, without IT departments, complex installations, or enterprise budgets.
 
 ---
@@ -142,37 +162,11 @@
 
 ---
 
-## 🚀 **Try It Right Now (Seriously, Right Now)**
-
-### **🎯 Two Ways to Experience DATAPHREAK:**
-
-<div align="center">
-
-**🌐 Try Online Instantly** *(No Download Required)*
-
-<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
-<img src="https://img.shields.io/badge/🚀%20LAUNCH%20DATAPHREAK-Online%20Demo-22c55e?style=for-the-badge&logoColor=white&labelColor=333333" alt="Launch DATAPHREAK Online" />
-</a>
-
-*Opens in new tab - works immediately in your browser*
-
----
-
-**💾 Download for Offline Use**
-
-<a href="./DATAPHREAK.html">
-<img src="https://img.shields.io/badge/💾%20DOWNLOAD%20FILE-Offline%20Version-38bdf8?style=for-the-badge&logoColor=white&labelColor=333333" alt="Download DATAPHREAK" />
-</a>
-
-*Right-click → Save As → Double-click to open*
-
-</div>
-
-### **🎯 The 30-Second Challenge**
+## 🚀 **The 30-Second Challenge**
 
 Can you really analyze data in 30 seconds? **Yes, and we'll prove it:**
 
-1. **Click the "🚀 LAUNCH DATAPHREAK" button above**
+1. **Click the "🚀 LAUNCH DATAPHREAK" button at the top**
 2. **Click "✨ Try Sample Data"**  
 3. **Watch the magic happen**
 
