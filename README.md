@@ -97,18 +97,22 @@
 
 ---
 
-## 💸 **The Economics are Insane**
+## 💸 **Real Cost Comparison**
 
-### **What Others Charge vs What You Get:**
+### **How DATAPHREAK Compares to Actual Alternatives:**
 
-| **What You Need** | **Traditional Cost** | **DATAPHREAK** | **You Save** |
-|------------------|---------------------|---------------|-------------|
-| Data profiling tool | $5,000-$50,000/year | **Try free** | $50,000 |
-| Setup & training | $10,000-$25,000 | **5 minutes** | $25,000 |
-| IT infrastructure | $5,000-$15,000 | **$0** | $15,000 |
-| **TOTAL FIRST YEAR** | **$20K-$90K** | **$0** | **$90,000** |
+| **Alternative** | **Cost** | **Setup Time** | **DATAPHREAK** |
+|-----------------|----------|----------------|----------------|
+| **Alteryx Designer Cloud** | $5,000-$15,000/year | Weeks of setup | **Try free, 30 seconds** |
+| **Manual Excel Work** | Your time (20-40 hours/project) | Immediate | **5 minutes per project** |
+| **Data Consultant** | $150-$300/hour | Schedule dependent | **Immediate results** |
+| **OpenRefine (Free)** | Free + learning curve | Java install + training | **No installation needed** |
 
-*And that's just Year 1. Enterprise tools have annual renewal fees.*
+### **💡 Your Real Savings:**
+- **vs Enterprise Tools**: Avoid $5K-15K annual licensing
+- **vs Manual Work**: Save 20-40 hours per data cleaning project  
+- **vs Consultants**: Handle projects yourself instead of outsourcing
+- **vs Multiple Tools**: One solution instead of several separate apps
 
 ---
 
@@ -169,8 +173,8 @@ Try the sample data. You'll see professional-quality analysis in literally 30 se
 ### **"What's the catch? Why isn't everyone using this?"**
 No catch. This tool is so new that most people are still stuck with old, expensive solutions.
 
-### **"Can it really replace our $50K enterprise tool?"**
-For 90% of data cleaning tasks, yes. And for the other 10%, you can still use both.
+### **"Can it really replace expensive enterprise tools?"**
+For most common data cleaning tasks, yes. DATAPHREAK handles what most businesses need daily.
 
 ### **"Is my data safe if it never goes to the cloud?"**
 Safer than any cloud solution. Your data processes locally and never leaves your computer.
@@ -182,7 +186,7 @@ Built-in help system, comprehensive tooltips, and professional support available
 
 ## 🏢 **Enterprise Customers**
 
-### **Ready to Save $50,000+ on Data Tools?**
+### **Ready to Streamline Your Data Workflow?**
 
 **Contact:** [zacsluss@yahoo.com](mailto:zacsluss@yahoo.com)  
 **Subject:** "DATAPHREAK Enterprise Inquiry"
