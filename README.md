@@ -144,14 +144,37 @@
 
 ## 🚀 **Try It Right Now (Seriously, Right Now)**
 
+### **🎯 Two Ways to Experience DATAPHREAK:**
+
+<div align="center">
+
+**🌐 Try Online Instantly** *(No Download Required)*
+
+<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
+<img src="https://img.shields.io/badge/🚀%20LAUNCH%20DATAPHREAK-Online%20Demo-22c55e?style=for-the-badge&logoColor=white&labelColor=333333" alt="Launch DATAPHREAK Online" />
+</a>
+
+*Opens in new tab - works immediately in your browser*
+
+---
+
+**💾 Download for Offline Use**
+
+<a href="./DATAPHREAK.html">
+<img src="https://img.shields.io/badge/💾%20DOWNLOAD%20FILE-Offline%20Version-38bdf8?style=for-the-badge&logoColor=white&labelColor=333333" alt="Download DATAPHREAK" />
+</a>
+
+*Right-click → Save As → Double-click to open*
+
+</div>
+
 ### **🎯 The 30-Second Challenge**
 
 Can you really analyze data in 30 seconds? **Yes, and we'll prove it:**
 
-1. **[Click here to download DATAPHREAK.html](./DATAPHREAK.html)** ← Right-click, Save As
-2. **Double-click the file** to open it
-3. **Click "✨ Try Sample Data"**
-4. **Watch the magic happen**
+1. **Click the "🚀 LAUNCH DATAPHREAK" button above**
+2. **Click "✨ Try Sample Data"**  
+3. **Watch the magic happen**
 
 *By the time you finish reading this sentence, you could be analyzing data.*
 
@@ -229,9 +252,11 @@ Built-in help system, comprehensive tooltips, and professional support available
 
 ## 🚀 **Stop Struggling with Data**
 
-### **Download DATAPHREAK and experience the difference**
+### **Experience DATAPHREAK now - no installation required**
 
-**[Get DATAPHREAK v0.7.0 Now](./DATAPHREAK.html)**
+<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
+<img src="https://img.shields.io/badge/🚀%20TRY%20DATAPHREAK%20NOW-Live%20Demo-22c55e?style=for-the-badge&logoColor=white&labelColor=333333&fontSize=16" alt="Try DATAPHREAK Now" />
+</a>
 
 *What will you do with all the time you save?*
 
