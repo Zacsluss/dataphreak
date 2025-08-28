@@ -38,7 +38,7 @@
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
   <!--
-    DATAPHREAK v8.5.0: AI-powered single-file data analysis tool for CSV/TSV/Excel files. 
+    DATAPHREAK v8.6.0: AI-powered single-file data analysis tool for CSV/TSV/Excel files. 
     Features include: AI pattern detection (emails, phones, dates), fuzzy duplicate matching,
     comprehensive data quality scoring with A-F grades, smart data cleaning with auto-corrections,
     and professional reporting. Works completely offline with no installations required.
@@ -2264,7 +2264,7 @@
             <rect x="17" y="2"  width="4" height="19" rx="1"></rect>
           </svg>
         </span>
-        DATAPHREAK<span class="version">v8.5.0</span>
+        DATAPHREAK<span class="version">v8.6.0</span>
       </h1>
       <div class="header-right">
         <!-- Undo/Redo controls -->
@@ -2607,6 +2607,7 @@
             <tr>
               <th>Column</th>
               <th>Type</th>
+              <th class="nowrap">Mini Chart</th>
               <th class="nowrap">Non-null</th>
               <th class="nowrap">Nulls</th>
               <th>Coverage</th>
@@ -3019,7 +3020,28 @@
       <div class="help-body" style="max-height:60vh;overflow-y:auto">
         <p>Development history and feature updates for <strong>DATAPHREAK</strong>:</p>
         
-        <h4>v8.5.0 (Current)</h4>
+        <h4>v8.6.0 (Current)</h4>
+        <ul>
+          <li><strong>Professional Data Visualization Revolution</strong>: Complete transformation of chart readability and user insights:
+            <ul>
+              <li><strong>📊 Smart Axis Titles</strong>: Intelligent X/Y axis labeling based on column patterns (Age, Price, Email domains, etc.)</li>
+              <li><strong>💡 Enhanced Hover Tooltips</strong>: Rich insights with count, percentage, rank, and data quality indicators</li>
+              <li><strong>🎨 Data-Driven Colors</strong>: Red bars for quality issues, green for clean data, smart outlier detection</li>
+              <li><strong>🎯 Professional Layout</strong>: Increased margins, proper typography, and statistical overlays</li>
+              <li><strong>📈 Quality Indicators</strong>: Visual badges for data validation (✅ Valid, 🔸 Rare, 🔥 Common)</li>
+              <li><strong>🔧 Enhanced Positioning</strong>: Smart tooltip boundary detection prevents edge cutoff</li>
+            </ul>
+          </li>
+          <li><strong>Critical Stability Fix</strong>: Resolved JavaScript variable collision that was preventing app functionality:
+            <ul>
+              <li><strong>🐛 Variable Conflict</strong>: Fixed duplicate 'mean' declaration causing syntax errors</li>
+              <li><strong>⚡ Restored Functionality</strong>: All buttons and features now work properly</li>
+              <li><strong>🔍 Code Review</strong>: Enhanced error detection and prevention measures</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <h4>v8.5.0</h4>
         <ul>
           <li><strong>True Offline Functionality</strong>: Complete elimination of external dependencies for authentic offline operation:
             <ul>

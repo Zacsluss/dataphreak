@@ -1,0 +1,13 @@
+Name,Email,Phone,ZIP_Code,SSN,Date_of_Birth,Company
+John Smith,john.smith@gmail.com,(555) 123-4567,12345,123-45-6789,1985-03-15,Acme Corp
+Jane Doe,JANE.DOE@YAHOO.COM,555.987.6543,12345-6789,987654321,03/20/1990,TechStart Inc
+Bob Johnson,bob@company.org,5551234567,90210,123456789,1992-12-25,Global Solutions
+Alice Brown,alice.brown@domain.co.uk,+1-555-876-5432,10001,987-65-4321,12/01/1988,Innovation Labs
+Mike Wilson,MIKE.WILSON@HOTMAIL.COM,(555)123-4567,94102-1234,123 45 6789,1975/11/30,DataTech
+Sarah Davis,sarah@test.com,555 123 4567,12345,123-45-6789,1985-03-15,Acme Corp
+David Lee,david.lee@email.net,555-987-6543,90210-1234,987-65-4321,1990-03-20,TechStart Inc
+Lisa Garcia,lisa@company.com,+15559876543,10001-5678,123456789,25/12/1992,Global Solutions
+Tom Anderson,tom.anderson@domain.org,(555) 876-5432,94102,987654321,01-12-1988,Innovation Labs
+Emma Taylor,EMMA.TAYLOR@GMAIL.COM,555.876.5432,12345-6789,123 45 6789,30-11-1975,DataTech
+Chris Martin,chris@test.org,555-123-4567,90210,123-45-6789,15/03/1985,Acme Corp
+Amy White,amy.white@email.com,5559876543,10001,987-65-4321,20/03/1990,TechStart Inc

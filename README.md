@@ -1,4 +1,4 @@
-# 📊 DATAPHREAK v0.8.0
+# 📊 DATAPHREAK v8.6.0
 ## Intelligent Data Analysis That Just Works
 
 **The only data tool that uses advanced algorithms to instantly clean, analyze, and score your data quality - works completely offline in any browser.**
@@ -26,6 +26,7 @@ Drag in a messy CSV file → Smart algorithms detect patterns, find duplicates h
 ✅ **Smart Pattern Detection** - Automatically identifies emails, phone numbers, dates using advanced algorithms  
 ✅ **Fuzzy Duplicate Finder** - Catches similar records like "John Smith" vs "Jon Smith" using similarity algorithms  
 ✅ **Professional Quality Scoring** - A-F grades for your data using comprehensive statistical analysis  
+✅ **Smart Data Visualization** - Intelligent chart axis titles, rich tooltips, and data-driven color coding  
 ✅ **One-Click Smart Cleaning** - Auto-corrects formatting using intelligent pattern recognition  
 ✅ **Enterprise Security** - Everything happens on YOUR computer, never uploaded  
 ✅ **Zero Installation** - Single HTML file with embedded algorithms  
@@ -132,7 +133,7 @@ Drag in a messy CSV file → Smart algorithms detect patterns, find duplicates h
 
 ## 💸 **Real Cost Comparison with Advanced Features**
 
-| **Solution** | **Smart Features** | **Annual Cost** | **Setup Time** | **DATAPHREAK v0.8.0** |
+| **Solution** | **Smart Features** | **Annual Cost** | **Setup Time** | **DATAPHREAK v8.6.0** |
 |--------------|-------------------|----------------|----------------|----------------------|
 | **Alteryx Designer** | Basic pattern detection | $15,000-$50,000 | 3-6 months | **Free algorithms, 30 seconds** |
 | **Tableau Prep** | Limited cleaning automation | $25,000-$75,000 | 2-4 months | **Advanced algorithms, instant** |
@@ -338,6 +339,6 @@ Better security (never leaves your computer), faster processing (no network dela
 
 ---
 
-*DATAPHREAK v0.8.0 - Making enterprise-grade intelligent data analysis accessible to everyone*
+*DATAPHREAK v8.6.0 - Making enterprise-grade intelligent data analysis accessible to everyone*
 
 **🚀 Algorithm-Powered • 🔒 Privacy-First • ⚡ Lightning-Fast • 💼 Enterprise-Ready**
