@@ -1,25 +1,36 @@
 # 🤖 DATAPHREAK v0.8.0
 ## AI-Powered Data Analysis That Just Works
 
-> **What if you could clean messy data, find hidden duplicates, and get professional insights in 30 seconds instead of 30 days?**
+**The only data tool that uses AI to instantly clean, analyze, and score your data quality - works completely offline in any browser.**
+
+Drag in a messy CSV file → AI detects patterns, finds duplicates humans miss, grades data quality → Export clean, professional results. **Takes 30 seconds. Saves 30 hours.**
 
 <div align="center">
 
-**🌐 Try the AI-Enhanced Tool Instantly** *(No Download Required)*
+### **🚀 Try DATAPHREAK AI Right Now**
 
 <a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
-<img src="https://img.shields.io/badge/🚀%20LAUNCH%20DATAPHREAK%20AI-Online%20Demo-22c55e?style=for-the-badge&logoColor=white&labelColor=333333" alt="Launch DATAPHREAK AI Online" />
+<img src="https://img.shields.io/badge/🤖%20USE%20DATAPHREAK%20AI%20ONLINE-Launch%20Now%20(Free)-22c55e?style=for-the-badge&logoColor=white&labelColor=333333" alt="Use DATAPHREAK AI Online" />
 </a>
 
-**💾 Download for Offline Use**
-
-<a href="./DATAPHREAK.html">
-<img src="https://img.shields.io/badge/💾%20DOWNLOAD%20AI%20VERSION-Offline%20Tool-38bdf8?style=for-the-badge&logoColor=white&labelColor=333333" alt="Download DATAPHREAK AI" />
+<a href="https://github.com/Zacsluss/DATAPHREAK/raw/main/DATAPHREAK.html">
+<img src="https://img.shields.io/badge/💾%20DOWNLOAD%20FOR%20OFFLINE-Single%20HTML%20File-38bdf8?style=for-the-badge&logoColor=white&labelColor=333333" alt="Download DATAPHREAK AI" />
 </a>
 
-*AI-powered data intelligence that delivers enterprise results instantly*
+*Right-click "Download" → Save As → Double-click to run*
 
 </div>
+
+## **🎯 What DATAPHREAK AI Does:**
+
+✅ **Smart Pattern Detection** - AI automatically identifies emails, phone numbers, dates  
+✅ **Fuzzy Duplicate Finder** - Catches similar records like "John Smith" vs "Jon Smith"  
+✅ **Professional Quality Scoring** - A-F grades for your data (like a report card)  
+✅ **One-Click AI Cleaning** - Auto-corrects formatting using pattern intelligence  
+✅ **Enterprise Security** - Everything happens on YOUR computer, never uploaded  
+✅ **Zero Installation** - Single HTML file with embedded AI algorithms  
+
+**Perfect for:** Business analysts, operations managers, marketing teams, consultants, small businesses needing enterprise-grade data intelligence without enterprise complexity.
 
 ---
 
