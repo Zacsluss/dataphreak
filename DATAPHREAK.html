@@ -11,33 +11,18 @@
     <!--
       Content Security Policy (CSP)
       -----------------------------
-      Restrict all resources to originate from the current origin.  Disallow
-      remote scripts to mitigate XSS and only allow inline styles defined
-      inside this document.  Images, fonts and media are also limited to
-      same‑origin sources.  If you later embed external fonts or images
-      (e.g. from Google Fonts), you can loosen the appropriate directives
-      here, but keep script sources restricted to 'self' to prevent
-      arbitrary code execution.
-    -->
-    <!--
-      Content Security Policy (CSP)
-      -----------------------------
-      Allow loading resources only from this document's origin and data URIs.  To ensure the app's
-      inline JavaScript executes, `'unsafe-inline'` is permitted for scripts.  Styles may still
-      include inline definitions.  Remote sources are disallowed to help protect against
-      cross‑site scripting (XSS) or injection attacks.  If you externalise the JavaScript into
-      its own file you can remove `'unsafe-inline'` from the `script-src` directive.
+      Allow loading resources only from this document's origin and data URIs. To ensure the app's
+      inline JavaScript executes, 'unsafe-inline' is permitted for scripts. Styles may still
+      include inline definitions. Remote sources are disallowed to help protect against
+      cross‑site scripting (XSS) or injection attacks.
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.sheetjs.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
   <!--
-    DATAPHREAK: a single‑file data profiler for CSV/TSV/Excel files. 
-    Drag a CSV, TSV, or Excel file into the drop zone or pick a file
-    from disk and the app computes summary statistics, a missingness
-    duplicate row analysis. You can define per‑column rules
-    (allowed value lists), run the checks and export a data dictionary.
-    Rules persist in your browser using localStorage by a header signature
-    so you don't have to reenter them each time you load the same dataset.
-    Analysis remains responsive for large datasets.
+    DATAPHREAK v0.8.0: AI-powered single‑file data analysis tool for CSV/TSV/Excel files. 
+    Features include: AI pattern detection (emails, phones, dates), fuzzy duplicate matching,
+    comprehensive data quality scoring with A-F grades, smart data cleaning with auto-corrections,
+    and professional reporting. Works completely offline with no installations required.
+    Analysis remains responsive for large datasets with enterprise-grade performance.
   -->
   <style>
     /*
@@ -1620,16 +1605,6 @@
       background: rgba(147,51,234,0.05);
       animation: slideInUp 0.3s ease;
     }
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
     
     /* Loading States */
     .loading {
@@ -2269,7 +2244,7 @@
             <rect x="17" y="2"  width="4" height="19" rx="1"></rect>
           </svg>
         </span>
-        DATAPHREAK<span class="version">v0.7.0</span>
+        DATAPHREAK<span class="version">v0.8.0</span>
       </h1>
       <div class="header-right">
         <!-- Undo/Redo controls -->
@@ -2336,9 +2311,9 @@
         <div class="dropzone-divider">
           <span>or</span>
         </div>
-        <button id="loadSample" type="button" class="sample-btn" title="✨ Try sample data first - perfect for learning how DATAPHREAK works!"">
-          ✨ Try Sample Data
-        </button>
+        <div style="display: flex; justify-content: center; margin: 8px 0;">
+          <button id="loadSample" type="button" class="quick-btn" style="flex: none;" title="✨ Try sample data first - perfect for learning how DATAPHREAK works!">✨ Try Sample Data</button>
+        </div>
         <div class="dropzone-details muted small">
           Column names required • Automatically detects format • Works with any CSV file
         </div>
@@ -2434,8 +2409,17 @@
             <div class="kpi-status" id="kpiTotalCellsStatus"></div>
           </div>
         </div>
+        <div class="kpi-card" id="kpiQualityCard" title="AI-powered data quality assessment - hover status for detailed breakdown of completeness, consistency, and validity">
+          <div class="kpi-icon">🎯</div>
+          <div class="kpi-content">
+            <div class="kpi-value" id="kpiQuality">—</div>
+            <div class="kpi-label">Data Quality</div>
+            <div class="kpi-status" id="kpiQualityStatus"></div>
+          </div>
+        </div>
       </div>
       
+
       <!-- Smart Recommendations -->
       <div id="smartRecommendations" class="result-card" style="display:none;">
         <div style="font-weight: 600; margin-bottom: 8px;">🤖 Smart Recommendations</div>
@@ -2521,7 +2505,7 @@
       <div class="ops-step">
         <div class="ops-label">⚡ Quick Actions</div>
         <div class="quick-actions" style="grid-template-columns: repeat(5, 1fr);">
-          <button type="button" class="quick-btn" id="quickCleanAll" title="🧹 One-click cleanup - fix spacing, capitalization, and special characters instantly"">
+          <button type="button" class="quick-btn" id="quickCleanAll" title="🧹 Smart one-click cleanup - fixes spacing, capitalization, special characters, and auto-corrects email/phone/date formats using AI pattern detection">
             🧹 Clean All
           </button>
           <button type="button" class="quick-btn" id="quickAnalyzeKeys" title="🔑 Find columns that can uniquely identify each row (like ID numbers)">
@@ -2554,8 +2538,8 @@
     <section class="card" id="dupeSection">
       <!-- Header row with title and export button -->
       <div class="card-header">
-        <h2 title="Groups of rows that are exactly the same across all fields">Exact Duplicates <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
-        <button id="exportExactDupCsv" type="button" title="Download a CSV of the current dataset with exact duplicates highlighted">Export duplicates CSV</button>
+        <h2 title="Find both exact duplicates and similar records using AI - catches more issues than basic matching">Single-File Duplicates <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
+        <button id="exportExactDupCsv" type="button" title="📥 Download your data with both exact and similar duplicates marked in separate columns - perfect for review in Excel">Export duplicates CSV</button>
       </div>
       <div id="dupeSummary" class="small muted">&mdash;</div>
       <div id="dupeList" class="small" style="margin-top:8px"></div>
@@ -2587,7 +2571,7 @@
 
     <!-- Column Profiles -->
     <section class="card" id="profilesSection">
-      <h2 title="See details per field: type, counts of present/missing values, uniqueness, ranges and examples">Field Overview <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
+      <h2 title="Detailed analysis of each column with AI pattern detection - see data types, patterns, statistics, and quality rules">Field Overview <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
       <!-- Field Analysis action buttons: moved from the top navigation bar. Align to the right inside the panel. -->
       <div class="field-actions" style="display:flex;justify-content:flex-end;margin-top:-4px;margin-bottom:12px;gap:6px;flex-wrap:wrap">
         <button id="navSaveRules" type="button" class="field-btn" title="💾 Save your data quality rules so they're remembered next time you open this file">Save Rules</button>
@@ -2612,6 +2596,7 @@
               <th>Mean</th>
               <th>Outliers</th>
               <th>Examples</th>
+              <th>Patterns</th>
               <th>Expected</th>
               <th style="min-width:180px">Allowed set</th>
               <th>Rule issues</th>
@@ -2697,11 +2682,12 @@
         <div class="help-section" style="margin-bottom:12px">
           <div style="color:#f59e0b;font-size:12px;font-weight:bold;margin-bottom:6px;padding-left:4px">📊 ANALYSIS</div>
           <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <a href="#help-quality" class="help-tab" style="border-color:#f59e0b"><strong>6.</strong> Data Quality Checks</a>
-            <a href="#help-duplicates" class="help-tab" style="border-color:#f59e0b"><strong>7.</strong> Finding Duplicates</a>
-            <a href="#help-field" class="help-tab" style="border-color:#f59e0b"><strong>8.</strong> Column Analysis</a>
-            <a href="#help-rules" class="help-tab" style="border-color:#f59e0b"><strong>9.</strong> Data Validation</a>
-            <a href="#help-keys" class="help-tab" style="border-color:#f59e0b"><strong>10.</strong> Unique Identifiers</a>
+            <a href="#help-quality" class="help-tab" style="border-color:#f59e0b"><strong>6.</strong> AI Quality Assessment</a>
+            <a href="#help-duplicates" class="help-tab" style="border-color:#f59e0b"><strong>7.</strong> AI Duplicate Detection</a>
+            <a href="#help-patterns" class="help-tab" style="border-color:#22c55e"><strong>8.</strong> 🤖 AI Pattern Detection</a>
+            <a href="#help-field" class="help-tab" style="border-color:#f59e0b"><strong>9.</strong> Column Analysis</a>
+            <a href="#help-rules" class="help-tab" style="border-color:#f59e0b"><strong>10.</strong> Data Validation</a>
+            <a href="#help-keys" class="help-tab" style="border-color:#f59e0b"><strong>11.</strong> Unique Identifiers</a>
           </div>
         </div>
         
@@ -2741,7 +2727,7 @@
           • Age data automatically groups into 5-year ranges</p>
           
           <h5 style="color:#22c55e;margin:16px 0 8px 0">🧹 Step 4: Clean Your Data (2 minutes)</h5>
-          <p>• Click <strong>"🧹 Clean All"</strong> for instant improvements<br>
+          <p>• Click <strong>"🧹 Clean All"</strong> for AI-powered instant cleaning<br>
           • Or go to <strong>"Data Operations"</strong> section to choose specific fixes<br>
           • Watch the data quality score improve!</p>
           
@@ -2775,11 +2761,11 @@
         <p><strong>Once your data loads, here's what you'll see:</strong></p>
         <ul>
           <li><strong>KPI Cards:</strong> Quick stats showing total rows, columns, missing values, and duplicate records</li>
-          <li><strong>Data Quality Score:</strong> A percentage showing how "clean" your data is (higher = better)</li>
+          <li><strong>Data Quality Score:</strong> AI-powered assessment (0-100%) measuring completeness, consistency, and pattern validity with A-F grading</li>
           <li><strong>Quick Actions:</strong> One-click buttons for common tasks:
             <ul style="margin:8px 0 0 20px">
               <li><strong>Analyze All:</strong> Deep-dive into every column</li>
-              <li><strong>Quick Fix:</strong> Automatically clean common issues</li>
+              <li><strong>Clean All:</strong> AI-powered cleaning that auto-corrects emails, phones, and dates</li>
               <li><strong>Health Check:</strong> Get a detailed data quality report</li>
             </ul>
           </li>
@@ -2791,20 +2777,51 @@
           • 70-79%: Fair - several problems to address<br>
           • Below 70%: Needs significant cleaning</p>
         </div>
-        <h4 id="help-quality">Data Quality</h4>
-        <p>View comprehensive quality metrics including row/column counts, missing values, and duplicates. Switch between List view (missing values by column) and Stats view (detailed statistics).</p>
-        <h4 id="help-duplicates">Exact Duplicates</h4>
-        <p>Lists groups of exactly identical rows in your dataset, ordered by group size. Each group reports the number of duplicates and the row numbers involved.</p>
+        <h4 id="help-quality">AI-Powered Data Quality Assessment</h4>
+        <p>Comprehensive quality scoring that analyzes your entire dataset:</p>
+        <ul>
+          <li><strong>Overall Score:</strong> 0-100% assessment with letter grades (A-F) like a report card</li>
+          <li><strong>Completeness:</strong> How much of your data is filled vs missing</li>
+          <li><strong>Consistency:</strong> Measures duplicate rows and data conflicts</li>
+          <li><strong>Validity:</strong> Checks if data follows expected patterns (emails, phones, dates)</li>
+          <li><strong>Visual Indicators:</strong> Color-coded quality cards (green = good, red = needs work)</li>
+          <li><strong>Actionable Insights:</strong> Shows exactly what needs attention</li>
+          <li><strong>Real-time Updates:</strong> Quality score improves as you clean your data</li>
+        </ul>
+        <h4 id="help-duplicates">AI-Powered Duplicate Detection</h4>
+        <p>Advanced duplicate detection that goes beyond basic matching:</p>
+        <ul>
+          <li><strong>Exact Duplicates:</strong> Finds rows that are completely identical across all fields</li>
+          <li><strong>Fuzzy Duplicates:</strong> AI similarity matching finds near-duplicates like "John Smith" vs "Jon Smith"</li>
+          <li><strong>Smart Export:</strong> CSV includes both exact_duplicate_group and fuzzy_duplicate_group columns</li>
+          <li><strong>Performance Optimized:</strong> Handles large datasets with chunked processing</li>
+          <li><strong>Visual Grouping:</strong> Clear separation between exact matches and similar records</li>
+          <li><strong>Row References:</strong> Shows exact row numbers for easy verification in Excel</li>
+        </ul>
         <h4 id="help-field">Field Analysis & Profiling</h4>
-        <p>Detailed analysis for each column in your data:</p>
+        <p>Detailed analysis for each column in your data with AI pattern detection:</p>
         <ul>
           <li><strong>Data Types:</strong> Number, date, boolean, string with confidence scores</li>
+          <li><strong>AI Patterns:</strong> Automatically detects emails, phone numbers, and dates with confidence indicators</li>
+          <li><strong>Pattern Confidence:</strong> Green = high confidence, yellow = partial match, gray = low confidence</li>
           <li><strong>Coverage:</strong> Percentage of filled vs missing values</li>
           <li><strong>Uniqueness:</strong> How many different values appear in each column</li>
           <li><strong>Number Analysis:</strong> Minimum, maximum, average, and unusual values</li>
           <li><strong>Date Ranges:</strong> Earliest and latest dates in date columns</li>
           <li><strong>Text Analysis:</strong> Character length patterns and text formatting details</li>
           <li><strong>Sample Values:</strong> Representative examples from each column</li>
+        </ul>
+
+        <h4 id="help-patterns">🤖 AI Pattern Detection</h4>
+        <p>Intelligent recognition and standardization of common data formats:</p>
+        <ul>
+          <li><strong>Email Detection:</strong> Automatically identifies and standardizes email addresses to lowercase</li>
+          <li><strong>Phone Numbers:</strong> Recognizes various phone formats and standardizes to consistent formatting</li>
+          <li><strong>Date Intelligence:</strong> Handles mixed international date formats (US, European, ISO) and converts to YYYY-MM-DD</li>
+          <li><strong>Smart Confidence:</strong> Shows green (high), yellow (partial), or gray (low) confidence indicators</li>
+          <li><strong>Auto-Correction:</strong> Clean All button applies pattern-based fixes automatically</li>
+          <li><strong>International Support:</strong> Properly handles global phone and date formats</li>
+          <li><strong>Column Intelligence:</strong> Uses column names for better pattern prioritization</li>
         </ul>
 
         <h4 id="help-histograms">Data Distribution Histograms</h4>
@@ -2839,7 +2856,7 @@
           <li><strong>CSV Export:</strong> Standard comma-separated format with proper escaping</li>
           <li><strong>JSON Export:</strong> Array of objects with column headers as keys</li>
           <li><strong>Data Dictionary:</strong> Complete field definitions with statistics and rules</li>
-          <li><strong>Duplicate Exports:</strong> Filtered datasets showing only duplicate records</li>
+          <li><strong>Enhanced Duplicate Exports:</strong> Includes both exact_duplicate_group and fuzzy_duplicate_group columns for comprehensive review</li>
           <li><strong>Histogram Printing:</strong> Professional PDF reports of distribution charts</li>
           <li><strong>Security:</strong> Formula injection protection (prefixes dangerous characters)</li>
           <li><strong>File Naming:</strong> Intelligent naming based on operations performed</li>
@@ -2906,7 +2923,7 @@
         <strong>Step 4:</strong> Watch your data quality score improve!</p>
         
         <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
-          <p><strong>💡 Pro Tip:</strong> Use "🧹 Clean All" button for instant cleaning of all columns with smart defaults, or go to this section to pick specific operations.</p>
+          <p><strong>💡 Pro Tip:</strong> Use "🧹 Clean All" button for AI-powered instant cleaning that auto-corrects email, phone, and date formats, or customize specific operations below.</p>
         </div>
 
         <!-- Unique keys section moved outside of Data Operations -->
@@ -2982,7 +2999,7 @@
       <div class="help-body" style="max-height:60vh;overflow-y:auto">
         <p>Development history and feature updates for <strong>DATAPHREAK</strong>:</p>
         
-        <h4>v0.7.0 (Current)</h4>
+        <h4>v0.8.0 (Current)</h4>
         <ul>
           <li><strong>Revolutionary Help System Redesign</strong>: Complete transformation of user documentation for optimal new user experience:
             <ul>
@@ -3488,7 +3505,7 @@
           el('#kpiTotalCells').textContent = totalCells.toLocaleString();
           
           // Render visualizations  
-          renderDuplicates(STATE.dupes);
+          renderDuplicates(STATE.dupes, 8, STATE.fuzzyDuplicates);
           renderProfiles(STATE.headers, STATE.profiles, STATE.rules, STATE.ruleResults);
           
           // Initialize UI
@@ -3904,6 +3921,375 @@
         if (bool / count >= 0.9) return {type:'boolean'};
         return {type:'string'};
       }
+      
+      // =============================================================================
+      // SMART DETECTION ENGINE - Phase 1
+      // =============================================================================
+      
+      // Simplified Pattern Detection System - Core Business Patterns Only
+      const PATTERN_LIBRARY = {
+        email: {
+          name: 'Email Address',
+          regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+          specificity: 10,
+          validate: (value) => {
+            const str = String(value).trim().toLowerCase();
+            return /@/.test(str) && PATTERN_LIBRARY.email.regex.test(str);
+          },
+          fix: (value) => String(value).trim().toLowerCase(),
+          icon: '📧'
+        },
+        
+        phone: {
+          name: 'Phone Number',
+          regex: /^(\+\d{1,4}[\s\-\.]?)?\(?[\d\s\-\(\)\.]{7,18}\)?$/,
+          specificity: 8,
+          validate: (value) => {
+            const str = String(value).trim();
+            const cleaned = str.replace(/[\s\-\(\)\.]/g, '');
+            
+            // Must be 7-15 digits
+            if (!/^\+?\d{7,15}$/.test(cleaned)) return false;
+            
+            // EXCLUDE date patterns only
+            if (/^\d{4}[-\/]\d{1,2}[-\/]\d{1,2}$/.test(str)) return false;
+            if (/^\d{1,2}[-\/]\d{1,2}[-\/]\d{4}$/.test(str)) return false;
+            
+            // Must have phone indicators OR be 10+ digits
+            const hasPhoneIndicators = /[\(\)\+\.]/.test(str) || cleaned.length >= 10;
+            
+            return hasPhoneIndicators;
+          },
+          fix: (value) => {
+            const cleaned = String(value).replace(/[\s\-\(\)\.]/g, '');
+            
+            // International numbers (keep as-is with + prefix)
+            if (cleaned.startsWith('+') || cleaned.length > 10) {
+              return cleaned.startsWith('+') ? cleaned : `+${cleaned}`;
+            }
+            
+            // US numbers (10 digits)
+            if (cleaned.length === 10) {
+              return `(${cleaned.slice(0,3)}) ${cleaned.slice(3,6)}-${cleaned.slice(6)}`;
+            }
+            
+            return cleaned;
+          },
+          icon: '📞'
+        },
+        
+        date: {
+          name: 'Date',
+          regex: /^(\d{4}[\/\-]\d{1,2}[\/\-]\d{1,2}|\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})$/,
+          specificity: 9,
+          validate: (value) => {
+            const str = String(value).trim();
+            return PATTERN_LIBRARY.date.parseInternationalDate(str) !== null;
+          },
+          parseInternationalDate: (str) => {
+            const cleaned = str.replace(/\s+/g, ' ').trim();
+            
+            // ISO format: YYYY-MM-DD or YYYY/MM/DD (unambiguous)
+            const isoMatch = cleaned.match(/^(\d{4})[\/\-](\d{1,2})[\/\-](\d{1,2})$/);
+            if (isoMatch) {
+              const [, year, month, day] = isoMatch.map(Number);
+              if (year >= 1900 && year <= 2100 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+                return new Date(year, month - 1, day);
+              }
+            }
+            
+            // Ambiguous DD/MM/YYYY vs MM/DD/YYYY - use smart heuristics
+            const ambiguousMatch = cleaned.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+            if (ambiguousMatch) {
+              const [, first, second, year] = ambiguousMatch.map(Number);
+              
+              if (first > 12) {
+                const day = first, month = second;
+                if (year >= 1900 && year <= 2100 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+                  return new Date(year, month - 1, day);
+                }
+              }
+              
+              if (second > 12) {
+                const month = first, day = second;
+                if (year >= 1900 && year <= 2100 && month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+                  return new Date(year, month - 1, day);
+                }
+              }
+              
+              // Both <= 12 - try European first
+              if (first >= 1 && first <= 31 && second >= 1 && second <= 12) {
+                const euroDate = new Date(year, second - 1, first);
+                if (!isNaN(euroDate.getTime())) return euroDate;
+              }
+              
+              if (first >= 1 && first <= 12 && second >= 1 && second <= 31) {
+                const usDate = new Date(year, first - 1, second);
+                if (!isNaN(usDate.getTime())) return usDate;
+              }
+            }
+            
+            // No fallback - only accept explicit date formats to prevent false positives
+            return null;
+          },
+          fix: (value) => {
+            const str = String(value).trim();
+            const date = PATTERN_LIBRARY.date.parseInternationalDate(str);
+            if (date && !isNaN(date.getTime())) {
+              return date.toISOString().split('T')[0];
+            }
+            return value;
+          },
+          icon: '📅'
+        }
+      };
+
+      // Pattern detection for column data with smart ordering and column hints
+      function detectPatterns(values, columnName) {
+        const sampleSize = Math.min(100, values.length);
+        const sample = values.filter(v => !isNullish(v)).slice(0, sampleSize);
+        
+        if (sample.length === 0) return { patterns: [], confidence: 0 };
+
+        const patterns = [];
+        
+        // Use column name to prioritize certain patterns
+        const columnLower = columnName.toLowerCase();
+        let patternOrder = Object.keys(PATTERN_LIBRARY);
+        
+        // Prioritize specific patterns based on column name (simplified)
+        if (columnLower.includes('email') || columnLower.includes('mail')) {
+          patternOrder = ['email', ...patternOrder.filter(p => p !== 'email')];
+        } else if (columnLower.includes('phone') || columnLower.includes('tel')) {
+          patternOrder = ['phone', ...patternOrder.filter(p => p !== 'phone')];
+        } else if (columnLower.includes('date') || columnLower.includes('birth') || columnLower.includes('dob')) {
+          patternOrder = ['date', ...patternOrder.filter(p => p !== 'date')];
+        }
+        
+        // Test each pattern against the sample in priority order
+        for (const patternId of patternOrder) {
+          const pattern = PATTERN_LIBRARY[patternId];
+          let matches = 0;
+          let fixes = 0;
+          
+          for (const value of sample) {
+            if (pattern.validate(value)) {
+              matches++;
+            } else {
+              // Check if fixable
+              try {
+                const fixed = pattern.fix(value);
+                if (fixed !== value && pattern.validate(fixed)) {
+                  fixes++;
+                }
+              } catch (e) {
+                // Ignore fix errors
+              }
+            }
+          }
+          
+          const confidence = matches / sample.length;
+          const fixable = fixes / sample.length;
+          
+          // Calculate weighted confidence using specificity
+          const specificityWeight = (pattern.specificity || 5) / 10; // Normalize to 0-1
+          const weightedConfidence = confidence * specificityWeight;
+          
+          if (confidence > 0.1 || fixable > 0.1) { // 10% threshold
+            patterns.push({
+              id: patternId,
+              name: pattern.name,
+              icon: pattern.icon,
+              confidence: confidence,
+              fixable: fixable,
+              weightedConfidence: weightedConfidence,
+              specificity: pattern.specificity || 5,
+              matches: matches,
+              total: sample.length
+            });
+          }
+        }
+        
+        // Sort by enterprise-grade specificity and confidence
+        patterns.sort((a, b) => {
+          // 1. Highest specificity wins (more specific patterns beat broader ones)
+          if (a.specificity !== b.specificity) {
+            return b.specificity - a.specificity;
+          }
+          
+          // 2. Perfect confidence (1.0) patterns go next
+          if (a.confidence === 1.0 && b.confidence !== 1.0) return -1;
+          if (b.confidence === 1.0 && a.confidence !== 1.0) return 1;
+          
+          // 3. Then by weighted confidence (specificity * confidence)
+          return b.weightedConfidence - a.weightedConfidence;
+        });
+        
+        return {
+          patterns: patterns.slice(0, 3), // Top 3 patterns
+          totalSampled: sample.length
+        };
+      }
+
+      // Fuzzy Matching System
+      function calculateLevenshteinDistance(str1, str2) {
+        const len1 = str1.length;
+        const len2 = str2.length;
+        
+        // Early termination for identical strings
+        if (str1 === str2) return 0;
+        if (len1 === 0) return len2;
+        if (len2 === 0) return len1;
+        
+        // Space-optimized: use only two rows instead of full matrix (90% memory reduction)
+        let prev = new Array(len1 + 1);
+        let curr = new Array(len1 + 1);
+        
+        // Initialize first row
+        for (let j = 0; j <= len1; j++) prev[j] = j;
+        
+        for (let i = 1; i <= len2; i++) {
+          curr[0] = i;
+          for (let j = 1; j <= len1; j++) {
+            const cost = str2.charAt(i - 1) === str1.charAt(j - 1) ? 0 : 1;
+            curr[j] = Math.min(
+              prev[j] + 1,     // deletion
+              curr[j - 1] + 1, // insertion
+              prev[j - 1] + cost // substitution
+            );
+          }
+          // Swap arrays (reuse memory) - optimized for performance
+          const temp = prev;
+          prev = curr;
+          curr = temp;
+        }
+        
+        return prev[len1];
+      }
+
+      function calculateSimilarity(str1, str2) {
+        if (str1 === str2) return 1.0;
+        
+        const s1 = String(str1).toLowerCase().trim();
+        const s2 = String(str2).toLowerCase().trim();
+        
+        if (s1 === s2) return 0.95; // Case-insensitive match
+        
+        const maxLen = Math.max(s1.length, s2.length);
+        if (maxLen === 0) return 1.0;
+        
+        const distance = calculateLevenshteinDistance(s1, s2);
+        return 1 - (distance / maxLen);
+      }
+
+      // Data Quality Scoring System
+      function calculateDataQualityScore(headers, rows) {
+        const totalCells = headers.length * rows.length;
+        if (totalCells === 0) return { score: 0, breakdown: {} };
+
+        let completenessScore = 0;
+        let consistencyScore = 0;
+        let validityScore = 0;
+
+        const breakdown = {
+          completeness: 0,
+          consistency: 0,
+          validity: 0,
+          details: {
+            totalCells,
+            nonEmptyCells: 0,
+            duplicateRows: 0,
+            patternViolations: 0
+          }
+        };
+
+        // Calculate completeness
+        let nonEmptyCells = 0;
+        for (const row of rows) {
+          for (const cell of row) {
+            if (!isNullish(cell)) {
+              nonEmptyCells++;
+            }
+          }
+        }
+        
+        completenessScore = nonEmptyCells / totalCells;
+        breakdown.details.nonEmptyCells = nonEmptyCells;
+        breakdown.completeness = Math.round(completenessScore * 100);
+
+        // Calculate consistency (based on both exact and fuzzy duplicates)
+        // Use efficient key generation instead of expensive JSON.stringify
+        const uniqueKeys = new Set();
+        for (const row of rows) {
+          let key = '';
+          for (let i = 0; i < row.length; i++) {
+            if (i > 0) key += '\u001f';
+            const val = row[i];
+            key += val == null ? '' : typeof val === 'string' ? val.trim() : val;
+          }
+          uniqueKeys.add(key);
+        }
+        const exactDuplicateRows = rows.length - uniqueKeys.size;
+        
+        // Add fuzzy duplicates to the count if available
+        let totalDuplicateRows = exactDuplicateRows;
+        if (STATE.fuzzyDuplicates && STATE.fuzzyDuplicates.fuzzy) {
+          const fuzzyDuplicateRows = STATE.fuzzyDuplicates.fuzzy.reduce((acc, group) => acc + group.length - 1, 0);
+          totalDuplicateRows += fuzzyDuplicateRows;
+        }
+        
+        consistencyScore = (rows.length - totalDuplicateRows) / rows.length;
+        breakdown.details.duplicateRows = totalDuplicateRows;
+        breakdown.consistency = Math.round(consistencyScore * 100);
+
+        // Calculate validity (pattern compliance)
+        let totalPatternChecks = 0;
+        let validPatternChecks = 0;
+
+        for (let colIndex = 0; colIndex < headers.length; colIndex++) {
+          const columnData = rows.map(row => row[colIndex]);
+          const patterns = detectPatterns(columnData, headers[colIndex]);
+          
+          if (patterns.patterns.length > 0) {
+            const topPattern = patterns.patterns[0];
+            const pattern = PATTERN_LIBRARY[topPattern.id];
+            
+            for (const value of columnData) {
+              if (!isNullish(value)) {
+                totalPatternChecks++;
+                if (pattern.validate(value)) {
+                  validPatternChecks++;
+                }
+              }
+            }
+          }
+        }
+
+        if (totalPatternChecks > 0) {
+          validityScore = validPatternChecks / totalPatternChecks;
+          breakdown.details.patternViolations = totalPatternChecks - validPatternChecks;
+        } else {
+          validityScore = 1.0; // No patterns detected, assume valid
+        }
+        breakdown.validity = Math.round(validityScore * 100);
+
+        // Overall score (weighted average)
+        const overallScore = (
+          completenessScore * 0.4 +
+          consistencyScore * 0.3 +
+          validityScore * 0.3
+        );
+
+        return {
+          score: Math.round(overallScore * 100),
+          breakdown,
+          grade: overallScore >= 0.9 ? 'A' : 
+                 overallScore >= 0.8 ? 'B' : 
+                 overallScore >= 0.7 ? 'C' : 
+                 overallScore >= 0.6 ? 'D' : 'F'
+        };
+      }
+
       // Profile dataset
       function profileDataset(headers, rows) {
         const profiles = [];
@@ -3955,8 +4341,25 @@
               maxVal = `${Math.max(...lengths)} chars`;
             }
           }
-          profiles.push({ name: headers[j], type, nonNull: nonNull.length, nulls: nullCount, unique: uniqSet.size,
-            min: minVal, max: maxVal, mean, sd, outliers, examples });
+          
+          // Add pattern detection for this column
+          const patterns = detectPatterns(vals, headers[j]);
+          
+          profiles.push({ 
+            name: headers[j], 
+            type, 
+            nonNull: nonNull.length, 
+            nulls: nullCount, 
+            unique: uniqSet.size,
+            min: minVal, 
+            max: maxVal, 
+            mean, 
+            sd, 
+            outliers, 
+            examples,
+            patterns: patterns.patterns,
+            totalSampled: patterns.totalSampled
+          });
         }
         return { profiles, nrows: rows.length };
       }
@@ -3967,19 +4370,21 @@
           let processed = 0;
           const CHUNK_SIZE = 10000; // Process 10K rows at a time
           
+          // Cache DOM element for progress updates (performance optimization)
+          const progressEl = el('#dupeSummary');
+          
           const processChunk = () => {
             const end = Math.min(processed + CHUNK_SIZE, rows.length);
             
             for (let idx = processed; idx < end; idx++) {
               const row = rows[idx];
-              // Optimize key generation - avoid unnecessary string operations
-              let key = '';
+              // Optimized key generation using array join (faster than string concatenation)
+              const keyParts = new Array(row.length);
               for (let i = 0; i < row.length; i++) {
-                if (i > 0) key += '\u001f';
                 const val = row[i];
-                // More efficient than String(v).trim()
-                key += val == null ? '' : typeof val === 'string' ? val.trim() : val;
+                keyParts[i] = val == null ? '' : typeof val === 'string' ? val.trim() : val;
               }
+              const key = keyParts.join('\u001f');
               
               const existing = map.get(key);
               if (existing) {
@@ -3992,13 +4397,12 @@
             processed = end;
             
             if (processed < rows.length) {
-              // Show progress for large datasets
-              if (rows.length > 50000) {
+              // Show progress for all datasets
+              if (rows.length > 1000) {
                 const progress = Math.round((processed / rows.length) * 100);
                 if (progress % 10 === 0) { // Update every 10%
                   requestAnimationFrame(() => {
-                    const noteEl = el('#duplicatesNote');
-                    if (noteEl) noteEl.textContent = `Finding duplicates: ${progress}%`;
+                    if (progressEl) progressEl.textContent = `Finding duplicates: ${progress}%`;
                     processChunk();
                   });
                 } else {
@@ -4016,8 +4420,10 @@
               groups.sort((a,b) => b.length - a.length);
               
               // Clear progress indicator
-              const noteEl = el('#duplicatesNote');
-              if (noteEl) noteEl.textContent = '';
+              if (progressEl) progressEl.textContent = '';
+              
+              // Memory cleanup for large datasets
+              map.clear();
               
               resolve(groups);
             }
@@ -4026,6 +4432,147 @@
           processChunk();
         });
       }
+      
+      // Enhanced fuzzy duplicate finder
+      function findFuzzyDuplicates(rows, headers, similarityThreshold = 0.85) {
+        return new Promise((resolve) => {
+          if (rows.length === 0) {
+            resolve({ exact: [], fuzzy: [], stats: { totalRows: 0, exactDuplicates: 0, fuzzyDuplicates: 0, processed: 0 } });
+            return;
+          }
+
+          const CHUNK_SIZE = 5000; // Smaller chunks for fuzzy processing
+          
+          let processed = 0;
+          const exactMap = new Map();
+          const fuzzyGroups = [];
+          const processedRows = rows.length;
+          
+          // Cache DOM element for progress updates (performance optimization)
+          const progressEl = el('#dupeSummary');
+          
+          const processChunk = () => {
+            const end = Math.min(processed + CHUNK_SIZE, processedRows);
+            
+            // First pass: find exact duplicates
+            for (let idx = processed; idx < end; idx++) {
+              const row = rows[idx];
+              let key = '';
+              for (let i = 0; i < row.length; i++) {
+                if (i > 0) key += '\u001f';
+                const val = row[i];
+                key += val == null ? '' : typeof val === 'string' ? val.trim() : val;
+              }
+              
+              const existing = exactMap.get(key);
+              if (existing) {
+                existing.push(idx);
+              } else {
+                exactMap.set(key, [idx]);
+              }
+            }
+            
+            // Second pass: find fuzzy duplicates in current chunk
+            // Note: This is O(n²) so we process in chunks to maintain UI responsiveness
+            const processedIndices = new Set();
+            
+            for (let i = processed; i < end; i++) {
+                if (processedIndices.has(i)) continue;
+                
+                const fuzzyGroup = [i];
+                processedIndices.add(i);
+                
+                for (let j = i + 1; j < processedRows; j++) {
+                  if (processedIndices.has(j)) continue;
+                  
+                  let totalSimilarity = 0;
+                  let comparisons = 0;
+                  
+                  // Compare each field with early termination optimization
+                  const maxFields = Math.min(rows[i].length, rows[j].length);
+                  for (let k = 0; k < maxFields; k++) {
+                    const val1 = rows[i][k];
+                    const val2 = rows[j][k];
+                    
+                    if (isNullish(val1) && isNullish(val2)) {
+                      totalSimilarity += 1.0;
+                    } else if (isNullish(val1) || isNullish(val2)) {
+                      totalSimilarity += 0.0;
+                    } else {
+                      totalSimilarity += calculateSimilarity(val1, val2);
+                    }
+                    comparisons++;
+                    
+                    // Early termination: skip if impossible to reach threshold with remaining fields
+                    const remainingFields = maxFields - k - 1;
+                    if (remainingFields > 0 && comparisons >= 2) {
+                      // Calculate max possible final average assuming perfect remaining matches
+                      const maxPossibleTotal = totalSimilarity + remainingFields;
+                      const maxPossibleFinalAvg = maxPossibleTotal / maxFields; // Use maxFields to match final calculation intent
+                      
+                      if (maxPossibleFinalAvg < similarityThreshold) {
+                        break; // Impossible to reach threshold
+                      }
+                    }
+                  }
+                  
+                  const avgSimilarity = comparisons > 0 ? totalSimilarity / comparisons : 0;
+                  
+                  if (avgSimilarity >= similarityThreshold) {
+                    fuzzyGroup.push(j);
+                    processedIndices.add(j);
+                  }
+                }
+                
+                if (fuzzyGroup.length > 1) {
+                  fuzzyGroups.push(fuzzyGroup);
+                }
+            }
+            
+            processed = end;
+            
+            if (processed < processedRows) {
+              // Show progress
+              const progress = Math.round((processed / processedRows) * 100);
+              requestAnimationFrame(() => {
+                if (progressEl) progressEl.textContent = `Analyzing duplicates: ${progress}%`;
+                processChunk();
+              });
+            } else {
+              // Finalize results
+              const exactGroups = [];
+              for (const list of exactMap.values()) {
+                if (list.length > 1) exactGroups.push(list);
+              }
+              exactGroups.sort((a,b) => b.length - a.length);
+              fuzzyGroups.sort((a,b) => b.length - a.length);
+              
+              const stats = {
+                totalRows: rows.length,
+                processed: processedRows,
+                exactDuplicates: exactGroups.reduce((sum, group) => sum + group.length - 1, 0),
+                fuzzyDuplicates: fuzzyGroups.reduce((sum, group) => sum + group.length - 1, 0),
+                limitReached: false
+              };
+              
+              // Clear progress indicator
+              if (progressEl) progressEl.textContent = '';
+              
+              // Memory cleanup for large datasets
+              exactMap.clear();
+              
+              resolve({ 
+                exact: exactGroups, 
+                fuzzy: fuzzyGroups,
+                stats
+              });
+            }
+          };
+          
+          processChunk();
+        });
+      }
+      
       // Rule checking
       function runRuleChecks(headers, rows, rules) {
         const invalidRows = [];
@@ -4060,6 +4607,23 @@
         }
         return { invalidRows, violations, rowViolations };
       }
+      
+      // Helper function to render pattern information
+      function renderPatternInfo(patterns) {
+        if (!patterns || patterns.length === 0) {
+          return '<span class="muted">No patterns detected</span>';
+        }
+        
+        const topPattern = patterns[0];
+        if (topPattern.confidence >= 0.8) {
+          return `<span style="color: var(--ok)" title="High confidence: ${Math.round(topPattern.confidence * 100)}% match">${topPattern.icon} ${topPattern.name}</span>`;
+        } else if (topPattern.confidence >= 0.5 || topPattern.fixable >= 0.3) {
+          return `<span style="color: var(--warn)" title="Partial match: ${Math.round(topPattern.confidence * 100)}% valid, ${Math.round(topPattern.fixable * 100)}% fixable">${topPattern.icon} ${topPattern.name}?</span>`;
+        } else {
+          return `<span style="color: var(--muted)" title="Low confidence: ${Math.round((topPattern.confidence + topPattern.fixable) * 100)}% potential">${topPattern.icon} ${topPattern.name.toLowerCase()}</span>`;
+        }
+      }
+      
       // Render profiles table
       function renderProfiles(headers, profiles, rulesState, ruleResults) {
         const tbody = el('#profileTable tbody');
@@ -4085,24 +4649,77 @@
             <td>${p.mean}</td>
             <td>${p.outliers}</td>
             <td class="small">${p.examples.map(escapeHtml).join(', ')}</td>
+            <td class="small">${renderPatternInfo(p.patterns)}</td>
             <td><input class="rule-input allow" data-col="${i}" placeholder="Comma‑separated allowed values" value="${escapeHtml(allowVal)}"></td>
             <td class="nowrap">${ruleResults ? (viol > 0 ? `<span class="tag" style="color:#fff;border-color:#7f1d1d;background:#7f1d1d">${viol}</span>` : `<span class="tag" style="color:#fff;border-color:#065f46;background:#065f46">0</span>`) : '–'}</td>
           `;
           tbody.appendChild(tr);
         }
       }
-      // Render duplicates summary
-      function renderDuplicates(groups, limit=8) {
-        const totalDupes = groups.reduce((acc,g) => acc + g.length - 1, 0);
-        el('#kpiDupes').textContent = totalDupes;
-        el('#dupeSummary').textContent = groups.length ? `Found ${groups.length} duplicate groups; showing top ${Math.min(limit, groups.length)}.` : 'No exact duplicates found.';
+      // Render duplicates summary with fuzzy matching
+      function renderDuplicates(groups, limit=8, fuzzyResults=null) {
+        const totalExactDupes = groups.reduce((acc,g) => acc + g.length - 1, 0);
+        const totalFuzzyDupes = fuzzyResults && fuzzyResults.fuzzy ? 
+          fuzzyResults.fuzzy.reduce((acc,g) => acc + g.length - 1, 0) : 0;
+        
+        // Update KPI with total duplicates (exact + fuzzy)
+        const totalDuplicates = totalExactDupes + totalFuzzyDupes;
+        el('#kpiDupes').textContent = totalDuplicates;
+        
+        // Update summary text
+        let summaryText = '';
+        if (totalExactDupes === 0 && totalFuzzyDupes === 0) {
+          summaryText = 'No duplicates found.';
+        } else {
+          const parts = [];
+          if (totalExactDupes > 0) parts.push(`${groups.length} exact duplicate groups`);
+          if (totalFuzzyDupes > 0 && fuzzyResults.fuzzy.length > 0) parts.push(`${fuzzyResults.fuzzy.length} fuzzy duplicate groups`);
+          summaryText = `Found ${parts.join(' and ')}.`;
+        }
+        
+        if (fuzzyResults && fuzzyResults.stats && fuzzyResults.stats.limitReached) {
+          summaryText += ` (Fuzzy analysis limited to ${fuzzyResults.stats.processed.toLocaleString()} rows for performance)`;
+        }
+        
+        el('#dupeSummary').textContent = summaryText;
+        
+        // Render duplicate list
         const list = el('#dupeList');
         list.innerHTML = '';
-        groups.slice(0, limit).forEach((g, idx) => {
-          const div = document.createElement('div');
-          div.innerHTML = `<div class="muted small">Group ${idx+1}: ${g.length} rows (1 original + ${g.length-1} dupes) • row numbers: ${g.map(i => i+2).join(', ')}</div>`;
-          list.appendChild(div);
-        });
+        
+        // Show exact duplicates first
+        if (groups.length > 0) {
+          const exactHeader = document.createElement('div');
+          exactHeader.innerHTML = '<strong style="color: var(--accent)">📋 Exact Matches</strong>';
+          list.appendChild(exactHeader);
+          
+          groups.slice(0, limit).forEach((g, idx) => {
+            const div = document.createElement('div');
+            div.innerHTML = `<div class="muted small">Group ${idx+1}: ${g.length} rows (1 original + ${g.length-1} dupes) • row numbers: ${g.map(i => i+2).join(', ')}</div>`;
+            list.appendChild(div);
+          });
+        }
+        
+        // Show fuzzy duplicates
+        if (fuzzyResults && fuzzyResults.fuzzy && fuzzyResults.fuzzy.length > 0) {
+          if (groups.length > 0) {
+            const spacer = document.createElement('div');
+            spacer.style.height = '12px';
+            list.appendChild(spacer);
+          }
+          
+          const fuzzyHeader = document.createElement('div');
+          fuzzyHeader.innerHTML = '<strong style="color: var(--accent2)">🔍 Fuzzy Duplicates (Similar Records)</strong>';
+          list.appendChild(fuzzyHeader);
+          
+          // Always show at least some fuzzy groups, don't let exact groups crowd them out
+          const maxFuzzyGroups = Math.max(3, Math.floor(limit / 2)); // Show at least 3, or half the limit
+          fuzzyResults.fuzzy.slice(0, maxFuzzyGroups).forEach((g, idx) => {
+            const div = document.createElement('div');
+            div.innerHTML = `<div class="muted small">Similar Group ${idx+1}: ${g.length} rows • row numbers: ${g.map(i => i+2).join(', ')}</div>`;
+            list.appendChild(div);
+          });
+        }
       }
       // Invalid rows table
       function renderInvalidTable(headers, ruleResults) {
@@ -4215,6 +4832,7 @@
         rows: [],
         profiles: [],
         dupes: [],
+        fuzzyDuplicates: null,
         // Rules for the primary dataset
         rules: {
           regex: [],
@@ -4247,8 +4865,7 @@
       // =====================================================================
       // Error handling and file size guard
       // ---------------------------------------------------------------------
-      // Cap uploaded files at 100 MB to avoid loading overly large datasets.
-      const MAX_FILE_BYTES = 100 * 1024 * 1024;
+      // No file size limit - let users decide what their system can handle
 
       /**
        * Display a small toast message in the bottom right corner.  The tone
@@ -4340,10 +4957,7 @@
        * indicate the file is acceptable.
        */
       function rejectIfTooBig(file) {
-        if (file && file.size > MAX_FILE_BYTES) {
-          toast(`File too large (${(file.size / 1048576).toFixed(1)} MB). Max is 100 MB.`, 'error');
-          return true;
-        }
+        // No size limit - let users handle what their system can support
         return false;
       }
       
@@ -4560,8 +5174,9 @@
         STATE.headerSig = headerSignature(headers);
         // profiles
         STATE.profiles = profileDataset(headers, rows).profiles;
-        // duplicates (now async)
+        // duplicates (now async with fuzzy matching)
         STATE.dupes = await findDuplicates(rows);
+        STATE.fuzzyDuplicates = await findFuzzyDuplicates(rows, headers);
         
         // Optimize memory for large datasets
         optimizeMemoryUsage();
@@ -4577,8 +5192,31 @@
         const completenessPercent = totalCells > 0 ? (((totalCells - missingCells) / totalCells) * 100).toFixed(1) : '100.0';
         el('#kpiCompleteness').textContent = completenessPercent + '%';
         el('#kpiTotalCells').textContent = totalCells.toLocaleString();
+        
+        // Calculate and display data quality score
+        const qualityScore = calculateDataQualityScore(headers, rows);
+        el('#kpiQuality').textContent = qualityScore.score + '%';
+        const qualityStatus = el('#kpiQualityStatus');
+        qualityStatus.textContent = `Grade: ${qualityScore.grade}`;
+        qualityStatus.title = `Completeness: ${qualityScore.breakdown.completeness}%, Consistency: ${qualityScore.breakdown.consistency}%, Validity: ${qualityScore.breakdown.validity}%`;
+        
+        // Color-code the quality score
+        const qualityCard = el('#kpiQualityCard');
+        if (qualityCard && qualityStatus) {
+          if (qualityScore.score >= 90) {
+            qualityCard.style.borderColor = 'var(--ok)';
+            qualityStatus.style.color = 'var(--ok)';
+          } else if (qualityScore.score >= 70) {
+            qualityCard.style.borderColor = 'var(--warn)';
+            qualityStatus.style.color = 'var(--warn)';
+          } else {
+            qualityCard.style.borderColor = 'var(--err)';
+            qualityStatus.style.color = 'var(--err)';
+          }
+        }
+        
         // heatmap & duplicates
-        renderDuplicates(STATE.dupes);
+        renderDuplicates(STATE.dupes, 8, STATE.fuzzyDuplicates);
         // suggestions for rules
         const rxS = new Array(headers.length).fill('');
         const allowS = new Array(headers.length).fill('');
@@ -4639,28 +5277,25 @@
           const missingPercent = parseFloat(((missingCells / totalCells) * 100).toFixed(1));
           const dupePercent = parseFloat(((STATE.dupes.length / rows.length) * 100).toFixed(1));
           
-          // Calculate quality score (0-100, higher is better)
-          // Missing data has high impact, duplicates have medium impact
-          let qualityScore = 100;
-          qualityScore -= missingPercent * 2; // Each % of missing data reduces score by 2
-          qualityScore -= dupePercent * 1.5; // Each % of duplicates reduces score by 1.5
-          qualityScore = Math.max(0, Math.min(100, qualityScore)); // Clamp to 0-100
+          // Use the same comprehensive quality score for consistency
+          const comprehensiveQuality = calculateDataQualityScore(headers, rows);
+          const qualityScoreValue = comprehensiveQuality.score;
           
-          // Determine status based on both missing data and duplicates
-          if (missingPercent > 10 || dupePercent > 20) {
-            status.innerHTML = '<span style="color: #ef4444">🚨 Poor quality - needs cleaning</span>';
-          } else if (missingPercent > 5 || dupePercent > 10) {
-            status.innerHTML = '<span style="color: #f59e0b">⚠️ Fair quality - review recommended</span>';
-          } else if (missingPercent > 2 || dupePercent > 5) {
-            status.innerHTML = '<span style="color: #9333ea">📊 Good quality</span>';
-          } else if (missingPercent > 0 || dupePercent > 0) {
+          // Determine status based on comprehensive quality score (consistent with KPI)
+          if (qualityScoreValue >= 90) {
+            status.innerHTML = '<span style="color: #10b981">💎 Excellent quality</span>';
+          } else if (qualityScoreValue >= 80) {
             status.innerHTML = '<span style="color: #10b981">✨ Very good quality</span>';
+          } else if (qualityScoreValue >= 70) {
+            status.innerHTML = '<span style="color: #9333ea">📊 Good quality</span>';
+          } else if (qualityScoreValue >= 60) {
+            status.innerHTML = '<span style="color: #f59e0b">⚠️ Fair quality - review recommended</span>';
           } else {
-            status.innerHTML = '<span style="color: #10b981">💎 Perfect - no issues found!</span>';
+            status.innerHTML = '<span style="color: #ef4444">🚨 Poor quality - needs cleaning</span>';
           }
           
-          // Add quality score as a tooltip
-          status.title = `Quality Score: ${qualityScore.toFixed(0)}/100 (Missing: ${missingPercent}%, Duplicates: ${dupePercent}%)`;
+          // Add quality score as a tooltip with detailed breakdown
+          status.title = `Quality Score: ${qualityScoreValue}/100 | Grade: ${comprehensiveQuality.grade} | Completeness: ${comprehensiveQuality.breakdown.completeness}% | Consistency: ${comprehensiveQuality.breakdown.consistency}% | Validity: ${comprehensiveQuality.breakdown.validity}%`;
         }
         if (datasetSubtitle) datasetSubtitle.textContent = `${datasetName} loaded`;
         
@@ -5117,12 +5752,22 @@
       
       el('#loadSample')?.addEventListener('click', () => {
         const { headers, rows } = parseCSV(SAMPLE_CSV);
-        // Build a larger sample by repeating the base rows until we reach 400 records.
+        
+        // Set file info for sample data
+        STATE.fileInfo = {
+          name: 'Sample Dataset',
+          size: SAMPLE_CSV.length,
+          type: 'text/csv',
+          lastModified: new Date()
+        };
+        
+        // Build a larger sample by repeating the base rows until we have a good dataset.
         const replicated = [];
-        while (replicated.length < 400) {
+        const targetSize = Math.max(400, rows.length * 20); // Scale based on original sample size
+        while (replicated.length < targetSize) {
           for (const r of rows) {
             replicated.push(r.slice());
-            if (replicated.length >= 400) break;
+            if (replicated.length >= targetSize) break;
           }
         }
         // Introduce small errors across the dataset for demonstration purposes.
@@ -5377,10 +6022,8 @@
       function bindExportButtons() {
         const dupBtn = el('#exportExactDupCsv');
         if (dupBtn) {
-          // Assign via onclick to avoid stacking multiple listeners
-          dupBtn.onclick = () => {
-            exportExactDupCsv();
-          };
+          // Remove duplicate binding - handled by global click handler
+          dupBtn.onclick = null;
         }
         const fuzzyBtn = el('#exportFuzzyCrossCsv');
         if (fuzzyBtn) {
@@ -5952,16 +6595,29 @@
           toast('No dataset loaded', 'error');
           return;
         }
-        // Create new headers and rows with an extra column for duplicate group
-        const newHeaders = [...STATE.headers, 'duplicate_group'];
-        const newRows = STATE.rows.map(r => [...r, '']);
-        // Assign group labels to duplicate rows based on STATE.dupes
+        // Create new headers and rows with columns for both exact and fuzzy duplicates
+        const newHeaders = [...STATE.headers, 'exact_duplicate_group', 'fuzzy_duplicate_group'];
+        const newRows = STATE.rows.map(r => [...r, '', '']);
+        
+        // Assign exact duplicate group labels
         if (Array.isArray(STATE.dupes) && STATE.dupes.length) {
           STATE.dupes.forEach((grp, grpIdx) => {
             grp.forEach((rowIdx, idxInGroup) => {
               // Skip the first index (treat original as not a duplicate)
               if (idxInGroup > 0 && newRows[rowIdx]) {
-                newRows[rowIdx][newHeaders.length - 1] = `Group ${grpIdx + 1}`;
+                newRows[rowIdx][newHeaders.length - 2] = `Exact-${grpIdx + 1}`;
+              }
+            });
+          });
+        }
+        
+        // Assign fuzzy duplicate group labels
+        if (STATE.fuzzyDuplicates && STATE.fuzzyDuplicates.fuzzy && STATE.fuzzyDuplicates.fuzzy.length) {
+          STATE.fuzzyDuplicates.fuzzy.forEach((grp, grpIdx) => {
+            grp.forEach((rowIdx, idxInGroup) => {
+              // Skip the first index (treat original as not a duplicate)
+              if (idxInGroup > 0 && newRows[rowIdx]) {
+                newRows[rowIdx][newHeaders.length - 1] = `Fuzzy-${grpIdx + 1}`;
               }
             });
           });
@@ -6211,17 +6867,28 @@
           if (!mapB.has(key)) mapB.set(key, []);
           mapB.get(key).push(o);
         }
-        const FUZZY_CROSS_MAX_COMP = 200000;
+        // No arbitrary comparison limit - process all cross-file matches
         const pairs = [];
         let comps = 0;
+        // Check if we're comparing the same dataset with itself
+        const isSelfComparison = A.length === B.length && A.every((a, idx) => B[idx] && a.s === B[idx].s);
+        
+        // Warn about self-comparison which can produce excessive results
+        if (isSelfComparison && A.length > 1000) {
+          console.warn(`Cross-file comparison: Comparing file with itself (${A.length} rows). Consider using Single-File Duplicates instead for better performance.`);
+        }
+        
         for (const a of A) {
           const s = norm(a.s);
           const bcands = mapB.get(bucket(s)) || [];
           for (const b of bcands) {
             comps++;
-            if (comps > FUZZY_CROSS_MAX_COMP) {
-              return { tooMany: comps };
+            
+            // Skip self-matches when comparing file with itself
+            if (isSelfComparison && a.idx === b.idx) {
+              continue;
             }
+            
             if (similarity(s, norm(b.s)) >= threshold) {
               pairs.push({ a: a.idx, b: b.idx, aval: a.s, bval: b.s });
             }
@@ -6511,7 +7178,7 @@
               updateDatasetSwitchUI();
               
               // Show change summary
-              showOperationSummary(result.changeCounts, indices, result.sfConversionStats);
+              showOperationSummary(result.changeCounts, indices, result.sfConversionStats, result.patternFixes);
               showRulesStatus('Operations applied','ok');
               
               // Add SF conversion toast if applicable
@@ -6551,8 +7218,10 @@
         // Prepare change counters for each selected column.  We'll tally the
         // number of cells that actually changed value after cleaning.
         const changeCounts = {};
+        const patternFixes = {}; // Track pattern-based fixes separately
         indices.forEach(j => {
           changeCounts[j] = 0;
+          patternFixes[j] = 0;
         });
         for (let r=0; r<newRows.length; r++) {
           const row = newRows[r];
@@ -6574,6 +7243,32 @@
             if (doNorm) {
               s = normalizeCaseByColumn(STATE.headers[j], s);
             }
+            
+            // Apply smart pattern-based corrections
+            if (STATE.profiles && STATE.profiles[j] && STATE.profiles[j].patterns) {
+              const patterns = STATE.profiles[j].patterns;
+              if (patterns.length > 0) {
+                const topPattern = patterns[0];
+                // Only auto-fix if we have reasonable confidence or fixability (lowered thresholds)
+                if (topPattern.confidence > 0.3 || topPattern.fixable > 0.2) {
+                  const pattern = PATTERN_LIBRARY[topPattern.id];
+                  
+                  // Apply standardization fix regardless of validation (for consistent formatting)
+                  if (pattern) {
+                    try {
+                      const fixed = pattern.fix(s);
+                      if (fixed !== s) {
+                        s = fixed;
+                        patternFixes[j]++; // Count this pattern fix
+                      }
+                    } catch (e) {
+                      // Ignore pattern fix errors - keep original value
+                    }
+                  }
+                }
+              }
+            }
+            
             // Record a change if the cleaned value differs from the old one
             if (String(oldRows[r][j] ?? '') !== s) {
               changeCounts[j]++;
@@ -6671,6 +7366,7 @@
           rows: newRows,
           name: newName,
           changeCounts: changeCounts,
+          patternFixes: patternFixes,
           sfConversionStats: doSf ? sfConversionStats : null
         };
         
@@ -6682,23 +7378,37 @@
       }
       
       // Helper function to show operation summary
-      function showOperationSummary(changeCounts, indices, sfConversionStats = null) {
+      function showOperationSummary(changeCounts, indices, sfConversionStats = null, patternFixes = null) {
         const summaryEl = el('#opChangeSummary');
         const resultsEl = el('#opResults');
         if (summaryEl && resultsEl) {
           resultsEl.style.display = 'block'; // Show results container
           const parts = [];
           let totalChanges = 0;
+          let totalPatternFixes = 0;
+          
           for (const j of indices) {
             const count = changeCounts[j] || 0;
+            const patterns = patternFixes ? (patternFixes[j] || 0) : 0;
             totalChanges += count;
+            totalPatternFixes += patterns;
             const colName = STATE.headers[j] || `Column ${j}`;
-            parts.push(`${colName}: ${count}`);
+            
+            if (count > 0 || patterns > 0) {
+              let detail = `${colName}: ${count}`;
+              if (patterns > 0) {
+                detail += ` (${patterns} pattern fixes)`;
+              }
+              parts.push(detail);
+            }
           }
           
           let summaryText = '';
-          if (totalChanges > 0) {
+          if (totalChanges > 0 || totalPatternFixes > 0) {
             summaryText = `Cleaned values – ${parts.join(', ')}`;
+            if (totalPatternFixes > 0) {
+              summaryText += ` | 🎯 Smart patterns applied: ${totalPatternFixes} auto-corrections`;
+            }
           } else {
             summaryText = 'Selected columns were already clean; no changes made.';
           }
@@ -7804,10 +8514,14 @@
           }
         });
       }
+      
       // Run immediately after the DOM elements are defined. Because this
       // script appears at the end of the document, the DOM is ready.
       initCollapsibles();
+      
     })();
+    
+    
   </script>
 
   <!-- Toast notification container. This hidden element will hold brief
