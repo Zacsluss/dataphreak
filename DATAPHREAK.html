@@ -3,7 +3,28 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>DATAPHREAK</title>
+  <title>DATAPHREAK - AI-Powered Data Analysis Tool</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Professional offline data analysis tool with AI pattern detection, fuzzy duplicate matching, and comprehensive data quality scoring. No installation required.">
+  <meta name="keywords" content="data analysis,CSV,Excel,offline,data cleaning,AI,analytics,duplicate detection,data quality,business intelligence">
+  <meta name="author" content="DATAPHREAK">
+  
+  <!-- Open Graph for Social Sharing -->
+  <meta property="og:title" content="DATAPHREAK - AI-Powered Data Analysis Tool">
+  <meta property="og:description" content="Professional data analysis tool with AI pattern detection, fuzzy matching, and comprehensive reporting - works completely offline">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DATAPHREAK - Data Analysis Tool">
+  <meta name="twitter:description" content="Professional offline data analysis with AI pattern detection and comprehensive quality scoring">
+  
+  <!-- Performance Resource Hints -->
+  <link rel="dns-prefetch" href="//cdn.sheetjs.com">
+  <link rel="preload" href="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" as="script" crossorigin>
+  
     <!-- Custom DATAPHREAK Icon - Data Analytics Theme -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI0IiBmaWxsPSIjMjIyMjIyIi8+CiAgPCEtLSBEYXRhIEJhcnMgLS0+CiAgPHJlY3QgeD0iNCIgeT0iMjAiIHdpZHRoPSIzIiBoZWlnaHQ9IjgiIGZpbGw9IiMyMmM1NWUiLz4KICA8cmVjdCB4PSI5IiB5PSIxNiIgd2lkdGg9IjMiIGhlaWdodD0iMTIiIGZpbGw9IiMyMmM1NWUiLz4KICA8cmVjdCB4PSIxNCIgeT0iMTIiIHdpZHRoPSIzIiBoZWlnaHQ9IjE2IiBmaWxsPSIjMzhiZGY4Ii8+CiAgPHJlY3QgeD0iMTkiIHk9IjgiIHdpZHRoPSIzIiBoZWlnaHQ9IjIwIiBmaWxsPSIjMzhiZGY4Ii8+CiAgPHJlY3QgeD0iMjQiIHk9IjE0IiB3aWR0aD0iMyIgaGVpZ2h0PSIxNCIgZmlsbD0iI2Y1OWUwYiIvPgogIDwhLS0gRGF0YSBQb2ludHMgLS0+CiAgPGNpcmNsZSBjeD0iNS41IiByPSIxLjUiIGZpbGw9IiNlZjQ0NDQiLz4KICA8Y2lyY2xlIGN4PSIxMC41IiBjeT0iNCIgcj0iMS41IiBmaWxsPSIjZWY0NDQ0Ii8+CiAgPGNpcmNsZSBjeD0iMTUuNSIgY3k9IjYiIHI9IjEuNSIgZmlsbD0iI2VmNDQ0NCIvPgogIDxjaXJjbGUgY3g9IjIwLjUiIGN5PSIzIiByPSIxLjUiIGZpbGw9IiNlZjQ0NDQiLz4KICA8Y2lyY2xlIGN4PSIyNS41IiBjeT0iOCIgcj0iMS41IiBmaWxsPSIjZWY0NDQ0Ii8+Cjwvc3ZnPgo=">
     <!-- Fallback PNG favicon for older browsers -->
@@ -3757,7 +3778,16 @@
           if (memoryPressure) {
             // High memory usage detected, optimizing
             
-            // Clear old computed states that can be regenerated if needed
+            // Clear undo/redo history to free memory
+            if (window.undoRedoManager) {
+              window.undoRedoManager.clearHistory();
+            }
+            
+            // Clear cached DOM references that can be re-queried
+            STATE.cachedElements = null;
+            
+            // Force browser garbage collection if available
+            if (window.gc) window.gc();
           }
         }
       }
@@ -3926,6 +3956,19 @@
       // SMART DETECTION ENGINE - Phase 1
       // =============================================================================
       
+      // Configuration for AI pattern detection and processing
+      const DATAPHREAK_CONFIG = {
+        PATTERN_SAMPLE_SIZE: 100,
+        PATTERN_CONFIDENCE_THRESHOLD: 0.3,
+        PATTERN_FIXABLE_THRESHOLD: 0.2,
+        TOP_PATTERNS_COUNT: 3,
+        DUPLICATE_CHUNK_SIZE: 10000,
+        FUZZY_CHUNK_SIZE: 5000,
+        MAX_FUZZY_ROWS: 25000, // Reasonable limit for UI responsiveness
+        PROGRESS_UPDATE_THRESHOLD: 1000,
+        MEMORY_PRESSURE_THRESHOLD: 1000000
+      };
+      
       // Simplified Pattern Detection System - Core Business Patterns Only
       const PATTERN_LIBRARY = {
         email: {
@@ -4046,7 +4089,7 @@
 
       // Pattern detection for column data with smart ordering and column hints
       function detectPatterns(values, columnName) {
-        const sampleSize = Math.min(100, values.length);
+        const sampleSize = Math.min(DATAPHREAK_CONFIG.PATTERN_SAMPLE_SIZE, values.length);
         const sample = values.filter(v => !isNullish(v)).slice(0, sampleSize);
         
         if (sample.length === 0) return { patterns: [], confidence: 0 };
@@ -4095,7 +4138,7 @@
           const specificityWeight = (pattern.specificity || 5) / 10; // Normalize to 0-1
           const weightedConfidence = confidence * specificityWeight;
           
-          if (confidence > 0.1 || fixable > 0.1) { // 10% threshold
+          if (confidence > 0.1 || fixable > 0.1) { // Minimum threshold for pattern consideration
             patterns.push({
               id: patternId,
               name: pattern.name,
@@ -4126,7 +4169,7 @@
         });
         
         return {
-          patterns: patterns.slice(0, 3), // Top 3 patterns
+          patterns: patterns.slice(0, DATAPHREAK_CONFIG.TOP_PATTERNS_COUNT),
           totalSampled: sample.length
         };
       }
@@ -4368,7 +4411,7 @@
         return new Promise((resolve) => {
           const map = new Map();
           let processed = 0;
-          const CHUNK_SIZE = 10000; // Process 10K rows at a time
+          const CHUNK_SIZE = DATAPHREAK_CONFIG.DUPLICATE_CHUNK_SIZE;
           
           // Cache DOM element for progress updates (performance optimization)
           const progressEl = el('#dupeSummary');
@@ -4398,7 +4441,7 @@
             
             if (processed < rows.length) {
               // Show progress for all datasets
-              if (rows.length > 1000) {
+              if (rows.length > DATAPHREAK_CONFIG.PROGRESS_UPDATE_THRESHOLD) {
                 const progress = Math.round((processed / rows.length) * 100);
                 if (progress % 10 === 0) { // Update every 10%
                   requestAnimationFrame(() => {
@@ -4441,12 +4484,18 @@
             return;
           }
 
-          const CHUNK_SIZE = 5000; // Smaller chunks for fuzzy processing
+          const CHUNK_SIZE = DATAPHREAK_CONFIG.FUZZY_CHUNK_SIZE;
           
           let processed = 0;
           const exactMap = new Map();
           const fuzzyGroups = [];
-          const processedRows = rows.length;
+          // Add memory safety for large datasets
+          const processedRows = Math.min(rows.length, DATAPHREAK_CONFIG.MAX_FUZZY_ROWS);
+          
+          // Warn user if dataset is too large for full fuzzy analysis
+          if (rows.length > DATAPHREAK_CONFIG.MAX_FUZZY_ROWS) {
+            console.info(`Large dataset detected (${rows.length.toLocaleString()} rows). Fuzzy analysis limited to ${DATAPHREAK_CONFIG.MAX_FUZZY_ROWS.toLocaleString()} rows for performance.`);
+          }
           
           // Cache DOM element for progress updates (performance optimization)
           const progressEl = el('#dupeSummary');
@@ -4552,7 +4601,7 @@
                 processed: processedRows,
                 exactDuplicates: exactGroups.reduce((sum, group) => sum + group.length - 1, 0),
                 fuzzyDuplicates: fuzzyGroups.reduce((sum, group) => sum + group.length - 1, 0),
-                limitReached: false
+                limitReached: rows.length > DATAPHREAK_CONFIG.MAX_FUZZY_ROWS
               };
               
               // Clear progress indicator
@@ -7249,8 +7298,8 @@
               const patterns = STATE.profiles[j].patterns;
               if (patterns.length > 0) {
                 const topPattern = patterns[0];
-                // Only auto-fix if we have reasonable confidence or fixability (lowered thresholds)
-                if (topPattern.confidence > 0.3 || topPattern.fixable > 0.2) {
+                // Only auto-fix if we have reasonable confidence or fixability
+                if (topPattern.confidence > DATAPHREAK_CONFIG.PATTERN_CONFIDENCE_THRESHOLD || topPattern.fixable > DATAPHREAK_CONFIG.PATTERN_FIXABLE_THRESHOLD) {
                   const pattern = PATTERN_LIBRARY[topPattern.id];
                   
                   // Apply standardization fix regardless of validation (for consistent formatting)
@@ -8351,31 +8400,39 @@
       
       const quickPrepareBtn = el('#quickPrepare');
       if (quickPrepareBtn) quickPrepareBtn.addEventListener('click', async () => {
-        if (STATE.headers.length === 0) {
-          showRulesStatus('Please load data first', 'error');
-          return;
-        }
-        
-        // First clean all data
-        const columns = el('#opColumns');
-        if (columns && columns.options.length > 0) {
-          // Select all options
-          for (let i = 0; i < columns.options.length; i++) {
-            columns.options[i].selected = true;
+        try {
+          if (STATE.headers.length === 0) {
+            showRulesStatus('Please load data first', 'error');
+            return;
           }
-          // Enable cleaning checkboxes
-          const trim = el('#opTrim'); if (trim) trim.checked = true;
-          const norm = el('#opNormalize'); if (norm) norm.checked = true;
-          const clean = el('#opClean'); if (clean) clean.checked = true;
           
-          // Apply cleaning
-          applyDataOperations();
-          
-          // Then analyze keys after a short delay
-          setTimeout(() => {
-            analyseUniqueKeys();
-            showRulesStatus('Data prepared: cleaned and key analysis complete!', 'ok');
-          }, 1000);
+          // First clean all data
+          const columns = el('#opColumns');
+          if (columns && columns.options.length > 0) {
+            // Select all options
+            for (let i = 0; i < columns.options.length; i++) {
+              columns.options[i].selected = true;
+            }
+            // Enable cleaning checkboxes
+            const trim = el('#opTrim'); if (trim) trim.checked = true;
+            const norm = el('#opNormalize'); if (norm) norm.checked = true;
+            const clean = el('#opClean'); if (clean) clean.checked = true;
+            
+            // Apply cleaning
+            applyDataOperations();
+            
+            // Then analyze keys after a short delay
+            setTimeout(() => {
+              try {
+                analyseUniqueKeys();
+                showRulesStatus('Data prepared: cleaned and key analysis complete!', 'ok');
+              } catch (error) {
+                showRulesStatus('Error during key analysis: ' + error.message, 'error');
+              }
+            }, 1000);
+          }
+        } catch (error) {
+          showRulesStatus('Error during data preparation: ' + error.message, 'error');
         }
       });
 
@@ -8398,6 +8455,19 @@
     // the `collapsed` class. Collapsed cards hide their contents except for
     // the heading, and the chevron rotates.
     (function() {
+      // Helper function to check if clicked element is interactive (avoid code duplication)
+      function isInteractiveElement(target) {
+        return target.tagName === 'BUTTON' || 
+               target.tagName === 'A' || 
+               target.tagName === 'SELECT' ||
+               target.tagName === 'INPUT' ||
+               target.closest('button') ||
+               target.closest('a') ||
+               target.closest('select') ||
+               target.closest('input') ||
+               target.closest('h2'); // Let h2 handler deal with h2 clicks
+      }
+      
       function initCollapsibles() {
         // Attach click handler to each chevron toggle. Clicking the chevron
         // will collapse or expand the card.
@@ -8457,17 +8527,7 @@
               const target = ev.target;
               
               // Prevent collapse when clicking on interactive elements
-              const isInteractive = target.tagName === 'BUTTON' || 
-                                   target.tagName === 'A' || 
-                                   target.tagName === 'SELECT' ||
-                                   target.tagName === 'INPUT' ||
-                                   target.closest('button') ||
-                                   target.closest('a') ||
-                                   target.closest('select') ||
-                                   target.closest('input') ||
-                                   target.closest('h2'); // Let h2 handler deal with h2 clicks
-              
-              if (isInteractive) {
+              if (isInteractiveElement(target)) {
                 return; // Don't collapse when clicking interactive elements
               }
               
@@ -8490,17 +8550,7 @@
               const target = ev.target;
               
               // Prevent collapse when clicking on interactive elements
-              const isInteractive = target.tagName === 'BUTTON' || 
-                                   target.tagName === 'A' || 
-                                   target.tagName === 'SELECT' ||
-                                   target.tagName === 'INPUT' ||
-                                   target.closest('button') ||
-                                   target.closest('a') ||
-                                   target.closest('select') ||
-                                   target.closest('input') ||
-                                   target.closest('h2'); // Let h2 handler deal with h2 clicks
-              
-              if (isInteractive) {
+              if (isInteractiveElement(target)) {
                 return; // Don't collapse when clicking interactive elements
               }
               
@@ -8520,8 +8570,6 @@
       initCollapsibles();
       
     })();
-    
-    
   </script>
 
   <!-- Toast notification container. This hidden element will hold brief
