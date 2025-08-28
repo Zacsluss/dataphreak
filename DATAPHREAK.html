@@ -7676,8 +7676,48 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         }, 300); // 300ms loading delay for smooth UX
       }
 
+      // Generate smart axis titles based on data patterns and column names
+      function generateSmartAxisTitles(columnName, dataType, sampleData) {
+        const colLower = columnName.toLowerCase();
+        const yTitle = "Count of Records";
+        
+        // Smart X-axis title based on patterns and column name
+        let xTitle = columnName;
+        
+        // Pattern-based detection
+        if (dataType === 'number') {
+          if (colLower.includes('age')) xTitle = "Age (Years)";
+          else if (colLower.includes('year')) xTitle = "Year";
+          else if (colLower.includes('price') || colLower.includes('cost') || colLower.includes('amount')) xTitle = "Amount ($)";
+          else if (colLower.includes('quantity') || colLower.includes('qty') || colLower.includes('count')) xTitle = "Quantity";
+          else if (colLower.includes('score') || colLower.includes('rating')) xTitle = "Score/Rating";
+          else if (colLower.includes('percent') || colLower.includes('%')) xTitle = "Percentage (%)";
+          else xTitle = `${columnName} Values`;
+        } else if (dataType === 'string') {
+          // Check sample data for patterns
+          const sample = sampleData?.slice(0, 10)?.join(' ')?.toLowerCase() || '';
+          if (sample.includes('@') && sample.includes('.')) xTitle = "Email Domains";
+          else if (colLower.includes('email')) xTitle = "Email Addresses";
+          else if (colLower.includes('phone') || colLower.includes('mobile')) xTitle = "Phone Numbers";
+          else if (colLower.includes('name') || colLower.includes('first') || colLower.includes('last')) xTitle = "Name Variations";
+          else if (colLower.includes('city') || colLower.includes('location')) xTitle = "Locations";
+          else if (colLower.includes('state') || colLower.includes('province')) xTitle = "States/Provinces";
+          else if (colLower.includes('country')) xTitle = "Countries";
+          else if (colLower.includes('id') || colLower.includes('key')) xTitle = "ID Values";
+          else if (colLower.includes('type') || colLower.includes('category')) xTitle = "Categories";
+          else xTitle = `${columnName} Categories`;
+        } else if (dataType === 'date') {
+          xTitle = "Date Range";
+        }
+        
+        return { xTitle, yTitle };
+      }
+
       // Create SVG histogram for a column
       function createHistogramSVG(data, dataType, columnName) {
+        // Generate smart axis titles
+        const { xTitle, yTitle } = generateSmartAxisTitles(columnName, dataType, data);
+        
         // Responsive sizing: min 580px, max 1160px (2x), scale with container
         const baseWidth = 580;
         const maxWidth = 1160;
@@ -7685,7 +7725,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const width = containerWidth;
         const height = Math.round(width * 0.31); // Maintain aspect ratio
         
-        const margin = { top: 20, right: 20, bottom: 40, left: 50 };
+        const margin = { top: 30, right: 20, bottom: 60, left: 70 }; // Increased margins for axis titles
         const chartWidth = width - margin.left - margin.right;
         const chartHeight = height - margin.top - margin.bottom;
 
@@ -8131,13 +8171,13 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             });
           }
 
-          // Add overall range label
+          // Add overall range label (moved up to make room for X-axis title)
           const xAxis = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           xAxis.setAttribute('x', width / 2);
-          xAxis.setAttribute('y', height - 5);
+          xAxis.setAttribute('y', height - 25);
           xAxis.setAttribute('text-anchor', 'middle');
           xAxis.setAttribute('fill', 'var(--muted)');
-          xAxis.setAttribute('font-size', '12');
+          xAxis.setAttribute('font-size', '11');
           xAxis.textContent = `Range: ${fmtNum(min)} to ${fmtNum(max)}`;
           svg.appendChild(xAxis);
 
@@ -8261,6 +8301,65 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             valueLabel.textContent = `${value.slice(0, 15)}${value.length > 15 ? '...' : ''}`;
             svg.appendChild(valueLabel);
           });
+        }
+
+        // Add Y-axis title (rotated)
+        const yAxisTitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        yAxisTitle.setAttribute('x', 15);
+        yAxisTitle.setAttribute('y', height / 2);
+        yAxisTitle.setAttribute('text-anchor', 'middle');
+        yAxisTitle.setAttribute('fill', 'var(--text)');
+        yAxisTitle.setAttribute('font-size', '13');
+        yAxisTitle.setAttribute('font-weight', '600');
+        yAxisTitle.setAttribute('transform', `rotate(-90, 15, ${height / 2})`);
+        yAxisTitle.textContent = yTitle;
+        svg.appendChild(yAxisTitle);
+
+        // Add X-axis title  
+        const xAxisTitle = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        xAxisTitle.setAttribute('x', width / 2);
+        xAxisTitle.setAttribute('y', height - 10);
+        xAxisTitle.setAttribute('text-anchor', 'middle');
+        xAxisTitle.setAttribute('fill', 'var(--text)');
+        xAxisTitle.setAttribute('font-size', '13');
+        xAxisTitle.setAttribute('font-weight', '600');
+        xAxisTitle.textContent = xTitle;
+        svg.appendChild(xAxisTitle);
+
+        // Add Y-axis tick labels for better readability
+        if (dataType === 'number' && typeof maxCount !== 'undefined') {
+          const yAxisTicks = Math.min(5, maxCount);
+          const yStep = maxCount / yAxisTicks;
+          for (let i = 0; i <= yAxisTicks; i++) {
+            const yValue = Math.round(i * yStep);
+            const yPos = margin.top + chartHeight - (yValue / maxCount) * chartHeight;
+            
+            const yLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            yLabel.setAttribute('x', margin.left - 8);
+            yLabel.setAttribute('y', yPos + 3);
+            yLabel.setAttribute('text-anchor', 'end');
+            yLabel.setAttribute('fill', 'var(--muted)');
+            yLabel.setAttribute('font-size', '9');
+            yLabel.textContent = yValue;
+            svg.appendChild(yLabel);
+          }
+        } else if (dataType === 'string' && typeof maxCount !== 'undefined') {
+          // Y-axis labels for categorical data
+          const yAxisTicks = Math.min(5, maxCount);
+          const yStep = maxCount / yAxisTicks;
+          for (let i = 0; i <= yAxisTicks; i++) {
+            const yValue = Math.round(i * yStep);
+            const yPos = margin.top + chartHeight - (yValue / maxCount) * chartHeight;
+            
+            const yLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+            yLabel.setAttribute('x', margin.left - 8);
+            yLabel.setAttribute('y', yPos + 3);
+            yLabel.setAttribute('text-anchor', 'end');
+            yLabel.setAttribute('fill', 'var(--muted)');
+            yLabel.setAttribute('font-size', '9');
+            yLabel.textContent = yValue;
+            svg.appendChild(yLabel);
+          }
         }
 
         return svg;
