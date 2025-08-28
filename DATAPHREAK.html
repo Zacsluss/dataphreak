@@ -7970,6 +7970,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           const maxCount = Math.max(...bins.map(b => b.count));
           const xScale = chartWidth / binCount;
           const yScale = chartHeight / maxCount;
+          
+          // Calculate statistics for data quality assessment
+          const totalRecords = numericData.length;
+          const mean = numericData.reduce((a, b) => a + b, 0) / totalRecords;
+          const variance = numericData.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / totalRecords;
+          const stdDev = Math.sqrt(variance);
 
           // Add Y-axis grid lines and labels
           const yAxisTicks = 5;
@@ -8026,11 +8032,22 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             rect.setAttribute('y', barY);
             rect.setAttribute('width', barWidth);
             rect.setAttribute('height', barHeight);
-            // Gradient color coding based on frequency
+            // Smart color coding: data quality + frequency
             const intensity = bin.count / maxCount;
             let gradientUrl;
-            if (intensity > 0.8) {
-              gradientUrl = `url(#highGrad_${gradientId})`;
+            
+            // Check for data quality issues in this range
+            const binValues = numericData.filter(val => val >= bin.min && val < (bin.max || Infinity));
+            const hasOutliers = binValues.some(val => Math.abs(val - mean) > 3 * stdDev);
+            const isEdgeRange = (bin.min === min || bin.max === max);
+            const qualityScore = bin.count / totalRecords; // Proportion of total data
+            
+            // Data-driven color selection
+            if (hasOutliers || (isEdgeRange && qualityScore < 0.01)) {
+              // Red: Outliers or suspicious edge ranges
+              gradientUrl = '#ef4444'; // Red for data quality issues
+            } else if (intensity > 0.8) {
+              gradientUrl = '#22c55e'; // Green for high-quality common data
             } else if (intensity > 0.6) {
               gradientUrl = `url(#medHighGrad_${gradientId})`;
             } else if (intensity > 0.4) {
@@ -8238,9 +8255,27 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             rect.setAttribute('y', barY);
             rect.setAttribute('width', barWidth);
             rect.setAttribute('height', barHeightActual);
-            // Gradient color coding based on frequency rank
+            // Smart color coding for categorical data: data quality + frequency
             let gradientUrl;
-            if (i === 0) {
+            const percentage = (count / data.length) * 100;
+            
+            // Check for data quality indicators
+            const valueStr = value.toString();
+            const hasDataQualityIssues = (
+              valueStr.includes('null') || 
+              valueStr.includes('undefined') || 
+              valueStr.includes('N/A') || 
+              valueStr.includes('ERROR') ||
+              valueStr.trim() === '' ||
+              percentage < 0.1 // Extremely rare values might be errors
+            );
+            
+            // Data-driven color selection
+            if (hasDataQualityIssues) {
+              gradientUrl = '#ef4444'; // Red for potential data quality issues
+            } else if (i === 0 && percentage > 20) {
+              gradientUrl = '#22c55e'; // Green for dominant high-quality category
+            } else if (i === 0) {
               gradientUrl = `url(#highHGrad_${gradientId})`; // Highest frequency
             } else if (i <= 2) {
               gradientUrl = `url(#medHGrad_${gradientId})`; // Top 3
@@ -8365,33 +8400,56 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         return svg;
       }
 
-      // Tooltip functions for histogram interactivity
+      // Enhanced tooltip functions for histogram interactivity with rich insights
       function showTooltip(event, data) {
         const tooltip = el('#histogramTooltip');
         if (!tooltip) return;
         
         let content = '';
         if (data.type === 'numeric') {
+          // Calculate additional insights
+          const rank = data.rank ? `#${data.rank} most common` : '';
+          const cumulative = data.cumulative ? `${data.cumulative}% cumulative` : '';
+          const quality = data.count > 0 ? '✅ Valid data' : '⚠️ No data';
+          
           content = `
-            <div style="font-weight: 600; color: var(--accent); margin-bottom: 4px;">Numeric Range</div>
-            <div>Range: ${data.rangeLabel || data.rangeMin + ' - ' + data.rangeMax}</div>
-            <div>Count: ${data.count} (${data.percentage}%)</div>
+            <div style="font-weight: 600; color: var(--accent); margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px;">📊 ${data.rangeLabel || 'Numeric Range'}</div>
+            <div style="margin-bottom: 3px;"><strong>Range:</strong> ${data.rangeMin} to ${data.rangeMax}</div>
+            <div style="margin-bottom: 3px;"><strong>Count:</strong> ${data.count.toLocaleString()} records</div>
+            <div style="margin-bottom: 3px;"><strong>Percentage:</strong> ${data.percentage}% of total</div>
+            ${rank ? `<div style="margin-bottom: 3px; color: var(--accent);"><strong>Rank:</strong> ${rank}</div>` : ''}
+            ${cumulative ? `<div style="margin-bottom: 3px;"><strong>Cumulative:</strong> ${cumulative}</div>` : ''}
+            <div style="margin-top: 6px; font-size: 11px; color: var(--muted);">${quality}</div>
           `;
         } else if (data.type === 'categorical') {
+          // Enhanced categorical tooltips
+          const rank = data.rank ? `#${data.rank} most frequent` : '';
+          const rarity = data.percentage < 1 ? '🔸 Rare value' : data.percentage > 20 ? '🔥 Very common' : '✅ Normal frequency';
+          const valuePreview = data.value && data.value.length > 25 ? data.value.slice(0, 22) + '...' : data.value;
+          
           content = `
-            <div style="font-weight: 600; color: var(--accent2); margin-bottom: 4px;">Category</div>
-            <div>Value: "${data.value}"</div>
-            <div>Count: ${data.count} (${data.percentage}%)</div>
+            <div style="font-weight: 600; color: var(--accent2); margin-bottom: 6px; border-bottom: 1px solid var(--border); padding-bottom: 4px;">🏷️ Category Value</div>
+            <div style="margin-bottom: 3px;"><strong>Value:</strong> "${valuePreview}"</div>
+            <div style="margin-bottom: 3px;"><strong>Count:</strong> ${data.count.toLocaleString()} records</div>
+            <div style="margin-bottom: 3px;"><strong>Percentage:</strong> ${data.percentage}% of total</div>
+            ${rank ? `<div style="margin-bottom: 3px; color: var(--accent2);"><strong>Rank:</strong> ${rank}</div>` : ''}
+            <div style="margin-top: 6px; font-size: 11px; color: var(--muted);">${rarity}</div>
           `;
         }
         
         tooltip.innerHTML = content;
         tooltip.style.opacity = '1';
         
-        // Position tooltip near mouse
+        // Enhanced positioning with boundary detection
         const rect = tooltip.parentElement.getBoundingClientRect();
-        const x = event.clientX - rect.left + 10;
-        const y = event.clientY - rect.top - 10;
+        const tooltipRect = tooltip.getBoundingClientRect();
+        let x = event.clientX - rect.left + 15;
+        let y = event.clientY - rect.top - 15;
+        
+        // Keep tooltip in bounds
+        if (x + tooltipRect.width > rect.width) x = event.clientX - rect.left - tooltipRect.width - 15;
+        if (y < 0) y = event.clientY - rect.top + 15;
+        
         tooltip.style.left = `${x}px`;
         tooltip.style.top = `${y}px`;
       }
