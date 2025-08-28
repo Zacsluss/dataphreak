@@ -21,6 +21,8 @@ Drag in messy CSV → Get clean data with A-F quality scores → Export professi
 
 </div>
 
+**DATAPHREAK transforms impossible data challenges into 30-second solutions.** Upload messy customer lists, sales data, or any CSV file and watch intelligent algorithms instantly detect patterns, find duplicates humans miss, and provide professional A-F quality grades. No installation, no training, no data upload required - everything happens locally with enterprise-grade security. Perfect for business teams who need powerful data analysis without the complexity or cost of traditional tools.
+
 ## **🎯 What DATAPHREAK Does**
 
 ✅ **Smart Pattern Detection** - Auto-identifies emails, phone numbers, dates  
