@@ -8114,7 +8114,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           });
 
           // Add statistical overlay lines (mean, median)
-          const mean = numericData.reduce((sum, val) => sum + val, 0) / numericData.length;
+          // mean already calculated above for data quality assessment
           const sortedData = [...numericData].sort((a, b) => a - b);
           const median = sortedData.length % 2 === 0 
             ? (sortedData[sortedData.length / 2 - 1] + sortedData[sortedData.length / 2]) / 2
