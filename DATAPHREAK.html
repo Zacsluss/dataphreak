@@ -2301,7 +2301,7 @@
         <!-- Save Rules, Clear Rules and Download Rules buttons moved into Field Analysis panel -->
         <!-- Salesforce ID conversion has been integrated into Data Operations; the nav button has been removed. -->
         <!-- Launch cross-file merge & ID matching -->
-        <button id="navMerge" type="button" title="🔗 Combine two files together - great for joining customer lists or datasets">Merge Files</button>
+        <button id="navMerge" type="button" title="🔗 Combine two files together - great for joining customer lists or datasets">Merge Files by ID</button>
         <!-- Data visualization histograms -->
         <button id="navHistograms" type="button" title="📊 See beautiful charts showing how your data is distributed">Data Charts</button>
         <!-- Help: open documentation modal -->
@@ -2646,6 +2646,7 @@
         <input type="file" id="mergeFileInput" accept=".csv,.tsv,.xlsx,.xls,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display:block;margin-top:4px;margin-bottom:12px" title="Choose a CSV, TSV, or Excel file to merge with the current data">
       </div>
       <div id="mergeStepOptions" style="display:none;">
+        <p class="small muted" style="margin-top:8px;margin-bottom:4px">Primary file: <span id="mergePrimaryFileName" style="font-weight:bold">No file loaded</span></p>
         <label class="small" style="display:block;margin-top:8px" title="Choose the matching column from your current dataset">Primary dataset key:</label>
         <select id="mergePrimaryCol" style="width:100%;margin-bottom:8px" title="Choose the column from the current dataset to match on"></select>
         <label class="small" style="display:block;margin-top:4px" title="Choose the matching column from the file you're merging">Second dataset key:</label>
@@ -2705,7 +2706,7 @@
           <div style="display:flex;flex-wrap:wrap;gap:6px">
             <a href="#help-quality" class="help-tab" style="border-color:#f59e0b" title="Understand the comprehensive A-F data quality grading system"><strong>6.</strong> Smart Quality Assessment</a>
             <a href="#help-duplicates" class="help-tab" style="border-color:#f59e0b" title="Find exact matches and similar records using smart fuzzy matching"><strong>7.</strong> Smart Duplicate Detection</a>
-            <a href="#help-patterns" class="help-tab" style="border-color:#f59e0b" title="Automatically detect emails, phones, dates, and other data patterns"><strong>8.</strong> 🤖 Smart Pattern Detection</a>
+            <a href="#help-patterns" class="help-tab" style="border-color:#f59e0b" title="Automatically detect emails, phones, dates, and other data patterns"><strong>8.</strong> Smart Pattern Detection</a>
             <a href="#help-field" class="help-tab" style="border-color:#f59e0b" title="Deep dive into individual column statistics and data profiling"><strong>9.</strong> Column Analysis</a>
             <a href="#help-rules" class="help-tab" style="border-color:#f59e0b" title="Set up quality rules to validate data meets business requirements"><strong>9.</strong> Data Validation</a>
             <a href="#help-keys" class="help-tab" style="border-color:#f59e0b" title="Find columns that uniquely identify each record in your data"><strong>10.</strong> Unique Identifiers</a>
@@ -2833,7 +2834,7 @@
           <li><strong>Sample Values:</strong> Representative examples from each column</li>
         </ul>
 
-        <h4 id="help-patterns">🤖 AI Pattern Detection</h4>
+        <h4 id="help-patterns">AI Pattern Detection</h4>
         <p>Intelligent recognition and standardization of common data formats:</p>
         <ul>
           <li><strong>Email Detection:</strong> Automatically identifies and standardizes email addresses to lowercase</li>
@@ -5140,8 +5141,15 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       function updateDatasetSwitchUI() {
         const select = el('#datasetSwitch');
         if (!select) return;
+        const optPrimary = select.querySelector('option[value="primary"]');
         const optSecondary = select.querySelector('option[value="secondary"]');
-        if (!optSecondary) return;
+        if (!optPrimary || !optSecondary) return;
+        
+        // Update primary option to show filename
+        const hasPrimary = Array.isArray(STATE.primaryHeaders) && STATE.primaryHeaders.length > 0;
+        optPrimary.textContent = hasPrimary ? `Primary: ${STATE.primaryName || 'Loaded File'}` : 'Primary';
+        
+        // Update secondary option
         const hasSecondary = Array.isArray(STATE.secondaryHeaders) && STATE.secondaryHeaders.length > 0;
         optSecondary.disabled = !hasSecondary;
         optSecondary.textContent = hasSecondary ? `Secondary: ${STATE.secondaryName || 'Loaded File'}` : 'Secondary (none)';
@@ -6196,6 +6204,11 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         el('#mergeStepFile').style.display = 'block';
         el('#mergeStepOptions').style.display = 'none';
         el('#mergeDo').disabled = true;
+        // Update primary file name display
+        const primaryFileDisplay = el('#mergePrimaryFileName');
+        if (primaryFileDisplay) {
+          primaryFileDisplay.textContent = STATE.primaryName || STATE.filename || 'Current dataset';
+        }
         // Populate primary key select
         const primSel = el('#mergePrimaryCol');
         primSel.innerHTML = '';
