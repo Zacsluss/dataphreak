@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-DATAPHREAK is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.33MB HTML file contains 8,818 lines of code delivering professional data analysis without installation, servers, or data uploads.
+DATAPHREAK is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.33MB HTML file contains 9,786 lines of code delivering professional data analysis without installation, servers, or data uploads.
 
 ---
 
@@ -702,6 +702,133 @@ if (memoryPressure > threshold) {
 ```
 
 ---
+
+## Troubleshooting Guide
+
+### Common Issues and Solutions
+
+#### Performance Issues
+
+**Problem: Large files (>50MB) load slowly or freeze browser**
+- **Solution 1:** Close other browser tabs to free memory
+- **Solution 2:** Use Chrome with 4GB+ RAM allocated
+- **Solution 3:** Enable chunked processing (automatically enabled for large files)
+- **Solution 4:** Split file into smaller chunks externally
+
+**Problem: Fuzzy duplicate detection takes too long**
+- **Solution 1:** Increase similarity threshold (higher = faster)
+- **Solution 2:** Reduce dataset size or filter columns first
+- **Solution 3:** Use exact matching instead when appropriate
+- **Solution 4:** Process in batches of 10,000 rows
+
+**Problem: Browser becomes unresponsive**
+- **Solution 1:** Refresh page and reload smaller dataset
+- **Solution 2:** Clear browser cache and cookies
+- **Solution 3:** Restart browser completely
+- **Solution 4:** Use 64-bit browser version
+
+#### File Import Problems
+
+**Problem: Excel file won't open**
+- **Solution 1:** Ensure file isn't password protected
+- **Solution 2:** Save as .xlsx instead of .xls if using old format
+- **Solution 3:** Check file isn't corrupted (open in Excel first)
+- **Solution 4:** Convert to CSV as alternative
+
+**Problem: CSV parsing errors or wrong delimiter**
+- **Solution 1:** Check delimiter (comma, tab, semicolon)
+- **Solution 2:** Verify text encoding (UTF-8 recommended)
+- **Solution 3:** Remove special characters from headers
+- **Solution 4:** Ensure first row contains column names
+
+**Problem: Special characters display incorrectly**
+- **Solution 1:** Save file as UTF-8 encoding
+- **Solution 2:** Use Excel's "Save As CSV UTF-8" option
+- **Solution 3:** Remove BOM (Byte Order Mark) if present
+- **Solution 4:** Try different browser
+
+#### Data Processing Issues
+
+**Problem: Dates not recognized correctly**
+- **Solution 1:** Standardize to YYYY-MM-DD format
+- **Solution 2:** Check for mixed formats in same column
+- **Solution 3:** Use "Apply Patterns" feature
+- **Solution 4:** Manually specify date format in source
+
+**Problem: Phone numbers not formatting properly**
+- **Solution 1:** Remove all non-numeric characters first
+- **Solution 2:** Ensure consistent country codes
+- **Solution 3:** Use 10-digit format for US numbers
+- **Solution 4:** Apply standardization before validation
+
+**Problem: Duplicate detection missing obvious matches**
+- **Solution 1:** Lower similarity threshold (try 0.80)
+- **Solution 2:** Clean data first (trim spaces, fix case)
+- **Solution 3:** Check for special characters
+- **Solution 4:** Use exact matching for IDs
+
+#### Export Issues
+
+**Problem: Exported CSV has formula warnings in Excel**
+- **Solution 1:** This is normal security behavior
+- **Solution 2:** Click "Enable Content" in Excel
+- **Solution 3:** Import as data instead of opening directly
+- **Solution 4:** Use JSON export format instead
+
+**Problem: Large exports fail or incomplete**
+- **Solution 1:** Export in smaller batches
+- **Solution 2:** Increase browser download timeout
+- **Solution 3:** Use different export format
+- **Solution 4:** Check available disk space
+
+#### Browser-Specific Issues
+
+**Chrome Issues:**
+- Enable hardware acceleration in settings
+- Disable unnecessary extensions
+- Update to latest version (90+)
+
+**Firefox Issues:**
+- Increase dom.max_script_run_time
+- Clear cache and cookies
+- Disable tracking protection for local files
+
+**Safari Issues:**
+- Enable JavaScript for local files
+- Allow cross-origin requests
+- Update to Safari 13+
+
+**Edge Issues:**
+- Use Chromium-based Edge (80+)
+- Clear browser data
+- Run as administrator
+
+### Quick Fixes
+
+| Symptom | Quick Fix |
+|---------|-----------|
+| Slow performance | Close tabs, clear cache |
+| File won't load | Check format and encoding |
+| Missing data | Check delimiter settings |
+| Wrong calculations | Verify number formats |
+| Display issues | Refresh page (F5) |
+| Export problems | Try different format |
+| Frozen interface | Hard refresh (Ctrl+F5) |
+
+### Getting Help
+
+If issues persist:
+1. Check browser console (F12) for errors
+2. Try sample data files first
+3. Test in different browser
+4. Report issue with details: https://github.com/Zacsluss/DATAPHREAK/issues
+
+Include in bug reports:
+- Browser and version
+- File size and format
+- Steps to reproduce
+- Error messages (if any)
+- Screenshot of issue
 
 ## Version History
 

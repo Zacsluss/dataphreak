@@ -1,0 +1,21 @@
+product_id,product_name,category,price,stock_quantity,supplier,last_updated
+PRD001,Wireless Mouse,Electronics,29.99,150,TechSupply Co.,2024-12-01
+PRD002,USB Keyboard,Electronics,45.50,89,TechSupply Co.,2024-12-01
+PRD003,Monitor Stand,Office Supplies,79.99,45,OfficeMax Inc,2024-11-28
+PRD004,Desk Lamp,Office Supplies,35.00,0,LightWorks,2024-11-25
+PRD005,Laptop Sleeve 13",Accessories,24.99,200,,,2024-12-02
+PRD006,Laptop Sleeve 15",Accessories,29.99,175,CaseMakers,2024-12-02
+PRD007,HDMI Cable 6ft,Electronics,12.99,500,CableTech,2024-11-30
+PRD008,HDMI Cable 10ft,Electronics,15.99,450,CableTech,2024-11-30
+PRD009,Wireless Headphones,Electronics,89.99,62,AudioPro,2024-12-03
+PRD010,webcam HD,Electronics,65.00,38,TechSupply Co.,2024-12-01
+PRD011,Desk Organizer,Office Supplies,19.99,-5,OfficeMax Inc,2024-11-27
+PRD012,Notebook A5,Office Supplies,8.50,300,PaperWorks,2024-11-29
+PRD013,Notebook A4,Office Supplies,10.50,275,PaperWorks,2024-11-29
+PRD001,Wireless Mouse,Electronics,29.99,150,TechSupply Co.,2024-12-01
+PRD014,Power Bank 10000mAh,Electronics,49.99,120,PowerTech,2024-12-04
+PRD015,Power Bank 20000mAh,Electronics,79.99,85,PowerTech,2024-12-04
+PRD016,USB Hub 4-Port,Electronics,25.00,95,TechSupply Co.,2024-12-02
+PRD017,Mouse Pad Large,Accessories,15.99,180,DeskMate,2024-11-30
+PRD018,Cable Organizer,Accessories,9.99,220,CableTech,2024-12-01
+PRD019,Screen Cleaner Kit,Accessories,12.50,140,CleanTech,2024-12-03

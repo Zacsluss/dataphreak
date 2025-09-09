@@ -1,0 +1,21 @@
+name,email,phone,date_joined,age,city,purchase_amount,status
+John Smith,john.smith@email.com,555-123-4567,2024-01-15,34,New York,1250.50,Active
+Jane Doe,JANE.DOE@GMAIL.COM,(555) 234-5678,01/20/2024,28,Los Angeles,890.25,Active
+Robert Johnson,bob.j@company.org,5553456789,2024-02-10,45,Chicago,,Inactive
+Maria Garcia,maria@email.com,555.456.7890,03-15-2024,31,Houston,2100.00,Active
+John Smith,j.smith@email.com,555-123-4567,2024-01-15,34,New York,1250.50,Active
+David Lee,david.lee@,555-567-8901,2024/04/01,52,Phoenix,750.00,Pending
+  Sarah Wilson  ,sarah@COMPANY.COM,+1-555-678-9012,05/10/2024,29,Philadelphia,1500.75,Active
+Mike Brown,mike.brown@email,555 789 0123,2024-06-20,38,San Antonio,NA,Inactive
+Jennifer Taylor,jen.taylor@gmail.com,555-890-1234,07/04/2024,26,San Diego,3200.00,Active
+Chris Anderson,chris@email.com,,2024-08-15,41,Dallas,1800.50,Active
+Lisa Martinez,l.martinez@company.org,555.012.3456,09/01/2024,33,San Jose,950.25,Active
+J. Smith,john.s@email.com,5551234567,2024-01-16,35,NYC,1250.00,Active
+Emily Davis,emily@email.com,555-234-5678,10/10/2024,,Austin,2500.00,Active
+Daniel Rodriguez,d.rodriguez@gmail.com,(555)345-6789,2024-11-20,47,Jacksonville,1100.00,Pending
+Michelle Wilson,michelle.w@company.com,555.456.7890,12/01/2024,30,San Francisco,4500.00,Active
+Kevin Thompson,kevin@email.com,555-567-8901,2024-01-05,36,Columbus,,Active
+Amanda White,amanda.white@gmail.com,+15556789012,02/14/2024,27,Fort Worth,890.50,Inactive
+Jason Harris,jason.h@company.org,555 789 0123,2024-03-25,40,Charlotte,1750.00,Active
+Rachel Martin,rachel@email.com,555-890-1234,04/30/2024,32,Indianapolis,2200.75,Active
+Brian Clark,brian.clark@gmail.com,555.012.3456,2024-05-15,44,Seattle,3100.00,Active
