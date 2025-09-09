@@ -2343,14 +2343,6 @@
         </div>
       </div>
       <h1>
-        <span class="logo" aria-hidden="true" title="DATAPHREAK logo">
-          <!-- Simple bar chart icon -->
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3"  y="10" width="4" height="11" rx="1"></rect>
-            <rect x="10" y="6"  width="4" height="15" rx="1"></rect>
-            <rect x="17" y="2"  width="4" height="19" rx="1"></rect>
-          </svg>
-        </span>
         DATAPHREAK<span class="version">v8.6.1</span>
       </h1>
       <div class="header-right">
@@ -2370,7 +2362,7 @@
         <!-- Export Dict button moved into Dataset Summary panel -->
         <!-- Save Rules, Clear Rules and Download Rules buttons moved into Field Analysis panel -->
         <!-- Salesforce ID conversion has been integrated into Data Operations; the nav button has been removed. -->
-        <!-- Merge Files by ID button moved to Multi-File Management section -->
+        <!-- Merge functionality integrated into Export CSV with threshold=1.00 -->
         <!-- Data visualization histograms -->
         <button id="navHistograms" type="button" title="📊 See beautiful charts and graphs showing how your data is distributed">Charts and Graphs</button>
         <!-- Help: open documentation modal -->
@@ -2401,10 +2393,7 @@
           <span>or</span>
         </div>
         <div style="display: flex; justify-content: center; margin: 8px 0;">
-          <button id="loadSample" type="button" class="quick-btn" style="flex: none;" title="✨ Try sample data first - perfect for learning how DATAPHREAK works!">✨ Try Sample Data</button>
-        </div>
-        <div class="dropzone-details muted small">
-          Column names required • Automatically detects format • Works with any CSV file
+          <button id="loadSample" type="button" class="quick-btn" style="flex: none;" title="Load 400 rows of sample customer data with intentional issues - perfect for learning how DATAPHREAK works!">Try Sample Data</button>
         </div>
       </div>
       <!-- Hide the underlying control buttons in Load Data. They remain in the DOM for functionality but are not visible to users. -->
@@ -2417,7 +2406,6 @@
         <button id="clearRules" type="button" disabled title="Reset all rules for this dataset back to suggestions by removing any saved rules">Clear Rules</button>
         <button id="downloadRules" type="button" disabled title="Download your current rule settings as a file so you can share them or import them later">Download Rules</button>
       </div>
-      <div class="small muted" style="margin-top:12px">Empty values recognized: <code>""</code>, <code>NA</code>, <code>N/A</code>, <code>null</code>, <code>NaN</code> (case-insensitive).</div>
     </section>
     <!-- Dataset Overview -->
     <section class="card" id="summarySection">
@@ -2597,7 +2585,7 @@
 
       <!-- Quick Actions -->
       <div class="ops-step">
-        <div class="ops-label">⚡ Quick Actions</div>
+        <div class="ops-label">Quick Actions</div>
         <div class="quick-actions" style="grid-template-columns: repeat(3, 1fr);">
           <button type="button" class="quick-btn" id="quickCleanAll" title="🧹 Smart one-click cleanup - fixes spacing, capitalization, and special characters">
             🧹 Clean All
@@ -2630,15 +2618,14 @@
 
     <!-- Fuzzy Duplicates -->
 
-    <!-- Multi-File Management (formerly Cross-File Fuzzy Duplicates) -->
+    <!-- Find Duplicates & Merge Files (formerly Cross-File Fuzzy Duplicates) -->
     <section class="card" id="fuzzySection">
       <!-- Header row with title and buttons -->
       <div class="card-header">
-        <h2 title="Manage multiple files - compare datasets, find matches, and merge files together">Multi-File Management <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
+        <h2 title="Compare two datasets to find matching records and merge files together">Find Duplicates & Merge Files <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
           <button id="fuzzyRunCross" type="button" class="field-btn" title="Find matching records between the two datasets using the threshold setting (1.00 = exact matches, lower values = fuzzy matches)">Compare A↔B</button>
-          <button id="navMerge" type="button" class="field-btn" title="🔗 Combine two files together - great for joining customer lists or datasets">Merge Files by ID</button>
-          <button id="exportFuzzyCrossCsv" type="button" class="field-btn" title="Download a merged file of both datasets with matching records highlighted (exact or fuzzy matches depending on threshold setting)">Export CSV</button>
+          <button id="exportFuzzyCrossCsv" type="button" class="field-btn" title="Download a merged file of both datasets with matching records highlighted (exact or fuzzy matches depending on threshold setting). When threshold is set to 1.00, this performs an exact ID-based merge">Export CSV</button>
         </div>
       </div>
       <!-- Cross-file fuzzy matching only -->
@@ -2655,16 +2642,16 @@
     </section>
 
 
-    <!-- Row Analysis (formerly Column Profiles) -->
+    <!-- Column Analysis (formerly Column Profiles) -->
     <section class="card" id="profilesSection">
       <div class="card-header">
-        <h2 title="Detailed analysis of each row with smart pattern detection - see data types, patterns, statistics, and quality rules">Row Analysis <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
+        <h2 title="Detailed analysis of each column/field with smart pattern detection - see data types, patterns, statistics, and quality rules">Column Analysis <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
         <!-- Field Analysis action buttons aligned with other tile headers -->
         <div style="display:flex;gap:6px;flex-wrap:wrap">
           <button id="navSaveRules" type="button" class="field-btn" title="💾 Save your data quality rules so they're remembered next time you open this file">Save Rules</button>
           <button id="navDownloadRules" type="button" class="field-btn" title="📄 Download your data quality rules to share with others or backup">Download Rules</button>
           <button id="navClearRules" type="button" class="field-btn" title="🗑️ Remove your saved rules and start fresh (doesn't change your data)">Clear Rules</button>
-          <button id="navRunRules" type="button" class="field-btn" title="🔍 Check your data against validation rules to find and highlight any issues. Shows which rows don't match your allowed values or patterns">Run Rules</button>
+          <button id="navRunRules" type="button" class="field-btn" title="🔍 Check your data against validation rules to find and highlight any issues. Shows which values don't match your allowed values or patterns">Run Rules</button>
           <button id="applyPatterns" type="button" class="field-btn" title="🎯 Automatically fix data formats based on detected patterns. Converts messy emails to lowercase, standardizes phone numbers (e.g., (555) 123-4567), and normalizes dates to YYYY-MM-DD format. Only fixes data with high confidence patterns">Apply Patterns</button>
           <button id="quickExportSummary" type="button" class="field-btn" title="📊 Generate a comprehensive data dictionary report showing field-by-field statistics, data types, patterns detected, and quality metrics. Exports as CSV for documentation or sharing with your team">Export CSV</button>
         </div>
@@ -2742,14 +2729,6 @@
   <div id="helpModal" class="modal hidden">
     <div class="modal-content">
       <h3>
-        <!-- Repeat the logo next to the Help title for a cohesive brand feel -->
-        <span class="logo" aria-hidden="true" title="DATAPHREAK logo">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3"  y="10" width="4" height="11" rx="1"></rect>
-            <rect x="10" y="6"  width="4" height="15" rx="1"></rect>
-            <rect x="17" y="2"  width="4" height="19" rx="1"></rect>
-          </svg>
-        </span>
         Help &amp; Documentation
       </h3>
       <!-- Index of help topics: click to jump to section -->
@@ -2805,7 +2784,7 @@
           <p><strong>New to DATAPHREAK?</strong> Follow this quick walkthrough to get started immediately!</p>
 
           <h5 style="color:#22c55e;margin:16px 0 8px 0">📊 Step 1: Try Sample Data (30 seconds)</h5>
-          <p>• Click the <strong>"✨ Try Sample Data"</strong> button in the Load Data section<br>
+          <p>• Click the <strong>"Try Sample Data"</strong> button in the Load Data section<br>
           • This loads 400 rows of customer data with some intentional issues to explore<br>
           • Perfect for learning without uploading your own files</p>
 
@@ -2842,13 +2821,14 @@
         <ul>
           <li><strong>Drag &amp; Drop:</strong> Simply drag your CSV or TSV file into the gray drop zone</li>
           <li><strong>Browse Files:</strong> Click "Choose File" to select from your computer</li>
-          <li><strong>Try Sample Data:</strong> Click "✨ Try Sample Data" to practice with example data first</li>
+          <li><strong>Try Sample Data:</strong> Click "Try Sample Data" to practice with example data first</li>
         </ul>
         <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
           <p><strong>💡 File Requirements:</strong><br>
-          • First row should contain column names (like: Name, Email, Age)<br>
-          • CSV files work best, but TSV (tab-separated) files work too<br>
-          • Excel files (.xlsx/.xls) are supported directly</p>
+          • First row must contain column names (required)<br>
+          • CSV, TSV, and Excel files (.xlsx/.xls) are supported<br>
+          • Automatically detects file format and delimiter<br>
+          • Empty values recognized: <code>""</code>, <code>NA</code>, <code>N/A</code>, <code>null</code>, <code>NaN</code> (case-insensitive)</p>
         </div>
 
         <h4 id="help-summary">2. Understanding Your Results</h4>
@@ -2975,7 +2955,7 @@
         <strong>Step 5:</strong> Click "Compare A↔B" to find matches</p>
 
         <div style="background:rgba(139,92,246,0.1);padding:12px;border-radius:6px;margin:12px 0">
-          <p><strong>⚡ Performance Note:</strong> To keep your browser responsive, we limit comparisons for very large files. If you see a message about too many comparisons, try increasing the similarity setting or working with smaller datasets.</p>
+          <p><strong>⚡ Performance Note:</strong> For best performance with large datasets, the tool uses intelligent blocking by first character and length buckets to minimize unnecessary comparisons. Try increasing the similarity threshold if processing takes too long.</p>
         </div>
 <h4 id="help-merge">Cross-File Merging &amp; ID Matching</h4>
         <p>The <em>Merge Files</em> feature allows combining the loaded dataset with another CSV or TSV file. Choose key columns from each dataset, select a join type (Left, Inner, Right or Full) and optionally enable Salesforce ID conversion for matching. The merged output is downloaded automatically and the second file persists in memory as your <strong>secondary dataset</strong> for subsequent cross-file analysis. You can switch between the primary and secondary datasets via the dataset selector next to the dataset name.</p>
@@ -3036,7 +3016,7 @@
           <li><strong>Sanitised exports</strong>: exported CSV values are escaped to prevent formula injection and malicious scripts; cells that begin with <code>=</code>, <code>+</code>, <code>-</code>, or <code>@</code> are prefixed with a single quote to turn them into plain text.</li>
           <li><strong>No macros or scripting engine</strong>: unlike traditional spreadsheets, DATAPHREAK has no macro support, eliminating a major attack vector.</li>
           <li><strong>Strict Content Security Policy</strong>: the page is served with a Content Security Policy that blocks inline and remote scripts.</li>
-          <li><strong>Cross-file comparison cap</strong>: approximate matching across files is capped at ~200,000 comparisons with lightweight blocking to prevent browser lock-ups.</li>
+          <li><strong>Smart cross-file comparison</strong>: uses intelligent blocking by first character and length buckets to optimize performance when comparing large datasets.</li>
           <li><strong>Error handling</strong>: file parsing is wrapped in <code>try</code>/<code>catch</code> blocks with friendly error messages.</li>
           <li><strong>Local persistence</strong>: rule sets and preferences are stored only in your browser’s <code>localStorage</code>; nothing is uploaded to any server. You can disable persistence entirely or encrypt your saved data with a passphrase in the Settings panel.</li>
         </ul>
@@ -3051,7 +3031,7 @@
           <li><strong>Data Cleaning:</strong> Exports cleaning operations summary and current data state</li>
           <li><strong>Rows with Issues:</strong> Exports validation issues with detailed error information</li>
           <li><strong>Single-File Duplicates:</strong> Exports data with duplicate group markers</li>
-          <li><strong>Multi-File Management:</strong> Exports merged datasets with match indicators</li>
+          <li><strong>Find Duplicates & Merge Files:</strong> Exports merged datasets with match indicators</li>
           <li><strong>Row Analysis:</strong> Exports comprehensive data dictionary with field statistics</li>
         </ul>
 
@@ -6805,10 +6785,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         return base + suffix;
       }
 
-      // Merge modal interactions
-      el('#navMerge')?.addEventListener('click', () => {
-        showMergeModal();
-      });
+      // Merge modal interactions - removed navMerge button as Export CSV with threshold=1.00 handles ID-based merges
 
       // Help modal: show/hide
       el('#navHelp')?.addEventListener('click', () => {
@@ -9465,7 +9442,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             </style>
           </head>
           <body>
-            <h1>📊 DATAPHREAK - Data Distribution Histograms</h1>
+            <h1>DATAPHREAK - Data Distribution Histograms</h1>
             <p>Generated on: ${new Date().toLocaleString()}</p>
             <p>Dataset: ${el('#datasetName')?.textContent || 'Unknown'}</p>
             ${container.innerHTML}
