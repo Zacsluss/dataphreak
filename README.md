@@ -1,4 +1,4 @@
-# 📊 DATAPHREAK v8.6.0
+# 📊 DATAPHREAK v8.6.1
 ## Professional Data Analysis That Just Works
 
 **Single-file data tool with smart pattern detection, fuzzy duplicate matching, and comprehensive quality scoring - works completely offline.**
@@ -31,6 +31,7 @@ Drag in messy CSV → Get clean data with A-F quality scores → Export professi
 ✅ **Smart Data Visualization** - Charts with intelligent axis titles and rich insights  
 ✅ **One-Click Cleaning** - Auto-corrects formatting and standardizes data  
 ✅ **True Offline Security** - Your data never leaves your computer  
+✅ **Default US Date Format** - MM/DD/YYYY format for better compatibility  
 
 **Perfect for:** Business analysts, operations teams, marketing departments, consultants, and anyone who needs professional data analysis without complex tools.
 
@@ -115,6 +116,6 @@ Drag in messy CSV → Get clean data with A-F quality scores → Export professi
 
 ---
 
-*DATAPHREAK v8.6.0 - Professional data analysis for everyone*
+*DATAPHREAK v8.6.1 - Professional data analysis for everyone*
 
 **🚀 Intelligent • 🔒 Private • ⚡ Fast • 💼 Professional**
