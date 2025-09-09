@@ -1,4 +1,4 @@
-# 📊 DATAPHREAK v8.6.0 - Complete Technical Documentation
+# 📊 DATAPHREAK v8.6.1 - Complete Technical Documentation
 
 ## Executive Summary
 
@@ -27,7 +27,7 @@ DATAPHREAK is a revolutionary single-file data analysis tool that provides enter
 
 ### What is DATAPHREAK?
 
-DATAPHREAK is a **100% client-side** data analysis platform that transforms messy CSV/Excel data into clean, validated, professional datasets in seconds. It combines AI-powered pattern detection, fuzzy duplicate matching, and comprehensive quality scoring in a single HTML file.
+DATAPHREAK is a **100% client-side** data analysis platform that transforms messy CSV/Excel data into clean, validated, professional datasets in seconds. It combines smart pattern detection, fuzzy duplicate matching, and comprehensive quality scoring in a single HTML file.
 
 ### Core Philosophy
 
@@ -129,7 +129,7 @@ F: <60%    - Failing quality
 6. **Total Data Points** - Rows × Columns
 7. **Quality Score** - Comprehensive A-F grade
 
-### 3. AI-Powered Pattern Detection
+### 3. Smart Pattern Detection
 
 #### Automatic Pattern Recognition
 - **Email Addresses** - RFC-compliant validation
@@ -184,8 +184,8 @@ Features:
 ### 6. Data Validation Rules
 
 #### Rule Types
-- **Regex Patterns** - Custom regular expressions
-- **Allowed Values** - Enumerated value lists
+- **Regex Patterns** - Custom regular expressions (auto-suggested for email/date columns)
+- **Allowed Values** - User-defined enumerated value lists (no auto-population)
 - **Required Fields** - Non-null enforcement
 - **Range Validation** - Min/max for numbers
 - **Cross-field Rules** - Inter-column dependencies
@@ -193,8 +193,9 @@ Features:
 #### Rule Management
 - Auto-save by dataset signature
 - Import/export rule templates
-- Per-column validation
-- Invalid row highlighting
+- Per-column validation with "Run Rules" button
+- Invalid row highlighting with issue counts
+- Clean UI without redundant columns
 
 ### 7. Advanced Data Visualization
 
@@ -704,7 +705,16 @@ if (memoryPressure > threshold) {
 
 ## Version History
 
-### v8.6.0 (Current - January 2025)
+### v8.6.1 (Current - January 2025)
+- **UI/UX Improvements**
+  - Fixed Row Analysis table alignment issues
+  - Improved responsive design for all screen sizes
+  - Enhanced duplicate section title visibility
+  - Removed auto-population of "Allowed set" fields
+  - Removed redundant "Expected" column
+  - Changed "Run Checks" to "Run Rules" for clarity
+
+### v8.6.0 (January 2025)
 - **Professional Visualization Revolution**
   - Smart axis titles based on column patterns
   - Enhanced tooltips with rich insights
@@ -855,7 +865,7 @@ Lines: 8,818 total
   - HTML: 318 lines
   - CSS: 2,242 lines
   - JavaScript: 6,258 lines
-Version: 8.6.0
+Version: 8.6.1
 Last Updated: January 2025
 Author: Zachary Sluss
 License: Open Source (Beta)
@@ -898,7 +908,7 @@ The tool's architecture balances sophistication with simplicity, providing power
 
 ---
 
-**🚀 DATAPHREAK v8.6.0 - Professional Data Analysis That Just Works**
+**🚀 DATAPHREAK v8.6.1 - Professional Data Analysis That Just Works**
 
 *"From messy data to professional insights in 30 seconds"*
 

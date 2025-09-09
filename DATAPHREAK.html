@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DATAPHREAK - AI-Powered Data Analysis Tool</title>
+  <title>DATAPHREAK</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Professional offline data analysis tool with AI pattern detection, fuzzy duplicate matching, and comprehensive data quality scoring. No installation required.">
-  <meta name="keywords" content="data analysis,CSV,Excel,offline,data cleaning,AI,analytics,duplicate detection,data quality,business intelligence">
+  <meta name="description" content="Professional offline data analysis tool with smart pattern detection, fuzzy duplicate matching, and comprehensive data quality scoring. No installation required.">
+  <meta name="keywords" content="data analysis,CSV,Excel,offline,data cleaning,analytics,duplicate detection,data quality,business intelligence">
   <meta name="author" content="DATAPHREAK">
   
   <!-- Open Graph for Social Sharing -->
-  <meta property="og:title" content="DATAPHREAK - AI-Powered Data Analysis Tool">
-  <meta property="og:description" content="Professional data analysis tool with AI pattern detection, fuzzy matching, and comprehensive reporting - works completely offline">
+  <meta property="og:title" content="DATAPHREAK - Professional Data Analysis Tool">
+  <meta property="og:description" content="Professional data analysis tool with smart pattern detection, fuzzy matching, and comprehensive reporting - works completely offline">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DATAPHREAK - Data Analysis Tool">
-  <meta name="twitter:description" content="Professional offline data analysis with AI pattern detection and comprehensive quality scoring">
+  <meta name="twitter:description" content="Professional offline data analysis with smart pattern detection and comprehensive quality scoring">
   
   <!-- Performance Resource Hints -->
   <!-- SheetJS library now embedded inline for true offline functionality -->
@@ -38,8 +38,8 @@
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
   <!--
-    DATAPHREAK v8.6.1: AI-powered single-file data analysis tool for CSV/TSV/Excel files. 
-    Features include: AI pattern detection (emails, phones, dates), fuzzy duplicate matching,
+    DATAPHREAK v8.6.1: Smart single-file data analysis tool for CSV/TSV/Excel files. 
+    Features include: Smart pattern detection (emails, phones, dates), fuzzy duplicate matching,
     comprehensive data quality scoring with A-F grades, smart data cleaning with auto-corrections,
     and professional reporting. Works completely offline with no installations required.
     Analysis remains responsive for large datasets with enterprise-grade performance.
@@ -2031,6 +2031,34 @@
       border-collapse: separate;
       border-spacing: 0 3px;
     }
+    #profileTable {
+      width: 100%;
+      table-layout: auto;
+    }
+    #profileTable th {
+      white-space: nowrap;
+      padding: 0 8px 3px;
+      text-align: left;
+    }
+    #profileTable td {
+      padding: 5px 8px;
+      white-space: nowrap;
+      vertical-align: top;
+    }
+    #profileTable td:first-child {
+      min-width: 100px;
+      max-width: 200px;
+      white-space: normal;
+      word-break: break-word;
+    }
+    #profileTable th:last-child,
+    #profileTable td:last-child {
+      min-width: 120px;
+      white-space: normal;
+    }
+    .nowrap {
+      white-space: nowrap;
+    }
     thead th {
       font-size: 10px;
       color: var(--muted);
@@ -2117,7 +2145,13 @@
       tables. The background is set to the panel colour so headers stand
       out from the scrolling content.
     */
-    #profileTable thead th,
+    #profileTable thead th {
+      position: sticky;
+      top: 0;
+      background: var(--panel);
+      z-index: 2;
+      border-bottom: 1px solid var(--border);
+    }
     #invalidTableWrap table thead th {
       position: sticky;
       top: 0;
@@ -2222,7 +2256,31 @@
     }
     
     /* Responsive help navigation */
+    /* Responsive design for smaller screens */
+    @media (max-width: 1024px) {
+      .kpi-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+      .header-inner {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .nav-actions {
+        flex-wrap: wrap;
+      }
+    }
+    
     @media (max-width: 768px) {
+      .container {
+        padding: 8px;
+      }
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .field-btn {
+        font-size: 11px;
+        padding: 4px 8px;
+      }
       .help-index a {
         font-size: 12px;
         padding: 4px 8px;
@@ -2231,12 +2289,47 @@
     }
     
     @media (max-width: 480px) {
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+      header {
+        padding: 8px;
+      }
+      .header-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .header-left, .header-right {
+        justify-content: center;
+      }
       .help-index a {
         font-size: 11px;
         padding: 3px 6px;
         margin: 1px;
         line-height: 1.2;
       }
+    }
+    /* Additional responsive fixes */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    
+    /* Prevent horizontal scrolling on small screens */
+    * {
+      box-sizing: border-box;
+    }
+    
+    /* Better button wrapping */
+    .card-header > div,
+    .section-header > div {
+      flex-wrap: wrap;
+    }
+    
+    /* Ensure tables don't break layout but maintain structure */
+    .table-wrapper {
+      overflow-x: auto;
+      overflow-y: visible;
     }
   </style>
 </head>
@@ -2592,18 +2685,18 @@
           <button id="navSaveRules" type="button" class="field-btn" title="💾 Save your data quality rules so they're remembered next time you open this file">Save Rules</button>
           <button id="navDownloadRules" type="button" class="field-btn" title="📄 Download your data quality rules to share with others or backup">Download Rules</button>
           <button id="navClearRules" type="button" class="field-btn" title="🗑️ Remove your saved rules and start fresh (doesn't change your data)">Clear Rules</button>
-          <button id="navRunRules" type="button" class="field-btn" title="🔍 Check your data against validation rules to find and highlight any issues. Shows which rows don't match your allowed values or patterns">Run Checks</button>
+          <button id="navRunRules" type="button" class="field-btn" title="🔍 Check your data against validation rules to find and highlight any issues. Shows which rows don't match your allowed values or patterns">Run Rules</button>
           <button id="applyPatterns" type="button" class="field-btn" title="🎯 Automatically fix data formats based on detected patterns. Converts messy emails to lowercase, standardizes phone numbers (e.g., (555) 123-4567), and normalizes dates to YYYY-MM-DD format. Only fixes data with high confidence patterns">Apply Patterns</button>
           <button id="quickExportSummary" type="button" class="field-btn" title="📊 Generate a comprehensive data dictionary report showing field-by-field statistics, data types, patterns detected, and quality metrics. Exports as CSV for documentation or sharing with your team">Export CSV</button>
         </div>
       </div>
       <div class="small muted" style="margin-top:12px;margin-bottom:8px">Click headers to sort. Allowed values fields accept comma-separated lists. Rule issues appear after running checks.</div>
-      <div style="overflow:auto">
+      <div class="table-wrapper">
         <table id="profileTable">
           <thead>
             <tr>
-              <th>Column</th>
-              <th>Type</th>
+              <th style="min-width:100px">Column</th>
+              <th style="min-width:60px">Type</th>
               <th class="nowrap">Mini Chart</th>
               <th class="nowrap">Non-null</th>
               <th class="nowrap">Nulls</th>
@@ -2613,11 +2706,10 @@
               <th>Max</th>
               <th>Mean</th>
               <th>Outliers</th>
-              <th>Examples</th>
-              <th>Patterns</th>
-              <th>Expected</th>
+              <th style="min-width:120px">Examples</th>
+              <th style="min-width:100px">Patterns</th>
               <th style="min-width:180px">Allowed set</th>
-              <th>Rule issues</th>
+              <th style="min-width:150px">Rule issues</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -2631,7 +2723,7 @@
         <button id="exportIssuesCsv" type="button" class="field-btn" title="📥 Export rows with validation issues as CSV">Export CSV</button>
       </div>
       <div id="invalidSummary" class="small muted">No rule checks run yet.</div>
-      <div id="invalidTableWrap" style="overflow:auto;margin-top:8px"></div>
+      <div id="invalidTableWrap" style="overflow-x:auto;overflow-y:visible;margin-top:8px"></div>
     </section>
   </div>
 
@@ -2784,7 +2876,7 @@
         <p><strong>Once your data loads, here's what you'll see:</strong></p>
         <ul>
           <li><strong>KPI Cards:</strong> Quick stats showing total rows, columns, missing values, and duplicate records</li>
-          <li><strong>Data Quality Score:</strong> AI-powered assessment (0-100%) measuring completeness, consistency, and pattern validity with A-F grading</li>
+          <li><strong>Data Quality Score:</strong> Intelligent assessment (0-100%) measuring completeness, consistency, and pattern validity with A-F grading</li>
           <li><strong>Quick Actions:</strong> One-click buttons for common tasks:
             <ul style="margin:8px 0 0 20px">
               <li><strong>Analyze All:</strong> Deep-dive into every column</li>
@@ -2801,7 +2893,7 @@
           • 70-79%: Fair - several problems to address<br>
           • Below 70%: Needs significant cleaning</p>
         </div>
-        <h4 id="help-quality">AI-Powered Data Quality Assessment</h4>
+        <h4 id="help-quality">Smart Data Quality Assessment</h4>
         <p>Comprehensive quality scoring that analyzes your entire dataset:</p>
         <ul>
           <li><strong>Overall Score:</strong> 0-100% assessment with letter grades (A-F) like a report card</li>
@@ -2812,21 +2904,21 @@
           <li><strong>Actionable Insights:</strong> Shows exactly what needs attention</li>
           <li><strong>Real-time Updates:</strong> Quality score improves as you clean your data</li>
         </ul>
-        <h4 id="help-duplicates">AI-Powered Duplicate Detection</h4>
+        <h4 id="help-duplicates">Smart Duplicate Detection</h4>
         <p>Advanced duplicate detection that goes beyond basic matching:</p>
         <ul>
           <li><strong>Exact Duplicates:</strong> Finds rows that are completely identical across all fields</li>
-          <li><strong>Fuzzy Duplicates:</strong> AI similarity matching finds near-duplicates like "John Smith" vs "Jon Smith"</li>
+          <li><strong>Fuzzy Duplicates:</strong> Intelligent similarity matching finds near-duplicates like "John Smith" vs "Jon Smith"</li>
           <li><strong>Smart Export:</strong> CSV includes both exact_duplicate_group and fuzzy_duplicate_group columns</li>
           <li><strong>Performance Optimized:</strong> Handles large datasets with chunked processing</li>
           <li><strong>Visual Grouping:</strong> Clear separation between exact matches and similar records</li>
           <li><strong>Row References:</strong> Shows exact row numbers for easy verification in Excel</li>
         </ul>
         <h4 id="help-field">Field Analysis & Profiling</h4>
-        <p>Detailed analysis for each column in your data with AI pattern detection:</p>
+        <p>Detailed analysis for each column in your data with smart pattern detection:</p>
         <ul>
           <li><strong>Data Types:</strong> Number, date, boolean, string with confidence scores</li>
-          <li><strong>AI Patterns:</strong> Automatically detects emails, phone numbers, and dates with confidence indicators</li>
+          <li><strong>Smart Patterns:</strong> Automatically detects emails, phone numbers, and dates with confidence indicators</li>
           <li><strong>Pattern Confidence:</strong> Green = high confidence, yellow = partial match, gray = low confidence</li>
           <li><strong>Coverage:</strong> Percentage of filled vs missing values</li>
           <li><strong>Uniqueness:</strong> How many different values appear in each column</li>
@@ -2836,7 +2928,7 @@
           <li><strong>Sample Values:</strong> Representative examples from each column</li>
         </ul>
 
-        <h4 id="help-patterns">AI Pattern Detection</h4>
+        <h4 id="help-patterns">Smart Pattern Detection</h4>
         <p>Intelligent recognition and standardization of common data formats:</p>
         <ul>
           <li><strong>Email Detection:</strong> Automatically identifies and standardizes email addresses to lowercase</li>
@@ -4860,6 +4952,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         tr.innerHTML = `
             <td><strong>${escapeHtml(p.name)}</strong></td>
             <td><span class="tag">${p.type}</span></td>
+            <td></td>
             <td class="nowrap">${p.nonNull}</td>
             <td class="nowrap">${p.nulls}</td>
             <td style="min-width:140px">
@@ -4913,7 +5006,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // Show exact duplicates first
         if (groups.length > 0) {
           const exactHeader = document.createElement('div');
-          exactHeader.innerHTML = '<strong style="color: var(--accent)">📋 Exact Matches</strong>';
+          exactHeader.innerHTML = '<h4 style="color: var(--accent); margin: 12px 0 8px 0; font-size: 16px; font-weight: 600;">📋 Exact Duplicates</h4>';
           list.appendChild(exactHeader);
           
           groups.slice(0, limit).forEach((g, idx) => {
@@ -4932,7 +5025,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           }
           
           const fuzzyHeader = document.createElement('div');
-          fuzzyHeader.innerHTML = '<strong style="color: var(--accent2)">🔍 Fuzzy Duplicates (Similar Records)</strong>';
+          fuzzyHeader.innerHTML = '<h4 style="color: var(--accent2); margin: 12px 0 8px 0; font-size: 16px; font-weight: 600;">🔍 Fuzzy Duplicates (Similar Records)</h4>';
           list.appendChild(fuzzyHeader);
           
           // Always show at least some fuzzy groups, don't let exact groups crowd them out
@@ -5927,11 +6020,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const rxS = new Array(headers.length).fill('');
         const allowS = new Array(headers.length).fill('');
         for (let j=0; j<headers.length; j++) {
-          const p = STATE.profiles[j];
-          if (p.type === 'string' && p.unique > 0 && p.unique <= 20) {
-            const uniqVals = [...new Set(rows.map(r => r[j]).filter(v => !isNullish(v)).map(v => String(v)))];
-            allowS[j] = uniqVals.join(', ');
-          }
+          // Don't auto-populate allowed values - let users decide
+          // Only suggest regex patterns for email and date columns
           if (/email/i.test(headers[j])) rxS[j] = '^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$';
           if (/date/i.test(headers[j]))  rxS[j] = '^\\d{4}-\\d{2}-\\d{2}$';
         }
@@ -6817,7 +6907,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         };
         PREFS.exportFormat = el('#prefExportFormat')?.value || 'csv';
         PREFS.decimals = parseInt(el('#prefDecimals')?.value || '2', 10);
-        PREFS.dateFormat = el('#prefDateFormat')?.value || 'us');
+        PREFS.dateFormat = el('#prefDateFormat')?.value || 'us';
         PREFS.performance = el('#prefPerformance')?.value || 'balanced';
         PREFS.persist = el('#prefPersist').checked;
         // Save and apply preferences
