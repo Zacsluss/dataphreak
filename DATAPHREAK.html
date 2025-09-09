@@ -3121,7 +3121,7 @@
               <li><strong>🔧 Settings Page Revamp</strong>: Complete redesign with practical options - appearance, export preferences, performance settings</li>
               <li><strong>📝 Help Documentation</strong>: Rewritten in user-friendly language with clear examples and practical guidance</li>
               <li><strong>🎨 UI Consistency</strong>: Standardized all export buttons, fixed alignment issues, improved collapse functionality</li>
-              <li><strong>📅 Default Date Format</strong>: Changed to MM/DD/YYYY for better US compatibility</li>
+              <li><strong>📅 Default Date Format</strong>: Settings now default to MM/DD/YYYY format for better US market compatibility</li>
             </ul>
           </li>
           <li><strong>Professional Data Visualization Revolution</strong>: Complete transformation of chart readability and user insights:
@@ -5811,6 +5811,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // Settings panel.  Converting SF IDs to 18-char form helps ensure IDs
         // match across files by default.
         defaultOps: { trim: true, normalize: false, clean: true, sf: true },
+        dateFormat: 'us', // MM/DD/YYYY format by default
         language: 'en',
         persist: true,
         encrypt: false
