@@ -105,14 +105,18 @@
       --panel:    #f8f6f1;
       --text:     #333333;
       --muted:    #555555;
+      /* Golden accent colors for light theme */
+      --accent:   #b8860b;
+      --accent2:  #daa520;
       --chip:     #ece6dd;
       --border:   #b8860b;
-      --card-bg:      rgba(0,0,0,0.025);
-      --table-row-bg: rgba(0,0,0,0.02);
-      /* Light theme alternate row shading slightly darker for improved contrast */
-      --table-row-alt-bg: rgba(0,0,0,0.025);
-      --table-row-hover-bg: rgba(0,0,0,0.07);
-      --input-bg:     rgba(0,0,0,0.05);
+      /* Light mode secondary backgrounds with subtle golden tint */
+      --card-bg:      rgba(184,134,11,0.09);
+      --table-row-bg: rgba(184,134,11,0.06);
+      /* Light theme alternate row shading with golden tint */
+      --table-row-alt-bg: rgba(184,134,11,0.09);
+      --table-row-hover-bg: rgba(184,134,11,0.18);
+      --input-bg:     rgba(184,134,11,0.10);
       --button-bg-start: rgba(255,255,255,0.92);
       --button-bg-end:   rgba(255,255,255,0.75);
       --nav-hover-bg: rgba(0,0,0,0.1);
@@ -191,7 +195,7 @@
     body.theme-light select:focus,
     body.theme-light textarea:focus {
       box-shadow: 0 0 0 2px rgba(218,165,32,0.6), 0 0 20px rgba(218,165,32,0.2);
-      border-color: rgba(218,165,32,0.8);
+      border-color: #b8860b;
       text-shadow: 0 0 3px rgba(218,165,32,0.6);
     }
 
@@ -272,11 +276,11 @@
       position: fixed;
       width: 6px;
       height: 6px;
-      background: radial-gradient(circle, rgba(218,165,32,1) 0%, rgba(218,165,32,1) 50%, rgba(218,165,32,0.8) 80%, transparent 100%);
+      background: radial-gradient(circle, rgba(218,165,32,0.75) 0%, rgba(218,165,32,0.75) 50%, rgba(218,165,32,0.6) 80%, transparent 100%);
       border-radius: 50%;
       pointer-events: none;
       z-index: -1;
-      box-shadow: 0 0 12px rgba(218,165,32,1), 0 0 24px rgba(218,165,32,0.8), 0 0 36px rgba(218,165,32,0.4);
+      box-shadow: 0 0 15px rgba(218,165,32,0.75), 0 0 30px rgba(218,165,32,0.6), 0 0 45px rgba(218,165,32,0.3), 0 0 60px rgba(218,165,32,0.15);
       animation: sparkleFloat linear infinite;
     }
 
@@ -316,20 +320,20 @@
     }
 
     body.theme-light tbody td {
-      border-top: 1px solid rgba(184,134,11,0.3);
-      border-bottom: 1px solid rgba(184,134,11,0.3);
+      border-top: 1px solid #b8860b;
+      border-bottom: 1px solid #b8860b;
     }
 
     body.theme-light tbody tr td:first-child {
-      border-left: 1px solid rgba(184,134,11,0.3);
+      border-left: 1px solid #b8860b;
     }
 
     body.theme-light tbody tr td:last-child  {
-      border-right: 1px solid rgba(184,134,11,0.3);
+      border-right: 1px solid #b8860b;
     }
 
     body.theme-light .section-header {
-      border-bottom: 1px solid rgba(184,134,11,0.4);
+      border-bottom: 1px solid #b8860b;
     }
 
     body.theme-light .modal-content {
@@ -362,7 +366,90 @@
     body.theme-light .primary-btn,
     body.theme-light .btn-primary,
     body.theme-light .quick-btn {
+      background: linear-gradient(135deg, rgba(218,165,32,0.7), rgba(255,193,7,0.3)) !important;
       color: #333333 !important;
+    }
+
+    /* Light Mode KPI Cards */
+    body.theme-light .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid #b8860b;
+    }
+    body.theme-light .kpi-card:hover {
+      border-color: #b8860b;
+      box-shadow: 0 4px 12px rgba(184,134,11,0.15);
+    }
+    
+    /* Light Mode Analysis Controls Container - Match KPI background */
+    body.theme-light .analysis-controls {
+      background: rgba(184,134,11,0.09);
+      border: 1px solid #b8860b;
+      border-radius: 8px;
+    }
+    
+    body.theme-light .kpi-value {
+      color: #333333;
+    }
+    body.theme-light .kpi-label {
+      color: #666666;
+    }
+
+    /* Light Mode Custom Operations Checkboxes */
+    body.theme-light .op-checkbox {
+      background: var(--input-bg);
+      border: 1px solid transparent;
+    }
+    body.theme-light .op-checkbox:hover {
+      background: rgba(218,165,32,0.18);
+      border-color: #b8860b;
+      box-shadow: 0 2px 8px rgba(184,134,11,0.15);
+    }
+
+    /* Light Mode Data Quality Analysis Views */
+    body.theme-light .analysis-view {
+      background: rgba(218,165,32,0.06);
+      border: 1px solid #b8860b;
+    }
+    body.theme-light .missing-list > div {
+      border-bottom: 1px solid #b8860b;
+    }
+    
+    /* Light Mode Dropzone Divider - Make line gold with 25% opacity */
+    body.theme-light .dropzone-divider::before {
+      background: rgba(184,134,11,0.25);
+    }
+    
+    /* Light Mode Choose File Button - Lighter gradient */
+    body.theme-light .dropzone-main .btn {
+      background: linear-gradient(135deg, rgba(218,165,32,0.5), rgba(255,193,7,0.2)) !important;
+      color: #333333 !important;
+      border: 1px solid #b8860b;
+    }
+    
+    /* Light Mode Missing Item Rows - Add golden tint */
+    body.theme-light .missing-item {
+      background: rgba(184,134,11,0.09) !important;
+      border-left: 3px solid #b8860b;
+    }
+    body.theme-light .missing-item.high {
+      background: rgba(184,134,11,0.12) !important;
+      border-left-color: #ef4444;
+    }
+    body.theme-light .missing-item.medium {
+      background: rgba(184,134,11,0.10) !important;
+      border-left-color: #f59e0b;
+    }
+    body.theme-light .missing-item.low {
+      background: rgba(184,134,11,0.08) !important;
+      border-left-color: #10b981;
+    }
+    body.theme-light .stat-card {
+      background: rgba(218,165,32,0.08);
+      border: 1px solid #b8860b;
+    }
+    body.theme-light .breakdown-section {
+      background: rgba(218,165,32,0.06);
+      border: 1px solid #b8860b;
     }
 
     /* Light Mode ALL Button Border Override - Comprehensive */
@@ -439,7 +526,7 @@
     body.theme-light .view-mode.active {
       background: linear-gradient(135deg, rgba(218,165,32,0.9), rgba(255,193,7,0.7)) !important;
       color: #333333 !important;
-      border-color: rgba(218,165,32,0.8) !important;
+      border-color: #b8860b !important;
       box-shadow: 0 0 16px rgba(218,165,32,0.8), 0 0 8px rgba(255,193,7,0.6) !important;
       text-shadow: 0 0 6px rgba(218,165,32,0.9) !important;
     }
@@ -467,6 +554,9 @@
       --panel:    #042612;
       --text:     #00ff99;
       --muted:    #00cc77;
+      /* Matrix green accent colors */
+      --accent:   #00ff99;
+      --accent2:  #00cc77;
       --chip:     #05351c;
       --border:   #075e33;
       --card-bg:      rgba(0,64,32,0.4);
@@ -555,6 +645,47 @@
     body.theme-matrix textarea:focus {
       box-shadow: 0 0 0 2px rgba(0,255,153,0.8), 0 0 10px rgba(0,255,153,0.3);
       text-shadow: 0 0 3px rgba(0,255,153,0.6);
+    }
+
+    /* Matrix KPI Cards */
+    body.theme-matrix .kpi-card {
+      background: linear-gradient(135deg, rgba(0,255,153,0.08), rgba(0,204,119,0.05));
+      border: 1px solid rgba(0,255,153,0.2);
+    }
+    body.theme-matrix .kpi-card:hover {
+      border-color: #00ff99;
+      box-shadow: 0 4px 12px rgba(0,255,153,0.2), 0 0 20px rgba(0,255,153,0.1);
+    }
+    body.theme-matrix .kpi-card::before {
+      background: linear-gradient(90deg, #00ff99, #00cc77);
+    }
+
+    /* Matrix Custom Operations Checkboxes */
+    body.theme-matrix .op-checkbox {
+      background: rgba(0,255,153,0.05);
+      border: 1px solid rgba(0,255,153,0.1);
+    }
+    body.theme-matrix .op-checkbox:hover {
+      background: rgba(0,255,153,0.12);
+      border-color: rgba(0,255,153,0.3);
+      box-shadow: 0 2px 8px rgba(0,255,153,0.15), 0 0 10px rgba(0,255,153,0.05);
+    }
+
+    /* Matrix Data Quality Analysis Views */
+    body.theme-matrix .analysis-view {
+      background: rgba(0,255,153,0.03);
+      border: 1px solid rgba(0,255,153,0.15);
+    }
+    body.theme-matrix .missing-list > div {
+      border-bottom: 1px solid rgba(0,255,153,0.1);
+    }
+    body.theme-matrix .stat-card {
+      background: rgba(0,255,153,0.05);
+      border: 1px solid rgba(0,255,153,0.15);
+    }
+    body.theme-matrix .breakdown-section {
+      background: rgba(0,255,153,0.04);
+      border: 1px solid rgba(0,255,153,0.2);
     }
 
     /* Matrix header pulse effect */
@@ -861,7 +992,7 @@
   margin-right: 4px;
 }
     .version {
-      font-size: 14px;
+      font-size: 10px;
       font-weight: normal;
       color: var(--muted);
       margin-left: 8px;
@@ -874,6 +1005,17 @@
       color: var(--muted);
       font-size: 13px;
     }
+    
+    /* Light Mode Dataset Status Pill - Override with golden tint */
+    .theme-light .pill,
+    .theme-light #datasetName,
+    body.theme-light .pill,
+    body.theme-light #datasetName {
+      background: rgba(184,134,11,0.20) !important;
+      border: 1px solid #b8860b !important;
+      color: #333333 !important;
+    }
+    
     nav#topNav {
       display: flex;
       flex-wrap: wrap;
@@ -1222,10 +1364,25 @@
       100% { transform: scale(1); }
     }
 
-    /* Streamlined Data Operations Styling */
+    /* Streamlined Data Operations Styling - Compact */
+    #operationsSection {
+      padding: 8px !important;
+    }
+    #operationsSection .card-header {
+      margin-bottom: 6px;
+    }
+    .ops-row {
+      display: flex;
+      gap: 8px;
+      margin: 6px 0;
+    }
+    .ops-half {
+      flex: 1;
+      min-width: 0;
+    }
     .ops-step {
-      margin: 8px 0;
-      padding: 6px;
+      margin: 4px 0;
+      padding: 4px;
       background: rgba(255,255,255,0.02);
       border-radius: 4px;
       border: 1px solid rgba(255,255,255,0.05);
@@ -1233,43 +1390,45 @@
     .ops-label {
       display: block;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       color: var(--accent);
-      font-size: 11px;
+      font-size: 10px;
     }
     .ops-select {
       width: 100%;
-      min-height: 60px;
+      min-height: 140px;
       background: var(--input-bg);
       border: 1px solid var(--border);
       border-radius: 4px;
-      padding: 6px;
+      padding: 4px;
       color: var(--text);
-      font-size: 11px;
+      font-size: 10px;
+      resize: vertical;
+      overflow-y: auto;
     }
     .quick-actions {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 4px;
+      gap: 3px;
     }
-    /* Quick buttons in operations - improved legibility sizing */
+    /* Quick buttons in operations - compact sizing */
     .quick-btn {
       background: linear-gradient(135deg, var(--accent), rgba(168,85,247,0.8));
       border: none;
-      border-radius: 6px;
-      padding: 12px 20px;
+      border-radius: 5px;
+      padding: 8px 12px;
       color: white;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      font-size: 13px;
+      font-size: 11px;
       flex: 1;
-      min-width: 140px;
-      height: 44px;
+      min-width: 110px;
+      height: 36px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 4px;
     }
     .quick-btn:hover {
       transform: translateY(-2px);
@@ -1313,28 +1472,40 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 4px;
+      margin-top: 4px;
     }
     .op-checkbox {
       display: flex;
-      align-items: flex-start;
-      padding: 6px;
+      align-items: center;
+      padding: 6px 8px;
       border-radius: 4px;
       cursor: pointer;
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
+      background: var(--input-bg);
+      border: 1px solid transparent;
     }
     .op-checkbox:hover {
-      background: rgba(147,51,234,0.05);
+      background: rgba(34,197,94,0.08);
+      border-color: rgba(34,197,94,0.3);
+      transform: translateY(-1px);
     }
     .op-checkbox input {
-      margin-right: 8px;
-      margin-top: 2px;
+      margin-right: 6px;
       width: 14px;
       height: 14px;
+      cursor: pointer;
+      accent-color: var(--accent);
+    }
+    .op-checkbox input:checked + .op-text {
+      color: var(--accent);
+      font-weight: 600;
     }
     .op-text {
       font-weight: 500;
-      font-size: 12px;
+      font-size: 11px;
       display: block;
+      user-select: none;
+      transition: color 0.2s ease;
     }
     /* Duplicate .primary-btn removed - combined with .btn-primary below */
     /* Secondary action buttons - compact uniform size */
@@ -1623,8 +1794,8 @@
       justify-content: space-between;
     }
     .kpi-card {
-      background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid rgba(255,255,255,0.08);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
       border-radius: 6px;
       padding: 10px 12px;
       display: flex;
@@ -1690,7 +1861,7 @@
       padding: 12px;
       background: rgba(255,255,255,0.03);
       border-radius: 6px;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
     }
     .info-item {
       display: flex;
@@ -1839,14 +2010,14 @@
     .missing-list {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 2px;
     }
     .missing-item {
-      padding: 12px;
-      border-radius: 6px;
+      padding: 6px 10px;
+      border-radius: 4px;
       border-left: 3px solid;
       background: rgba(255,255,255,0.02);
-      margin-bottom: 8px;
+      margin-bottom: 3px;
     }
 
     .missing-item-content {
@@ -1857,13 +2028,15 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      font-size: 12px;
     }
 
     .missing-item-details {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--muted);
       opacity: 0.8;
+      line-height: 1.2;
     }
     .missing-item.high {
       border-left-color: #ef4444;
@@ -1935,57 +2108,64 @@
 
     .breakdown-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
       justify-content: center;
       align-items: start;
-      padding: 12px;
     }
 
     .breakdown-section {
       background: rgba(255,255,255,0.02);
-      padding: 16px;
-      border-radius: 8px;
+      padding: 10px;
+      border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.08);
-      min-height: 120px;
+      min-height: auto;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
     }
 
     .breakdown-section h5 {
-      margin: 0 0 8px 0;
-      font-size: 12px;
+      margin: 0 0 6px 0;
+      font-size: 11px;
       color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .breakdown-label {
       font-weight: 500;
-      color: var(--text);
+      color: var(--muted);
+      font-size: 11px;
     }
 
     .stats-breakdown h4 {
-      margin: 16px 0 8px 0;
-      color: var(--text);
-      font-size: 13px;
+      margin: 12px 0 8px 0;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
     }
     .breakdown-item {
       display: flex;
       justify-content: space-between;
-      padding: 4px 6px;
+      padding: 3px 4px;
       border-radius: 2px;
-      background: rgba(255,255,255,0.02);
       margin-bottom: 2px;
-      font-size: 10px;
+      font-size: 11px;
+    }
+    .breakdown-item:hover {
+      background: rgba(255,255,255,0.02);
     }
     .breakdown-column {
       color: var(--text);
       font-weight: 500;
     }
     .breakdown-value {
-      color: var(--muted);
-      font-size: 10px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 600;
     }
     .small { font-size: 10px; }
     .muted { color: var(--muted); }
@@ -2343,7 +2523,7 @@
         </div>
       </div>
       <h1>
-        DATAPHREAK<span class="version">v8.6.1</span>
+        DATAPHREAK<span class="version">v8.6.2</span>
       </h1>
       <div class="header-right">
         <span id="datasetName" class="pill">No dataset loaded</span>
@@ -2364,13 +2544,13 @@
         <!-- Salesforce ID conversion has been integrated into Data Operations; the nav button has been removed. -->
         <!-- Merge functionality integrated into Export CSV with threshold=1.00 -->
         <!-- Data visualization histograms -->
-        <button id="navHistograms" type="button" title="📊 See beautiful charts and graphs showing how your data is distributed">Charts and Graphs</button>
+        <button id="navHistograms" type="button" title="View interactive data distribution charts and histograms for all columns. Visualizes numeric ranges, categorical frequencies, date patterns, and outliers. Includes customizable bin sizes, color-coded bars for data quality, and export to PNG/PDF for presentations">Charts and Graphs</button>
         <!-- Help: open documentation modal -->
-        <button id="navHelp" type="button" title="❓ Get help and learn how to use all features">Help</button>
+        <button id="navHelp" type="button" title="❓ Access comprehensive help documentation, step-by-step tutorials, keyboard shortcuts, and feature explanations. Includes getting started guide, advanced techniques, troubleshooting tips, and video walkthroughs for all major features">Help</button>
     <!-- Settings: open preferences modal -->
-    <button id="navSettings" type="button" title="⚙️ Customize themes, preferences, and data saving options">Settings</button>
+    <button id="navSettings" type="button" title="Customize your DATAPHREAK experience: choose between Dark/Light/Matrix themes, set default cleaning operations, configure export formats (CSV/Excel), adjust decimal places, date formats, and performance settings. All preferences can be saved for future sessions">Settings</button>
         <!-- Theme toggle: cycles through dark, light and high-tech modes -->
-        <button id="themeToggle" type="button" title="🎨 Switch between Dark, Light, and cool Matrix themes">Light Mode</button>
+        <button id="themeToggle" type="button" title="Toggle between three visual themes: Dark mode (default gray for reduced eye strain), Light mode (cream/gold for bright environments), and Matrix mode (green terminal aesthetic). Your preference is remembered for next visit">Light Mode</button>
       </div>
     </nav>
   </header>
@@ -2385,9 +2565,9 @@
           <input type="file" id="fileInput" accept=".csv,.tsv,.xlsx,.xls,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" title="📁 Choose a CSV, TSV, or Excel file from your computer">
         </div>
         <div class="dropzone-formats">
-          <span class="format-hint">📊 CSV</span>
-          <span class="format-hint">📋 TSV</span>
-          <span class="format-hint">📈 Excel</span>
+          <span class="format-hint">CSV</span>
+          <span class="format-hint">TSV</span>
+          <span class="format-hint">Excel</span>
         </div>
         <div class="dropzone-divider">
           <span>or</span>
@@ -2398,13 +2578,13 @@
       </div>
       <!-- Hide the underlying control buttons in Load Data. They remain in the DOM for functionality but are not visible to users. -->
       <div class="row" style="margin-top:8px; display:none">
-        <button id="exportDict" type="button" disabled title="Download a summary file describing each field (counts, unique values, min/max, etc.)">Export Data Dictionary</button>
-        <button id="runRules" type="button" disabled title="🔍 Check your data for issues based on your quality rules">Run Rule Checks</button>
+        <button id="exportDict" type="button" disabled title="Generate comprehensive data dictionary documenting every column: data types, unique value counts, null percentages, min/max ranges, detected patterns (emails/phones/dates), sample values, and suggested validation rules. Essential for data documentation and team handoffs">Export Data Dictionary</button>
+        <button id="runRules" type="button" disabled title="Execute validation rules against your dataset to identify quality issues. Checks for required fields, allowed values, pattern matches, data type consistency, and custom business rules. Highlights all violations and generates detailed error report">Run Rule Checks</button>
       </div>
       <div class="row" style="margin-top:4px; display:none">
-        <button id="saveRules" type="button" disabled title="💾 Save your data quality rules so they're remembered next time you open this file">Save Rules</button>
-        <button id="clearRules" type="button" disabled title="Reset all rules for this dataset back to suggestions by removing any saved rules">Clear Rules</button>
-        <button id="downloadRules" type="button" disabled title="Download your current rule settings as a file so you can share them or import them later">Download Rules</button>
+        <button id="saveRules" type="button" disabled title="Persist your custom validation rules to browser storage, linked to this specific file. Rules are automatically loaded when you reopen the same dataset, maintaining column-specific patterns, allowed values, and required field settings across sessions">Save Rules</button>
+        <button id="clearRules" type="button" disabled title="Remove all saved validation rules for this dataset and revert to auto-detected patterns. Clears custom allowed values, required fields, and pattern rules from storage. The system will regenerate smart suggestions based on your data">Clear Rules</button>
+        <button id="downloadRules" type="button" disabled title="Export your validation rules to a JSON file for sharing with team members or backup. Includes all column patterns, allowed values, required fields, and custom rules. Can be imported into any DATAPHREAK instance for consistent data validation">Download Rules</button>
       </div>
     </section>
     <!-- Dataset Overview -->
@@ -2414,13 +2594,13 @@
           <div class="section-title">Data Overview</div>
           <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section" style="margin-left: 8px;">▼</span>
         </div>
-        <button id="exportOverviewCsv" type="button" class="field-btn" title="📥 Export dataset overview statistics as CSV">Export CSV</button>
+        <button id="exportOverviewCsv" type="button" class="field-btn" title="Export comprehensive dataset overview statistics to CSV format. Includes total row/column counts, data types distribution, missing data percentages, duplicate counts, and basic statistical summaries for all numeric columns">Export CSV</button>
       </div>
 
       <!-- Dataset Info Display -->
       <div id="datasetInfo" class="dataset-info-panel">
         <div class="info-item">
-          <span class="info-label">📄 File:</span>
+          <span class="info-label">File:</span>
           <span id="infoFileName" class="info-value">No file loaded</span>
         </div>
         <div class="info-item">
@@ -2432,7 +2612,7 @@
           <span id="infoLoadTime" class="info-value">—</span>
         </div>
         <div class="info-item">
-          <span class="info-label">✨ Status:</span>
+          <span class="info-label">Status:</span>
           <span id="infoStatus" class="info-value">Ready to analyze</span>
         </div>
       </div>
@@ -2488,7 +2668,7 @@
           </div>
         </div>
         <div class="kpi-card" id="kpiQualityCard" title="Smart overall data quality score with A-F grade - click status for detailed breakdown of completeness, consistency, and validity">
-          <div class="kpi-icon">🎯</div>
+          <div class="kpi-icon"></div>
           <div class="kpi-content">
             <div class="kpi-value" id="kpiQuality">—</div>
             <div class="kpi-label">Data Quality</div>
@@ -2500,36 +2680,33 @@
 
       <!-- Smart Recommendations -->
       <div id="smartRecommendations" class="result-card" style="display:none;">
-        <div style="font-weight: 600; margin-bottom: 8px;">🤖 Smart Recommendations</div>
+        <div style="font-weight: 600; margin-bottom: 8px;">Smart Recommendations</div>
         <div id="recommendationsList"></div>
       </div>
     </section>
     <!-- Data Quality -->
     <section class="card" id="heatmapSection">
-      <div class="section-header" style="display: flex; justify-content: space-between; align-items: center;">
-        <div style="display: flex; align-items: center;">
-          <div class="section-title">Data Quality</div>
-          <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section" style="margin-left: 8px;">▼</span>
-        </div>
-        <button id="exportQualityCsv" type="button" class="field-btn" title="📥 Export data quality analysis as CSV">Export CSV</button>
+      <div class="card-header">
+        <h2 title="Analyze data completeness and quality metrics">Data Quality <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
+        <button id="exportQualityCsv" type="button" class="field-btn" title="Export detailed data quality analysis to CSV format. Includes completeness metrics, missing value patterns, data type consistency, pattern detection results, and quality grade (A-F) for each column with specific improvement recommendations">Export CSV</button>
       </div>
 
       <!-- Analysis View Controls -->
       <div class="analysis-controls">
         <div class="view-modes">
-          <button class="view-mode" data-mode="list" title="📋 See which columns have missing data and how many gaps">📋 Column Analysis</button>
-          <button class="view-mode" data-mode="stats" title="📊 View overall data quality metrics and statistics">📊 Quality Statistics</button>
+          <button class="view-mode" data-mode="list" title="Display detailed column-by-column analysis showing missing data counts, completion percentages, data types, and quality indicators. Highlights columns with issues using color coding: red for high missing data, yellow for moderate, green for complete">Column Overview</button>
+          <button class="view-mode" data-mode="stats" title="View comprehensive data quality metrics and statistics. Displays overall completeness percentage, quality grade (A-F), missing data patterns, data type distribution, and statistical summaries including mean, median, mode, and standard deviation for numeric columns">Quality Statistics</button>
         </div>
       </div>
 
       <!-- Analysis Views -->
-      <div id="listView" class="analysis-view">
-        <div class="view-header">📋 Missing Values by Column</div>
+      <div id="listView" class="analysis-view" style="display:none;">
+        <div class="view-header">Missing Values by Column</div>
         <div id="missingValuesList" class="missing-list"></div>
       </div>
 
       <div id="statsView" class="analysis-view" style="display:none;">
-        <div class="view-header">📊 Data Quality Statistics</div>
+        <div class="view-header">Data Quality Statistics</div>
         <div id="missingValuesStats" class="stats-grid"></div>
       </div>
 
@@ -2537,10 +2714,10 @@
     <!-- Data Operations -->
     <section class="card" id="operationsSection">
       <div class="card-header">
-        <h2 title="Clean your data and manage unique identifiers">Data Cleaning &amp; IDs <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
+        <h2 title="Clean your data and manage unique identifiers">Data Cleaning &amp; ID Management <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
         <div style="display: flex; gap: 8px;">
-          <button id="opApply" type="button" class="field-btn" title="Apply selected operations" disabled>Apply Operations</button>
-          <button id="exportCleaningCsv" type="button" class="field-btn" title="📥 Export cleaned data as CSV">Export CSV</button>
+          <button id="opApply" type="button" class="field-btn" title="Apply all selected data cleaning operations in sequence: trim whitespace, normalize case, remove special characters, convert Salesforce IDs (15→18 digit), and add unique row identifiers. Operations are applied in the order shown and can be undone" disabled>Apply Operations</button>
+          <button id="exportCleaningCsv" type="button" class="field-btn" title="Export the current dataset with all applied cleaning operations to CSV format. Includes any transformations from trimming, normalization, special character removal, Salesforce ID conversion, or added ID columns. Preserves all data types and formatting">Export CSV</button>
         </div>
       </div>
       <div class="small muted">Select fields and choose your approach: quick fixes or custom operations.</div>
@@ -2549,35 +2726,39 @@
       <div class="ops-row">
         <!-- Field Selection (50% width) -->
         <div class="ops-step ops-half">
-          <label for="opColumns" class="ops-label" title="Click to select which columns to apply operations to">📋 Select Fields</label>
-          <select id="opColumns" multiple class="ops-select" title="📋 Choose which columns to clean - hold Ctrl/Cmd to select multiple" style="resize: vertical; min-height: 100px; overflow-y: auto;">
+          <label for="opColumns" class="ops-label" title="Click to select which columns to apply operations to">Select Fields</label>
+          <select id="opColumns" multiple class="ops-select" title="Choose which columns to clean - hold Ctrl/Cmd to select multiple">
             <option disabled>Load data to see fields...</option>
           </select>
         </div>
 
         <!-- Custom Operations (50% width) -->
         <div class="ops-step ops-half">
-          <div class="ops-label">🎛️ Custom Operations</div>
+          <div class="ops-label">Custom Operations</div>
           <div class="custom-ops">
-            <label class="op-checkbox" title="✂️ Remove extra spaces before and after text (e.g., '  John  ' becomes 'John')">
+            <label class="op-checkbox" title="Remove extra spaces before and after text (e.g., '  John  ' becomes 'John')">
               <input type="checkbox" id="opTrim" title="Remove extra spaces from the beginning and end of text">
               <span class="op-text">Trim spaces</span>
             </label>
-            <label class="op-checkbox" title="✏️ Smart capitalization - Names become Title Case, emails lowercase">
+            <label class="op-checkbox" title="Convert 15-digit Salesforce IDs to 18-digit format (for Salesforce users only)">
+              <input type="checkbox" id="opSfConvert" title="Convert 15-digit Salesforce IDs to 18-digit format (helps ensure IDs match properly across different systems and are case-insensitive)">
+              <span class="op-text">Convert SF IDs</span>
+            </label>
+            <label class="op-checkbox" title="Convert special characters to regular ones (e.g., 'José' becomes 'Jose')">
+              <input type="checkbox" id="opClean" title="Remove accents, special characters, and non-alphanumeric symbols from text fields. Converts accented letters to their base form (é→e, ñ→n) and removes punctuation except spaces, hyphens, and underscores. Useful for standardizing names and addresses">
+              <span class="op-text">Remove accents</span>
+            </label>
+            <label class="op-checkbox" title="Smart capitalization - Names become Title Case, emails lowercase">
               <input type="checkbox" id="opNormalize" title="Fix capitalization (proper case for names, lowercase for emails)">
               <span class="op-text">Fix letter case</span>
             </label>
-            <label class="op-checkbox" title="🧹 Convert special characters to regular ones (e.g., 'José' becomes 'Jose')">
-              <input type="checkbox" id="opClean" title="Remove accents and special characters from text">
-              <span class="op-text">Remove accents</span>
-            </label>
-            <label class="op-checkbox" title="🔧 Convert short Salesforce IDs to long format (for Salesforce users only)">
-              <input type="checkbox" id="opSfConvert" title="Convert short Salesforce IDs to long format (helps ensure IDs match properly across different systems)">
-              <span class="op-text">Convert SF IDs</span>
-            </label>
-            <label class="op-checkbox" title="🆔 Add a new ID column with unique numbers for each row">
+            <label class="op-checkbox" title="Add a new ID column with unique numbers for each row">
               <input type="checkbox" id="opAddId" title="Add a unique ID column to identify each row (useful for tracking and merging data)">
               <span class="op-text">Add ID Column</span>
+            </label>
+            <label class="op-checkbox" title="Remove exact duplicate values within each column (keeps first occurrence)">
+              <input type="checkbox" id="opRemoveDupes" title="Remove duplicate values in each column, keeping only the first occurrence of each unique value">
+              <span class="op-text">Remove Duplicates</span>
             </label>
           </div>
         </div>
@@ -2587,14 +2768,14 @@
       <div class="ops-step">
         <div class="ops-label">Quick Actions</div>
         <div class="quick-actions" style="grid-template-columns: repeat(3, 1fr);">
-          <button type="button" class="quick-btn" id="quickCleanAll" title="🧹 Smart one-click cleanup - fixes spacing, capitalization, and special characters">
-            🧹 Clean All
+          <button type="button" class="quick-btn" id="quickCleanAll" title="Instantly clean ALL columns with smart fixes: ✓ Removes extra spaces and tabs ✓ Fixes inconsistent capitalization (smart detection for names, emails, addresses) ✓ Removes special characters and invisible Unicode ✓ Standardizes accented characters ✓ Converts Salesforce IDs to 18-character format. Perfect first step for any dataset - takes 1 second!">
+            Clean All
           </button>
-          <button type="button" class="quick-btn" id="quickAnalyzeKeys" title="🔑 Find columns that can uniquely identify each row (like ID numbers)">
-            🔑 Analyze Keys
+          <button type="button" class="quick-btn" id="quickAnalyzeKeys" title="Automatically detect ID columns and unique identifiers in your data. Analyzes every column to find: ✓ Primary keys (100% unique values like customer IDs) ✓ High-uniqueness columns (90%+ unique like email addresses) ✓ Potential composite keys (combinations that uniquely identify rows) ✓ Duplicate-prone columns to avoid. Essential for database design and data merging!">
+            Analyze Keys
           </button>
-          <button type="button" class="quick-btn" id="quickPrepare" title="✨ Clean your data then find unique identifiers - perfect combo for data prep!">
-            ✨ Prepare Data
+          <button type="button" class="quick-btn" id="quickPrepare" title="Complete data preparation in one click! Combines two powerful operations: FIRST applies all cleaning operations to fix spacing, capitalization, and formatting issues, THEN analyzes your data to identify unique ID columns and keys. This is the recommended starting point for any new dataset - it prepares your data for analysis, merging, or database import in seconds!">
+            Prepare Data
           </button>
         </div>
       </div>
@@ -2610,7 +2791,7 @@
       <!-- Header row with title and export button -->
       <div class="card-header">
         <h2 title="Find both exact duplicates and similar records using smart algorithms - catches more issues than basic matching">Single-File Duplicates <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
-        <button id="exportExactDupCsv" type="button" title="📥 Download your data with both exact and similar duplicates marked in separate columns - perfect for review in Excel">Export CSV</button>
+        <button id="exportExactDupCsv" type="button" title="Export dataset with duplicate analysis results. Adds two columns: 'Exact_Duplicate' (marks 100% identical rows) and 'Similar_Duplicate' (marks fuzzy matches based on similarity threshold). Includes duplicate group IDs for easy filtering and review in Excel">Export CSV</button>
       </div>
       <div id="dupeSummary" class="small muted">&mdash;</div>
       <div id="dupeList" class="small" style="margin-top:8px"></div>
@@ -2618,14 +2799,14 @@
 
     <!-- Fuzzy Duplicates -->
 
-    <!-- Find Duplicates & Merge Files (formerly Cross-File Fuzzy Duplicates) -->
+    <!-- Merge Files by Column (formerly Cross-File Fuzzy Duplicates) -->
     <section class="card" id="fuzzySection">
       <!-- Header row with title and buttons -->
       <div class="card-header">
-        <h2 title="Compare two datasets to find matching records and merge files together">Find Duplicates & Merge Files <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
+        <h2 title="Compare and merge two datasets using exact or fuzzy matching. Set threshold to 1.00 for exact matches only, or lower values (e.g., 0.85) for fuzzy matching that finds similar records even with typos or variations. Perfect for deduplication, record linkage, and data consolidation.">Merge Files by Column <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
         <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <button id="fuzzyRunCross" type="button" class="field-btn" title="Find matching records between the two datasets using the threshold setting (1.00 = exact matches, lower values = fuzzy matches)">Compare A↔B</button>
-          <button id="exportFuzzyCrossCsv" type="button" class="field-btn" title="Download a merged file of both datasets with matching records highlighted (exact or fuzzy matches depending on threshold setting). When threshold is set to 1.00, this performs an exact ID-based merge">Export CSV</button>
+          <button id="fuzzyRunCross" type="button" class="field-btn" title="Execute cross-dataset comparison to find matching records between primary and secondary files. Uses selected columns and similarity threshold: 1.00 for exact ID matching, 0.85-0.99 for fuzzy matching that catches typos, abbreviations, and formatting differences. Results show match confidence scores">Compare A↔B</button>
+          <button id="exportFuzzyCrossCsv" type="button" class="field-btn" title="Export merged dataset combining both files with match results. Includes all columns from both datasets, match confidence scores, and match type (exact/fuzzy). When threshold=1.00, performs database-style JOIN operation. Lower thresholds create fuzzy merge catching near-matches">Export CSV</button>
         </div>
       </div>
       <!-- Cross-file fuzzy matching only -->
@@ -2647,13 +2828,15 @@
       <div class="card-header">
         <h2 title="Detailed analysis of each column/field with smart pattern detection - see data types, patterns, statistics, and quality rules">Column Analysis <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
         <!-- Field Analysis action buttons aligned with other tile headers -->
-        <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <button id="navSaveRules" type="button" class="field-btn" title="💾 Save your data quality rules so they're remembered next time you open this file">Save Rules</button>
-          <button id="navDownloadRules" type="button" class="field-btn" title="📄 Download your data quality rules to share with others or backup">Download Rules</button>
-          <button id="navClearRules" type="button" class="field-btn" title="🗑️ Remove your saved rules and start fresh (doesn't change your data)">Clear Rules</button>
-          <button id="navRunRules" type="button" class="field-btn" title="🔍 Check your data against validation rules to find and highlight any issues. Shows which values don't match your allowed values or patterns">Run Rules</button>
-          <button id="applyPatterns" type="button" class="field-btn" title="🎯 Automatically fix data formats based on detected patterns. Converts messy emails to lowercase, standardizes phone numbers (e.g., (555) 123-4567), and normalizes dates to YYYY-MM-DD format. Only fixes data with high confidence patterns">Apply Patterns</button>
-          <button id="quickExportSummary" type="button" class="field-btn" title="📊 Generate a comprehensive data dictionary report showing field-by-field statistics, data types, patterns detected, and quality metrics. Exports as CSV for documentation or sharing with your team">Export CSV</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
+          <button id="navDownloadRules" type="button" class="field-btn" title="Export validation rules to shareable JSON file containing all column-specific patterns, allowed value lists, required field settings, and custom regex patterns. Perfect for team collaboration, rule versioning, or applying consistent validation across multiple datasets">Download Rules</button>
+          <button id="navSaveRules" type="button" class="field-btn" title="Store current validation rules in browser's local storage, linked to this file's unique signature. Rules automatically reload when you open the same dataset again, preserving all custom patterns, allowed values, and field requirements across sessions">Save Rules</button>
+          <button id="navClearRules" type="button" class="field-btn" title="Delete all saved validation rules from browser storage and reset to auto-detected suggestions. Your data remains unchanged - only the validation rules are cleared. System will regenerate smart pattern detection based on current data">Clear Rules</button>
+          <button id="navRunRules" type="button" class="field-btn" title="Validate entire dataset against configured rules: required fields, allowed values, regex patterns, data types, and ranges. Generates detailed report showing all violations by row and column, with specific error messages and suggested fixes">Run Rules</button>
+          <button id="quickExportSummary" type="button" class="field-btn" title="Create detailed column analysis report with complete field documentation: data types, cardinality, null percentages, min/max/mean/median statistics, detected patterns, sample values, quality grades, and validation rule suggestions. Exports as CSV for technical documentation">Export Column Analysis</button>
+          <span style="border-left:1px solid var(--border);height:20px;margin:0 6px"></span>
+          <button id="applyPatterns" type="button" class="field-btn" title="Smart format standardization based on pattern detection with 90%+ confidence. Normalizes emails to lowercase, formats phones as (XXX) XXX-XXXX, converts dates to YYYY-MM-DD, fixes ZIP codes to 5 or 9 digits, and standardizes URLs. Preserves original data when confidence is low">Apply Patterns</button>
+          <button id="exportDataWithPatterns" type="button" class="field-btn" title="Export dataset with all pattern-based formatting applied. Includes normalized emails, standardized phone numbers, consistent date formats, cleaned ZIP codes, and formatted URLs. Preserves data types and adds metadata column showing which patterns were applied">Export CSV</button>
         </div>
       </div>
       <div class="small muted" style="margin-top:12px;margin-bottom:8px">Click headers to sort. Allowed values fields accept comma-separated lists. Rule issues appear after running checks.</div>
@@ -2686,7 +2869,7 @@
     <section class="card" id="invalidSection">
       <div class="card-header">
         <h2 title="Rows that have data quality issues will appear here for review">Rows with Issues <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
-        <button id="exportIssuesCsv" type="button" class="field-btn" title="📥 Export rows with validation issues as CSV">Export CSV</button>
+        <button id="exportIssuesCsv" type="button" class="field-btn" title="Export all rows containing data quality issues to CSV format. Includes rows with missing required fields, invalid formats, outliers, duplicates, or pattern violations. Adds an 'Issue Type' column describing the specific problem for each row">Export CSV</button>
       </div>
       <div id="invalidSummary" class="small muted">No rule checks run yet.</div>
       <div id="invalidTableWrap" style="overflow-x:auto;overflow-y:visible;margin-top:8px"></div>
@@ -2719,8 +2902,8 @@
         </select>
       </div>
       <div class="modal-buttons" style="margin-top:12px">
-        <button id="mergeDo" type="button" disabled title="Merge the files and download the combined result">Merge &amp; Download</button>
-        <button id="mergeCancel" type="button" title="Close this dialog without merging files">Cancel</button>
+        <button id="mergeDo" type="button" disabled title="Execute the merge operation and download the combined dataset. Performs left join by default, keeping all rows from the primary dataset and matching rows from the secondary. Adds all columns from both files, with duplicate column names suffixed with '_2'">Merge &amp; Download</button>
+        <button id="mergeCancel" type="button" title="Close the merge dialog without performing any operations. Your current datasets remain unchanged and no files are downloaded. You can reopen this dialog anytime from the Merge Files section">Cancel</button>
       </div>
     </div>
   </div>
@@ -2967,7 +3150,7 @@
         <p>Open the <em>Settings</em> panel from the top navigation to customise DATAPHREAK. From this modal you can:</p>
         <ul>
           <li><strong>Choose a theme</strong> – Dark, Light and Matrix Mode styles are available.</li>
-          <li><strong>Select default cleaning operations</strong> – decide which actions (trim spaces, fix letter case, remove accents, convert Salesforce IDs, and add ID column) are pre-selected when you open the <em>Data Cleaning &amp; IDs</em> panel.</li>
+          <li><strong>Select default cleaning operations</strong> – decide which actions (trim spaces, fix letter case, remove accents, convert Salesforce IDs, and add ID column) are pre-selected when you open the <em>Data Cleaning &amp; ID Management</em> panel.</li>
           <li><strong>Pick your language</strong> – switch the interface language once translations are available.</li>
           <li><strong>Enable or disable persistence</strong> – save preferences and rules to your browser’s local storage or opt to discard them on page reload.</li>
           <li><strong>Encrypt local data</strong> – optionally protect your preferences and rules with a passphrase using in-browser AES-GCM encryption.</li>
@@ -2991,6 +3174,8 @@
             <br><em>Useful if you work with Salesforce data</em></li>
           <li><strong>Add ID Column:</strong> Adds a unique identifier column to your dataset
             <br><em>Creates IDs like "S000001", "S000002" for each row</em></li>
+          <li><strong>Remove Duplicates:</strong> Removes exact duplicate values within each column
+            <br><em>Example: Keeps first occurrence, removes subsequent duplicates</em></li>
         </ul>
 
         <h5 style="color:#38bdf8;margin:16px 0 8px 0">🚀 Quick Start:</h5>
@@ -3006,7 +3191,7 @@
         <!-- Unique keys section moved outside of Data Operations -->
 
         <h4 id="help-keys">Unique Keys &amp; IDs</h4>
-        <p>The assistant in the <strong>Data Cleaning &amp; IDs</strong> panel helps you find one or two fields that can uniquely identify each row. It scans for fields or field pairs with no missing values and no duplicates. These are ideal as primary keys or External IDs. If none exist, the assistant offers to add a new <code>surrogate_id</code> column with sequential values.</p>
+        <p>The assistant in the <strong>Data Cleaning &amp; ID Management</strong> panel helps you find one or two fields that can uniquely identify each row. It scans for fields or field pairs with no missing values and no duplicates. These are ideal as primary keys or External IDs. If none exist, the assistant offers to add a new <code>surrogate_id</code> column with sequential values.</p>
 
         <!-- Security & Privacy section -->
         <h4 id="help-security">Security &amp; Privacy</h4>
@@ -3031,7 +3216,7 @@
           <li><strong>Data Cleaning:</strong> Exports cleaning operations summary and current data state</li>
           <li><strong>Rows with Issues:</strong> Exports validation issues with detailed error information</li>
           <li><strong>Single-File Duplicates:</strong> Exports data with duplicate group markers</li>
-          <li><strong>Find Duplicates & Merge Files:</strong> Exports merged datasets with match indicators</li>
+          <li><strong>Merge Files by Column:</strong> Exports merged datasets with match indicators</li>
           <li><strong>Row Analysis:</strong> Exports comprehensive data dictionary with field statistics</li>
         </ul>
 
@@ -3040,8 +3225,8 @@
 
       </div>
       <div class="modal-buttons" style="margin-top:12px">
-        <button id="devLogOpen" type="button" style="margin-right: auto;" title="View development changelog and version history">Dev Log</button>
-        <button id="helpClose" type="button" title="Close this help dialog">Close</button>
+        <button id="devLogOpen" type="button" style="margin-right: auto;" title="View complete development changelog and version history. See all updates, bug fixes, feature additions, and improvements made to DATAPHREAK across all versions, with dates and detailed descriptions of changes">Dev Log</button>
+        <button id="helpClose" type="button" title="Close the help dialog and return to your data analysis. Your work is automatically saved and you can reopen help anytime by clicking the Help button in the navigation bar">Close</button>
       </div>
     </div>
   </div>
@@ -3147,10 +3332,10 @@
       </div>
 
       <div class="modal-buttons" style="margin-top:16px; display: flex; justify-content: space-between;">
-        <button id="settingsReset" type="button" title="Reset all settings to their original values" style="background: rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.5);">Reset to Defaults</button>
+        <button id="settingsReset" type="button" title="Reset all preferences to factory defaults. This will restore original theme (dark mode), clear all operation defaults, reset export format to CSV, and remove any saved preferences. This action cannot be undone" style="background: rgba(239,68,68,0.2); border-color: rgba(239,68,68,0.5);">Reset to Defaults</button>
         <div style="display: flex; gap: 8px;">
-          <button id="settingsSave" type="button" title="Save your preferences">Save Changes</button>
-          <button id="settingsCancel" type="button" title="Close without saving">Cancel</button>
+          <button id="settingsSave" type="button" title="Save all current preference changes. Settings will be stored in your browser's local storage and automatically applied next time you use DATAPHREAK. Enable 'Remember my settings' to persist across sessions">Save Changes</button>
+          <button id="settingsCancel" type="button" title="Close the settings dialog without saving any changes. All modifications made in this session will be discarded and your previous settings will remain active">Cancel</button>
         </div>
       </div>
     </div>
@@ -3163,7 +3348,19 @@
       <div class="help-body" style="max-height:60vh;overflow-y:auto">
         <p>Development history and feature updates for <strong>DATAPHREAK</strong>:</p>
 
-        <h4>v8.6.1 (Current)</h4>
+        <h4>v8.6.2 (Current)</h4>
+        <ul>
+          <li><strong>Bug Fixes & Improvements</strong>:
+            <ul>
+              <li>Fixed critical JavaScript error preventing proper file loading into primary/secondary slots</li>
+              <li>Corrected dataset placement logic ensuring second file loads into secondary slot</li>
+              <li>Enhanced "Merge Files by Column" tooltip to clarify exact and fuzzy matching capabilities</li>
+              <li>Reduced version number font size by 50% for cleaner header appearance</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>v8.6.1</h4>
         <ul>
           <li><strong>Comprehensive UI/UX Improvements</strong>: Major interface overhaul for enhanced usability and workflow:
             <ul>
@@ -3347,7 +3544,7 @@
         <ul>
           <li><strong>UI/UX Enhancements</strong>: Major interface improvements including:
             <ul>
-              <li>Reorganized Data Cleaning & IDs section with streamlined Quick Actions</li>
+              <li>Reorganized Data Cleaning & ID Management section with streamlined Quick Actions</li>
               <li>Integrated Add ID Column as a Custom Operation checkbox for better workflow</li>
               <li>Added Download button to Quick Actions for streamlined workflow</li>
               <li>Simplified bottom action area to focus on Apply Changes functionality</li>
@@ -3468,7 +3665,7 @@
         </ul>
       </div>
       <div class="modal-buttons" style="margin-top:12px">
-        <button id="devLogClose" type="button" title="Close the development log">Close</button>
+        <button id="devLogClose" type="button" title="Close the development log and return to your data analysis. You can reopen the log anytime from the Help dialog to check for updates and new features">Close</button>
       </div>
     </div>
   </div>
@@ -3478,8 +3675,8 @@
     <div class="modal-content" style="max-width: 95%; max-height: 90%;">
       <h3 id="histogramsTitle">Data Distribution Charts</h3>
       <div class="modal-buttons" style="margin-bottom: 16px;">
-        <button id="printHistograms" type="button" title="Print data charts">🖨️ Print</button>
-        <button id="histogramsClose" type="button" style="margin-left: auto;" title="Close the data charts view">Close</button>
+        <button id="printHistograms" type="button" title="Print all visible data distribution charts and histograms. Opens your browser's print dialog with optimized layout for paper/PDF output. Charts are automatically scaled to fit standard page sizes">🖨️ Print</button>
+        <button id="histogramsClose" type="button" style="margin-left: auto;" title="Close the histogram viewer and return to column analysis. Charts are regenerated fresh each time you open this view to reflect any data changes or cleaning operations applied">Close</button>
       </div>
       <div id="histogramContainer" style="max-height: 70vh; overflow-y: auto; padding: 20px; background: var(--card-bg); border-radius: 8px; display: flex; flex-direction: column; align-items: center; position: relative;">
         <p class="muted">Load a dataset to view histograms for each column...</p>
@@ -4144,6 +4341,24 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       }
       // Value helpers
       const isNullish = v => v == null || NULL_MARKERS.has(String(v).trim());
+      
+      // Helper functions for consistent quality grading
+      function getQualityGrade(percentage) {
+        const p = parseFloat(percentage);
+        if (p >= 90) return 'A';
+        if (p >= 80) return 'B';
+        if (p >= 70) return 'C';
+        if (p >= 60) return 'D';
+        return 'F';
+      }
+      
+      function getQualityGradeColor(percentage) {
+        const p = parseFloat(percentage);
+        if (p >= 90) return '#22c55e';  // green
+        if (p >= 80) return '#38bdf8';  // blue
+        if (p >= 70) return '#f59e0b';  // orange
+        return '#ef4444';  // red
+      }
       function asNumberStrict(s) {
         const t = String(s).trim();
         return /^[-+]?\d+(\.\d+)?$/.test(t) ? Number(t) : NaN;
@@ -4447,114 +4662,32 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         return 1 - (distance / maxLen);
       }
 
-      // Data Quality Scoring System
+      // Data Quality Scoring System (simplified - now just uses completeness)
+      // Kept for potential future use with advanced scoring
       function calculateDataQualityScore(headers, rows) {
         const totalCells = headers.length * rows.length;
-        if (totalCells === 0) return { score: 0, breakdown: {} };
+        if (totalCells === 0) return { score: 0, grade: 'F', breakdown: { completeness: 0 } };
 
-        let completenessScore = 0;
-        let consistencyScore = 0;
-        let validityScore = 0;
-
-        const breakdown = {
-          completeness: 0,
-          consistency: 0,
-          validity: 0,
-          details: {
-            totalCells,
-            nonEmptyCells: 0,
-            duplicateRows: 0,
-            patternViolations: 0
-          }
-        };
-
-        // Calculate completeness
-        let nonEmptyCells = 0;
+        // Calculate completeness using same formula as KPIs
+        let missingCells = 0;
         for (const row of rows) {
           for (const cell of row) {
-            if (!isNullish(cell)) {
-              nonEmptyCells++;
+            if (isNullish(cell)) {
+              missingCells++;
             }
           }
         }
-
-        completenessScore = nonEmptyCells / totalCells;
-        breakdown.details.nonEmptyCells = nonEmptyCells;
-        breakdown.completeness = Math.round(completenessScore * 100);
-
-        // Calculate consistency (based on both exact and fuzzy duplicates)
-        // Use efficient key generation instead of expensive JSON.stringify
-        const uniqueKeys = new Set();
-        for (const row of rows) {
-          let key = '';
-          for (let i = 0; i < row.length; i++) {
-            if (i > 0) key += '\u001f';
-            const val = row[i];
-            key += val == null ? '' : typeof val === 'string' ? val.trim() : val;
-          }
-          uniqueKeys.add(key);
-        }
-        const exactDuplicateRows = rows.length - uniqueKeys.size;
-
-        // Add fuzzy duplicates to the count if available
-        let totalDuplicateRows = exactDuplicateRows;
-        if (STATE.fuzzyDuplicates && STATE.fuzzyDuplicates.fuzzy) {
-          const fuzzyDuplicateRows = STATE.fuzzyDuplicates.fuzzy.reduce((acc, group) => acc + group.length - 1, 0);
-          totalDuplicateRows += fuzzyDuplicateRows;
-        }
-
-        consistencyScore = Math.max(0, (rows.length - totalDuplicateRows) / rows.length);
-        breakdown.details.duplicateRows = totalDuplicateRows;
-        breakdown.consistency = Math.round(consistencyScore * 100);
-
-        // Calculate validity (pattern compliance)
-        let totalPatternChecks = 0;
-        let validPatternChecks = 0;
-
-        for (let colIndex = 0; colIndex < headers.length; colIndex++) {
-          const columnData = rows.map(row => row[colIndex]);
-          const patterns = detectPatterns(columnData, headers[colIndex]);
-
-          if (patterns.patterns.length > 0) {
-            const topPattern = patterns.patterns[0];
-            const pattern = PATTERN_LIBRARY[topPattern.id];
-
-            for (const value of columnData) {
-              if (!isNullish(value)) {
-                totalPatternChecks++;
-                if (pattern.validate(value)) {
-                  validPatternChecks++;
-                }
-              }
-            }
-          }
-        }
-
-        if (totalPatternChecks > 0) {
-          validityScore = validPatternChecks / totalPatternChecks;
-          breakdown.details.patternViolations = totalPatternChecks - validPatternChecks;
-        } else {
-          validityScore = 1.0; // No patterns detected, assume valid
-        }
-        breakdown.validity = Math.round(validityScore * 100);
-
-        // Overall score (weighted average with penalty for critical issues)
-        const overallScore = (
-          completenessScore * 0.4 +
-          consistencyScore * 0.3 +
-          validityScore * 0.3
-        );
-
-        // Apply penalty for severely incomplete data (under 50% complete)
-        const finalScore = completenessScore < 0.5 ? overallScore * 0.7 : overallScore;
-
+        
+        const completenessPercent = ((totalCells - missingCells) / totalCells * 100);
+        const score = Math.round(completenessPercent);
+        const grade = getQualityGrade(completenessPercent);
+        
         return {
-          score: Math.round(finalScore * 100),
-          breakdown,
-          grade: finalScore >= 0.85 ? 'A' :
-                 finalScore >= 0.7 ? 'B' :
-                 finalScore >= 0.55 ? 'C' :
-                 finalScore >= 0.4 ? 'D' : 'F'
+          score,
+          grade,
+          breakdown: {
+            completeness: score
+          }
         };
       }
 
@@ -4965,7 +5098,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // Show exact duplicates first
         if (groups.length > 0) {
           const exactHeader = document.createElement('div');
-          exactHeader.innerHTML = '<h4 style="color: var(--accent); margin: 12px 0 8px 0; font-size: 16px; font-weight: 600;">📋 Exact Duplicates</h4>';
+          exactHeader.innerHTML = '<h4 style="color: var(--accent); margin: 12px 0 8px 0; font-size: 16px; font-weight: 600;">🔍 Exact Duplicates</h4>';
           list.appendChild(exactHeader);
 
           groups.slice(0, limit).forEach((g, idx) => {
@@ -4983,6 +5116,11 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             list.appendChild(spacer);
           }
 
+          // Add a horizontal divider between exact and fuzzy duplicates
+          const divider = document.createElement('div');
+          divider.style.cssText = 'border-top: 1px solid var(--border); margin: 16px 0; opacity: 0.5;';
+          list.appendChild(divider);
+          
           const fuzzyHeader = document.createElement('div');
           fuzzyHeader.innerHTML = '<h4 style="color: var(--accent2); margin: 12px 0 8px 0; font-size: 16px; font-weight: 600;">🔍 Fuzzy Duplicates (Similar Records)</h4>';
           list.appendChild(fuzzyHeader);
@@ -5123,10 +5261,13 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         rows.push(['Duplicate Rows', duplicateRows.toLocaleString()]);
         rows.push(['Unique Rows', (STATE.rows.length - duplicateRows).toLocaleString()]);
 
-        // Calculate quality score if not already done
-        const qualityScore = calculateDataQualityScore(STATE.headers, STATE.rows);
-        rows.push(['Quality Score', qualityScore.score + '%']);
-        rows.push(['Quality Grade', qualityScore.grade]);
+        // Calculate quality score using completeness
+        const totalCellsExport = STATE.headers.length * STATE.rows.length;
+        const missingCellsExport = STATE.rows.reduce((a,r) => a + r.reduce((c,v) => c + (isNullish(v) ? 1 : 0), 0), 0);
+        const qualityScorePercent = totalCellsExport > 0 ? ((totalCellsExport - missingCellsExport) / totalCellsExport * 100).toFixed(1) : '100.0';
+        const qualityGrade = getQualityGrade(qualityScorePercent);
+        rows.push(['Quality Score', qualityScorePercent + '%']);
+        rows.push(['Quality Grade', qualityGrade]);
         rows.push(['']);
 
         // Column Analysis
@@ -5185,14 +5326,17 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         rows.push(['Generated', new Date().toLocaleString()]);
         rows.push(['']);
 
-        // Overall quality score
-        const qualityScore = calculateDataQualityScore(STATE.headers, STATE.rows);
+        // Overall quality score based on completeness
+        const totalCellsQuality = STATE.headers.length * STATE.rows.length;
+        const missingCellsQuality = STATE.rows.reduce((a,r) => a + r.reduce((c,v) => c + (isNullish(v) ? 1 : 0), 0), 0);
+        const qualityScoreVal = totalCellsQuality > 0 ? ((totalCellsQuality - missingCellsQuality) / totalCellsQuality * 100).toFixed(1) : '100.0';
+        const qualityGradeVal = getQualityGrade(qualityScoreVal);
         rows.push(['OVERALL QUALITY ASSESSMENT']);
-        rows.push(['Quality Score', qualityScore.score + '%']);
-        rows.push(['Quality Grade', qualityScore.grade]);
-        rows.push(['Completeness', (qualityScore.breakdown?.completeness || 0) + '%']);
-        rows.push(['Consistency', (qualityScore.breakdown?.consistency || 0) + '%']);
-        rows.push(['Validity', (qualityScore.breakdown?.validity || 0) + '%']);
+        rows.push(['Quality Score', qualityScoreVal + '%']);
+        rows.push(['Quality Grade', qualityGradeVal]);
+        rows.push(['Data Completeness', qualityScoreVal + '%']);
+        rows.push(['Filled Cells', (totalCellsQuality - missingCellsQuality).toLocaleString()]);
+        rows.push(['Missing Cells', missingCellsQuality.toLocaleString()]);
         rows.push(['']);
 
         // Data Issues Summary
@@ -5327,7 +5471,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         // Check if rule results exist and have invalid rows
         if (!STATE.ruleResults || !STATE.ruleResults.invalidRows || STATE.ruleResults.invalidRows.length === 0) {
-          toast('No rows with issues to export. Run validation checks first.', 'error');
+          toast('No validation issues found. Run "Rule Checks" first to identify data problems', 'error');
           return;
         }
 
@@ -5452,6 +5596,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         rows.push(['Remove Accents', cleanEl && cleanEl.checked ? 'Selected' : 'Not Selected', 'Convert accented characters to plain text']);
         rows.push(['Convert SF IDs', sfEl && sfEl.checked ? 'Selected' : 'Not Selected', 'Convert 15-char to 18-char Salesforce IDs']);
         rows.push(['Add ID Column', addIdEl && addIdEl.checked ? 'Selected' : 'Not Selected', 'Add unique identifier column']);
+        rows.push(['Remove Duplicates', el('#opRemoveDupes') && el('#opRemoveDupes').checked ? 'Selected' : 'Not Selected', 'Remove duplicate values within columns']);
         rows.push(['']);
 
         // Selected Columns for Operations
@@ -5728,7 +5873,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const hasValidMimeType = validMimeTypes.includes(file.type) || file.type === '';
 
         if (!hasValidExtension) {
-          toast('Unsupported file type. Please select a CSV, TSV, or Excel file.', 'error');
+          const supportedTypes = file.name.match(/\.(csv|tsv|xlsx?|txt)$/i);
+          if (!supportedTypes) {
+            toast(`Unsupported file type: ${file.name.split('.').pop() || 'unknown'}. Please use CSV, TSV, or Excel files`, 'error');
+          } else {
+            toast('Unsupported file format. Ensure your file has valid data structure', 'error');
+          }
           return false;
         }
 
@@ -5805,6 +5955,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // Determine where to store the dataset
         const hasPrimary = Array.isArray(STATE.primaryHeaders) && STATE.primaryHeaders.length > 0;
         const hasSecondary = Array.isArray(STATE.secondaryHeaders) && STATE.secondaryHeaders.length > 0;
+        
         let target;
         if (!hasPrimary) {
           target = 'primary';
@@ -5814,6 +5965,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           // Both datasets exist: replace whichever is currently active
           target = STATE.activeDataset || 'primary';
         }
+        
         // Update active dataset flag
         STATE.activeDataset = target;
         // Assign headers/rows to the appropriate snapshot *before* rendering so that
@@ -5840,9 +5992,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           // Refresh dataset switcher UI
           updateDatasetSwitchUI();
         });
-        // Inform the user what happened via toast
+        // Inform the user what happened via toast with details
+        const rowCount = rows.length;
+        const colCount = headers.length;
         const msg = (!hasPrimary) ? 'Primary dataset loaded' : (!hasSecondary) ? 'Secondary dataset loaded' : 'Dataset replaced';
-        toast(msg + ` (target: ${target})`, 'ok');
+        const fileSize = STATE.fileInfo?.size ? ` (${(STATE.fileInfo.size / 1024).toFixed(1)} KB)` : '';
+        toast(`${msg}: ${rowCount.toLocaleString()} rows × ${colCount} columns${fileSize}`, 'ok');
       }
 
       // =====================================================================
@@ -5862,7 +6017,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // to preserve original data formatting.  Users can customise these in the
         // Settings panel.  Converting SF IDs to 18-char form helps ensure IDs
         // match across files by default.
-        defaultOps: { trim: true, normalize: false, clean: true, sf: true },
+        defaultOps: { trim: true, normalize: false, clean: true, sf: true, removeDupes: false },
         dateFormat: 'us', // MM/DD/YYYY format by default
         language: 'en',
         persist: true,
@@ -5951,26 +6106,27 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         el('#kpiCompleteness').textContent = completenessPercent + '%';
         el('#kpiTotalCells').textContent = totalCells.toLocaleString();
 
-        // Calculate and display data quality score
-        const qualityScore = calculateDataQualityScore(headers, rows);
-        el('#kpiQuality').textContent = qualityScore.score + '%';
+        // Display data quality using same completeness as Data Completeness KPI
+        // This ensures consistency across all quality metrics
+        const qualityPercent = completenessPercent;  // Use same value as completeness
+        el('#kpiQuality').textContent = qualityPercent + '%';
         const qualityStatus = el('#kpiQualityStatus');
-        qualityStatus.textContent = `Grade: ${qualityScore.grade}`;
-        qualityStatus.title = `Completeness: ${qualityScore.breakdown.completeness}%, Consistency: ${qualityScore.breakdown.consistency}%, Validity: ${qualityScore.breakdown.validity}%`;
+        const qualityGrade = getQualityGrade(qualityPercent);
+        qualityStatus.textContent = `Grade: ${qualityGrade}`;
+        qualityStatus.title = `Based on data completeness: ${qualityPercent}% of cells contain data`;
 
         // Color-code the quality score
         const qualityCard = el('#kpiQualityCard');
         if (qualityCard && qualityStatus) {
-          if (qualityScore.score >= 85) {
-            qualityCard.style.borderColor = 'var(--ok)';
-            qualityStatus.style.color = 'var(--ok)';
-          } else if (qualityScore.score >= 70) {
-            qualityCard.style.borderColor = 'var(--warn)';
-            qualityStatus.style.color = 'var(--warn)';
+          const gradeColor = getQualityGradeColor(qualityPercent);
+          // In light mode, always use dark gold border
+          const isLightMode = document.body.classList.contains('theme-light');
+          if (isLightMode) {
+            qualityCard.style.borderColor = '#b8860b';
           } else {
-            qualityCard.style.borderColor = 'var(--err)';
-            qualityStatus.style.color = 'var(--err)';
+            qualityCard.style.borderColor = gradeColor;
           }
+          qualityStatus.style.color = gradeColor;
         }
 
         // heatmap & duplicates
@@ -5992,9 +6148,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             rxS[i] = saved.columns[i].regex || '';
             allowS[i] = saved.columns[i].allowed || '';
           }
-          showRulesStatus('Rules restored','ok');
+          toast('Validation rules restored from previous session', 'ok');
         } else {
-          showRulesStatus('Using suggested defaults','info');
+          toast('Using auto-detected validation patterns', 'info');
         }
         STATE.rules.regexStr = rxS;
         STATE.rules.allowedStr = allowS;
@@ -6029,14 +6185,15 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         }
         if (loadTime) loadTime.textContent = new Date().toLocaleTimeString();
         if (status) {
-          const missingPercent = parseFloat(((missingCells / totalCells) * 100).toFixed(1));
+          // Calculate missing cells and quality metrics
+          const totalCellsStatus = headers.length * rows.length;
+          const missingCellsStatus = rows.reduce((a,r) => a + r.reduce((c,v) => c + (isNullish(v) ? 1 : 0), 0), 0);
+          const missingPercent = parseFloat(((missingCellsStatus / totalCellsStatus) * 100).toFixed(1));
           const dupePercent = parseFloat(((STATE.dupes.length / rows.length) * 100).toFixed(1));
+          const qualityScoreValue = totalCellsStatus > 0 ? ((totalCellsStatus - missingCellsStatus) / totalCellsStatus * 100) : 100;
 
-          // Use the same comprehensive quality score for consistency
-          const comprehensiveQuality = calculateDataQualityScore(headers, rows);
-          const qualityScoreValue = comprehensiveQuality.score;
-
-          // Determine status based on comprehensive quality score (consistent with KPI)
+          // Determine status based on completeness score (consistent with KPI)
+          const qualityGrade = getQualityGrade(qualityScoreValue);
           if (qualityScoreValue >= 85) {
             status.innerHTML = '<span style="color: #10b981">💎 Excellent quality</span>';
           } else if (qualityScoreValue >= 70) {
@@ -6045,8 +6202,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             status.innerHTML = '<span style="color: #ef4444">🚨 Poor quality - needs cleaning</span>';
           }
 
-          // Add quality score as a tooltip with detailed breakdown
-          status.title = `Quality Score: ${qualityScoreValue}/100 | Grade: ${comprehensiveQuality.grade} | Completeness: ${comprehensiveQuality.breakdown.completeness}% | Consistency: ${comprehensiveQuality.breakdown.consistency}% | Validity: ${comprehensiveQuality.breakdown.validity}%`;
+          // Add quality score as a tooltip with breakdown
+          status.title = `Completeness: ${qualityScoreValue.toFixed(1)}% | Grade: ${qualityGrade} | ${totalCellsStatus - missingCellsStatus} of ${totalCellsStatus} cells contain data`;
         }
         if (datasetSubtitle) datasetSubtitle.textContent = `${datasetName} loaded`;
 
@@ -6119,6 +6276,15 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       setTimeout(() => {
         if (STATE.headers.length > 0) {
           generateMissingValuesList();
+          // Set the Column Overview button as active by default and show the view
+          const listButton = document.querySelector('.view-mode[data-mode="list"]');
+          const listView = el('#listView');
+          if (listButton && !document.querySelector('.view-mode.active')) {
+            listButton.classList.add('active');
+          }
+          if (listView) {
+            listView.style.display = 'block';
+          }
         }
       }, 100);
 
@@ -6304,7 +6470,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         avgUniqueRatio = columnStats.length > 0 ? (avgUniqueRatio / columnStats.length * 100).toFixed(1) : '0';
 
-        // Generate comprehensive stats display
+        // Generate comprehensive stats display - use same formula as KPIs
         var overallCompleteness = totalCells > 0 ?
           (((totalCells - totalMissing) / totalCells) * 100).toFixed(1) : '100.0';
 
@@ -6312,7 +6478,6 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           (columnStats.reduce(function(sum, col) { return sum + col.completeness; }, 0) / columnStats.length).toFixed(1) : '100.0';
 
         var html = '<div class="stats-breakdown">' +
-            '<h4>📊 Overall Data Quality</h4>' +
             '<div class="breakdown-grid">' +
               '<div class="breakdown-section">' +
                 '<h5>Data Completeness</h5>' +
@@ -6323,6 +6488,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
                 '<div class="breakdown-item">' +
                   '<span class="breakdown-label">Avg Column Quality:</span>' +
                   '<span class="breakdown-value">' + avgCompleteness + '%</span>' +
+                '</div>' +
+                '<div class="breakdown-item">' +
+                  '<span class="breakdown-label">Quality Grade:</span>' +
+                  '<span class="breakdown-value" style="color:' + getQualityGradeColor(overallCompleteness) + '">' + 
+                  getQualityGrade(overallCompleteness) + 
+                  '</span>' +
                 '</div>' +
               '</div>' +
               '<div class="breakdown-section">' +
@@ -6343,7 +6514,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             '</div>' +
             '<div class="breakdown-grid" style="margin-top:16px">' +
               '<div class="breakdown-section">' +
-                '<h5>🔍 Row Statistics</h5>' +
+                '<h5>Row Statistics</h5>' +
                 '<div class="breakdown-item">' +
                   '<span class="breakdown-label">Total Rows:</span>' +
                   '<span class="breakdown-value">' + STATE.rows.length.toLocaleString() + '</span>' +
@@ -6366,7 +6537,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
                 '</div>' +
               '</div>' +
               '<div class="breakdown-section">' +
-                '<h5>📋 Column Statistics</h5>' +
+                '<h5>Column Statistics</h5>' +
                 '<div class="breakdown-item">' +
                   '<span class="breakdown-label">Total Columns:</span>' +
                   '<span class="breakdown-value">' + STATE.headers.length + '</span>' +
@@ -6391,22 +6562,22 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             '</div>' +
             '<div class="breakdown-grid" style="margin-top:16px">' +
               '<div class="breakdown-section">' +
-                '<h5>🎯 Pattern Detection</h5>' +
+                '<h5>Pattern Detection</h5>' +
                 '<div class="breakdown-item">' +
-                  '<span class="breakdown-label">📧 Email Columns:</span>' +
+                  '<span class="breakdown-label">Email Columns:</span>' +
                   '<span class="breakdown-value">' + emailColumns + '</span>' +
                 '</div>' +
                 '<div class="breakdown-item">' +
-                  '<span class="breakdown-label">📞 Phone Columns:</span>' +
+                  '<span class="breakdown-label">Phone Columns:</span>' +
                   '<span class="breakdown-value">' + phoneColumns + '</span>' +
                 '</div>' +
                 '<div class="breakdown-item">' +
-                  '<span class="breakdown-label">📅 Date Columns:</span>' +
+                  '<span class="breakdown-label">Date Patterns:</span>' +
                   '<span class="breakdown-value">' + dateColumns + '</span>' +
                 '</div>' +
               '</div>' +
               '<div class="breakdown-section">' +
-                '<h5>📝 Data Types</h5>' +
+                '<h5>Data Types</h5>' +
                 '<div class="breakdown-item">' +
                   '<span class="breakdown-label">Numeric Columns:</span>' +
                   '<span class="breakdown-value">' + numericColumns + '</span>' +
@@ -6462,6 +6633,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         (async () => {
           try {
+            // Track timing
+            const startTime = performance.now();
+            
             // Show progress for large files
             const showProgress = file.size > 5 * 1024 * 1024;
             const showOverlay = file.size > 20 * 1024 * 1024; // Show overlay for very large files
@@ -6484,6 +6658,10 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               hideProgressOverlay();
             }
 
+            // Calculate processing time
+            const endTime = performance.now();
+            const processingTime = ((endTime - startTime) / 1000).toFixed(1);
+
             // Delegate dataset assignment to handleFileLoad() so that drag
             // and drop behaves consistently with file selection.  This call
             // decides whether the dataset becomes primary, secondary, or
@@ -6491,8 +6669,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             // dataset switcher UI.
             handleFileLoad(headers, rows, file.name);
 
-            if (showProgress) {
-              toast('File loaded successfully!', 'ok');
+            if (showProgress && processingTime > 2) {
+              toast(`File loaded successfully in ${processingTime}s!`, 'ok');
             }
           } catch (err) {
             hideProgressOverlay();
@@ -6516,6 +6694,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         (async () => {
           try {
+            // Track timing
+            const startTime = performance.now();
+            
             // Show progress for large files
             const showProgress = file.size > 5 * 1024 * 1024;
             const showOverlay = file.size > 20 * 1024 * 1024; // Show overlay for very large files
@@ -6538,6 +6719,10 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               hideProgressOverlay();
             }
 
+            // Calculate processing time
+            const endTime = performance.now();
+            const processingTime = ((endTime - startTime) / 1000).toFixed(1);
+
             // Delegate dataset assignment to handleFileLoad().  This function
             // decides whether the file becomes the primary dataset, the
             // secondary dataset or replaces the currently active dataset when
@@ -6545,8 +6730,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             // UI accordingly.
             handleFileLoad(headers, rows, file.name);
 
-            if (showProgress) {
-              toast('File loaded successfully!', 'ok');
+            if (showProgress && processingTime > 2) {
+              toast(`File loaded successfully in ${processingTime}s!`, 'ok');
             }
           } catch (err) {
             hideProgressOverlay();
@@ -6655,7 +6840,10 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       });
       // Run rules
       el('#runRules')?.addEventListener('click', () => {
-        if (!STATE.headers.length) return;
+        if (!STATE.headers.length) {
+          toast('Please load data first', 'error');
+          return;
+        }
         const allowInputs = els('.rule-input.allow');
         const allowArr = [];
         const allowStrArr = [];
@@ -6669,6 +6857,14 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         STATE.ruleResults = runRuleChecks(STATE.headers, STATE.rows, STATE.rules);
         renderProfiles(STATE.headers, STATE.profiles, STATE.rules, STATE.ruleResults);
         renderInvalidTable(STATE.headers, STATE.ruleResults);
+        
+        // Add success toast with issue count
+        const issueCount = STATE.ruleResults ? STATE.ruleResults.invalidRows.length : 0;
+        if (issueCount > 0) {
+          toast(`Validation complete: ${issueCount} row${issueCount !== 1 ? 's' : ''} with issues found`, 'warn');
+        } else {
+          toast('Validation complete: No issues found!', 'ok');
+        }
       });
       // Save rules
       el('#saveRules')?.addEventListener('click', () => {
@@ -6677,8 +6873,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const allowStrs = STATE.headers.map((_,i) => (allowInputs[i]?.value || '').trim());
         const rxStrs    = STATE.headers.map(() => '');
         const res = saveRules(STATE.headerSig, STATE.headers, rxStrs, allowStrs);
-        if (res.ok) showRulesStatus('Rules saved','ok');
-        else showRulesStatus('Failed to save rules','error');
+        if (res.ok) toast('Validation rules saved successfully', 'ok');
+        else toast('Failed to save validation rules', 'error');
       });
       // Clear rules
       el('#clearRules')?.addEventListener('click', () => {
@@ -6690,11 +6886,14 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         STATE.ruleResults = null;
         renderProfiles(STATE.headers, STATE.profiles, STATE.rules, STATE.ruleResults);
         renderInvalidTable(STATE.headers, null);
-        showRulesStatus(ok ? 'Rules cleared' : 'Could not clear rules', ok ? 'ok' : 'error');
+        toast(ok ? 'Validation rules cleared successfully' : 'Could not clear validation rules', ok ? 'ok' : 'error');
       });
       // Download rules
       el('#downloadRules')?.addEventListener('click', () => {
-        if (!STATE.headers.length) return;
+        if (!STATE.headers.length) {
+          toast('Please load data first', 'error');
+          return;
+        }
         const allowInputs = els('.rule-input.allow');
         const allowStrs = STATE.headers.map((_,i) => (allowInputs[i]?.value || '').trim());
         const payload = {
@@ -6705,10 +6904,16 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         };
         const safeName = (el('#datasetName').textContent || 'rules').replace(/[^\w\-\.]+/g,'_');
         download(`Rules_${safeName}.json`, JSON.stringify(payload, null, 2));
+        toast('Validation rules exported successfully', 'ok');
       });
       // Export data dictionary
       el('#exportDict')?.addEventListener('click', () => {
+        if (!STATE.headers || STATE.headers.length === 0) {
+          toast('Please load data first', 'error');
+          return;
+        }
         exportDataDict(STATE.headers, STATE.profiles, STATE.rules, STATE.ruleResults);
+        toast('Data dictionary exported successfully', 'ok');
       });
       // Nav button proxies: trigger underlying buttons.  The "Load File" button opens the
       // hidden file input so the user can choose a CSV/TSV.  Previously this triggered the
@@ -6880,7 +7085,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           // Reset to default values
           PREFS = {
             theme: 'dark',
-            defaultOps: { trim: true, normalize: false, clean: false, sf: false, addId: false },
+            defaultOps: { trim: true, normalize: false, clean: false, sf: false, addId: false, removeDupes: false },
             exportFormat: 'csv',
             decimals: 2,
             dateFormat: 'us',
@@ -6996,7 +7201,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       const MERGE = { headers: null, rows: null, fileName: '' };
       function showMergeModal() {
         if (!STATE.headers.length) {
-          showRulesStatus('Please load a dataset first','error');
+          toast('Please load a dataset first', 'error');
           return;
         }
         // Reset stored second file
@@ -7045,7 +7250,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         if (!file) return;
         parseMergeFile(file, (err, data) => {
           if (err || !data) {
-            showRulesStatus('Failed to parse merge file','error');
+            toast('Failed to parse merge file', 'error');
             return;
           }
           MERGE.headers = data.headers;
@@ -7197,7 +7402,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const secName = (MERGE.fileName || 'secondary').replace(/[^\w\-.]+/g,'_');
         download(`merged_${primName}_${secName}.csv`, toCSV(newRows, newHeaders));
         hideMergeModal();
-        showRulesStatus('Merged file downloaded','ok');
+        toast('Merged file downloaded successfully', 'ok');
       }
 
 
@@ -7224,6 +7429,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           startLightSparkles();
           // Clean up other theme effects
           stopDarkCosmic();
+          toast('Switched to Light Mode ☀️', 'info');
         } else if (mode === 'matrix') {
           document.body.classList.add('theme-matrix');
           // Next mode label: after matrix comes dark
@@ -7234,6 +7440,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           stopLightSparkles();
           // Clean up Dark effects when leaving Dark mode
           stopDarkCosmic();
+          toast('Switched to Matrix Mode 💚', 'info');
         } else {
           // Dark mode: no theme class on body
           themeBtn.textContent = 'Light Mode';
@@ -7243,6 +7450,24 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           stopLightSparkles();
           // Start cosmic dust effect for Dark mode
           startDarkCosmic();
+          toast('Switched to Dark Mode 🌙', 'info');
+        }
+        
+        // Update quality card border for theme consistency
+        const qualityCard = el('#kpiQualityCard');
+        if (qualityCard && STATE.headers && STATE.headers.length > 0) {
+          const qualityStatus = el('#kpiQualityStatus');
+          if (qualityStatus) {
+            const qualityText = qualityStatus.textContent;
+            const qualityPercent = qualityText.match(/\d+\.?\d*/)?.[0] || '0';
+            const gradeColor = getQualityGradeColor(qualityPercent);
+            // In light mode, always use dark gold border
+            if (mode === 'light') {
+              qualityCard.style.borderColor = '#b8860b';
+            } else {
+              qualityCard.style.borderColor = gradeColor;
+            }
+          }
         }
       }
 
@@ -7350,7 +7575,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // No text content needed - using pure CSS particle
         sparkle.style.left = Math.random() * 100 + 'vw';
         sparkle.style.animationDuration = (Math.random() * 7 + 5.25) + 's'; // 5.25-12.25 seconds (75% slower)
-        sparkle.style.opacity = Math.random() * 0.6 + 0.4; // 0.4-1.0 opacity for better visibility
+        sparkle.style.opacity = Math.random() * 0.45 + 0.3; // 0.3-0.75 opacity (25% more transparent)
 
         document.body.appendChild(sparkle);
 
@@ -7453,6 +7678,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               const hdrs = STATE.primaryHeaders.map(h => h);
               const rows = STATE.primaryRows.map(r => r.slice());
               computeAndRender(hdrs, rows, STATE.primaryName || 'Primary');
+              toast(`Switched to Primary dataset: ${STATE.primaryName || 'Primary'}`, 'info');
             }
           } else if (val === 'secondary') {
             STATE.activeDataset = 'secondary';
@@ -7460,6 +7686,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               const hdrs = STATE.secondaryHeaders.map(h => h);
               const rows = STATE.secondaryRows.map(r => r.slice());
               computeAndRender(hdrs, rows, STATE.secondaryName || 'Secondary');
+              toast(`Switched to Secondary dataset: ${STATE.secondaryName || 'Secondary'}`, 'info');
             }
           }
           // Update UI after switching
@@ -7562,7 +7789,19 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const datasetLabel = (el('#datasetName') && el('#datasetName').textContent) ? el('#datasetName').textContent : 'data';
         const safeName = datasetLabel.replace(/[\\/:*?"<>|]+/g, '_');
         download(`duplicates_${safeName}.csv`, csv);
-        toast('Duplicates exported', 'ok');
+        // Count duplicate rows
+        let duplicateCount = 0;
+        if (Array.isArray(STATE.dupes) && STATE.dupes.length) {
+          STATE.dupes.forEach(grp => {
+            duplicateCount += Math.max(0, grp.length - 1); // Don't count the original
+          });
+        }
+        
+        if (duplicateCount > 0) {
+          toast(`Duplicates exported: ${duplicateCount} duplicate row${duplicateCount !== 1 ? 's' : ''} marked`, 'ok');
+        } else {
+          toast('Export complete: No duplicates found in dataset', 'info');
+        }
       }
 
       /**
@@ -7578,20 +7817,20 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // Validate that a secondary dataset is loaded
         if (!Array.isArray(STATE.secondaryHeaders) || !STATE.secondaryHeaders.length ||
             !Array.isArray(STATE.primaryHeaders) || !STATE.primaryHeaders.length) {
-          toast('Load a secondary dataset first', 'error');
+          toast('Load a secondary dataset first. Use "Merge Files by Column" to add a second file', 'error');
           return;
         }
         // Determine the selected columns and threshold
         const aSel = el('#fuzzyACol');
         const bSel = el('#fuzzyBCol');
         if (!aSel || !bSel) {
-          toast('Cross-file selectors missing', 'error');
+          toast('Column selectors not found. Please refresh the page and try again', 'error');
           return;
         }
         const colA = aSel.value;
         const colB = bSel.value;
         if (!colA || !colB) {
-          toast('Pick columns to compare', 'error');
+          toast('Select matching columns from both datasets to compare', 'error');
           return;
         }
         // Parse threshold
@@ -7664,7 +7903,17 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const nameA = (STATE.primaryName || 'primary').replace(/[\\/:*?"<>|]+/g, '_');
         const nameB = (STATE.secondaryName || 'secondary').replace(/[\\/:*?"<>|]+/g, '_');
         download(`fuzzy_duplicates_${nameA}_vs_${nameB}.csv`, csv);
-        toast('Cross-file duplicates exported', 'ok');
+        // Count matches
+        let matchCount = 0;
+        if (crossFileMatches && Array.isArray(crossFileMatches.matches)) {
+          matchCount = crossFileMatches.matches.length;
+        }
+        
+        if (matchCount > 0) {
+          toast(`Cross-file matches exported: ${matchCount} matching pair${matchCount !== 1 ? 's' : ''} found`, 'ok');
+        } else {
+          toast('Export complete: No cross-file matches found', 'info');
+        }
       }
       /*
         ====================================================================
@@ -7900,7 +8149,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           if (!STATE.secondaryHeaders || !STATE.secondaryHeaders.length) {
             const out = el('#fuzzyCrossResults');
             if (out) out.textContent = 'Load a secondary dataset (Merge Files) first.';
-            toast('Load a secondary dataset first', 'error');
+            toast('Load a secondary dataset first. Use "Merge Files by Column" to add a second file', 'error');
             return;
           }
           const aSel = el('#fuzzyACol');
@@ -7998,17 +8247,17 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
       // Apply selected data operations to chosen columns
       function applyDataOperations() {
-        let indices, doTrim, doNorm, doClean, doSf, doAddId; // Declare variables in outer scope
+        let indices, doTrim, doNorm, doClean, doSf, doAddId, doRemoveDupes; // Declare variables in outer scope
 
         try {
           // Validate state first
           if (!STATE.headers || STATE.headers.length === 0) {
-            showRulesStatus('Please load a dataset first','error');
+            toast('Please load a dataset first', 'error');
             return;
           }
 
           if (!STATE.rows || STATE.rows.length === 0) {
-            showRulesStatus('No data rows to process','error');
+            toast('No data rows to process', 'error');
             return;
           }
 
@@ -8018,12 +8267,14 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           const cleanEl = el('#opClean');
           const sfEl = el('#opSfConvert');
           const addIdEl = el('#opAddId');
+          const removeDupesEl = el('#opRemoveDupes');
 
           doTrim = trimEl ? trimEl.checked : false;
           doNorm = normEl ? normEl.checked : false;
           doClean = cleanEl ? cleanEl.checked : false;
           doSf = sfEl ? sfEl.checked : false;
           doAddId = addIdEl ? addIdEl.checked : false;
+          doRemoveDupes = removeDupesEl ? removeDupesEl.checked : false;
 
           // Check if Add ID is selected
           if (doAddId) {
@@ -8036,25 +8287,25 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
           const sel = el('#opColumns');
           if (!sel) {
-            showRulesStatus('Column selector not found','error');
+            toast('Column selector not found', 'error');
             return;
           }
 
           indices = Array.from(sel.selectedOptions || []).map(opt => parseInt(opt.value, 10)).filter(i => !isNaN(i));
-          if (!indices.length && (doTrim || doNorm || doClean || doSf)) {
-            showRulesStatus('No columns selected for operations','error');
+          if (!indices.length && (doTrim || doNorm || doClean || doSf || doRemoveDupes)) {
+            toast('Please select columns for operations', 'error');
             return;
           }
 
           // Validate selected indices are within bounds
           const invalidIndices = indices.filter(i => i < 0 || i >= STATE.headers.length);
           if (invalidIndices.length > 0) {
-            showRulesStatus('Invalid column selection detected','error');
+            toast('Invalid column selection detected', 'error');
             return;
           }
 
-          if (!doTrim && !doNorm && !doClean && !doSf) {
-            showRulesStatus('No operations selected','error');
+          if (!doTrim && !doNorm && !doClean && !doSf && !doRemoveDupes) {
+            toast('Please select at least one operation', 'error');
             return;
           }
 
@@ -8063,13 +8314,13 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           if (totalCells > 1000000) { // 1M cells threshold
             const proceed = confirm(`Large dataset detected (${totalCells.toLocaleString()} cells). This operation may take time. Continue?`);
             if (!proceed) {
-              showRulesStatus('Operation cancelled by user', 'info');
+              toast('Operation cancelled', 'info');
               return;
             }
           }
         } catch (error) {
           console.error('Validation error in applyDataOperations:', error);
-          showRulesStatus('Error validating operation: ' + error.message, 'error');
+          toast('Error validating operation: ' + error.message, 'error');
           return;
         }
 
@@ -8080,6 +8331,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           if (doNorm) operations.push('normalize case');
           if (doClean) operations.push('remove accents');
           if (doSf) operations.push('convert SF IDs');
+          if (doRemoveDupes) operations.push('remove duplicates');
           const columnNames = indices.map(i => STATE.headers[i]).join(', ');
           const description = `Apply ${operations.join(', ')} to columns: ${columnNames}`;
 
@@ -8094,7 +8346,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           // Override the execute method to perform the actual data operations
           command.execute = async function() {
             try {
-              const result = await performDataOperations(indices, doTrim, doNorm, doClean, doSf);
+              const result = await performDataOperations(indices, doTrim, doNorm, doClean, doSf, doRemoveDupes);
 
               // Validate result before proceeding
               if (!result || !result.headers || !result.rows) {
@@ -8113,7 +8365,21 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
               // Show change summary
               showOperationSummary(result.changeCounts, indices, result.sfConversionStats, result.patternFixes);
-              showRulesStatus('Operations applied','ok');
+              
+              // Enhanced toast with change details
+              let totalChanges = 0;
+              if (result.changeCounts) {
+                for (const count of Object.values(result.changeCounts)) {
+                  totalChanges += count || 0;
+                }
+              }
+              
+              const columnsAffected = indices.length;
+              if (totalChanges > 0) {
+                toast(`Operations applied: ${totalChanges.toLocaleString()} cell${totalChanges !== 1 ? 's' : ''} modified across ${columnsAffected} column${columnsAffected !== 1 ? 's' : ''}`, 'ok');
+              } else {
+                toast('Operations complete: No changes needed', 'info');
+              }
 
               // Add SF conversion toast if applicable
               if (result.sfConversionStats && result.sfConversionStats.totalValidIds > 0) {
@@ -8125,7 +8391,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               return result;
             } catch (error) {
               console.error('Error executing data operation command:', error);
-              showRulesStatus('Error during operation: ' + error.message, 'error');
+              toast('Error during operation: ' + error.message, 'error');
               throw error; // Re-throw for undo/redo system handling
             }
           };
@@ -8134,7 +8400,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         } catch (error) {
           console.error('Error setting up data operation:', error);
-          showRulesStatus('Error preparing operation: ' + error.message, 'error');
+          toast('Error preparing operation: ' + error.message, 'error');
         }
       }
 
@@ -8143,17 +8409,17 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         try {
           // Validate state first
           if (!STATE.headers || STATE.headers.length === 0) {
-            showRulesStatus('Please load a dataset first', 'error');
+            toast('Please load a dataset first', 'error');
             return;
           }
 
           if (!STATE.rows || STATE.rows.length === 0) {
-            showRulesStatus('No data rows to process', 'error');
+            toast('No data rows to process', 'error');
             return;
           }
 
           if (!STATE.profiles || STATE.profiles.length === 0) {
-            showRulesStatus('Please run analysis first to detect patterns', 'error');
+            toast('Please run column analysis first to detect patterns', 'error');
             return;
           }
 
@@ -8211,7 +8477,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               }
 
               if (totalFixes === 0) {
-                showRulesStatus('No pattern fixes needed - data already matches detected patterns', 'info');
+                toast('No pattern fixes needed - data already matches detected patterns', 'info');
                 return null;
               }
 
@@ -8245,9 +8511,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
                 }
               }
 
-              const summaryText = `🎯 Pattern fixes applied: ${totalFixes} total corrections\n${summaryParts.join('\n')}`;
-              toast(summaryText, 'ok');
-              showRulesStatus('Pattern fixes applied successfully', 'ok');
+              const fixCount = Object.values(patternFixes).reduce((sum, count) => sum + count, 0);
+              const columnsFixed = Object.values(patternFixes).filter(count => count > 0).length;
+              toast(`Pattern fixes applied: ${fixCount} value${fixCount !== 1 ? 's' : ''} standardized in ${columnsFixed} column${columnsFixed !== 1 ? 's' : ''}`, 'ok');
 
               return {
                 headers: STATE.headers,
@@ -8257,7 +8523,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               };
             } catch (error) {
               console.error('Error applying patterns:', error);
-              showRulesStatus('Error applying patterns: ' + error.message, 'error');
+              toast('Error applying patterns: ' + error.message, 'error');
               throw error;
             }
           };
@@ -8266,12 +8532,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         } catch (error) {
           console.error('Error setting up pattern application:', error);
-          showRulesStatus('Error preparing pattern application: ' + error.message, 'error');
+          toast('Error preparing pattern application: ' + error.message, 'error');
         }
       }
 
       // Extracted the actual data operations logic
-      async function performDataOperations(indices, doTrim, doNorm, doClean, doSf) {
+      async function performDataOperations(indices, doTrim, doNorm, doClean, doSf, doRemoveDupes) {
         // Keep a copy of the current rows so we can measure what changes
         // actually occur.  Without saving the old state, we cannot report
         // how many values were altered by trimming, case normalisation or
@@ -8320,6 +8586,46 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             row[j] = s;
           });
         }
+        
+        // Remove duplicate values within each selected column if requested
+        if (doRemoveDupes) {
+          const duplicateStats = {};
+          indices.forEach(j => {
+            const seenValues = new Set();
+            const duplicateIndices = [];
+            
+            // First pass: identify duplicate rows
+            for (let r = 0; r < newRows.length; r++) {
+              const val = newRows[r][j];
+              const strVal = val != null ? String(val) : '';
+              
+              if (seenValues.has(strVal)) {
+                duplicateIndices.push(r);
+              } else {
+                seenValues.add(strVal);
+              }
+            }
+            
+            // Second pass: clear duplicate values (set to empty string)
+            duplicateIndices.forEach(r => {
+              newRows[r][j] = '';
+              changeCounts[j] = (changeCounts[j] || 0) + 1;
+            });
+            
+            duplicateStats[STATE.headers[j]] = duplicateIndices.length;
+          });
+          
+          // Report duplicate removal statistics
+          const totalDuplicatesRemoved = Object.values(duplicateStats).reduce((a, b) => a + b, 0);
+          if (totalDuplicatesRemoved > 0) {
+            const detailMsg = Object.entries(duplicateStats)
+              .filter(([, count]) => count > 0)
+              .map(([col, count]) => `${col}: ${count}`)
+              .join(', ');
+            toast(`Removed ${totalDuplicatesRemoved} duplicate values (${detailMsg})`, 'ok');
+          }
+        }
+        
         // If Salesforce ID conversion is selected, append new columns with 18-character IDs for each selected column.
         let newHeaders = STATE.headers.slice();
         let sfConversionStats = { totalColumns: 0, columnsWithValidIds: 0, totalValidIds: 0, totalRows: 0 };
@@ -8373,9 +8679,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             } else {
               // Warn about this column having no valid IDs
               if (potentialIdsInColumn > 0) {
-                showRulesStatus(`Column "${baseName}": Found ${potentialIdsInColumn} potential IDs but none were valid 15-digit Salesforce IDs. May contain 18-digit IDs or invalid formats.`, 'error');
+                toast(`Column "${baseName}": Found ${potentialIdsInColumn} potential IDs but none were valid 15-digit Salesforce IDs`, 'error');
               } else {
-                showRulesStatus(`Column "${baseName}": No Salesforce IDs found to convert.`, 'error');
+                toast(`Column "${baseName}": No Salesforce IDs found to convert`, 'error');
               }
             }
           });
@@ -8496,7 +8802,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       // Analyse columns for uniqueness to suggest keys/external IDs
       function analyseUniqueKeys() {
         if (!STATE.headers.length) {
-          showRulesStatus('Please load a dataset first','error');
+          toast('Please load a dataset first', 'error');
           return;
         }
         const nrows = STATE.rows.length;
@@ -8544,7 +8850,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         out.innerHTML = '';
         if (suggestions.length === 0) {
           out.textContent = 'No unique single or two-column keys were found in this dataset.';
+          toast('Key analysis complete: No unique keys found', 'info');
         } else {
+          // Toast will be added after building the results
           const ul = document.createElement('ul');
           suggestions.forEach(sugg => {
             const li = document.createElement('li');
@@ -8556,13 +8864,26 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             ul.appendChild(li);
           });
           out.appendChild(ul);
+          
+          // Add success toast with key count
+          const keyCount = suggestions.length;
+          const singleKeys = suggestions.filter(s => s.type === 'single').length;
+          const pairKeys = suggestions.filter(s => s.type === 'pair').length;
+          
+          if (singleKeys > 0 && pairKeys > 0) {
+            toast(`Key analysis complete: Found ${singleKeys} unique column${singleKeys !== 1 ? 's' : ''} and ${pairKeys} column pair${pairKeys !== 1 ? 's' : ''}`, 'ok');
+          } else if (singleKeys > 0) {
+            toast(`Key analysis complete: Found ${singleKeys} unique column${singleKeys !== 1 ? 's' : ''}`, 'ok');
+          } else {
+            toast(`Key analysis complete: Found ${pairKeys} column pair${pairKeys !== 1 ? 's' : ''}`, 'ok');
+          }
         }
       }
 
       // Generate a surrogate ID column and add it to the current dataset
       function generateSurrogateId() {
         if (!STATE.headers.length || !STATE.rows.length) {
-          showRulesStatus('Please load a dataset first','error');
+          toast('Please load a dataset first', 'error');
           return;
         }
         // Determine a unique column name for the surrogate ID
@@ -8593,7 +8914,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         updateDataCounts();
 
         // Show success message
-        showRulesStatus(`Added ID column "${newName}" with ${STATE.rows.length} unique IDs`, 'ok');
+        toast(`Added ID column "${newName}" with ${STATE.rows.length} unique IDs`, 'ok');
       }
 
       // Generate histogram visualizations for all columns
@@ -9480,19 +9801,19 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
           if (!STATE.headers || STATE.headers.length === 0) {
             debugLog('quickCleanAll', 'No headers found');
-            showRulesStatus('Please load data first', 'error');
+            toast('Please load data first', 'error');
             return;
           }
 
           if (!STATE.rows || STATE.rows.length === 0) {
             debugLog('quickCleanAll', 'No rows found');
-            showRulesStatus('No data rows to clean', 'error');
+            toast('No data rows to clean', 'error');
             return;
           }
 
           // Check if another operation is in progress
           if (quickCleanAllBtn.disabled) {
-            showRulesStatus('Operation already in progress', 'error');
+            toast('Operation already in progress', 'error');
             return;
           }
 
@@ -9529,12 +9850,31 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           debugLog('quickCleanAll', 'Starting data operations');
           setTimeout(() => {
             try {
+              const startTime = performance.now();
               applyDataOperations();
+              const endTime = performance.now();
+              const cleanTime = ((endTime - startTime) / 1000).toFixed(1);
+              
               debugLog('quickCleanAll', 'Data operations completed successfully');
-              showRulesStatus('Data cleaning completed successfully', 'ok');
+              
+              // Get summary of changes
+              const summaryEl = el('#opChangeSummary');
+              let changeDetails = '';
+              if (summaryEl && summaryEl.textContent) {
+                const match = summaryEl.textContent.match(/(\d+) changes? in (\d+) columns?/);
+                if (match) {
+                  changeDetails = `: ${match[1]} changes in ${match[2]} column${match[2] !== '1' ? 's' : ''}`;
+                }
+              }
+              
+              if (cleanTime > 1) {
+                toast(`Data cleaning completed${changeDetails} (${cleanTime}s)`, 'ok');
+              } else {
+                toast(`Data cleaning completed${changeDetails}`, 'ok');
+              }
             } catch (error) {
               debugError('quickCleanAll', error, 'During data operations');
-              showRulesStatus('Error during cleaning: ' + error.message, 'error');
+              toast('Error during cleaning: ' + error.message, 'error');
             } finally {
               // Re-enable button
               quickCleanAllBtn.disabled = false;
@@ -9545,7 +9885,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         } catch (error) {
           debugError('quickCleanAll', error, 'Setting up clean operation');
-          showRulesStatus('Error preparing clean operation: ' + error.message, 'error');
+          toast('Error preparing clean operation: ' + error.message, 'error');
           // Re-enable button on error
           quickCleanAllBtn.disabled = false;
           quickCleanAllBtn.textContent = '🧹 Clean All';
@@ -9558,7 +9898,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       if (quickPrepareBtn) quickPrepareBtn.addEventListener('click', async () => {
         try {
           if (STATE.headers.length === 0) {
-            showRulesStatus('Please load data first', 'error');
+            toast('Please load data first', 'error');
             return;
           }
 
@@ -9581,27 +9921,100 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             setTimeout(() => {
               try {
                 analyseUniqueKeys();
-                showRulesStatus('Data prepared: cleaned and key analysis complete!', 'ok');
+                toast('Data prepared: cleaned and key analysis complete!', 'ok');
               } catch (error) {
-                showRulesStatus('Error during key analysis: ' + error.message, 'error');
+                toast('Error during key analysis: ' + error.message, 'error');
               }
             }, 1000);
           }
         } catch (error) {
-          showRulesStatus('Error during data preparation: ' + error.message, 'error');
+          toast('Error during data preparation: ' + error.message, 'error');
         }
       });
 
       const quickExportSummaryBtn = el('#quickExportSummary');
       if (quickExportSummaryBtn) quickExportSummaryBtn.addEventListener('click', () => {
         if (STATE.headers.length === 0) {
-          showRulesStatus('Please load data first', 'error');
+          toast('Please load data first', 'error');
           return;
         }
 
         // Export data dictionary
         exportDataDict(STATE.headers, STATE.profiles, STATE.rules, STATE.ruleResults);
-        toast('Data dictionary exported', 'ok');
+        toast('Column analysis exported successfully', 'ok');
+      });
+      
+      // Add event listener for Export CSV with patterns applied
+      const exportDataWithPatternsBtn = el('#exportDataWithPatterns');
+      if (exportDataWithPatternsBtn) exportDataWithPatternsBtn.addEventListener('click', () => {
+        if (STATE.headers.length === 0) {
+          toast('Please load data first', 'error');
+          return;
+        }
+        
+        // Apply patterns to a copy of the data and export
+        if (!STATE.profiles || STATE.profiles.length === 0) {
+          // No patterns detected, just export regular CSV
+          const csvContent = toCSV(STATE.rows, STATE.headers);
+          const datasetName = (el('#datasetName')?.textContent || 'data').replace(/[\s\uD83C-\uDBFF\uDC00-\uDFFF]+/g, '_');
+          download(`${datasetName}_patterns_applied.csv`, csvContent);
+          toast('CSV exported (no patterns to apply)', 'info');
+          return;
+        }
+        
+        // Create a copy of rows to apply patterns
+        const newRows = STATE.rows.map(row => row.slice());
+        let totalFixes = 0;
+        const patternFixes = {};
+        
+        // Apply pattern fixes to all columns that have detected patterns
+        for (let j = 0; j < STATE.headers.length; j++) {
+          patternFixes[j] = 0;
+          if (!STATE.profiles[j] || !STATE.profiles[j].patterns) continue;
+          
+          const patterns = STATE.profiles[j].patterns;
+          if (patterns.length === 0) continue;
+          
+          const topPattern = patterns[0];
+          // Only fix if we have reasonable confidence or fixability
+          if (topPattern.confidence > DATAPHREAK_CONFIG.PATTERN_CONFIDENCE_THRESHOLD ||
+              topPattern.fixable > DATAPHREAK_CONFIG.PATTERN_FIXABLE_THRESHOLD) {
+            const pattern = PATTERN_LIBRARY[topPattern.id];
+            if (pattern && pattern.fix) {
+              for (let r = 0; r < newRows.length; r++) {
+                const val = newRows[r][j];
+                if (val == null) continue;
+                try {
+                  const fixed = pattern.fix(String(val));
+                  if (fixed !== String(val)) {
+                    newRows[r][j] = fixed;
+                    patternFixes[j]++;
+                    totalFixes++;
+                  }
+                } catch (e) {
+                  // Ignore errors, keep original value
+                }
+              }
+            }
+          }
+        }
+        
+        // Export the CSV with patterns applied
+        const csvContent = toCSV(newRows, STATE.headers);
+        const datasetName = (el('#datasetName')?.textContent || 'data').replace(/[\s\uD83C-\uDBFF\uDC00-\uDFFF]+/g, '_');
+        download(`${datasetName}_patterns_applied.csv`, csvContent);
+        
+        if (totalFixes > 0) {
+          const summaryParts = [];
+          for (let j = 0; j < STATE.headers.length; j++) {
+            if (patternFixes[j] > 0) {
+              summaryParts.push(`${STATE.headers[j]}: ${patternFixes[j]}`);
+            }
+          }
+          toast(`CSV exported with ${totalFixes} pattern fixes applied`, 'ok');
+        } else {
+          toast('CSV exported (data already matches patterns)', 'info');
+        }
       });
 
       // Add event listener for Apply Patterns button
