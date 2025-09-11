@@ -2,7 +2,9 @@
 
 # 🚀 DATAPHREAK - Professional CSV & Excel Data Analysis Tool
 
-<img src="https://img.shields.io/badge/Version-8.6.1-blue?style=for-the-badge" alt="Version">
+### 🎉 **Latest Update (v8.6.2)**: Enhanced UI/UX with golden-themed light mode, improved notifications, and bug fixes!
+
+<img src="https://img.shields.io/badge/Version-8.6.2-blue?style=for-the-badge" alt="Version">
 <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 <img src="https://img.shields.io/badge/Size-1.33MB-orange?style=for-the-badge" alt="Size">
 <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Status">
@@ -280,6 +282,26 @@ cd DATAPHREAK
 | 🔒 **No Login Required** | ✅ Anonymous | No accounts, no passwords, no email |
 
 </div>
+
+---
+
+## 🆕 **What's New in v8.6.2**
+
+### **UI/UX Enhancements**
+- 🎨 **Enhanced Light Mode**: Beautiful golden theme with consistent dark gold borders throughout
+- 💬 **Improved Notifications**: All toast messages now show counts, timing, and better descriptions
+- 📝 **Comprehensive Tooltips**: Every button now has detailed, actionable hover descriptions
+- ✨ **Visual Polish**: Better particle effects, improved KPI tiles, and refined color schemes
+
+### **Bug Fixes**
+- 🐛 **Fixed Dataset Loading**: Resolved critical bug where second file would load into wrong slot
+- 🔧 **Variable Hoisting Fix**: Fixed JavaScript initialization errors preventing file loads
+- 🎯 **UI Consistency**: Fixed inconsistent borders and missing backgrounds in light mode
+
+### **New Features**
+- 📊 **Enhanced Duplicate View**: Added visual divider between exact and fuzzy duplicate sections
+- ⚡ **Performance Metrics**: Operations now show timing for long-running processes
+- 🔍 **Better Error Messages**: More descriptive and actionable error notifications
 
 ---
 
