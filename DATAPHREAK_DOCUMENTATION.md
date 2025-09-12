@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 # 📊 DATAPHREAK v8.6.3 - Complete Technical Documentation
 
 ## Executive Summary
 
 DATAPHREAK is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.29MB HTML file contains ~9,400 lines of optimized code delivering professional data analysis without installation, servers, or data uploads.
+=======
+# 📊 DATAPHREAK v8.6.1 - Complete Technical Documentation
+
+## Executive Summary
+
+DATAPHREAK is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.33MB HTML file contains 9,786 lines of code delivering professional data analysis without installation, servers, or data uploads.
+>>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 
 ---
 
@@ -51,13 +59,21 @@ DATAPHREAK is a **100% client-side** data analysis platform that transforms mess
 ### Single-File Architecture
 
 ```
+<<<<<<< HEAD
 DATAPHREAK.html (1.29MB total)
+=======
+DATAPHREAK.html (1.33MB total)
+>>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 ├── HTML Structure (318 lines)
 ├── CSS Styles (2,242 lines)
 │   ├── Dark Theme (default)
 │   ├── Light Theme (golden)
 │   └── Matrix Theme (green)
+<<<<<<< HEAD
 ├── JavaScript Core (~5,900 lines - optimized)
+=======
+├── JavaScript Core (6,258 lines)
+>>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 │   ├── State Management
 │   ├── Data Processing
 │   ├── UI Rendering
@@ -832,6 +848,7 @@ Include in bug reports:
 
 ## Version History
 
+<<<<<<< HEAD
 ### v8.6.3 (Current - January 2025)
 - **Code Optimization & Streamlining**
   - Removed 350+ lines of unused code (3% file size reduction)
@@ -853,6 +870,9 @@ Include in bug reports:
   - Fixed dataset loading bugs
 
 ### v8.6.1 (January 2025)
+=======
+### v8.6.1 (Current - January 2025)
+>>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 - **UI/UX Improvements**
   - Fixed Row Analysis table alignment issues
   - Improved responsive design for all screen sizes
