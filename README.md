@@ -2,19 +2,11 @@
 
 # 🚀 DATAPHREAK - Professional CSV & Excel Data Analysis Tool
 
-<<<<<<< HEAD
 ### 🎉 **Latest Update (v8.6.3)**: Streamlined codebase with 350+ lines removed for better performance!
 
 <img src="https://img.shields.io/badge/Version-8.6.3-blue?style=for-the-badge" alt="Version">
 <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 <img src="https://img.shields.io/badge/Size-1.29MB-orange?style=for-the-badge" alt="Size">
-=======
-### 🎉 **Latest Update (v8.6.2)**: Enhanced UI/UX with golden-themed light mode, improved notifications, and bug fixes!
-
-<img src="https://img.shields.io/badge/Version-8.6.2-blue?style=for-the-badge" alt="Version">
-<img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
-<img src="https://img.shields.io/badge/Size-1.33MB-orange?style=for-the-badge" alt="Size">
->>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Status">
 
 ### **⚡ Free Data Cleaning, Validation, Duplicate Detection & Quality Assessment - 100% Offline**
@@ -191,7 +183,7 @@
 |:----------|:------------|:------------|
 | **Browser** | Chrome 80+, Firefox 75+, Safari 13+, Edge 80+ | Chrome 90+ |
 | **RAM** | 2GB minimum | 4GB+ for 1M rows |
-| **File Size** | Single 1.33MB HTML file | N/A |
+| **File Size** | Single 1.29MB HTML file | N/A |
 | **Internet** | Not required (100% offline) | N/A |
 
 ### **Performance Benchmarks**
@@ -293,7 +285,6 @@ cd DATAPHREAK
 
 ---
 
-<<<<<<< HEAD
 ## 🆕 **What's New in v8.6.3**
 
 ### **Performance & Code Optimization**
@@ -312,25 +303,6 @@ cd DATAPHREAK
 - 🎨 **Enhanced Light Mode**: Beautiful golden theme with consistent dark gold borders
 - 💬 **Improved Notifications**: All toast messages show counts, timing, and better descriptions
 - 🐛 **Fixed Dataset Loading**: Resolved critical bug where second file would load into wrong slot
-=======
-## 🆕 **What's New in v8.6.2**
-
-### **UI/UX Enhancements**
-- 🎨 **Enhanced Light Mode**: Beautiful golden theme with consistent dark gold borders throughout
-- 💬 **Improved Notifications**: All toast messages now show counts, timing, and better descriptions
-- 📝 **Comprehensive Tooltips**: Every button now has detailed, actionable hover descriptions
-- ✨ **Visual Polish**: Better particle effects, improved KPI tiles, and refined color schemes
-
-### **Bug Fixes**
-- 🐛 **Fixed Dataset Loading**: Resolved critical bug where second file would load into wrong slot
-- 🔧 **Variable Hoisting Fix**: Fixed JavaScript initialization errors preventing file loads
-- 🎯 **UI Consistency**: Fixed inconsistent borders and missing backgrounds in light mode
-
-### **New Features**
-- 📊 **Enhanced Duplicate View**: Added visual divider between exact and fuzzy duplicate sections
-- ⚡ **Performance Metrics**: Operations now show timing for long-running processes
-- 🔍 **Better Error Messages**: More descriptive and actionable error notifications
->>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 
 ---
 
@@ -388,19 +360,11 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
-<<<<<<< HEAD
 **Latest Version: 8.6.3** (January 2025)
 - Streamlined codebase (350+ lines removed)
 - Improved pattern detection accuracy
 - 3% smaller file size for faster loading
 - Bug fixes for SSN, phone, and date validation
-=======
-**Latest Version: 8.6.1** (January 2025)
-- Default US date format (MM/DD/YYYY)
-- Enhanced pattern detection
-- 30% faster processing
-- Improved mobile support
->>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 
 ---
 
@@ -422,11 +386,7 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
 <sub>
 
-<<<<<<< HEAD
 **DATAPHREAK v8.6.3** | Built with ❤️ for data professionals everywhere  
-=======
-**DATAPHREAK v8.6.1** | Built with ❤️ for data professionals everywhere  
->>>>>>> 7cd11ba1c96cc1f039c46d43c2b9db5d7c345893
 **© 2025 Zac Sluss** | [MIT License](LICENSE) | [Documentation](DATAPHREAK_DOCUMENTATION.md) | [Contact](mailto:zacsluss@yahoo.com)
 
 **🚀 Fast** • **🔒 Secure** • **💡 Smart** • **💼 Professional** • **Free Forever**
