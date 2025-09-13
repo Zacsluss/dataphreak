@@ -37,7 +37,7 @@
     -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';">
   <!--
-    DATAPHREAK v8.6.3: Smart single-file data analysis tool for CSV/TSV/Excel files.
+    DATAPHREAK v8.7.0: Smart single-file data analysis tool for CSV/TSV/Excel files.
     Features include: Smart pattern detection (emails, phones, dates), fuzzy duplicate matching,
     comprehensive data quality scoring with A-F grades, smart data cleaning with auto-corrections,
     and professional reporting. Works completely offline with no installations required.
@@ -2490,6 +2490,364 @@
       overflow-x: auto;
       overflow-y: visible;
     }
+    
+    /* Apple-sleek help navigation pill styles */
+    .help-index a {
+      transition: all 0.2s ease;
+    }
+    
+    .help-index a:hover {
+      background: rgba(255,255,255,0.12) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    
+    .help-index a:active {
+      transform: translateY(0);
+    }
+    
+    /* Clean help content styling */
+    .help-body h4 {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 32px 0 12px 0;
+      color: #fff;
+    }
+    
+    .help-body h5 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 20px 0 8px 0;
+      color: #fff;
+    }
+    
+    .help-body p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    
+    /* Smooth scrolling for help content */
+    .help-body {
+      scroll-behavior: smooth;
+    }
+    
+    /* Subtle navigation scrollbar */
+    .help-index > div {
+      scrollbar-width: thin; /* Firefox */
+    }
+    
+    .help-index > div::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .help-index > div::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.05);
+      border-radius: 3px;
+    }
+    
+    .help-index > div::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.2);
+      border-radius: 3px;
+    }
+    
+    .help-index > div::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    
+    /* Clean info boxes */
+    .help-body > div[style*="background"] {
+      transition: all 0.2s ease;
+    }
+    
+    .help-body > div[style*="background"]:hover {
+      border-color: rgba(255,255,255,0.12) !important;
+      background: rgba(255,255,255,0.05) !important;
+    }
+    
+    /* Custom scrollbar styles - Base/Dark Theme */
+    *::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+    
+    /* Dark theme scrollbar track */
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-track {
+      background: #1a1a1a;
+      border-radius: 10px;
+    }
+    
+    /* Dark theme scrollbar thumb (the draggable part) */
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-thumb {
+      background: #4a4a4a;
+      border-radius: 10px;
+      border: 1px solid #2a2a2a;
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-thumb:hover {
+      background: #5a5a5a;
+      border: 1px solid #3a3a3a;
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-thumb:active {
+      background: #6a6a6a;
+    }
+    
+    /* Dark theme scrollbar buttons (arrows) */
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-button {
+      background: #2a2a2a;
+      border: 1px solid #1a1a1a;
+      height: 12px;
+      width: 12px;
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-button:hover {
+      background: #3a3a3a;
+    }
+    
+    /* Arrow styles for scrollbar buttons */
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-button:vertical:decrement {
+      background-image: linear-gradient(45deg, transparent 40%, #888 40%, #888 60%, transparent 60%),
+                        linear-gradient(-45deg, transparent 40%, #888 40%, #888 60%, transparent 60%);
+      background-position: center 40%;
+      background-size: 8px 8px;
+      background-repeat: no-repeat;
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-button:vertical:increment {
+      background-image: linear-gradient(135deg, transparent 40%, #888 40%, #888 60%, transparent 60%),
+                        linear-gradient(-135deg, transparent 40%, #888 40%, #888 60%, transparent 60%);
+      background-position: center 60%;
+      background-size: 8px 8px;
+      background-repeat: no-repeat;
+    }
+    
+    /* Hide horizontal scrollbar buttons */
+    body:not(.theme-light):not(.theme-matrix) *::-webkit-scrollbar-button:horizontal {
+      display: none;
+    }
+    
+    /* Firefox scrollbar support */
+    body:not(.theme-light):not(.theme-matrix) * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.2) rgba(255,255,255,0.03);
+    }
+    
+    body.theme-light * {
+      scrollbar-width: thin;
+      scrollbar-color: #b8860b rgba(184,134,11,0.08);
+    }
+    
+    body.theme-matrix * {
+      scrollbar-width: thin;
+      scrollbar-color: #00ff41 rgba(0,255,65,0.05);
+    }
+    
+    /* ===== THEME-SPECIFIC HELP PAGE STYLES ===== */
+    
+    /* Light Theme Help Page */
+    body.theme-light .help-body h4 {
+      color: #1a1a1a;
+    }
+    
+    body.theme-light .help-body h5 {
+      color: #2a2a2a;
+    }
+    
+    body.theme-light .help-body p {
+      color: rgba(0,0,0,0.7);
+    }
+    
+    body.theme-light .help-index a {
+      background: linear-gradient(135deg, rgba(255,252,248,0.95), rgba(254,250,245,0.9), rgba(255,253,250,0.95));
+      color: rgba(0,0,0,0.8);
+      border: 2px solid rgba(184,134,11,0.4);
+      box-shadow: 0 0 6px rgba(184,134,11,0.05), inset 0 1px 0 rgba(255,255,255,0.9);
+    }
+    
+    body.theme-light .help-nav-active {
+      background: linear-gradient(135deg, #e6d5c1, #f0e6d8, #e8dcc8) !important;
+      color: #4a3c28 !important;
+      border: 2px solid rgba(184,134,11,0.5) !important;
+      box-shadow: 0 0 10px rgba(184,134,11,0.15), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+    }
+    
+    body.theme-light .help-index a span {
+      background: rgba(184,134,11,0.08);
+      border: 1px solid rgba(184,134,11,0.15);
+    }
+    
+    body.theme-light .help-nav-active span {
+      background: rgba(255,255,255,0.3) !important;
+      border: 1px solid rgba(184,134,11,0.2) !important;
+    }
+    
+    body.theme-light .help-index a:hover {
+      background: linear-gradient(135deg, rgba(255,253,250,1), rgba(255,252,248,1), rgba(254,250,245,1)) !important;
+      border-color: rgba(184,134,11,0.45);
+      box-shadow: 0 0 12px rgba(184,134,11,0.1), 0 4px 8px rgba(184,134,11,0.08), inset 0 1px 0 rgba(255,255,255,0.95);
+      transform: translateY(-2px);
+    }
+    
+    body.theme-light .help-body > div[style*="background"] {
+      background: rgba(184,134,11,0.05) !important;
+      border: 1px solid rgba(184,134,11,0.15) !important;
+    }
+    
+    /* Light Theme Scrollbars */
+    body.theme-light *::-webkit-scrollbar-track {
+      background: #f5f0e6;
+      border-radius: 10px;
+      border: 1px solid rgba(184,134,11,0.1);
+    }
+    
+    body.theme-light *::-webkit-scrollbar-button {
+      background: #e6d5b8;
+      border: 1px solid #d4a574;
+      height: 12px;
+      width: 12px;
+    }
+    
+    body.theme-light *::-webkit-scrollbar-button:hover {
+      background: #d4a574;
+    }
+    
+    body.theme-light *::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #b8860b, #d4a574);
+      border: 2px solid rgba(255,255,255,0.3);
+      background-clip: padding-box;
+      border-radius: 10px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    }
+    
+    body.theme-light *::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #d4a574, #daa520);
+      background-clip: padding-box;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 0 4px rgba(184,134,11,0.3);
+    }
+    
+    body.theme-light *::-webkit-scrollbar-thumb:active {
+      background: linear-gradient(180deg, #8b6914, #b8860b);
+      background-clip: padding-box;
+    }
+    
+    /* Matrix Theme Help Page */
+    body.theme-matrix .help-body h4 {
+      color: #00ff41;
+      text-shadow: 0 0 10px rgba(0,255,65,0.5);
+    }
+    
+    body.theme-matrix .help-body h5 {
+      color: #00ff41;
+      text-shadow: 0 0 8px rgba(0,255,65,0.4);
+    }
+    
+    body.theme-matrix .help-body p {
+      color: rgba(0,255,65,0.8);
+      text-shadow: 0 0 2px rgba(0,255,65,0.3);
+    }
+    
+    body.theme-matrix .help-index a {
+      background: rgba(0,255,65,0.1);
+      color: rgba(0,255,65,0.9);
+      border: 1px solid rgba(0,255,65,0.3);
+      text-shadow: 0 0 5px rgba(0,255,65,0.5);
+    }
+    
+    body.theme-matrix .help-nav-active {
+      background: rgba(0,255,65,0.2) !important;
+      color: #00ff41 !important;
+      border: 1px solid #00ff41 !important;
+      animation: matrix-pulse 2s infinite;
+    }
+    
+    body.theme-matrix .help-index a span {
+      background: rgba(0,255,65,0.2);
+      text-shadow: 0 0 3px rgba(0,255,65,0.8);
+    }
+    
+    body.theme-matrix .help-index a:hover {
+      background: rgba(0,255,65,0.2) !important;
+      box-shadow: 0 0 20px rgba(0,255,65,0.4);
+      border-color: #00ff41;
+    }
+    
+    body.theme-matrix .help-body > div[style*="background"] {
+      background: rgba(0,255,65,0.05) !important;
+      border: 1px solid rgba(0,255,65,0.2) !important;
+      box-shadow: 0 0 10px rgba(0,255,65,0.1);
+    }
+    
+    /* Matrix Theme Scrollbars */
+    body.theme-matrix *::-webkit-scrollbar-track {
+      background: #001a00;
+      box-shadow: inset 0 0 5px rgba(0,255,65,0.1);
+      border-radius: 10px;
+    }
+    
+    body.theme-matrix *::-webkit-scrollbar-button {
+      background: #003300;
+      border: 1px solid #00ff41;
+      height: 12px;
+      width: 12px;
+      box-shadow: 0 0 3px rgba(0,255,65,0.3);
+    }
+    
+    body.theme-matrix *::-webkit-scrollbar-button:hover {
+      background: #004400;
+      box-shadow: 0 0 5px rgba(0,255,65,0.5);
+    }
+    
+    body.theme-matrix *::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00ff41, #00cc33);
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 0 10px rgba(0,255,65,0.5);
+    }
+    
+    body.theme-matrix *::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #00ff41, #00ff41);
+      background-clip: padding-box;
+      box-shadow: 0 0 15px rgba(0,255,65,0.7);
+    }
+    
+    @keyframes matrix-pulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(0,255,65,0.4); }
+      50% { box-shadow: 0 0 20px rgba(0,255,65,0.6); }
+    }
+    
+    /* Dark Theme (Default) - ensure consistency */
+    body:not(.theme-light):not(.theme-matrix) .help-index a {
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) .help-nav-active {
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.15)) !important;
+      color: white !important;
+      border: 1px solid rgba(255,255,255,0.4) !important;
+      box-shadow: 0 0 10px rgba(255,255,255,0.15), 
+                  0 0 20px rgba(255,255,255,0.08),
+                  inset 0 0 8px rgba(255,255,255,0.05),
+                  0 2px 5px rgba(255,255,255,0.1) !important;
+      text-shadow: 0 0 5px rgba(255,255,255,0.25);
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) .help-index a span {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) .help-nav-active span {
+      background: rgba(255,255,255,0.25) !important;
+      border: 1px solid rgba(255,255,255,0.25) !important;
+      box-shadow: 0 0 4px rgba(255,255,255,0.2) !important;
+    }
+    
+    body:not(.theme-light):not(.theme-matrix) .help-index a:hover {
+      background: rgba(255,255,255,0.12) !important;
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
   </style>
 </head>
 <body>
@@ -2523,7 +2881,7 @@
         </div>
       </div>
       <h1>
-        DATAPHREAK<span class="version">v8.6.2</span>
+        DATAPHREAK<span class="version">v8.7.0</span>
       </h1>
       <div class="header-right">
         <span id="datasetName" class="pill">No dataset loaded</span>
@@ -2584,7 +2942,8 @@
       <div class="row" style="margin-top:4px; display:none">
         <button id="saveRules" type="button" disabled title="Persist your custom validation rules to browser storage, linked to this specific file. Rules are automatically loaded when you reopen the same dataset, maintaining column-specific patterns, allowed values, and required field settings across sessions">Save Rules</button>
         <button id="clearRules" type="button" disabled title="Remove all saved validation rules for this dataset and revert to auto-detected patterns. Clears custom allowed values, required fields, and pattern rules from storage. The system will regenerate smart suggestions based on your data">Clear Rules</button>
-        <button id="downloadRules" type="button" disabled title="Export your validation rules to a JSON file for sharing with team members or backup. Includes all column patterns, allowed values, required fields, and custom rules. Can be imported into any DATAPHREAK instance for consistent data validation">Download Rules</button>
+        <button id="exportRules" type="button" disabled title="Export your validation rules to a JSON file for sharing with team members or backup. Includes all column patterns, allowed values, required fields, and custom rules. Can be imported into any DATAPHREAK instance for consistent data validation">Export Rules</button>
+        <button id="importRules" type="button" disabled title="Import validation rules from a JSON file previously exported from DATAPHREAK. Automatically applies saved patterns, allowed values, and required field settings to matching columns. Perfect for applying consistent validation across multiple datasets">Import Rules</button>
       </div>
     </section>
     <!-- Dataset Overview -->
@@ -2829,7 +3188,8 @@
         <h2 title="Detailed analysis of each column/field with smart pattern detection - see data types, patterns, statistics, and quality rules">Column Analysis <span class="collapse-toggle" role="button" aria-label="Collapse section" title="Collapse or expand this section">▼</span></h2>
         <!-- Field Analysis action buttons aligned with other tile headers -->
         <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
-          <button id="navDownloadRules" type="button" class="field-btn" title="Export validation rules to shareable JSON file containing all column-specific patterns, allowed value lists, required field settings, and custom regex patterns. Perfect for team collaboration, rule versioning, or applying consistent validation across multiple datasets">Download Rules</button>
+          <button id="navImportRules" type="button" class="field-btn" title="Import validation rules from a JSON file previously exported from DATAPHREAK. Automatically applies saved patterns, allowed values, and required field settings to matching columns. Perfect for applying consistent validation across multiple datasets">Import Rules</button>
+          <button id="navExportRules" type="button" class="field-btn" title="Export validation rules to shareable JSON file containing all column-specific patterns, allowed value lists, required field settings, and custom regex patterns. Perfect for team collaboration, rule versioning, or applying consistent validation across multiple datasets">Export Rules</button>
           <button id="navSaveRules" type="button" class="field-btn" title="Store current validation rules in browser's local storage, linked to this file's unique signature. Rules automatically reload when you open the same dataset again, preserving all custom patterns, allowed values, and field requirements across sessions">Save Rules</button>
           <button id="navClearRules" type="button" class="field-btn" title="Delete all saved validation rules from browser storage and reset to auto-detected suggestions. Your data remains unchanged - only the validation rules are cleared. System will regenerate smart pattern detection based on current data">Clear Rules</button>
           <button id="navRunRules" type="button" class="field-btn" title="Validate entire dataset against configured rules: required fields, allowed values, regex patterns, data types, and ranges. Generates detailed report showing all violations by row and column, with specific error messages and suggested fixes">Run Rules</button>
@@ -2914,211 +3274,190 @@
       <h3>
         Help &amp; Documentation
       </h3>
-      <!-- Index of help topics: click to jump to section -->
-      <nav class="help-index" aria-label="Help topics" style="margin-bottom:16px">
-        <!-- Start Here Button -->
-        <div style="margin-bottom:12px">
-          <a href="#help-start" class="help-tab" style="background:#22c55e;color:white;font-weight:bold;font-size:16px;padding:8px 16px" title="Quick start guide to begin using DATAPHREAK"><strong>START HERE</strong> 🚀 Getting Started</a>
-        </div>
-
-        <!-- Basics Section -->
-        <div class="help-section" style="margin-bottom:12px">
-          <div style="color:#38bdf8;font-size:12px;font-weight:bold;margin-bottom:6px;padding-left:4px">📋 BASICS</div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <a href="#help-loading" class="help-tab" style="border-color:#38bdf8" title="Learn how to upload and load your CSV, TSV, or Excel files"><strong>1.</strong> Loading Your Data</a>
-            <a href="#help-summary" class="help-tab" style="border-color:#38bdf8" title="Interpret the KPI cards, quality scores, and analysis results"><strong>2.</strong> Understanding Results</a>
-            <a href="#help-histograms" class="help-tab" style="border-color:#38bdf8" title="Create beautiful charts and visualizations of your data"><strong>3.</strong> Data Visualizations</a>
-            <a href="#help-ops" class="help-tab" style="border-color:#38bdf8" title="Use smart tools to clean and fix your data automatically"><strong>4.</strong> Quick Data Cleaning</a>
-            <a href="#help-exports" class="help-tab" style="border-color:#38bdf8" title="Download your cleaned data, reports, and analysis results"><strong>5.</strong> Saving Your Work</a>
-          </div>
-        </div>
-
-        <!-- Analysis Section -->
-        <div class="help-section" style="margin-bottom:12px">
-          <div style="color:#f59e0b;font-size:12px;font-weight:bold;margin-bottom:6px;padding-left:4px">📊 ANALYSIS</div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <a href="#help-quality" class="help-tab" style="border-color:#f59e0b" title="Understand the comprehensive A-F data quality grading system"><strong>6.</strong> Smart Quality Assessment</a>
-            <a href="#help-duplicates" class="help-tab" style="border-color:#f59e0b" title="Find exact matches and similar records using smart fuzzy matching"><strong>7.</strong> Smart Duplicate Detection</a>
-            <a href="#help-patterns" class="help-tab" style="border-color:#f59e0b" title="Automatically detect emails, phones, dates, and other data patterns"><strong>8.</strong> Smart Pattern Detection</a>
-            <a href="#help-field" class="help-tab" style="border-color:#f59e0b" title="Deep dive into individual column statistics and data profiling"><strong>9.</strong> Column Analysis</a>
-            <a href="#help-rules" class="help-tab" style="border-color:#f59e0b" title="Set up quality rules to validate data meets business requirements"><strong>10.</strong> Data Validation</a>
-            <a href="#help-keys" class="help-tab" style="border-color:#f59e0b" title="Find columns that uniquely identify each record in your data"><strong>11.</strong> Unique Identifiers</a>
-          </div>
-        </div>
-
-        <!-- Advanced Section -->
-        <div class="help-section" style="margin-bottom:8px">
-          <div style="color:#8b5cf6;font-size:12px;font-weight:bold;margin-bottom:6px;padding-left:4px">⚙️ ADVANCED</div>
-          <div style="display:flex;flex-wrap:wrap;gap:6px">
-            <a href="#help-fuzzy" class="help-tab" style="border-color:#8b5cf6" title="Compare records across two different datasets for similarities"><strong>12.</strong> Compare Files</a>
-            <a href="#help-merge" class="help-tab" style="border-color:#8b5cf6" title="Combine two datasets together using common column values"><strong>13.</strong> Merge Files</a>
-            <a href="#help-settings" class="help-tab" style="border-color:#8b5cf6" title="Customize themes, default cleaning options, and preferences"><strong>14.</strong> Settings</a>
-            <a href="#help-keyboard" class="help-tab" style="border-color:#8b5cf6" title="Learn keyboard shortcuts for faster data analysis"><strong>15.</strong> Shortcuts</a>
-            <a href="#help-security" class="help-tab" style="border-color:#8b5cf6" title="Learn about data privacy and security features"><strong>16.</strong> Security</a>
-            <a href="#help-legal" class="help-tab" style="border-color:#8b5cf6" title="View terms of use and legal information"><strong>17.</strong> Legal</a>
-          </div>
+      <!-- Simplified Tab Navigation with Pills -->
+      <nav class="help-index" aria-label="Help topics" style="margin-bottom:20px;padding-bottom:12px">
+        <div style="display:flex;gap:12px;overflow-x:auto;white-space:nowrap;padding:8px 4px">
+          <a href="#help-start" data-section="help-start" class="help-nav-pill help-nav-active" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">1</span> Start</a>
+          <a href="#help-loading" data-section="help-loading" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">2</span> Loading</a>
+          <a href="#help-summary" data-section="help-summary" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">3</span> Dashboard</a>
+          <a href="#help-quality" data-section="help-quality" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">4</span> Quality</a>
+          <a href="#help-duplicates" data-section="help-duplicates" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">5</span> Duplicates</a>
+          <a href="#help-histograms" data-section="help-histograms" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">6</span> Charts</a>
+          <a href="#help-exports" data-section="help-exports" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">7</span> Export</a>
+          <a href="#help-ops" data-section="help-ops" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">8</span> Cleaning</a>
+          <a href="#help-advanced" data-section="help-advanced" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">9</span> Advanced</a>
+          <a href="#help-tips" data-section="help-tips" class="help-nav-pill" style="background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.8);text-decoration:none;font-weight:500;font-size:13px;padding:6px 14px;border-radius:20px;display:inline-flex;align-items:center;gap:6px;transition:all 0.2s;border:1px solid rgba(255,255,255,0.1)"><span style="background:rgba(255,255,255,0.1);padding:2px 6px;border-radius:10px;font-size:11px;font-weight:600">10</span> Tips</a>
         </div>
       </nav>
-      <div class="help-body" style="max-height:60vh;overflow-y:auto">
-        <p>Welcome to <strong>DATAPHREAK</strong>, your comprehensive data analysis and cleaning tool. This guide covers all features and capabilities.</p>
+      <div class="help-body" style="max-height:60vh;overflow-y:auto;padding:4px 0">
+        
+        <h4 id="help-start" style="font-size:24px;font-weight:600;margin:0 0 12px 0;color:#fff">Getting Started</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:24px;line-height:1.6">Get up and running with DATAPHREAK in just 5 minutes.</p>
+        
+        <div style="background:rgba(255,255,255,0.03);padding:20px;border-radius:12px;margin:0 0 32px 0;border:1px solid rgba(255,255,255,0.06)">
+          <h5 style="font-size:16px;font-weight:600;margin:0 0 8px 0;color:#fff">1. Load Your Data</h5>
+          <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:0 0 20px 0;font-size:14px">
+            Drag and drop any CSV, TSV, or Excel file into the drop zone, or click to browse. Try the sample data to explore features instantly. All processing happens locally in your browser.
+          </p>
 
-        <h4 id="help-start" style="color:#22c55e;border-left:4px solid #22c55e;padding-left:12px">🚀 Getting Started - Your First 5 Minutes</h4>
-        <div style="background:rgba(34,197,94,0.1);padding:16px;border-radius:8px;margin:12px 0">
-          <p><strong>New to DATAPHREAK?</strong> Follow this quick walkthrough to get started immediately!</p>
+          <h5 style="font-size:16px;font-weight:600;margin:0 0 8px 0;color:#fff">2. Review Dashboard</h5>
+          <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:0 0 20px 0;font-size:14px">
+            Check your data quality grade (A-F), view instant metrics in KPI cards, and use Quick Actions for one-click analysis. Each tile provides specific insights and export options.
+          </p>
 
-          <h5 style="color:#22c55e;margin:16px 0 8px 0">📊 Step 1: Try Sample Data (30 seconds)</h5>
-          <p>• Click the <strong>"Try Sample Data"</strong> button in the Load Data section<br>
-          • This loads 400 rows of customer data with some intentional issues to explore<br>
-          • Perfect for learning without uploading your own files</p>
+          <h5 style="font-size:16px;font-weight:600;margin:0 0 8px 0;color:#fff">3. Visualize Data</h5>
+          <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:0 0 20px 0;font-size:14px">
+            Access Charts and Graphs to see professional histograms with statistical overlays. Interactive tooltips show detailed information, with smart grouping for age and date data.
+          </p>
 
-          <h5 style="color:#22c55e;margin:16px 0 8px 0">👀 Step 2: See Your Data Overview (1 minute)</h5>
-          <p>• Check the <strong>KPI cards</strong> that appear - they show row count, columns, missing values, and duplicates<br>
-          • Look for the <strong>Data Quality Score</strong> - higher is better!<br>
-          • Notice the <strong>Quick Actions</strong> like "Analyze All" and "Quick Fix"</p>
+          <h5 style="font-size:16px;font-weight:600;margin:0 0 8px 0;color:#fff">4. Clean Your Data</h5>
+          <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:0 0 20px 0;font-size:14px">
+            Use Quick Actions for instant cleaning, apply patterns to fix formats automatically, or select specific operations in the Data Cleaning tile. Export your cleaned dataset when ready.
+          </p>
 
-          <h5 style="color:#22c55e;margin:16px 0 8px 0">📈 Step 3: Visualize Your Data (1 minute)</h5>
-          <p>• Click the <strong>"Charts and Graphs"</strong> button to see beautiful visualizations<br>
-          • Hover over bars to see exact counts and percentages<br>
-          • Age data automatically groups into 5-year ranges</p>
-
-          <h5 style="color:#22c55e;margin:16px 0 8px 0">🧹 Step 4: Clean Your Data (2 minutes)</h5>
-          <p>• Click <strong>"🧹 Clean All"</strong> for smart instant cleaning<br>
-          • Click <strong>"Apply Patterns"</strong> in Column Analysis to fix email/phone/date formats<br>
-          • Or go to <strong>"Data Operations"</strong> section to choose specific fixes<br>
-          • Watch the data quality score improve!</p>
-
-          <h5 style="color:#22c55e;margin:16px 0 8px 0">💾 Step 5: Export Results (30 seconds)</h5>
-          <p>• Use <strong>"Export"</strong> to download your cleaned data<br>
-          • Choose CSV, JSON, or create a Data Dictionary report<br>
-          • Files are automatically named based on operations performed</p>
-
-          <div style="background:rgba(34,197,94,0.2);padding:12px;border-radius:6px;margin:16px 0">
-            <p><strong>🎯 Pro Tip:</strong> Start with sample data to learn, then upload your own CSV files. Everything happens locally in your browser - your data never leaves your computer!</p>
-          </div>
-
-          <p><strong>Ready to dive deeper?</strong> Continue reading the sections below, or jump to any topic using the navigation above.</p>
+          <h5 style="font-size:16px;font-weight:600;margin:0 0 8px 0;color:#fff">5. Export Results</h5>
+          <p style="color:rgba(255,255,255,0.65);line-height:1.6;margin:0;font-size:14px">
+            Export your full dataset from the navigation bar or use tile-specific exports for targeted analysis. Save and share validation rules as needed.
+          </p>
         </div>
 
         <h4 id="help-loading">1. Loading Your Data</h4>
-        <p><strong>Getting your files into DATAPHREAK is easy!</strong></p>
+        <p><strong>Multiple ways to get your data into DATAPHREAK:</strong></p>
         <ul>
-          <li><strong>Drag &amp; Drop:</strong> Simply drag your CSV or TSV file into the gray drop zone</li>
-          <li><strong>Browse Files:</strong> Click "Choose File" to select from your computer</li>
-          <li><strong>Try Sample Data:</strong> Click "Try Sample Data" to practice with example data first</li>
+          <li><strong>Drag &amp; Drop:</strong> Drag files directly into the drop zone</li>
+          <li><strong>Choose File:</strong> Click button to browse and select files</li>
+          <li><strong>Try Sample Data:</strong> Load example dataset with 400 customer records</li>
+          <li><strong>Supported Formats:</strong> CSV, TSV, Excel (.xlsx, .xls)</li>
         </ul>
         <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
-          <p><strong>💡 File Requirements:</strong><br>
-          • First row must contain column names (required)<br>
-          • CSV, TSV, and Excel files (.xlsx/.xls) are supported<br>
-          • Automatically detects file format and delimiter<br>
-          • Empty values recognized: <code>""</code>, <code>NA</code>, <code>N/A</code>, <code>null</code>, <code>NaN</code> (case-insensitive)</p>
+          <p><strong>💡 File Processing Details:</strong><br>
+          • <strong>Headers Required:</strong> First row must contain column names<br>
+          • <strong>Auto-Detection:</strong> Automatically detects delimiters and encoding<br>
+          • <strong>Empty Values:</strong> Recognizes <code>""</code>, <code>NA</code>, <code>N/A</code>, <code>null</code>, <code>NaN</code>, <code>undefined</code><br>
+          • <strong>Large Files:</strong> Handles datasets with thousands of rows efficiently<br>
+          • <strong>Memory Optimization:</strong> Smart chunking for performance<br>
+          • <strong>Privacy:</strong> All processing happens locally - data never leaves your browser</p>
         </div>
 
-        <h4 id="help-summary">2. Understanding Your Results</h4>
-        <p><strong>Once your data loads, here's what you'll see:</strong></p>
+        <h4 id="help-summary">2. Understanding Your Dashboard</h4>
+        <p><strong>Your data analysis dashboard shows:</strong></p>
+        
+        <h5>📊 KPI Cards (Top Row)</h5>
         <ul>
-          <li><strong>KPI Cards:</strong> Quick stats showing total rows, columns, missing values, and duplicate records</li>
-          <li><strong>Data Quality Score:</strong> Intelligent assessment (0-100%) measuring completeness, consistency, and pattern validity with A-F grading</li>
-          <li><strong>Quick Actions:</strong> One-click buttons for common tasks:
+          <li><strong>Rows:</strong> Total number of data records</li>
+          <li><strong>Columns:</strong> Number of fields/attributes</li>
+          <li><strong>Data Completeness:</strong> Percentage of cells with values</li>
+          <li><strong>Total Cells:</strong> Rows × Columns calculation</li>
+          <li><strong>Data Quality:</strong> Overall score (0-100%) with letter grade (A-F)</li>
+        </ul>
+        
+        <h5>⚡ Quick Actions</h5>
+        <ul>
+          <li><strong>🔍 Analyze All:</strong> Deep analysis of every column</li>
+          <li><strong>🧹 Quick Fix:</strong> Smart one-click cleaning</li>
+          <li><strong>🔑 Find Keys:</strong> Identify unique identifier columns</li>
+          <li><strong>📋 Prepare:</strong> Combined cleaning and key analysis</li>
+        </ul>
+        
+        <h5>📑 Main Analysis Tiles</h5>
+        <ul>
+          <li><strong>Data Overview:</strong> Summary statistics with export</li>
+          <li><strong>Data Quality:</strong> Column overview and quality statistics</li>
+          <li><strong>Column Analysis:</strong> Detailed profiling with validation rules</li>
+          <li><strong>Data Cleaning:</strong> Apply specific operations</li>
+          <li><strong>Rows with Issues:</strong> View and export problematic data</li>
+        </ul>
+        
+        <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
+          <p><strong>🎯 Quality Score Guide:</strong><br>
+          • <strong>A (90-100%):</strong> Excellent - production ready<br>
+          • <strong>B (80-89%):</strong> Good - minor cleaning needed<br>
+          • <strong>C (70-79%):</strong> Fair - moderate issues<br>
+          • <strong>D (60-69%):</strong> Poor - significant problems<br>
+          • <strong>F (Below 60%):</strong> Failing - major data quality issues</p>
+        </div>
+        <h4 id="help-quality">4. Data Quality Assessment</h4>
+        <p><strong>Comprehensive quality analysis with actionable insights:</strong></p>
+        
+        <h5>📊 Quality Metrics</h5>
+        <ul>
+          <li><strong>Overall Score:</strong> 0-100% with A-F letter grades</li>
+          <li><strong>Data Completeness:</strong> Percentage of filled cells</li>
+          <li><strong>Missing Analysis:</strong> Column-by-column missing data tracking</li>
+          <li><strong>Duplicate Detection:</strong> Both exact and fuzzy matching</li>
+        </ul>
+        
+        <h5>📈 Quality Views (Data Quality Tile)</h5>
+        <ul>
+          <li><strong>Column Overview:</strong> Missing values by column with severity indicators</li>
+          <li><strong>Quality Statistics:</strong> Comprehensive metrics including:
             <ul style="margin:8px 0 0 20px">
-              <li><strong>Analyze All:</strong> Deep-dive into every column</li>
-              <li><strong>Clean All:</strong> Smart cleaning for spacing, capitalization, and special characters</li>
-              <li><strong>Analyze Keys:</strong> Find columns that uniquely identify rows</li>
-              <li><strong>Prepare Data:</strong> Clean data and find unique identifiers</li>
+              <li>Data completeness percentages</li>
+              <li>Row and column statistics</li>
+              <li>Pattern detection results</li>
+              <li>Data type distribution</li>
             </ul>
           </li>
         </ul>
-        <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
-          <p><strong>🎯 What's a good quality score?</strong><br>
-          • 90-100%: Excellent - very clean data<br>
-          • 80-89%: Good - minor issues to fix<br>
-          • 70-79%: Fair - several problems to address<br>
-          • Below 70%: Needs significant cleaning</p>
-        </div>
-        <h4 id="help-quality">6. Smart Data Quality Assessment</h4>
-        <p>Comprehensive quality scoring that analyzes your entire dataset:</p>
+        
+        <h5>🎯 Quality Grades</h5>
         <ul>
-          <li><strong>Overall Score:</strong> 0-100% assessment with letter grades (A-F) like a report card</li>
-          <li><strong>Completeness:</strong> How much of your data is filled vs missing</li>
-          <li><strong>Consistency:</strong> Measures duplicate rows and data conflicts</li>
-          <li><strong>Validity:</strong> Checks if data follows expected patterns (emails, phones, dates)</li>
-          <li><strong>Visual Indicators:</strong> Color-coded quality cards (green = good, red = needs work)</li>
-          <li><strong>Actionable Insights:</strong> Shows exactly what needs attention</li>
-          <li><strong>Real-time Updates:</strong> Quality score improves as you clean your data</li>
+          <li><strong>Grade A (90-100%):</strong> Excellent - production ready</li>
+          <li><strong>Grade B (80-89%):</strong> Good - minor issues</li>
+          <li><strong>Grade C (70-79%):</strong> Fair - needs attention</li>
+          <li><strong>Grade D (60-69%):</strong> Poor - significant problems</li>
+          <li><strong>Grade F (Below 60%):</strong> Failing - major issues</li>
         </ul>
-        <h4 id="help-duplicates">7. Smart Duplicate Detection</h4>
-        <p>Advanced duplicate detection that goes beyond basic matching:</p>
+        <h4 id="help-duplicates" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Duplicate Detection</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">
+          Find exact and fuzzy duplicates with adjustable similarity thresholds. Compare across files and export duplicate groups for review.
+        </p>
+        <h4 id="help-field" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Column Analysis</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">
+          Deep profiling with data type detection, statistics, cardinality analysis, and validation rules. Import/export rules for team collaboration.
+        </p>
+
+        <h4 id="help-patterns" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Pattern Detection</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">
+          Automatically detects and fixes emails, phones, dates, ZIP codes, URLs, and IDs. One-click standardization with confidence indicators.
+        </p>
+
+        <h4 id="help-histograms" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Data Visualizations</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">
+          Professional histograms and bar charts with statistical overlays. Interactive tooltips, smart grouping, and print-quality PDF export.
+        </p>
+
+        <h4 id="help-rules">9. Data Validation Rules</h4>
+        <p><strong>Define and enforce data quality standards:</strong></p>
+        
+        <h5>📝 Rule Types</h5>
         <ul>
-          <li><strong>Exact Duplicates:</strong> Finds rows that are completely identical across all fields</li>
-          <li><strong>Fuzzy Duplicates:</strong> Intelligent similarity matching finds near-duplicates like "John Smith" vs "Jon Smith"</li>
-          <li><strong>Smart Export:</strong> CSV includes both exact_duplicate_group and fuzzy_duplicate_group columns</li>
-          <li><strong>Performance Optimized:</strong> Handles large datasets with chunked processing</li>
-          <li><strong>Visual Grouping:</strong> Clear separation between exact matches and similar records</li>
-          <li><strong>Row References:</strong> Shows exact row numbers for easy verification in Excel</li>
+          <li><strong>Allowed Values:</strong> Comma-separated valid options</li>
+          <li><strong>Required Fields:</strong> Mark columns as mandatory</li>
+          <li><strong>Pattern Matching:</strong> Regex for complex validation</li>
+          <li><strong>Data Type Rules:</strong> Enforce numeric, date, text formats</li>
         </ul>
-        <h4 id="help-field">9. Column Analysis & Profiling</h4>
-        <p>Detailed analysis for each column in your data with smart pattern detection:</p>
+        
+        <h5>💾 Rule Management</h5>
         <ul>
-          <li><strong>Data Types:</strong> Number, date, boolean, string with confidence scores</li>
-          <li><strong>Smart Patterns:</strong> Automatically detects emails, phone numbers, and dates with confidence indicators</li>
-          <li><strong>Pattern Confidence:</strong> Green = high confidence, yellow = partial match, gray = low confidence</li>
-          <li><strong>Coverage:</strong> Percentage of filled vs missing values</li>
-          <li><strong>Uniqueness:</strong> How many different values appear in each column</li>
-          <li><strong>Number Analysis:</strong> Minimum, maximum, average, and unusual values</li>
-          <li><strong>Date Ranges:</strong> Earliest and latest dates in date columns</li>
-          <li><strong>Text Analysis:</strong> Character length patterns and text formatting details</li>
-          <li><strong>Sample Values:</strong> Representative examples from each column</li>
+          <li><strong>Import Rules:</strong> Load rules from JSON files</li>
+          <li><strong>Export Rules:</strong> Save rules for sharing/backup</li>
+          <li><strong>Save Rules:</strong> Store in browser (per dataset)</li>
+          <li><strong>Clear Rules:</strong> Reset to auto-detected patterns</li>
+        </ul>
+        
+        <h5>✅ Validation Results</h5>
+        <ul>
+          <li><strong>Run Checks:</strong> Validate entire dataset</li>
+          <li><strong>Rows with Issues:</strong> View all violations</li>
+          <li><strong>Export Issues:</strong> Download problematic rows with details</li>
+          <li><strong>Issue Types:</strong> Rules violations vs other issues separated</li>
         </ul>
 
-        <h4 id="help-patterns">8. Smart Pattern Detection</h4>
-        <p>Intelligent recognition and standardization of common data formats:</p>
-        <ul>
-          <li><strong>Email Detection:</strong> Automatically identifies and standardizes email addresses to lowercase</li>
-          <li><strong>Phone Numbers:</strong> Recognizes various phone formats and standardizes to consistent formatting</li>
-          <li><strong>Date Intelligence:</strong> Handles mixed international date formats (US, European, ISO) and converts to YYYY-MM-DD</li>
-          <li><strong>Smart Confidence:</strong> Shows green (high), yellow (partial), or gray (low) confidence indicators</li>
-          <li><strong>Auto-Correction:</strong> Apply Patterns button fixes emails, phones, and dates automatically</li>
-          <li><strong>International Support:</strong> Properly handles global phone and date formats</li>
-          <li><strong>Column Intelligence:</strong> Uses column names for better pattern prioritization</li>
-        </ul>
-
-        <h4 id="help-histograms">5. Data Distribution Charts</h4>
-        <p>Professional-grade interactive charts accessible via the <strong>Charts and Graphs</strong> button:</p>
-        <ul>
-          <li><strong>Smart Binning:</strong> Automatic age grouping (5-year ranges) and intelligent numeric binning</li>
-          <li><strong>Visual Features:</strong> Gradient colors, grid lines, Y-axis labels with professional styling</li>
-          <li><strong>Statistical Overlays:</strong> Mean (μ) and median (M) lines with exact values displayed</li>
-          <li><strong>Interactive Tooltips:</strong> Hover for exact counts, ranges, and percentages</li>
-          <li><strong>Color Coding:</strong> Frequency-based colors (red=high frequency, blue=low frequency)</li>
-          <li><strong>Categorical Charts:</strong> Top 10 values for text columns with horizontal bars</li>
-          <li><strong>Smooth Animations:</strong> Loading transitions and hover effects for enhanced user experience</li>
-          <li><strong>Print Function:</strong> Export histograms to PDF with professional formatting</li>
-          <li><strong>Responsive Design:</strong> Charts automatically scale from 580px to 1160px based on screen size</li>
-          <li><strong>Age Detection:</strong> Automatically formats age data with meaningful 5-year groupings</li>
-        </ul>
-
-        <h4 id="help-rules">10. Data Validation Rules</h4>
-        <p>Define and enforce data quality standards:</p>
-        <ul>
-          <li><strong>Allowed Values:</strong> Comma-separated lists of valid values per column</li>
-          <li><strong>Pattern Matching:</strong> Custom rules for complex data validation</li>
-          <li><strong>Rule Persistence:</strong> Automatically saves rules using column header signatures</li>
-          <li><strong>Issue Detection:</strong> Highlights cells that don't match your rules</li>
-          <li><strong>Issue Reporting:</strong> "Rows with Issues" section shows problematic data</li>
-          <li><strong>Batch Processing:</strong> Apply rules across entire datasets efficiently</li>
-        </ul>
-
-        <h4 id="help-exports">3. Export Options</h4>
-        <p>Multiple export formats and customization options:</p>
-        <ul>
-          <li><strong>CSV Export:</strong> Standard comma-separated format with proper escaping</li>
-          <li><strong>JSON Export:</strong> Array of objects with column headers as keys</li>
-          <li><strong>Data Dictionary:</strong> Complete field definitions with statistics and rules</li>
-          <li><strong>Enhanced Duplicate Exports:</strong> Includes both exact_duplicate_group and fuzzy_duplicate_group columns for comprehensive review</li>
-          <li><strong>Histogram Printing:</strong> Professional PDF reports of distribution charts</li>
-          <li><strong>Security:</strong> Formula injection protection (prefixes dangerous characters)</li>
-          <li><strong>File Naming:</strong> Intelligent naming based on operations performed</li>
-        </ul>
+        <h4 id="help-exports" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Export Options</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">
+          Export as CSV or JSON from navigation bar. Each tile offers specific exports. Save data dictionaries, validation rules, and duplicate analyses. Formula injection protection included.
+        </p>
 
         <h4 id="help-fuzzy">12. Compare Files</h4>
         <p><strong>Have two files with similar but not identical data?</strong> This feature helps you find matching records across files.</p>
@@ -3209,7 +3548,118 @@
           <li><strong>Row Analysis:</strong> Exports comprehensive data dictionary with field statistics</li>
         </ul>
 
-        <h4 id="help-legal">17. Legal Notice</h4>
+        <h4 id="help-advanced" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Advanced Features</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">Power-user features for complex data analysis scenarios.</p>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Cross-Dataset Analysis</h5>
+        <ul>
+          <li><strong>Primary/Secondary Datasets:</strong> Work with two datasets simultaneously</li>
+          <li><strong>Dataset Switching:</strong> Toggle between datasets using the selector next to dataset name</li>
+          <li><strong>Cross-File Comparisons:</strong> Find fuzzy matches between different files</li>
+          <li><strong>Merge Operations:</strong> Join datasets using various SQL-style joins (Inner, Left, Right, Full)</li>
+          <li><strong>Salesforce ID Matching:</strong> Special handling for 15/18 character ID conversions</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Smart Detection Algorithms</h5>
+        <ul>
+          <li><strong>Intelligent Blocking:</strong> Performance optimization for large dataset comparisons</li>
+          <li><strong>Chunked Processing:</strong> Handles files with millions of rows without freezing</li>
+          <li><strong>Pattern Confidence Scoring:</strong> AI-powered pattern detection with confidence levels</li>
+          <li><strong>Multi-Column Key Detection:</strong> Finds composite keys for unique identification</li>
+          <li><strong>Data Type Inference:</strong> Automatic detection of dates, numbers, booleans, text</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Performance Optimization</h5>
+        <ul>
+          <li><strong>Lazy Loading:</strong> Only renders visible rows in tables (200 row viewport)</li>
+          <li><strong>Web Workers:</strong> Background processing for heavy computations</li>
+          <li><strong>Memory Management:</strong> Efficient handling of 100MB+ files</li>
+          <li><strong>Progressive Enhancement:</strong> Features scale based on dataset size</li>
+          <li><strong>Smart Caching:</strong> Reuses calculations when possible</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Data Security Features</h5>
+        <ul>
+          <li><strong>Local-Only Processing:</strong> No data ever leaves your browser</li>
+          <li><strong>AES-GCM Encryption:</strong> Optional encryption for saved preferences</li>
+          <li><strong>Formula Injection Protection:</strong> Automatic escaping of dangerous characters</li>
+          <li><strong>Content Security Policy:</strong> Blocks malicious script execution</li>
+          <li><strong>No External Dependencies:</strong> Self-contained application</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Developer Features</h5>
+        <ul>
+          <li><strong>JSON Export:</strong> Developer-friendly data format</li>
+          <li><strong>Data Dictionary Export:</strong> Complete schema documentation</li>
+          <li><strong>Rule Import/Export:</strong> Share validation rules across teams</li>
+          <li><strong>Console Logging:</strong> Debug mode for troubleshooting</li>
+          <li><strong>API-Ready Output:</strong> Formats suitable for system integration</li>
+        </ul>
+
+        <h4 id="help-tips" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Tips & Tricks</h4>
+        <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">Get the most out of DATAPHREAK with these pro tips.</p>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Workflow Optimization</h5>
+        <ul>
+          <li><strong>Start with Data Quality:</strong> Check quality score first to understand your data</li>
+          <li><strong>Use Clean All:</strong> One-click cleaning for common issues saves time</li>
+          <li><strong>Apply Patterns Early:</strong> Fix formats before other operations</li>
+          <li><strong>Save Rules Often:</strong> Keep validation rules for similar datasets</li>
+          <li><strong>Export Incrementally:</strong> Save cleaned versions at each major step</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Speed Tips</h5>
+        <ul>
+          <li><strong>Increase Fuzzy Threshold:</strong> Higher values (>0.8) process faster</li>
+          <li><strong>Use Column Selection:</strong> Only analyze columns you need</li>
+          <li><strong>Close Unused Tiles:</strong> Reduces memory usage</li>
+          <li><strong>Batch Operations:</strong> Apply multiple cleanings at once</li>
+          <li><strong>Keyboard Shortcuts:</strong> Ctrl+L to reload, Esc to close modals</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Analysis Best Practices</h5>
+        <ul>
+          <li><strong>Check Duplicates First:</strong> Remove before other analysis</li>
+          <li><strong>Validate Early:</strong> Set rules before extensive cleaning</li>
+          <li><strong>Use Histograms:</strong> Visual patterns reveal data issues</li>
+          <li><strong>Compare Before/After:</strong> Export originals before major changes</li>
+          <li><strong>Document Changes:</strong> Export cleaning summary for audit trail</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Interface Tips</h5>
+        <ul>
+          <li><strong>Dark Mode:</strong> Easier on eyes for long sessions</li>
+          <li><strong>Matrix Mode:</strong> Fun alternative theme for variety</li>
+          <li><strong>Tile Management:</strong> Drag to rearrange, X to close</li>
+          <li><strong>Hover for Help:</strong> Most buttons have detailed tooltips</li>
+          <li><strong>Responsive Design:</strong> Works on tablets and large screens</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Common Pitfalls to Avoid</h5>
+        <ul>
+          <li><strong>Don't Skip Validation:</strong> Always check quality score first</li>
+          <li><strong>Avoid Over-Cleaning:</strong> Some "issues" may be intentional</li>
+          <li><strong>Check Encoding:</strong> Use UTF-8 for special characters</li>
+          <li><strong>Test on Samples:</strong> Try operations on small datasets first</li>
+          <li><strong>Keep Backups:</strong> Export original before major changes</li>
+        </ul>
+        
+        <h5 style="font-size:16px;font-weight:600;margin:20px 0 8px 0;color:#fff">Troubleshooting</h5>
+        <ul>
+          <li><strong>File Won't Load:</strong> Check CSV format and encoding (UTF-8 recommended)</li>
+          <li><strong>Slow Performance:</strong> Reduce fuzzy threshold or close unused tiles</li>
+          <li><strong>Missing Values:</strong> Empty cells are normal, check Data Quality tile</li>
+          <li><strong>Export Issues:</strong> Ensure pop-ups aren't blocked</li>
+          <li><strong>Rules Not Saving:</strong> Enable persistence in Settings</li>
+        </ul>
+        
+        <div style="background:rgba(255,255,255,0.03);padding:16px;border-radius:8px;margin:24px 0;border:1px solid rgba(255,255,255,0.06)">
+          <p style="color:rgba(255,255,255,0.7);line-height:1.6;margin:0;font-size:13px">
+            <strong style="color:rgba(255,255,255,0.9)">Golden Rule:</strong> Load → Check Quality → Remove Duplicates → Clean Data → Apply Patterns → Validate → Export
+          </p>
+        </div>
+
+        <h4 id="help-legal" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">Legal Notice</h4>
         <p>This tool is currently in beta and is provided “as is” without warranty of any kind. It was created and is owned by Zachary Sluss. During the beta period it is made available as open source. For inquiries, contact <a href="mailto:zacsluss@yahoo.com" title="Send an email to the developer for questions or support">zacsluss@yahoo.com</a>.</p>
 
       </div>
@@ -3281,12 +3731,8 @@
           </label>
           <label style="display: block; margin-bottom: 8px;">
             <span style="display: inline-block; width: 120px;">Number decimals:</span>
-            <select id="prefDecimals" title="How many decimal places to show for numbers" style="width: 150px;">
-              <option value="0">None (1234)</option>
-              <option value="2">2 places (1234.56)</option>
-              <option value="4">4 places (1234.5678)</option>
-              <option value="-1">All (no rounding)</option>
-            </select>
+            <input type="number" id="prefDecimals" title="Number of decimal places to display for numeric values (e.g., 2 for 1234.56, 0 for whole numbers, -1 for no rounding)" 
+                   style="width: 150px;" min="-1" max="20" value="2" placeholder="2">
           </label>
           <label style="display: block;">
             <span style="display: inline-block; width: 120px;">Date format:</span>
@@ -3337,7 +3783,31 @@
       <div class="help-body" style="max-height:60vh;overflow-y:auto">
         <p>Development history and feature updates for <strong>DATAPHREAK</strong>:</p>
 
-        <h4>v8.6.2 (Current)</h4>
+        <h4>v8.7.0 (Current)</h4>
+        <ul>
+          <li><strong>Redesigned Help System with Apple-Inspired UI</strong>:
+            <ul>
+              <li>✨ Modern navigation with pill-shaped buttons numbered 1-10 for easy section access</li>
+              <li>🎯 Smart scroll tracking - navigation pills automatically highlight based on current reading position</li>
+              <li>🌈 Theme-aware design - help page fully adapts to all three themes (Dark, Light, Matrix)</li>
+              <li>🎨 Custom scrollbars matching each theme with appropriate colors and glows</li>
+              <li>💫 Smooth animations and transitions throughout for polished UX</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <h4>v8.6.3</h4>
+        <ul>
+          <li><strong>Performance & Bug Fixes</strong>:
+            <ul>
+              <li>🚀 Streamlined codebase - removed 350+ lines for better performance</li>
+              <li>⚡ Improved pattern detection accuracy for emails, phones, and dates</li>
+              <li>🐛 Fixed SSN validation, phone number formats, and Excel date parsing</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <h4>v8.6.2</h4>
         <ul>
           <li><strong>Bug Fixes & Improvements</strong>:
             <ul>
@@ -5313,10 +5783,25 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         // File Information
         rows.push(['FILE INFORMATION']);
-        rows.push(['Dataset Name', el('#datasetName')?.textContent || 'Unknown']);
+        // Clean up dataset name by removing any prefix characters (textContent might include invisible chars)
+        const rawDatasetName = el('#datasetName')?.textContent || 'Unknown';
+        const cleanDatasetName = rawDatasetName.replace(/^[^\w\s]+/, '').trim() || rawDatasetName;
+        rows.push(['Dataset Name', cleanDatasetName]);
         rows.push(['File Name', STATE.fileInfo?.name || 'Unknown']);
-        rows.push(['File Size', STATE.fileInfo?.sizeFormatted || 'Unknown']);
-        rows.push(['Load Time', STATE.fileInfo?.loadTime || 'Unknown']);
+        
+        // Format file size properly
+        let fileSizeStr = 'Unknown';
+        if (STATE.fileInfo?.size) {
+          const size = STATE.fileInfo.size;
+          if (size < 1024) fileSizeStr = size + ' B';
+          else if (size < 1024 * 1024) fileSizeStr = (size / 1024).toFixed(1) + ' KB';
+          else fileSizeStr = (size / (1024 * 1024)).toFixed(1) + ' MB';
+        }
+        rows.push(['File Size', fileSizeStr]);
+        
+        // Use the loadTime property we just added
+        const loadTimeStr = STATE.fileInfo?.loadTime || 'Unknown';
+        rows.push(['Load Time', loadTimeStr]);
         rows.push(['']);
 
         // Dataset Dimensions
@@ -5415,74 +5900,230 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         rows.push(['Generated', new Date().toLocaleString()]);
         rows.push(['']);
 
-        // Overall quality score based on completeness
-        const totalCellsQuality = STATE.headers.length * STATE.rows.length;
-        const missingCellsQuality = STATE.rows.reduce((a,r) => a + r.reduce((c,v) => c + (isNullish(v) ? 1 : 0), 0), 0);
-        const qualityScoreVal = totalCellsQuality > 0 ? ((totalCellsQuality - missingCellsQuality) / totalCellsQuality * 100).toFixed(1) : '100.0';
-        const qualityGradeVal = getQualityGrade(qualityScoreVal);
-        rows.push(['OVERALL QUALITY ASSESSMENT']);
-        rows.push(['Quality Score', qualityScoreVal + '%']);
-        rows.push(['Quality Grade', qualityGradeVal]);
-        rows.push(['Data Completeness', qualityScoreVal + '%']);
-        rows.push(['Filled Cells', (totalCellsQuality - missingCellsQuality).toLocaleString()]);
-        rows.push(['Missing Cells', missingCellsQuality.toLocaleString()]);
-        rows.push(['']);
-
-        // Data Issues Summary
+        // Calculate all the metrics we need
+        const totalCells = STATE.headers.length * STATE.rows.length;
         let totalMissing = 0;
         let columnsWithMissing = 0;
-        let duplicateGroups = STATE.dupes ? STATE.dupes.filter(g => g.length > 1).length : 0;
-        let duplicateRows = STATE.dupes ? STATE.dupes.filter(g => g.length > 1).reduce((sum, g) => sum + g.length, 0) : 0;
-        let invalidRows = STATE.ruleResults ? (STATE.ruleResults.invalidRows || []).length : 0;
+        let rowsWithMissing = 0;
+        let completeRows = 0;
+        let emailColumns = 0;
+        let phoneColumns = 0;
+        let dateColumns = 0;
+        let numericColumns = 0;
+        let textColumns = 0;
+        let uniqueKeyColumns = 0;
+        let totalUniqueValues = 0;
+        let avgUniqueRatio = 0;
 
-        // Calculate missing values
-        STATE.headers.forEach((header, idx) => {
-          let missingCount = 0;
-          STATE.rows.forEach(row => {
-            if (isNullish(row[idx])) missingCount++;
+        // Duplicate stats
+        let exactDuplicateRows = STATE.dupes ? STATE.dupes.filter(g => g.length > 1).reduce((sum, g) => sum + g.length, 0) : 0;
+        let duplicateGroups = STATE.dupes ? STATE.dupes.filter(g => g.length > 1).length : 0;
+        let fuzzyDuplicateGroups = 0;
+        let fuzzyDuplicateRows = 0;
+        if (STATE.fuzzyDuplicates && STATE.fuzzyDuplicates.fuzzy) {
+          fuzzyDuplicateGroups = STATE.fuzzyDuplicates.fuzzy.length;
+          STATE.fuzzyDuplicates.fuzzy.forEach(group => {
+            fuzzyDuplicateRows += group.length;
           });
-          if (missingCount > 0) {
-            columnsWithMissing++;
-            totalMissing += missingCount;
-          }
+        }
+
+        // Calculate row-level stats
+        STATE.rows.forEach(row => {
+          let rowMissing = 0;
+          row.forEach(cell => {
+            if (isNullish(cell)) {
+              totalMissing++;
+              rowMissing++;
+            }
+          });
+          if (rowMissing > 0) rowsWithMissing++;
+          else completeRows++;
         });
 
-        rows.push(['DATA ISSUES SUMMARY']);
-        rows.push(['Missing Cells', totalMissing.toLocaleString()]);
-        rows.push(['Columns with Missing Data', columnsWithMissing + ' of ' + STATE.headers.length]);
-        rows.push(['Duplicate Groups', duplicateGroups.toLocaleString()]);
-        rows.push(['Duplicate Rows', duplicateRows.toLocaleString()]);
+        // Calculate column-level stats
+        const columnStats = [];
+        STATE.headers.forEach((header, idx) => {
+          let missingCount = 0;
+          const uniqueValues = new Set();
+          
+          STATE.rows.forEach(row => {
+            const value = row[idx];
+            if (isNullish(value)) {
+              missingCount++;
+            } else {
+              uniqueValues.add(value);
+            }
+          });
+
+          if (missingCount > 0) columnsWithMissing++;
+          totalUniqueValues += uniqueValues.size;
+          
+          const uniqueRatio = STATE.rows.length > 0 ? (uniqueValues.size / (STATE.rows.length - missingCount)) : 0;
+          avgUniqueRatio += uniqueRatio;
+
+          // Check patterns and types from profiles
+          if (STATE.profiles && STATE.profiles[idx]) {
+            const profile = STATE.profiles[idx];
+            
+            if (profile.type === 'number') numericColumns++;
+            else if (profile.type === 'date') dateColumns++;
+            else textColumns++;
+
+            if (profile.patterns && profile.patterns.length > 0) {
+              const topPattern = profile.patterns[0];
+              if (topPattern.id === 'email' && topPattern.confidence > 0.3) emailColumns++;
+              else if (topPattern.id === 'phone' && topPattern.confidence > 0.3) phoneColumns++;
+            }
+
+            if (uniqueValues.size === STATE.rows.length && missingCount === 0) {
+              uniqueKeyColumns++;
+            }
+          }
+
+          columnStats.push({
+            column: header,
+            missing: missingCount,
+            complete: STATE.rows.length - missingCount,
+            completeness: STATE.rows.length > 0 ? ((STATE.rows.length - missingCount) / STATE.rows.length * 100).toFixed(1) : '100.0',
+            uniqueValues: uniqueValues.size
+          });
+        });
+
+        avgUniqueRatio = columnStats.length > 0 ? (avgUniqueRatio / columnStats.length * 100).toFixed(1) : '0';
+        const overallCompleteness = totalCells > 0 ? ((totalCells - totalMissing) / totalCells * 100).toFixed(1) : '100.0';
+        const avgCompleteness = columnStats.length > 0 ?
+          (columnStats.reduce((sum, col) => sum + parseFloat(col.completeness), 0) / columnStats.length).toFixed(1) : '100.0';
+        const qualityGrade = getQualityGrade(overallCompleteness);
+        const invalidRows = STATE.ruleResults ? (STATE.ruleResults.invalidRows || []).length : 0;
+
+        // === QUALITY STATISTICS SECTION ===
+        rows.push(['QUALITY STATISTICS']);
+        rows.push(['']);
+        
+        // Data Completeness
+        rows.push(['Data Completeness']);
+        rows.push(['Overall Completeness', overallCompleteness + '%']);
+        rows.push(['Average Column Quality', avgCompleteness + '%']);
+        rows.push(['Quality Grade', qualityGrade]);
+        rows.push(['']);
+
+        // Data Volume
+        rows.push(['Data Volume']);
+        rows.push(['Total Cells', totalCells.toLocaleString()]);
+        rows.push(['Missing Cells', totalMissing.toLocaleString() + ' (' + (totalCells > 0 ? ((totalMissing/totalCells)*100).toFixed(1) : '0') + '%)']);
+        rows.push(['Filled Cells', (totalCells - totalMissing).toLocaleString()]);
+        rows.push(['']);
+
+        // Row Statistics
+        rows.push(['Row Statistics']);
+        rows.push(['Total Rows', STATE.rows.length.toLocaleString()]);
+        rows.push(['Complete Rows', completeRows.toLocaleString() + ' (' + (STATE.rows.length > 0 ? ((completeRows/STATE.rows.length)*100).toFixed(1) : '0') + '%)']);
+        rows.push(['Rows with Gaps', rowsWithMissing.toLocaleString()]);
+        rows.push(['Exact Duplicates', exactDuplicateRows.toLocaleString()]);
+        rows.push(['Fuzzy Duplicates', fuzzyDuplicateRows.toLocaleString() + ' in ' + fuzzyDuplicateGroups + ' groups']);
         rows.push(['Rows with Validation Issues', invalidRows.toLocaleString()]);
         rows.push(['']);
 
-        // Column Quality Details
-        rows.push(['COLUMN QUALITY DETAILS']);
-        rows.push(['Column', 'Type', 'Missing', 'Missing %', 'Unique', 'Patterns', 'Issues']);
+        // Column Statistics
+        rows.push(['Column Statistics']);
+        rows.push(['Total Columns', STATE.headers.length.toLocaleString()]);
+        rows.push(['Complete Columns', (STATE.headers.length - columnsWithMissing).toLocaleString()]);
+        rows.push(['Columns with Missing Data', columnsWithMissing.toLocaleString()]);
+        rows.push(['Unique Key Columns', uniqueKeyColumns + ' potential']);
+        rows.push(['Average Uniqueness', avgUniqueRatio + '%']);
+        rows.push(['Total Unique Values', totalUniqueValues.toLocaleString()]);
+        rows.push(['']);
+
+        // Pattern Detection
+        rows.push(['Pattern Detection']);
+        rows.push(['Email Columns', emailColumns.toLocaleString()]);
+        rows.push(['Phone Columns', phoneColumns.toLocaleString()]);
+        rows.push(['Date Patterns', dateColumns.toLocaleString()]);
+        rows.push(['']);
+
+        // Data Types
+        rows.push(['Data Types']);
+        rows.push(['Numeric Columns', numericColumns.toLocaleString()]);
+        rows.push(['Text Columns', textColumns.toLocaleString()]);
+        rows.push(['Date Columns', dateColumns.toLocaleString()]);
+        rows.push(['']);
+
+        // === COLUMN OVERVIEW SECTION ===
+        rows.push(['COLUMN OVERVIEW']);
+        rows.push(['']);
+        
+        // Sort columns by missing percentage (descending) for the overview
+        const sortedColumns = columnStats.sort((a, b) => {
+          const aMissing = a.missing / STATE.rows.length;
+          const bMissing = b.missing / STATE.rows.length;
+          return bMissing - aMissing;
+        });
+
+        rows.push(['Column Name', 'Missing Count', 'Missing %', 'Complete Values', 'Completeness %', 'Severity']);
+        
+        sortedColumns.forEach(col => {
+          const missingPercent = STATE.rows.length > 0 ? (col.missing / STATE.rows.length * 100).toFixed(1) : '0.0';
+          let severity = 'Low';
+          if (parseFloat(missingPercent) > 50) severity = 'High';
+          else if (parseFloat(missingPercent) > 20) severity = 'Medium';
+          
+          rows.push([
+            col.column,
+            col.missing.toLocaleString(),
+            missingPercent + '%',
+            col.complete.toLocaleString(),
+            col.completeness + '%',
+            severity
+          ]);
+        });
+
+        rows.push(['']);
+
+        // === DETAILED COLUMN ANALYSIS ===
+        rows.push(['DETAILED COLUMN ANALYSIS']);
+        rows.push(['Column', 'Type', 'Missing', 'Missing %', 'Unique Values', 'Cardinality', 'Patterns', 'Quality Issues']);
 
         STATE.headers.forEach((header, idx) => {
           const profile = STATE.profiles ? STATE.profiles[idx] : null;
           let missingCount = 0;
+          let uniqueValues = new Set();
           let issues = [];
 
           STATE.rows.forEach(row => {
-            if (isNullish(row[idx])) missingCount++;
+            const value = row[idx];
+            if (isNullish(value)) {
+              missingCount++;
+            } else {
+              uniqueValues.add(value);
+            }
           });
 
           const missingPercent = STATE.rows.length > 0 ?
             (missingCount / STATE.rows.length * 100).toFixed(1) : '0.0';
+          
+          const nonMissing = STATE.rows.length - missingCount;
+          const cardinality = nonMissing > 0 ? (uniqueValues.size / nonMissing * 100).toFixed(1) : '0';
 
           if (profile) {
             // Check for issues
-            if (missingCount > STATE.rows.length * 0.1) issues.push('High missing');
-            if (profile.uniq === 1) issues.push('Single value');
-            if (profile.uniq === STATE.rows.length) issues.push('All unique');
-
+            if (parseFloat(missingPercent) > 50) issues.push('High missing data');
+            else if (parseFloat(missingPercent) > 20) issues.push('Moderate missing data');
+            
+            if (uniqueValues.size === 1 && nonMissing > 0) issues.push('Single value only');
+            if (uniqueValues.size === STATE.rows.length && missingCount === 0) issues.push('All values unique');
+            
             // Get pattern info
-            let patternInfo = 'None';
+            let patternInfo = 'None detected';
             if (profile.patterns && profile.patterns.length > 0) {
-              const topPattern = profile.patterns[0];
-              if (topPattern.confidence > 0.5) {
-                patternInfo = topPattern.label || topPattern.id;
+              const patterns = [];
+              profile.patterns.forEach(pattern => {
+                if (pattern.confidence > 0.3) {
+                  const label = pattern.label || pattern.id;
+                  patterns.push(`${label} (${(pattern.confidence * 100).toFixed(0)}%)`);
+                }
+              });
+              if (patterns.length > 0) {
+                patternInfo = patterns.join(', ');
               }
             }
 
@@ -5491,9 +6132,10 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               profile.type || 'Mixed',
               missingCount.toLocaleString(),
               missingPercent + '%',
-              (profile.uniq || 0).toLocaleString(),
+              uniqueValues.size.toLocaleString(),
+              cardinality + '%',
               patternInfo,
-              issues.join(', ') || 'None'
+              issues.length > 0 ? issues.join(', ') : 'None'
             ]);
           } else {
             rows.push([
@@ -5501,8 +6143,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
               'Unknown',
               missingCount.toLocaleString(),
               missingPercent + '%',
-              '0',
-              'None',
+              uniqueValues.size.toLocaleString(),
+              cardinality + '%',
+              'Not analyzed',
               'Not analyzed'
             ]);
           }
@@ -5510,29 +6153,70 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
 
         rows.push(['']);
 
-        // Pattern Detection Summary
+        // Pattern Detection Details
         if (STATE.profiles) {
-          rows.push(['PATTERN DETECTION SUMMARY']);
-
-          let emailColumns = [], phoneColumns = [], dateColumns = [], numericColumns = [];
+          rows.push(['PATTERN DETECTION DETAILS']);
+          
+          const patternColumns = {
+            email: [],
+            phone: [],
+            date: [],
+            url: [],
+            zip: [],
+            other: []
+          };
 
           STATE.profiles.forEach((profile, idx) => {
-            if (profile) {
+            if (profile && profile.patterns && profile.patterns.length > 0) {
               const colName = STATE.headers[idx];
-              if (profile.type === 'number') numericColumns.push(colName);
-              if (profile.type === 'date') dateColumns.push(colName);
-              if (profile.patterns && profile.patterns.length > 0) {
-                const topPattern = profile.patterns[0];
-                if (topPattern.id === 'email' && topPattern.confidence > 0.3) emailColumns.push(colName);
-                if (topPattern.id === 'phone' && topPattern.confidence > 0.3) phoneColumns.push(colName);
-              }
+              profile.patterns.forEach(pattern => {
+                if (pattern.confidence > 0.3) {
+                  const confidence = (pattern.confidence * 100).toFixed(0) + '%';
+                  const entry = `${colName} (${confidence})`;
+                  
+                  switch(pattern.id) {
+                    case 'email':
+                      patternColumns.email.push(entry);
+                      break;
+                    case 'phone':
+                      patternColumns.phone.push(entry);
+                      break;
+                    case 'date':
+                      patternColumns.date.push(entry);
+                      break;
+                    case 'url':
+                      patternColumns.url.push(entry);
+                      break;
+                    case 'zip':
+                      patternColumns.zip.push(entry);
+                      break;
+                    default:
+                      patternColumns.other.push(`${colName}: ${pattern.label || pattern.id} (${confidence})`);
+                  }
+                }
+              });
             }
           });
 
-          rows.push(['Numeric Columns', numericColumns.length > 0 ? numericColumns.join(', ') : 'None']);
-          rows.push(['Date Columns', dateColumns.length > 0 ? dateColumns.join(', ') : 'None']);
-          rows.push(['Email Columns', emailColumns.length > 0 ? emailColumns.join(', ') : 'None']);
-          rows.push(['Phone Columns', phoneColumns.length > 0 ? phoneColumns.join(', ') : 'None']);
+          if (patternColumns.email.length > 0) {
+            rows.push(['Email Patterns', patternColumns.email.join(', ')]);
+          }
+          if (patternColumns.phone.length > 0) {
+            rows.push(['Phone Patterns', patternColumns.phone.join(', ')]);
+          }
+          if (patternColumns.date.length > 0) {
+            rows.push(['Date Patterns', patternColumns.date.join(', ')]);
+          }
+          if (patternColumns.url.length > 0) {
+            rows.push(['URL Patterns', patternColumns.url.join(', ')]);
+          }
+          if (patternColumns.zip.length > 0) {
+            rows.push(['ZIP Code Patterns', patternColumns.zip.join(', ')]);
+          }
+          if (patternColumns.other.length > 0) {
+            rows.push(['Other Patterns', patternColumns.other.join(', ')]);
+          }
+
         }
 
         // Generate CSV
@@ -5558,64 +6242,157 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           return;
         }
 
-        // Check if rule results exist and have invalid rows
-        if (!STATE.ruleResults || !STATE.ruleResults.invalidRows || STATE.ruleResults.invalidRows.length === 0) {
-          toast('No validation issues found. Run "Rule Checks" first to identify data problems', 'error');
+        const rows = [];
+        const issueRows = new Map(); // Use Map to track unique rows with their issues
+
+        // Collect rows from validation rule results if available
+        if (STATE.ruleResults && STATE.ruleResults.invalidRows && STATE.ruleResults.invalidRows.length > 0) {
+          const invalidRows = STATE.ruleResults.invalidRows;
+          const rowViolations = STATE.ruleResults.rowViolations || [];
+          
+          for (let i = 0; i < invalidRows.length; i++) {
+            // invalidRows[i] is actually [rowNum, ...rowData], so extract the actual row index
+            const rowData = invalidRows[i];
+            const rowIndex = Array.isArray(rowData) ? rowData[0] - 2 : i; // Convert back to 0-based index
+            const violations = rowViolations[i] || [];
+            
+            // Map violations to readable format with specific rule details
+            const issueDetails = violations.map(v => {
+              const colName = STATE.headers[v.col] || `Column ${v.col}`;
+              const actualValue = rowData[v.col + 1] || ''; // +1 because rowData includes row number at index 0
+              let ruleDetail = v.reason;
+              
+              // Add specific rule information
+              if (v.reason === 'Does not match regex pattern' && STATE.rules.regex[v.col]) {
+                const pattern = STATE.rules.regex[v.col].source || STATE.rules.regexStr[v.col];
+                ruleDetail = `Failed regex: expected pattern /${pattern}/, got "${actualValue}"`;
+              } else if (v.reason === 'Value not in allowed set' && STATE.rules.allowedStr[v.col]) {
+                const allowedValues = STATE.rules.allowedStr[v.col];
+                ruleDetail = `Not in allowed values: expected one of [${allowedValues}], got "${actualValue}"`;
+              }
+              
+              return `${colName}: ${ruleDetail}`;
+            }).join('; ');
+            
+            if (!issueRows.has(rowIndex)) {
+              issueRows.set(rowIndex, []);
+            }
+            issueRows.get(rowIndex).push({type: 'Validation', details: issueDetails});
+          }
+        }
+
+        // Collect rows with missing values
+        STATE.rows.forEach((row, rowIndex) => {
+          let hasMissing = false;
+          const missingColumns = [];
+          
+          row.forEach((cell, colIndex) => {
+            if (isNullish(cell)) {
+              hasMissing = true;
+              missingColumns.push(STATE.headers[colIndex]);
+            }
+          });
+          
+          if (hasMissing) {
+            if (!issueRows.has(rowIndex)) {
+              issueRows.set(rowIndex, []);
+            }
+            issueRows.get(rowIndex).push({
+              type: 'Missing Values',
+              details: `Missing data in: ${missingColumns.join(', ')}`
+            });
+          }
+        });
+
+        // Collect duplicate rows
+        if (STATE.dupes && Array.isArray(STATE.dupes) && STATE.dupes.length > 0) {
+          STATE.dupes.forEach(dupeGroup => {
+            if (Array.isArray(dupeGroup) && dupeGroup.length > 1) {
+              dupeGroup.forEach((rowIndex) => {
+                // Validate that rowIndex is a valid number
+                if (typeof rowIndex === 'number' && rowIndex >= 0 && rowIndex < STATE.rows.length) {
+                  if (!issueRows.has(rowIndex)) {
+                    issueRows.set(rowIndex, []);
+                  }
+                  issueRows.get(rowIndex).push({
+                    type: 'Duplicate',
+                    details: `Exact duplicate (${dupeGroup.length} identical rows in dataset)`
+                  });
+                }
+              });
+            }
+          });
+        }
+
+        // Check if any issues were found
+        if (issueRows.size === 0) {
+          toast('No rows with issues found. Data appears clean!', 'info');
           return;
         }
 
-        const invalidRows = STATE.ruleResults.invalidRows;
-        const rowViolations = STATE.ruleResults.rowViolations || [];
-        const rows = [];
-
         // Add report header
-        rows.push(['VALIDATION ISSUES REPORT']);
+        rows.push(['ROWS WITH ISSUES REPORT']);
         rows.push(['Generated', new Date().toLocaleString()]);
         rows.push(['']);
 
         // Summary statistics
         rows.push(['SUMMARY']);
         rows.push(['Total Rows Analyzed', STATE.rows.length.toLocaleString()]);
-        rows.push(['Rows with Issues', invalidRows.length.toLocaleString()]);
-        rows.push(['Error Rate', (invalidRows.length / STATE.rows.length * 100).toFixed(2) + '%']);
+        rows.push(['Rows with Issues', issueRows.size.toLocaleString()]);
+        rows.push(['Issue Rate', (issueRows.size / STATE.rows.length * 100).toFixed(2) + '%']);
         rows.push(['']);
 
-        // Issue breakdown by column
-        const issuesByColumn = {};
-        rowViolations.forEach(violations => {
-          violations.forEach(v => {
-            if (!issuesByColumn[v.col]) {
-              issuesByColumn[v.col] = { count: 0, types: new Set() };
-            }
-            issuesByColumn[v.col].count++;
-            issuesByColumn[v.col].types.add(v.msg);
+        // Count issues by type
+        const issueTypeCounts = {};
+        issueRows.forEach((issues) => {
+          issues.forEach(issue => {
+            // Rename "Validation" to "Rules Issues" for display
+            const displayType = issue.type === 'Validation' ? 'Rules Issues' : issue.type;
+            issueTypeCounts[displayType] = (issueTypeCounts[displayType] || 0) + 1;
           });
         });
 
-        rows.push(['ISSUES BY COLUMN']);
-        rows.push(['Column', 'Issue Count', 'Issue Types']);
-        Object.entries(issuesByColumn).forEach(([col, data]) => {
-          rows.push([col, data.count.toLocaleString(), Array.from(data.types).join('; ')]);
+        rows.push(['ISSUES BY TYPE']);
+        Object.entries(issueTypeCounts).forEach(([type, count]) => {
+          rows.push([type, count.toLocaleString() + ' rows']);
         });
         rows.push(['']);
 
         // Detailed row data with issues
-        rows.push(['ROWS WITH ISSUES']);
-        const headers = ['Row_Number', ...STATE.headers, 'Issue_Type', 'Issue_Details'];
+        rows.push(['DETAILED ROWS WITH ISSUES']);
+        const headers = ['Row_Number', ...STATE.headers, 'Rules_Issues', 'Other_Issues'];
         rows.push(headers);
 
-        for (let i = 0; i < invalidRows.length; i++) {
-          const rowIndex = invalidRows[i];
+        // Sort row indices for consistent output
+        const sortedRowIndices = Array.from(issueRows.keys()).sort((a, b) => a - b);
+        
+        sortedRowIndices.forEach(rowIndex => {
           const row = STATE.rows[rowIndex];
-          const violations = rowViolations[i] || [];
-
-          // Create issue summary
-          const issueTypes = [...new Set(violations.map(v => v.msg))].join(', ');
-          const issueDetails = violations.map(v => `${v.col}: ${v.msg}`).join('; ');
-
+          const issues = issueRows.get(rowIndex);
+          
+          // Skip if row doesn't exist
+          if (!row || !Array.isArray(row)) {
+            console.warn(`Row ${rowIndex} not found or invalid`);
+            return;
+          }
+          
+          // Separate rules issues from other issues
+          const rulesIssues = issues.filter(i => i.type === 'Validation');
+          const otherIssues = issues.filter(i => i.type !== 'Validation');
+          
+          // Format rules issues
+          const rulesIssueDetails = rulesIssues.length > 0 
+            ? rulesIssues.map(i => i.details).join('; ')
+            : '';
+          
+          // Format other issues  
+          const otherIssueDetails = otherIssues.length > 0
+            ? otherIssues.map(i => `${i.type}: ${i.details}`).join('; ')
+            : '';
+          
           // Add row with issue details
-          rows.push([rowIndex + 1, ...row, issueTypes, issueDetails]);
-        }
+          rows.push([rowIndex + 1, ...row, rulesIssueDetails, otherIssueDetails]);
+        });
 
         // Generate CSV
         const csvStr = rows.map(row =>
@@ -5626,13 +6403,17 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           }).join(',')
         ).join('\n');
 
-        const fname = (el('#datasetName')?.textContent || 'data').replace(/[\s\uD83C-\uDBFF\uDC00-\uDFFF]+/g, '_');
-        download(`ValidationIssues_${fname}.csv`, csvStr);
+        // Clean up dataset name
+        const rawDatasetName = el('#datasetName')?.textContent || 'data';
+        const cleanDatasetName = rawDatasetName.replace(/^[^\w\s]+/, '').trim() || rawDatasetName;
+        const fname = cleanDatasetName.replace(/[\s\uD83C-\uDBFF\uDC00-\uDFFF]+/g, '_');
+        
+        download(`RowsWithIssues_${fname}.csv`, csvStr);
 
-        toast(`Exported ${invalidRows.length} rows with validation issues`, 'ok');
+        toast(`Exported ${issueRows.size} rows with issues`, 'ok');
       }
 
-      // Export data cleaning results and operations summary
+      // Export the actual cleaned dataset as CSV
       function exportDataCleaning() {
         // Check if data is loaded
         if (!STATE.headers || STATE.headers.length === 0) {
@@ -5640,141 +6421,20 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           return;
         }
 
-        const rows = [];
+        // Export the current dataset with all applied cleaning operations
+        const csvContent = toCSV(STATE.rows, STATE.headers);
+        
+        // Get a clean filename from the dataset name
+        const rawDatasetName = el('#datasetName')?.textContent || 'data';
+        const cleanDatasetName = rawDatasetName.replace(/^[^\w\s]+/, '').trim() || rawDatasetName;
+        const fname = cleanDatasetName.replace(/[\s\uD83C-\uDBFF\uDC00-\uDFFF]+/g, '_');
+        
+        // Add _cleaned suffix if the dataset has been modified
+        const suffix = rawDatasetName.includes('cleaned') || rawDatasetName.includes('patterns applied') ? '' : '_cleaned';
+        
+        download(`${fname}${suffix}.csv`, csvContent);
 
-        // Header
-        rows.push(['DATA CLEANING REPORT']);
-        rows.push(['Generated', new Date().toLocaleString()]);
-        rows.push(['']);
-
-        // Current Data State
-        const totalRows = STATE.rows.length;
-        const totalCells = totalRows * STATE.headers.length;
-        let emptyCells = 0;
-        let duplicateGroups = STATE.dupes ? STATE.dupes.filter(g => g.length > 1).length : 0;
-        let duplicateRows = STATE.dupes ? STATE.dupes.filter(g => g.length > 1).reduce((sum, g) => sum + g.length, 0) : 0;
-
-        if (STATE.profiles) {
-          STATE.profiles.forEach(prof => {
-            emptyCells += prof.empty || 0;
-          });
-        }
-
-        rows.push(['CURRENT DATA STATE']);
-        rows.push(['Dataset Name', el('#datasetName')?.textContent || 'Unnamed']);
-        rows.push(['Total Rows', totalRows.toLocaleString()]);
-        rows.push(['Total Columns', STATE.headers.length.toLocaleString()]);
-        rows.push(['Total Cells', totalCells.toLocaleString()]);
-        rows.push(['Empty Cells', emptyCells.toLocaleString()]);
-        rows.push(['Data Completeness', ((1 - emptyCells / totalCells) * 100).toFixed(1) + '%']);
-        rows.push(['Duplicate Groups', duplicateGroups.toLocaleString()]);
-        rows.push(['Duplicate Rows', duplicateRows.toLocaleString()]);
-        rows.push(['']);
-
-        // Cleaning Operations Status
-        const trimEl = el('#opTrim');
-        const normEl = el('#opNormalize');
-        const cleanEl = el('#opClean');
-        const sfEl = el('#opSfConvert');
-        const addIdEl = el('#opAddId');
-
-        rows.push(['CLEANING OPERATIONS STATUS']);
-        rows.push(['Operation', 'Status', 'Description']);
-        rows.push(['Trim Spaces', trimEl && trimEl.checked ? 'Selected' : 'Not Selected', 'Remove leading/trailing whitespace']);
-        rows.push(['Fix Letter Case', normEl && normEl.checked ? 'Selected' : 'Not Selected', 'Standardize text capitalization']);
-        rows.push(['Remove Accents', cleanEl && cleanEl.checked ? 'Selected' : 'Not Selected', 'Convert accented characters to plain text']);
-        rows.push(['Convert SF IDs', sfEl && sfEl.checked ? 'Selected' : 'Not Selected', 'Convert 15-char to 18-char Salesforce IDs']);
-        rows.push(['Add ID Column', addIdEl && addIdEl.checked ? 'Selected' : 'Not Selected', 'Add unique identifier column']);
-        rows.push(['Remove Duplicates', el('#opRemoveDupes') && el('#opRemoveDupes').checked ? 'Selected' : 'Not Selected', 'Remove duplicate values within columns']);
-        rows.push(['']);
-
-        // Selected Columns for Operations
-        const sel = el('#opColumns');
-        const selectedCols = sel ? Array.from(sel.selectedOptions || []).map(opt => {
-          const idx = parseInt(opt.value, 10);
-          return STATE.headers[idx] || `Column ${idx}`;
-        }) : [];
-
-        rows.push(['SELECTED COLUMNS FOR OPERATIONS']);
-        if (selectedCols.length > 0) {
-          selectedCols.forEach(col => rows.push([col]));
-        } else {
-          rows.push(['No columns selected']);
-        }
-        rows.push(['']);
-
-        // Data Issues That Need Cleaning
-        rows.push(['IDENTIFIED DATA ISSUES']);
-
-        let issuesFound = false;
-        if (emptyCells > 0) {
-          rows.push(['Missing Values', emptyCells.toLocaleString() + ' cells need attention']);
-          issuesFound = true;
-        }
-        if (duplicateRows > 0) {
-          rows.push(['Duplicate Rows', duplicateRows.toLocaleString() + ' duplicate rows found']);
-          issuesFound = true;
-        }
-
-        // Check for pattern issues
-        if (STATE.profiles) {
-          let inconsistentPatterns = 0;
-          let mixedCaseColumns = 0;
-
-          STATE.profiles.forEach((profile, idx) => {
-            if (profile && profile.patterns && profile.patterns.length > 1) {
-              const topPattern = profile.patterns[0];
-              if (topPattern.confidence < 0.8) inconsistentPatterns++;
-            }
-            // Check for mixed case issues
-            if (profile && profile.type === 'string') {
-              let hasUpper = false, hasLower = false;
-              STATE.rows.forEach(row => {
-                const val = row[idx];
-                if (val && typeof val === 'string') {
-                  if (val !== val.toLowerCase()) hasUpper = true;
-                  if (val !== val.toUpperCase()) hasLower = true;
-                }
-              });
-              if (hasUpper && hasLower) mixedCaseColumns++;
-            }
-          });
-
-          if (inconsistentPatterns > 0) {
-            rows.push(['Inconsistent Patterns', inconsistentPatterns + ' columns have mixed formats']);
-            issuesFound = true;
-          }
-          if (mixedCaseColumns > 0) {
-            rows.push(['Mixed Case', mixedCaseColumns + ' columns have inconsistent capitalization']);
-            issuesFound = true;
-          }
-        }
-
-        if (!issuesFound) {
-          rows.push(['No major issues detected']);
-        }
-        rows.push(['']);
-
-        // Quick Actions Available
-        rows.push(['QUICK ACTIONS AVAILABLE']);
-        rows.push(['Action', 'Description']);
-        rows.push(['Clean All', 'Apply all cleaning operations to all columns']);
-        rows.push(['Analyze Keys', 'Detect potential ID columns and analyze uniqueness']);
-        rows.push(['Prepare Data', 'Comprehensive data preparation including cleaning and standardization']);
-
-        // Generate CSV
-        const csvStr = rows.map(row =>
-          row.map(cell => {
-            const str = String(cell || '');
-            return str.includes(',') || str.includes('"') || str.includes('\n') ?
-              `"${str.replace(/"/g, '""')}"` : str;
-          }).join(',')
-        ).join('\n');
-
-        const fname = (el('#datasetName')?.textContent || 'data').replace(/[\s\uD83C-\uDBFF\uDC00-\uDFFF]+/g, '_');
-        download(`DataCleaning_${fname}.csv`, csvStr);
-
-        toast('Data cleaning report exported successfully', 'ok');
+        toast('Cleaned dataset exported successfully', 'ok');
       }
 
       // LocalStorage helpers
@@ -6297,8 +6957,9 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         if (datasetSubtitle) datasetSubtitle.textContent = `${datasetName} loaded`;
 
         // enable buttons
-        ['exportDict','runRules','saveRules','clearRules','downloadRules'].forEach(id => {
-          el(`#${id}`).disabled = false;
+        ['exportDict','runRules','saveRules','clearRules','exportRules','importRules'].forEach(id => {
+          const btn = el(`#${id}`);
+          if (btn) btn.disabled = false;
         });
 
         // Initialise fuzzy duplicate UI after loading data
@@ -6717,7 +7378,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           name: file.name,
           size: file.size,
           type: file.type,
-          lastModified: new Date(file.lastModified)
+          lastModified: new Date(file.lastModified),
+          loadTime: new Date().toLocaleString()
         };
 
         (async () => {
@@ -6778,7 +7440,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           name: file.name,
           size: file.size,
           type: file.type,
-          lastModified: new Date(file.lastModified)
+          lastModified: new Date(file.lastModified),
+          loadTime: new Date().toLocaleString()
         };
 
         (async () => {
@@ -6898,7 +7561,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           name: 'Sample Dataset',
           size: SAMPLE_CSV.length,
           type: 'text/csv',
-          lastModified: new Date()
+          lastModified: new Date(),
+          loadTime: new Date().toLocaleString()
         };
 
         // Build a larger sample by repeating the base rows until we have a good dataset.
@@ -6977,8 +7641,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         renderInvalidTable(STATE.headers, null);
         toast(ok ? 'Validation rules cleared successfully' : 'Could not clear validation rules', ok ? 'ok' : 'error');
       });
-      // Download rules
-      el('#downloadRules')?.addEventListener('click', () => {
+      // Export rules
+      el('#exportRules')?.addEventListener('click', () => {
         if (!STATE.headers.length) {
           toast('Please load data first', 'error');
           return;
@@ -6994,6 +7658,76 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const safeName = (el('#datasetName').textContent || 'rules').replace(/[^\w\-\.]+/g,'_');
         download(`Rules_${safeName}.json`, JSON.stringify(payload, null, 2));
         toast('Validation rules exported successfully', 'ok');
+      });
+      // Import rules
+      el('#importRules')?.addEventListener('click', () => {
+        if (!STATE.headers.length) {
+          toast('Please load data first', 'error');
+          return;
+        }
+        
+        // Create a hidden file input for importing JSON
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = '.json,application/json';
+        
+        fileInput.addEventListener('change', async (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          
+          try {
+            const text = await file.text();
+            const imported = JSON.parse(text);
+            
+            // Validate the imported data structure
+            if (!imported.headers || !Array.isArray(imported.headers) || !imported.columns) {
+              toast('Invalid rules file format', 'error');
+              return;
+            }
+            
+            // Check if headers match or are compatible
+            const currentHeaders = STATE.headers;
+            const importedHeaders = imported.headers;
+            
+            // Apply rules to matching columns
+            let appliedCount = 0;
+            const allowInputs = els('.rule-input.allow');
+            const regexInputs = els('.rule-input.regex');
+            
+            imported.columns.forEach((col, idx) => {
+              // Find matching column by name in current dataset
+              const currentIdx = currentHeaders.indexOf(col.name);
+              if (currentIdx !== -1) {
+                // Apply allowed values
+                if (col.allowed && allowInputs[currentIdx]) {
+                  allowInputs[currentIdx].value = col.allowed;
+                  appliedCount++;
+                }
+                // Apply regex patterns if they exist
+                if (col.regex && regexInputs && regexInputs[currentIdx]) {
+                  regexInputs[currentIdx].value = col.regex;
+                }
+              }
+            });
+            
+            if (appliedCount > 0) {
+              toast(`Imported rules for ${appliedCount} columns successfully`, 'ok');
+              // Update the rules in STATE
+              const allowStrs = currentHeaders.map((_, i) => (allowInputs[i]?.value || '').trim());
+              const regexStrs = regexInputs ? currentHeaders.map((_, i) => (regexInputs[i]?.value || '').trim()) : [];
+              STATE.rules.allowedStr = allowStrs;
+              STATE.rules.regexStr = regexStrs;
+            } else {
+              toast('No matching columns found in imported rules', 'warn');
+            }
+            
+          } catch (error) {
+            toast('Failed to import rules: ' + error.message, 'error');
+          }
+        });
+        
+        // Trigger file selection
+        fileInput.click();
       });
       // Export data dictionary
       el('#exportDict')?.addEventListener('click', () => {
@@ -7020,8 +7754,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const target = el('#saveRules');
         if (target) target.click();
       });
-      el('#navDownloadRules')?.addEventListener('click', () => {
-        const target = el('#downloadRules');
+      el('#navExportRules')?.addEventListener('click', () => {
+        const target = el('#exportRules');
+        if (target) target.click();
+      });
+      el('#navImportRules')?.addEventListener('click', () => {
+        const target = el('#importRules');
         if (target) target.click();
       });
       el('#navClearRules')?.addEventListener('click', () => {
@@ -7084,12 +7822,75 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       // Help modal: show/hide
       el('#navHelp')?.addEventListener('click', () => {
         const modal = el('#helpModal');
-        if (modal) modal.classList.remove('hidden');
+        if (modal) {
+          modal.classList.remove('hidden');
+          initHelpNavigation();
+        }
       });
       el('#helpClose')?.addEventListener('click', () => {
         const modal = el('#helpModal');
         if (modal) modal.classList.add('hidden');
       });
+      
+      // Initialize help navigation with scroll tracking
+      function initHelpNavigation() {
+        const helpBody = document.querySelector('.help-body');
+        const navPills = document.querySelectorAll('.help-nav-pill');
+        const sections = ['help-start', 'help-loading', 'help-summary', 'help-quality', 'help-duplicates', 'help-histograms', 'help-exports', 'help-ops', 'help-advanced', 'help-tips'];
+        
+        if (!helpBody || navPills.length === 0) return;
+        
+        // Function to update active pill
+        function updateActivePill() {
+          const scrollTop = helpBody.scrollTop;
+          const scrollHeight = helpBody.scrollHeight;
+          const clientHeight = helpBody.clientHeight;
+          
+          let activeSection = 'help-start';
+          
+          // Find which section is currently in view
+          for (let i = 0; i < sections.length; i++) {
+            const section = document.getElementById(sections[i]);
+            if (section) {
+              const rect = section.getBoundingClientRect();
+              const helpBodyRect = helpBody.getBoundingClientRect();
+              const relativeTop = rect.top - helpBodyRect.top;
+              
+              // Section is considered "active" if it's in the top third of the viewport
+              if (relativeTop <= helpBodyRect.height / 3) {
+                activeSection = sections[i];
+              }
+            }
+          }
+          
+          // Update pill states only - no auto-scrolling
+          navPills.forEach(pill => {
+            if (pill.dataset.section === activeSection) {
+              pill.classList.add('help-nav-active');
+            } else {
+              pill.classList.remove('help-nav-active');
+            }
+          });
+        }
+        
+        // Add scroll listener
+        helpBody.addEventListener('scroll', updateActivePill);
+        
+        // Add click listeners to pills for smooth scrolling
+        navPills.forEach(pill => {
+          pill.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = pill.dataset.section;
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+        
+        // Initial update
+        updateActivePill();
+      }
 
       // Dev Log modal: show/hide
       el('#devLogOpen')?.addEventListener('click', () => {
@@ -7189,7 +7990,7 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           el('#prefSf').checked = false;
           if (el('#prefAddId')) el('#prefAddId').checked = false;
           if (el('#prefExportFormat')) el('#prefExportFormat').value = 'csv';
-          if (el('#prefDecimals')) el('#prefDecimals').value = '2';
+          if (el('#prefDecimals')) el('#prefDecimals').value = 2;
           if (el('#prefDateFormat')) el('#prefDateFormat').value = 'us';
           if (el('#prefPerformance')) el('#prefPerformance').value = 'balanced';
           el('#prefPersist').checked = true;
@@ -7221,9 +8022,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         }
         const fuzzyBtn = el('#exportFuzzyCrossCsv');
         if (fuzzyBtn) {
-          fuzzyBtn.onclick = () => {
-            exportFuzzyCrossCsv();
-          };
+          // Handled by event delegation - no need for onclick
+          fuzzyBtn.onclick = null;
         }
 
         // New export buttons for the main tiles
@@ -7994,8 +8794,8 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         download(`fuzzy_duplicates_${nameA}_vs_${nameB}.csv`, csv);
         // Count matches
         let matchCount = 0;
-        if (crossFileMatches && Array.isArray(crossFileMatches.matches)) {
-          matchCount = crossFileMatches.matches.length;
+        if (res && Array.isArray(res.pairs)) {
+          matchCount = res.pairs.length;
         }
         
         if (matchCount > 0) {

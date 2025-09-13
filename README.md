@@ -2,9 +2,9 @@
 
 # 🚀 DATAPHREAK - Professional CSV & Excel Data Analysis Tool
 
-### 🎉 **Latest Update (v8.6.3)**: Streamlined codebase with 350+ lines removed for better performance!
+### 🎉 **Latest Update (v8.7.0)**: Redesigned Help System with Apple-inspired UI & Smart Navigation!
 
-<img src="https://img.shields.io/badge/Version-8.6.3-blue?style=for-the-badge" alt="Version">
+<img src="https://img.shields.io/badge/Version-8.7.0-blue?style=for-the-badge" alt="Version">
 <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 <img src="https://img.shields.io/badge/Size-1.29MB-orange?style=for-the-badge" alt="Size">
 <img src="https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge" alt="Status">
@@ -285,24 +285,33 @@ cd DATAPHREAK
 
 ---
 
-## 🆕 **What's New in v8.6.3**
+## 🆕 **What's New in v8.7.0**
 
-### **Performance & Code Optimization**
-- 🚀 **Streamlined Codebase**: Removed 350+ lines of unused code for faster loading
-- 📉 **Reduced File Size**: From 1.33MB to 1.29MB (3% smaller)
-- ⚡ **Simplified Pattern Detection**: Focused on core 3 patterns (email, phone, date) with improved accuracy
-- 🧹 **Removed Dead Code**: Eliminated unused REMOVED_PATTERNS object and redundant functions
+### **🎨 Redesigned Help System with Apple-Inspired UI**
+- ✨ **Modern Navigation**: Beautiful pill-shaped navigation buttons with numbers (1-10) for easy section access
+- 🎯 **Smart Scroll Tracking**: Navigation pills automatically highlight based on current reading position
+- 🌈 **Theme-Aware Design**: Help page fully adapts to all three themes (Dark, Light, Matrix)
+- 📱 **Cleaner Typography**: Simplified content with better spacing and readability
+- 💫 **Smooth Animations**: Subtle hover effects and transitions throughout
 
-### **Pattern Detection Improvements**
-- ✅ **Fixed SSN Validation**: Corrected string comparison bug for area codes
-- ✅ **Enhanced Phone Validation**: Better handling of international formats
-- ✅ **Improved Date Parsing**: Fixed Excel date serial number edge cases
-- ✅ **Simplified Column Hints**: Cleaner implementation with 70% less code
+### **UI/UX Improvements**
+- 🎨 **Custom Scrollbars**: Beautiful themed scrollbars for all modes:
+  - **Dark Mode**: Elegant grayscale with subtle glow on active elements
+  - **Light Mode**: Soft cream/golden tones with 50% less gold intensity
+  - **Matrix Mode**: Green glowing effects with cyber aesthetic
+- 🔘 **Pill Navigation**: Numbered buttons (1-10) that follow help sections sequentially
+- ✨ **Active State Feedback**: Selected pills glow appropriately in each theme
+- 📚 **Reorganized Content**: Help sections reordered for better logical flow
 
-### **Previous Updates (v8.6.2)**
-- 🎨 **Enhanced Light Mode**: Beautiful golden theme with consistent dark gold borders
-- 💬 **Improved Notifications**: All toast messages show counts, timing, and better descriptions
-- 🐛 **Fixed Dataset Loading**: Resolved critical bug where second file would load into wrong slot
+### **Theme Enhancements**
+- 🌑 **Dark Mode**: Grayscale scrollbars, subtle white glow on active pills
+- ☀️ **Light Mode**: Cream-colored buttons with golden accents (50% less intense)
+- 💚 **Matrix Mode**: Full green aesthetic with pulsing animations
+
+### **Previous Updates (v8.6.3)**
+- 🚀 **Streamlined Codebase**: Removed 350+ lines for better performance
+- ⚡ **Pattern Detection**: Improved accuracy for email, phone, date validation
+- 🐛 **Bug Fixes**: Fixed SSN validation, phone formats, Excel date parsing
 
 ---
 
@@ -360,11 +369,12 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
-**Latest Version: 8.6.3** (January 2025)
-- Streamlined codebase (350+ lines removed)
-- Improved pattern detection accuracy
-- 3% smaller file size for faster loading
-- Bug fixes for SSN, phone, and date validation
+**Latest Version: 8.7.0** (January 2025)
+- Redesigned help system with Apple-inspired UI
+- Smart scroll-tracking navigation with numbered pills
+- Theme-aware design for all three modes
+- Custom scrollbars and improved visual feedback
+- Previous: Streamlined codebase and pattern detection fixes (v8.6.3)
 
 ---
 
@@ -386,7 +396,7 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
 
 <sub>
 
-**DATAPHREAK v8.6.3** | Built with ❤️ for data professionals everywhere  
+**DATAPHREAK v8.7.0** | Built with ❤️ for data professionals everywhere  
 **© 2025 Zac Sluss** | [MIT License](LICENSE) | [Documentation](DATAPHREAK_DOCUMENTATION.md) | [Contact](mailto:zacsluss@yahoo.com)
 
 **🚀 Fast** • **🔒 Secure** • **💡 Smart** • **💼 Professional** • **Free Forever**
