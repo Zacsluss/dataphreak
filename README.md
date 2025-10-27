@@ -160,6 +160,22 @@ git clone <repo>
 
 <br/>
 
+---
+
+## 📹 See It In Action
+
+<div align="center">
+
+<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html" target="_blank">
+  <img src="dataphreak.gif" alt="DATAPHREAK Demo" width="800"/>
+</a>
+
+*Click the demo above to try the live tool*
+
+</div>
+
+---
+
 <details>
 <summary><b>🎨 Core Features</b></summary>
 
