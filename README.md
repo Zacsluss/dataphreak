@@ -477,7 +477,7 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 
 ## 📊 **Version History**
 
-See [CHANGELOG.md](CHANGELOG.md) for detailed version history.
+**Version history is available in the app!** Click the "Dev Log" button in the Help dialog to view the complete development changelog with all updates, features, and improvements.
 
 **Latest Version: vS1.0.0** (January 2025) - **STABLE RELEASE** 🎉
 - Official stable production release
@@ -568,7 +568,7 @@ https://github.com/Zacsluss/DATAPHREAK/issues/new
 
 **DATAPHREAK vS1.0.0** • Built with ❤️ by [Zac Sluss](https://github.com/Zacsluss)
 
-[Documentation](DATAPHREAK_DOCUMENTATION.md) • [Changelog](CHANGELOG.md) • [License](LICENSE) • [Issues](https://github.com/Zacsluss/DATAPHREAK/issues)
+[Documentation](DATAPHREAK_DOCUMENTATION.md) • [License](LICENSE) • [Issues](https://github.com/Zacsluss/DATAPHREAK/issues)
 
 **Professional** • **Privacy-First** • **Production-Ready** • **Forever Free**
 
