@@ -83,6 +83,21 @@
 <img width="800" src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=0,2,8&height=2"/>
 </div>
 
+
+---
+
+## 📹 See It In Action
+
+<div align="center">
+
+<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html" target="_blank">
+  <img src="dataphreak.gif" alt="DATAPHREAK Demo" width="800"/>
+</a>
+
+*Click the demo above to try the live tool*
+
+</div>
+
 ---
 
 ## 💡 The Technical Challenge
@@ -162,19 +177,6 @@ git clone <repo>
 
 ---
 
-## 📹 See It In Action
-
-<div align="center">
-
-<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html" target="_blank">
-  <img src="dataphreak.gif" alt="DATAPHREAK Demo" width="800"/>
-</a>
-
-*Click the demo above to try the live tool*
-
-</div>
-
----
 
 <details>
 <summary><b>🎨 Core Features</b></summary>
