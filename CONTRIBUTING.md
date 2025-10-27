@@ -1,10 +1,10 @@
-# Contributing to DATAPHREAK
+# Contributing to dataphreak
 
-Thank you for your interest in contributing to DATAPHREAK! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to dataphreak! This document provides guidelines for contributing to the project.
 
 ## 🎯 Project Philosophy
 
-DATAPHREAK is designed as a **single-file, zero-dependency data analysis tool** that prioritizes:
+dataphreak is designed as a **single-file, zero-dependency data analysis tool** that prioritizes:
 - **Privacy First**: 100% offline processing, no data upload
 - **Simplicity**: One HTML file, works anywhere
 - **Professional Quality**: Enterprise-grade features, free forever
@@ -24,7 +24,7 @@ Found a bug? Help us fix it!
    - Sample data if applicable (anonymized)
    - Screenshots if relevant
 
-**File bug reports here**: [GitHub Issues](https://github.com/Zacsluss/DATAPHREAK/issues/new)
+**File bug reports here**: [GitHub Issues](https://github.com/Zacsluss/dataphreak/issues/new)
 
 ### Suggesting Features
 
@@ -35,7 +35,7 @@ Have an idea for improvement?
 3. **Explain the solution** - How should it work?
 4. **Consider alternatives** - What other approaches did you consider?
 
-**Submit feature requests here**: [GitHub Issues](https://github.com/Zacsluss/DATAPHREAK/issues/new)
+**Submit feature requests here**: [GitHub Issues](https://github.com/Zacsluss/dataphreak/issues/new)
 
 ### Contributing Code
 
@@ -45,8 +45,8 @@ Ready to submit code? Great! Here's how:
 
 ```bash
 # Fork the repository on GitHub, then:
-git clone https://github.com/YOUR_USERNAME/DATAPHREAK.git
-cd DATAPHREAK
+git clone https://github.com/YOUR_USERNAME/dataphreak.git
+cd dataphreak
 ```
 
 #### 2. Create a Branch
@@ -59,7 +59,7 @@ git checkout -b fix/your-bug-fix
 
 #### 3. Make Your Changes
 
-**Important**: DATAPHREAK is a single-file application (`DATAPHREAK.html`). All changes must:
+**Important**: dataphreak is a single-file application (`dataphreak.html`). All changes must:
 - ✅ Preserve the single-file architecture
 - ✅ Maintain 100% offline functionality
 - ✅ Include no external dependencies (except embedded SheetJS)
@@ -80,7 +80,7 @@ Before submitting, test your changes with:
 #### 5. Commit with Clear Messages
 
 ```bash
-git add DATAPHREAK.html
+git add dataphreak.html
 git commit -m "Add fuzzy matching threshold adjustment UI
 
 - Added slider control for similarity threshold (0.5-1.0)
@@ -151,7 +151,7 @@ Then create a Pull Request on GitHub with:
 
 ## ❌ What We Won't Accept
 
-To maintain DATAPHREAK's core philosophy, we cannot accept:
+To maintain dataphreak's core philosophy, we cannot accept:
 
 - ❌ **External dependencies** (except embedding libraries like SheetJS)
 - ❌ **Multi-file architecture** (breaks single-file distribution model)
@@ -163,20 +163,20 @@ To maintain DATAPHREAK's core philosophy, we cannot accept:
 
 ## 📜 License
 
-By contributing to DATAPHREAK, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to dataphreak, you agree that your contributions will be licensed under the [MIT License](LICENSE).
 
 ## 💬 Questions?
 
-- **Technical questions**: [Open a discussion](https://github.com/Zacsluss/DATAPHREAK/discussions)
-- **Bug reports**: [File an issue](https://github.com/Zacsluss/DATAPHREAK/issues/new)
+- **Technical questions**: [Open a discussion](https://github.com/Zacsluss/dataphreak/discussions)
+- **Bug reports**: [File an issue](https://github.com/Zacsluss/dataphreak/issues/new)
 - **General inquiries**: [Email zacsluss@yahoo.com](mailto:zacsluss@yahoo.com)
 
 ## 🙏 Thank You
 
-Every contribution, whether it's code, documentation, bug reports, or feature suggestions, helps make DATAPHREAK better for everyone. We appreciate your time and effort!
+Every contribution, whether it's code, documentation, bug reports, or feature suggestions, helps make dataphreak better for everyone. We appreciate your time and effort!
 
 ---
 
-**Built with ❤️ by the DATAPHREAK community**
+**Built with ❤️ by the dataphreak community**
 
 [⬅️ Back to README](README.md)

@@ -1,8 +1,8 @@
-# 📊 DATAPHREAK vS1.0.0 - Complete Technical Documentation
+# 📊 dataphreak vS1.0.0 - Complete Technical Documentation
 
 ## Executive Summary
 
-DATAPHREAK is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.30MB HTML file contains ~9,500 lines of optimized code delivering professional data analysis without installation, servers, or data uploads. Version S1.0.0 marks the official stable release with 50+ fully-tested features, comprehensive documentation, and production-ready performance validated by real-world users.
+dataphreak is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.30MB HTML file contains ~9,500 lines of optimized code delivering professional data analysis without installation, servers, or data uploads. Version S1.0.0 marks the official stable release with 50+ fully-tested features, comprehensive documentation, and production-ready performance validated by real-world users.
 
 ---
 
@@ -25,9 +25,9 @@ DATAPHREAK is a revolutionary single-file data analysis tool that provides enter
 
 ## Overview & Purpose
 
-### What is DATAPHREAK?
+### What is dataphreak?
 
-DATAPHREAK is a **100% client-side** data analysis platform that transforms messy CSV/Excel data into clean, validated, professional datasets in seconds. It combines smart pattern detection, fuzzy duplicate matching, and comprehensive quality scoring in a single HTML file.
+dataphreak is a **100% client-side** data analysis platform that transforms messy CSV/Excel data into clean, validated, professional datasets in seconds. It combines smart pattern detection, fuzzy duplicate matching, and comprehensive quality scoring in a single HTML file.
 
 ### Core Philosophy
 
@@ -51,7 +51,7 @@ DATAPHREAK is a **100% client-side** data analysis platform that transforms mess
 ### Single-File Architecture
 
 ```
-DATAPHREAK.html (1.30MB total)
+dataphreak.html (1.30MB total)
 ├── HTML Structure (318 lines)
 ├── CSS Styles (2,242 lines)
 │   ├── Dark Theme (default)
@@ -917,7 +917,7 @@ If issues persist:
 1. Check browser console (F12) for errors
 2. Try sample data files first
 3. Test in different browser
-4. Report issue with details: https://github.com/Zacsluss/DATAPHREAK/issues
+4. Report issue with details: https://github.com/Zacsluss/dataphreak/issues
 
 Include in bug reports:
 - Browser and version
@@ -1064,7 +1064,7 @@ document.addEventListener('dataphreak:analyzed', (e) => {
 
 ```javascript
 // Add custom validators
-DATAPHREAK.validators.custom = {
+dataphreak.validators.custom = {
   name: 'Custom Validator',
   validate: (value) => {
     // Custom logic
@@ -1073,7 +1073,7 @@ DATAPHREAK.validators.custom = {
 };
 
 // Add custom operations
-DATAPHREAK.operations.custom = {
+dataphreak.operations.custom = {
   name: 'Custom Operation',
   transform: (value) => {
     // Custom transformation
@@ -1281,7 +1281,7 @@ sections.forEach(sectionId => {
 
 ```javascript
 // Enable debug logging for help system
-window.DATAPHREAK_DEBUG = true;
+window.dataphreak_DEBUG = true;
 
 // Debug navigation state
 function debugNavigation() {
@@ -1301,7 +1301,7 @@ console.timeEnd('help-navigation-init');
 ### Build Information
 
 ```yaml
-File: DATAPHREAK.html
+File: dataphreak.html
 Size: 1.29MB (1,354,321 bytes)
 Lines: 8,847 total
   - HTML: 328 lines (includes new help navigation)
@@ -1471,8 +1471,8 @@ function testNavigationSync() {
 
 ## Support & Contact
 
-- **GitHub**: https://github.com/Zacsluss/DATAPHREAK
-- **Live Demo**: https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html
+- **GitHub**: https://github.com/Zacsluss/dataphreak
+- **Live Demo**: https://zacsluss.github.io/dataphreak/dataphreak.html
 - **Email**: zacsluss@yahoo.com
 - **Documentation**: This file
 
@@ -1480,13 +1480,13 @@ function testNavigationSync() {
 
 ## Conclusion
 
-DATAPHREAK proves that professional data analysis doesn't require complex installations, expensive licenses, or privacy compromises. This single HTML file delivers enterprise-grade capabilities while respecting user privacy and providing an exceptional user experience.
+dataphreak proves that professional data analysis doesn't require complex installations, expensive licenses, or privacy compromises. This single HTML file delivers enterprise-grade capabilities while respecting user privacy and providing an exceptional user experience.
 
-The tool's architecture balances sophistication with simplicity, providing powerful features through an intuitive interface. With its comprehensive feature set, robust security, and zero-installation requirement, DATAPHREAK democratizes data analysis for everyone.
+The tool's architecture balances sophistication with simplicity, providing powerful features through an intuitive interface. With its comprehensive feature set, robust security, and zero-installation requirement, dataphreak democratizes data analysis for everyone.
 
 ---
 
-**🚀 DATAPHREAK vS1.0.0 - Professional Data Analysis That Just Works**
+**🚀 dataphreak vS1.0.0 - Professional Data Analysis That Just Works**
 
 *"From messy data to professional insights in 30 seconds"*
 
