@@ -6,17 +6,17 @@
 <br/>
 
 <!-- Animated Subtitle -->
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=00FF88&center=true&vCenter=true&random=false&width=700&lines=1M%2B+Rows+%E2%80%A2+100K+in+5s+%E2%80%A2+100%25+Offline;Fuzzy+Matching+%E2%80%A2+A-F+Quality+Scoring;Single+HTML+File+%E2%80%A2+Zero+Cloud+Uploads" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=2d9a5e&center=true&vCenter=true&random=false&width=700&lines=1M%2B+Rows+%E2%80%A2+100K+in+5s+%E2%80%A2+100%25+Offline;Fuzzy+Matching+%E2%80%A2+A-F+Quality+Scoring;Single+HTML+File+%E2%80%A2+Zero+Cloud+Uploads" alt="Typing SVG" />
 
 <br/>
 
 <!-- Main Action Buttons -->
 <p align="center">
   <a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
-    <img src="https://img.shields.io/badge/🎯_LAUNCH-LIVE_DEMO-00ff88?style=for-the-badge&labelColor=000000&logo=vercel&logoColor=white" alt="Live Demo"/>
+    <img src="https://img.shields.io/badge/🎯_LAUNCH-LIVE_DEMO-2d7a3e?style=for-the-badge&labelColor=000000&logo=vercel&logoColor=white" alt="Live Demo"/>
   </a>
   <a href="https://github.com/Zacsluss/DATAPHREAK/raw/main/DATAPHREAK.html">
-    <img src="https://img.shields.io/badge/⬇️_DOWNLOAD-1.29MB_HTML-4078c0?style=for-the-badge&labelColor=000000&logo=download&logoColor=white" alt="Download"/>
+    <img src="https://img.shields.io/badge/⬇️_DOWNLOAD-1.29MB_HTML-0366d6?style=for-the-badge&labelColor=000000&logo=download&logoColor=white" alt="Download"/>
   </a>
 </p>
 
