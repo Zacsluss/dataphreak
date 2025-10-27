@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Hero Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,8&height=180&section=header&text=DATAPHREAK&fontSize=70&fontColor=FFFFFF&animation=twinkling&fontAlignY=30&desc=Enterprise%20Data%20Analysis%20In%20Your%20Browser&descSize=18&descAlignY=55"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,8&height=180&section=header&text=dataphreak&fontSize=70&fontColor=FFFFFF&animation=twinkling&fontAlignY=30&desc=Enterprise%20Data%20Analysis%20In%20Your%20Browser&descSize=18&descAlignY=55"/>
 
 <br/>
 
@@ -12,20 +12,20 @@
 
 <!-- Main Action Buttons -->
 <p align="center">
-  <a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html">
+  <a href="https://zacsluss.github.io/dataphreak/dataphreak.html">
     <img src="https://img.shields.io/badge/🎯_LAUNCH-LIVE_DEMO-2d7a3e?style=for-the-badge&labelColor=000000&logo=vercel&logoColor=white" alt="Live Demo"/>
   </a>
-  <a href="https://github.com/Zacsluss/DATAPHREAK/raw/main/DATAPHREAK.html">
+  <a href="https://github.com/Zacsluss/dataphreak/raw/main/dataphreak.html">
     <img src="https://img.shields.io/badge/⬇️_DOWNLOAD-1.29MB_HTML-0366d6?style=for-the-badge&labelColor=000000&logo=download&logoColor=white" alt="Download"/>
   </a>
 </p>
 
 <!-- GitHub Stats Badges -->
 <p align="center">
-  <img src="https://img.shields.io/github/stars/Zacsluss/DATAPHREAK?style=social" alt="Stars"/>
-  <img src="https://img.shields.io/github/forks/Zacsluss/DATAPHREAK?style=social" alt="Forks"/>
-  <img src="https://img.shields.io/github/license/Zacsluss/DATAPHREAK?style=flat-square&color=555555" alt="License"/>
-  <img src="https://img.shields.io/github/last-commit/Zacsluss/DATAPHREAK?style=flat-square&color=666666" alt="Last Commit"/>
+  <img src="https://img.shields.io/github/stars/Zacsluss/dataphreak?style=social" alt="Stars"/>
+  <img src="https://img.shields.io/github/forks/Zacsluss/dataphreak?style=social" alt="Forks"/>
+  <img src="https://img.shields.io/github/license/Zacsluss/dataphreak?style=flat-square&color=555555" alt="License"/>
+  <img src="https://img.shields.io/github/last-commit/Zacsluss/dataphreak?style=flat-square&color=666666" alt="Last Commit"/>
 </p>
 
 </div>
@@ -90,8 +90,8 @@
 
 <div align="center">
 
-<a href="https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html" target="_blank">
-  <img src="dataphreak.gif" alt="DATAPHREAK Demo" width="800"/>
+<a href="https://zacsluss.github.io/dataphreak/dataphreak.html" target="_blank">
+  <img src="dataphreak.gif" alt="dataphreak Demo" width="800"/>
 </a>
 
 *Click the demo above to try the live tool*
@@ -146,7 +146,7 @@
 
 ### 🌐 Online
 
-**[Launch Tool](https://zacsluss.github.io/DATAPHREAK/DATAPHREAK.html)**
+**[Launch Tool](https://zacsluss.github.io/dataphreak/dataphreak.html)**
 
 Instant access, no installation
 
@@ -155,7 +155,7 @@ Instant access, no installation
 
 ### 💾 Offline
 
-**[Download HTML](https://github.com/Zacsluss/DATAPHREAK/raw/main/DATAPHREAK.html)**
+**[Download HTML](https://github.com/Zacsluss/dataphreak/raw/main/dataphreak.html)**
 
 Open in any browser
 
@@ -254,7 +254,7 @@ git clone <repo>
 - **Alteryx:** $15K-$50K per seat
 - **Both require:** Cloud uploads, lengthy implementations, extensive training
 
-**I built DATAPHREAK to prove that professional-grade data quality tools don't need enterprise licensing or cloud dependencies. The best leaders never stop coding.**
+**I built dataphreak to prove that professional-grade data quality tools don't need enterprise licensing or cloud dependencies. The best leaders never stop coding.**
 
 This project specifically explores:
 
@@ -319,7 +319,7 @@ This project specifically explores:
 
 ## 🤝 Contributing
 
-Bug reports and feature suggestions welcome. See [DATAPHREAK_DOCUMENTATION.md](DATAPHREAK_DOCUMENTATION.md) for detailed technical documentation.
+Bug reports and feature suggestions welcome. See [dataphreak_DOCUMENTATION.md](dataphreak_DOCUMENTATION.md) for detailed technical documentation.
 
 <div align="center">
 
