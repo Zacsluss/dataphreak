@@ -362,7 +362,7 @@ cd DATAPHREAK
 
 - 📖 [**Complete Documentation**](DATAPHREAK_DOCUMENTATION.md) - Full technical guide
 - 🎯 [**Quick Start Guide**](#quick-start---get-results-in-30-seconds) - Get started in 30 seconds
-- 💡 [**Examples**](examples/) - Sample CSV files to practice with
+- 💡 **Try Sample Data** - Use the built-in sample data generator in the app
 - 🐛 [**Report Issues**](https://github.com/Zacsluss/DATAPHREAK/issues) - Found a bug?
 - 📧 [**Contact**](mailto:zacsluss@yahoo.com) - Enterprise inquiries
 
