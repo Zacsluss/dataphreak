@@ -304,25 +304,73 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 <td width="50%" align="center">
 
 #### Small Dataset (10K rows)
-| Metric | Value |
-|:------:|:-----:|
-| Load Time | < 1 second |
-| Pattern Detection | < 0.5 seconds |
-| Quality Scoring | < 0.5 seconds |
-| Fuzzy Matching | 2-3 seconds |
-| Memory Usage | ~50 MB |
+
+<table>
+<thead>
+<tr>
+<th align="center">Metric</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Load Time</td>
+<td align="center">&lt; 1 second</td>
+</tr>
+<tr>
+<td align="center">Pattern Detection</td>
+<td align="center">&lt; 0.5 seconds</td>
+</tr>
+<tr>
+<td align="center">Quality Scoring</td>
+<td align="center">&lt; 0.5 seconds</td>
+</tr>
+<tr>
+<td align="center">Fuzzy Matching</td>
+<td align="center">2-3 seconds</td>
+</tr>
+<tr>
+<td align="center">Memory Usage</td>
+<td align="center">~50 MB</td>
+</tr>
+</tbody>
+</table>
 
 </td>
 <td width="50%" align="center">
 
 #### Large Dataset (100K rows)
-| Metric | Value |
-|:------:|:-----:|
-| Load Time | 2-3 seconds |
-| Pattern Detection | 3-4 seconds |
-| Quality Scoring | 2-3 seconds |
-| Fuzzy Matching | 15-20 seconds |
-| Memory Usage | ~400 MB |
+
+<table>
+<thead>
+<tr>
+<th align="center">Metric</th>
+<th align="center">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Load Time</td>
+<td align="center">2-3 seconds</td>
+</tr>
+<tr>
+<td align="center">Pattern Detection</td>
+<td align="center">3-4 seconds</td>
+</tr>
+<tr>
+<td align="center">Quality Scoring</td>
+<td align="center">2-3 seconds</td>
+</tr>
+<tr>
+<td align="center">Fuzzy Matching</td>
+<td align="center">15-20 seconds</td>
+</tr>
+<tr>
+<td align="center">Memory Usage</td>
+<td align="center">~400 MB</td>
+</tr>
+</tbody>
+</table>
 
 </td>
 </tr>
