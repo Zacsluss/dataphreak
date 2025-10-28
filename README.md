@@ -308,30 +308,30 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 <table>
 <thead>
 <tr>
-<th align="center" style="text-align: center">Metric</th>
-<th align="center" style="text-align: center">Value</th>
+<th align="center"><div align="center">Metric</div></th>
+<th align="center"><div align="center">Value</div></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center" style="text-align: center">Load Time</td>
-<td align="center" style="text-align: center">&lt; 1 second</td>
+<td align="center"><div align="center">Load Time</div></td>
+<td align="center"><div align="center">&lt; 1 second</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Pattern Detection</td>
-<td align="center" style="text-align: center">&lt; 0.5 seconds</td>
+<td align="center"><div align="center">Pattern Detection</div></td>
+<td align="center"><div align="center">&lt; 0.5 seconds</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Quality Scoring</td>
-<td align="center" style="text-align: center">&lt; 0.5 seconds</td>
+<td align="center"><div align="center">Quality Scoring</div></td>
+<td align="center"><div align="center">&lt; 0.5 seconds</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Fuzzy Matching</td>
-<td align="center" style="text-align: center">2-3 seconds</td>
+<td align="center"><div align="center">Fuzzy Matching</div></td>
+<td align="center"><div align="center">2-3 seconds</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Memory Usage</td>
-<td align="center" style="text-align: center">~50 MB</td>
+<td align="center"><div align="center">Memory Usage</div></td>
+<td align="center"><div align="center">~50 MB</div></td>
 </tr>
 </tbody>
 </table>
@@ -344,30 +344,30 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 <table>
 <thead>
 <tr>
-<th align="center" style="text-align: center">Metric</th>
-<th align="center" style="text-align: center">Value</th>
+<th align="center"><div align="center">Metric</div></th>
+<th align="center"><div align="center">Value</div></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center" style="text-align: center">Load Time</td>
-<td align="center" style="text-align: center">2-3 seconds</td>
+<td align="center"><div align="center">Load Time</div></td>
+<td align="center"><div align="center">2-3 seconds</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Pattern Detection</td>
-<td align="center" style="text-align: center">3-4 seconds</td>
+<td align="center"><div align="center">Pattern Detection</div></td>
+<td align="center"><div align="center">3-4 seconds</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Quality Scoring</td>
-<td align="center" style="text-align: center">2-3 seconds</td>
+<td align="center"><div align="center">Quality Scoring</div></td>
+<td align="center"><div align="center">2-3 seconds</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Fuzzy Matching</td>
-<td align="center" style="text-align: center">15-20 seconds</td>
+<td align="center"><div align="center">Fuzzy Matching</div></td>
+<td align="center"><div align="center">15-20 seconds</div></td>
 </tr>
 <tr>
-<td align="center" style="text-align: center">Memory Usage</td>
-<td align="center" style="text-align: center">~400 MB</td>
+<td align="center"><div align="center">Memory Usage</div></td>
+<td align="center"><div align="center">~400 MB</div></td>
 </tr>
 </tbody>
 </table>
