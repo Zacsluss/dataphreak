@@ -456,7 +456,9 @@ I'm into WebGL, particle systems, shader programming, AI/ML, digital art, and 36
 
 <br/>
 
-[Download Resume](public/resume.pdf)
+<a href="public/resume.pdf">
+  <img src="https://img.shields.io/badge/Resume-Download_PDF-8b5cf6?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
+</a>
 
 <br/>
 
