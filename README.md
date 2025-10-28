@@ -453,11 +453,8 @@ I'm into WebGL, particle systems, shader programming, AI/ML, digital art, and 36
 <a href="mailto:zacharyjsluss@gmail.com">
   <img src="https://img.shields.io/badge/Email-zacharyjsluss@gmail.com-b91c1c?style=for-the-badge&logo=gmail&logoColor=white"/>
 </a>
-
-<br/>
-
 <a href="public/resume.pdf">
-  <img src="https://img.shields.io/badge/Resume-Download_PDF-8b5cf6?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Resume-Download_Resume-7c3aed?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
 </a>
 
 <br/>
