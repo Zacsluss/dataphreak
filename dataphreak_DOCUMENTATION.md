@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-dataphreak is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.30MB HTML file contains ~9,500 lines of optimized code delivering professional data analysis without installation, servers, or data uploads. Version S1.0.0 marks the official stable release with 50+ fully-tested features, comprehensive documentation, and production-ready performance validated by real-world users.
+DATAPHREAK is a revolutionary single-file data analysis tool that provides enterprise-grade data quality assessment, cleaning, visualization, and merge capabilities entirely within a web browser. This 1.30MB HTML file contains ~9,500 lines of optimized code delivering professional data analysis without installation, servers, or data uploads. Version S1.0.0 marks the official stable release with 50+ fully-tested features, comprehensive documentation, and production-ready performance validated by real-world users.
 
 ---
 
@@ -25,9 +25,9 @@ dataphreak is a revolutionary single-file data analysis tool that provides enter
 
 ## Overview & Purpose
 
-### What is dataphreak?
+### What is DATAPHREAK?
 
-dataphreak is a **100% client-side** data analysis platform that transforms messy CSV/Excel data into clean, validated, professional datasets in seconds. It combines smart pattern detection, fuzzy duplicate matching, and comprehensive quality scoring in a single HTML file.
+DATAPHREAK is a **100% client-side** data analysis platform that transforms messy CSV/Excel data into clean, validated, professional datasets in seconds. It combines smart pattern detection, fuzzy duplicate matching, and comprehensive quality scoring in a single HTML file.
 
 ### Core Philosophy
 
@@ -1480,7 +1480,7 @@ function testNavigationSync() {
 
 ## Conclusion
 
-dataphreak proves that professional data analysis doesn't require complex installations, expensive licenses, or privacy compromises. This single HTML file delivers enterprise-grade capabilities while respecting user privacy and providing an exceptional user experience.
+DATAPHREAK proves that professional data analysis doesn't require complex installations, expensive licenses, or privacy compromises. This single HTML file delivers enterprise-grade capabilities while respecting user privacy and providing an exceptional user experience.
 
 The tool's architecture balances sophistication with simplicity, providing powerful features through an intuitive interface. With its comprehensive feature set, robust security, and zero-installation requirement, dataphreak democratizes data analysis for everyone.
 

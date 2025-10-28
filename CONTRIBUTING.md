@@ -1,10 +1,10 @@
-# Contributing to dataphreak
+# Contributing to DATAPHREAK
 
-Thank you for your interest in contributing to dataphreak! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to DATAPHREAK! This document provides guidelines for contributing to the project.
 
 ## 🎯 Project Philosophy
 
-dataphreak is designed as a **single-file, zero-dependency data analysis tool** that prioritizes:
+DATAPHREAK is designed as a **single-file, zero-dependency data analysis tool** that prioritizes:
 - **Privacy First**: 100% offline processing, no data upload
 - **Simplicity**: One HTML file, works anywhere
 - **Professional Quality**: Enterprise-grade features, free forever
@@ -59,7 +59,7 @@ git checkout -b fix/your-bug-fix
 
 #### 3. Make Your Changes
 
-**Important**: dataphreak is a single-file application (`dataphreak.html`). All changes must:
+**Important**: DATAPHREAK is a single-file application (`dataphreak.html`). All changes must:
 - ✅ Preserve the single-file architecture
 - ✅ Maintain 100% offline functionality
 - ✅ Include no external dependencies (except embedded SheetJS)
@@ -151,7 +151,7 @@ Then create a Pull Request on GitHub with:
 
 ## ❌ What We Won't Accept
 
-To maintain dataphreak's core philosophy, we cannot accept:
+To maintain DATAPHREAK's core philosophy, we cannot accept:
 
 - ❌ **External dependencies** (except embedding libraries like SheetJS)
 - ❌ **Multi-file architecture** (breaks single-file distribution model)
@@ -163,7 +163,7 @@ To maintain dataphreak's core philosophy, we cannot accept:
 
 ## 📜 License
 
-By contributing to dataphreak, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to DATAPHREAK, you agree that your contributions will be licensed under the [MIT License](LICENSE).
 
 ## 💬 Questions?
 
@@ -173,10 +173,10 @@ By contributing to dataphreak, you agree that your contributions will be license
 
 ## 🙏 Thank You
 
-Every contribution, whether it's code, documentation, bug reports, or feature suggestions, helps make dataphreak better for everyone. We appreciate your time and effort!
+Every contribution, whether it's code, documentation, bug reports, or feature suggestions, helps make DATAPHREAK better for everyone. We appreciate your time and effort!
 
 ---
 
-**Built with ❤️ by the dataphreak community**
+**Built with ❤️ by the DATAPHREAK community**
 
 [⬅️ Back to README](README.md)

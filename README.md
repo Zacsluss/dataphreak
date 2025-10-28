@@ -1,7 +1,7 @@
 <div align="center">
 
 <!-- Hero Header -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,8&height=180&section=header&text=dataphreak&fontSize=70&fontColor=FFFFFF&animation=twinkling&fontAlignY=30&desc=Enterprise%20Data%20Analysis%20In%20Your%20Browser&descSize=18&descAlignY=55"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,8&height=180&section=header&text=DATAPHREAK&fontSize=70&fontColor=FFFFFF&animation=twinkling&fontAlignY=30&desc=Enterprise%20Data%20Analysis%20In%20Your%20Browser&descSize=18&descAlignY=55"/>
 
 <br/>
 
@@ -91,7 +91,7 @@
 <div align="center">
 
 <a href="https://zacsluss.github.io/dataphreak/dataphreak.html" target="_blank">
-  <img src="dataphreak.gif" alt="dataphreak Demo" width="800"/>
+  <img src="dataphreak.gif" alt="DATAPHREAK Demo" width="800"/>
 </a>
 
 *Click the demo above to try the live tool*
@@ -254,7 +254,7 @@ git clone <repo>
 - **Alteryx:** $15K-$50K per seat
 - **Both require:** Cloud uploads, lengthy implementations, extensive training
 
-**I built dataphreak to prove that professional-grade data quality tools don't need enterprise licensing or cloud dependencies. The best leaders never stop coding.**
+**I built DATAPHREAK to prove that professional-grade data quality tools don't need enterprise licensing or cloud dependencies. The best leaders never stop coding.**
 
 This project specifically explores:
 
