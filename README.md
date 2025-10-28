@@ -297,8 +297,6 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 
 ### Real numbers from testing with production datasets
 
-</div>
-
 <table>
 <tr>
 <td width="50%">
@@ -327,6 +325,8 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 </td>
 </tr>
 </table>
+
+</div>
 
 <details>
 <summary><b>📦 File size breakdown</b></summary>
