@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest'
 import { Logger, LogLevel } from '../../src/js/utils/logger.js'
 
 describe('Logger', () => {
@@ -14,6 +14,14 @@ describe('Logger', () => {
     consoleInfoSpy = vi.spyOn(console, 'info').mockImplementation(() => {})
     consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
     consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    vi.clearAllMocks()
+    consoleDebugSpy.mockRestore()
+    consoleInfoSpy.mockRestore()
+    consoleWarnSpy.mockRestore()
+    consoleErrorSpy.mockRestore()
   })
 
   describe('Log Levels', () => {
