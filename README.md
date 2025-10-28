@@ -301,76 +301,28 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 
 <table>
 <tr>
-<td width="50%" align="center">
+<td width="50%">
 
 #### Small Dataset (10K rows)
-
-<table>
-<thead>
-<tr>
-<th align="center"><div align="center">Metric</div></th>
-<th align="center"><div align="center">Value</div></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><div align="center">Load Time</div></td>
-<td align="center"><div align="center">&lt; 1 second</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Pattern Detection</div></td>
-<td align="center"><div align="center">&lt; 0.5 seconds</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Quality Scoring</div></td>
-<td align="center"><div align="center">&lt; 0.5 seconds</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Fuzzy Matching</div></td>
-<td align="center"><div align="center">2-3 seconds</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Memory Usage</div></td>
-<td align="center"><div align="center">~50 MB</div></td>
-</tr>
-</tbody>
-</table>
+| Metric | Value |
+|:------:|:-----:|
+| Load Time | < 1 second |
+| Pattern Detection | < 0.5 seconds |
+| Quality Scoring | < 0.5 seconds |
+| Fuzzy Matching | 2-3 seconds |
+| Memory Usage | ~50 MB |
 
 </td>
-<td width="50%" align="center">
+<td width="50%">
 
 #### Large Dataset (100K rows)
-
-<table>
-<thead>
-<tr>
-<th align="center"><div align="center">Metric</div></th>
-<th align="center"><div align="center">Value</div></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><div align="center">Load Time</div></td>
-<td align="center"><div align="center">2-3 seconds</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Pattern Detection</div></td>
-<td align="center"><div align="center">3-4 seconds</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Quality Scoring</div></td>
-<td align="center"><div align="center">2-3 seconds</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Fuzzy Matching</div></td>
-<td align="center"><div align="center">15-20 seconds</div></td>
-</tr>
-<tr>
-<td align="center"><div align="center">Memory Usage</div></td>
-<td align="center"><div align="center">~400 MB</div></td>
-</tr>
-</tbody>
-</table>
+| Metric | Value |
+|:------:|:-----:|
+| Load Time | 2-3 seconds |
+| Pattern Detection | 3-4 seconds |
+| Quality Scoring | 2-3 seconds |
+| Fuzzy Matching | 15-20 seconds |
+| Memory Usage | ~400 MB |
 
 </td>
 </tr>
