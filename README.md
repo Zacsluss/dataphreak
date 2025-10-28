@@ -398,6 +398,50 @@ Make it yours (takes about 5 minutes):
 
 ---
 
+## 🔧 Development & Testing
+
+### For Contributors
+
+This project now includes a complete development infrastructure:
+
+```bash
+# Install dependencies
+npm install
+
+# Run tests
+npm test
+
+# Run linter
+npm run lint
+
+# Run everything
+npm run validate
+```
+
+**New Features:**
+- ✅ **Vitest** testing framework with 70% coverage target
+- ✅ **ESLint** for code quality
+- ✅ **GitHub Actions** CI/CD pipeline
+- ✅ **Utility modules** (Logger, Error Handler, Performance Monitor)
+- ✅ **Comprehensive documentation** (API, Accessibility, Development guides)
+
+**Documentation:**
+- 📖 [API Documentation](docs/API.md)
+- 🎨 [Accessibility Guidelines](docs/ACCESSIBILITY.md)
+- 💻 [Development Guide](docs/DEVELOPMENT.md)
+- 📝 [Changelog](CHANGELOG.md)
+
+**Testing:**
+```bash
+npm test                # Run all tests
+npm run test:ui         # Interactive test UI
+npm run test:coverage   # Generate coverage report
+```
+
+See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for complete development documentation.
+
+---
+
 ## 📄 License & Usage
 
 **MIT License** — Fork it, customize it, do whatever you want with it. No credit needed (but a ⭐ appreciated).

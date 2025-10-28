@@ -1,0 +1,43 @@
+{
+  "name": "dataphreak",
+  "version": "1.0.0",
+  "description": "Enterprise Data Analysis In Your Browser - 100% Offline",
+  "main": "dataphreak.html",
+  "scripts": {
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "build": "node scripts/build.js",
+    "dev": "npm run build && npm run serve",
+    "serve": "python -m http.server 8080",
+    "validate": "npm run lint && npm test"
+  },
+  "keywords": [
+    "data-analysis",
+    "csv",
+    "excel",
+    "offline",
+    "privacy",
+    "data-quality"
+  ],
+  "author": "Zachary Sluss",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/ui": "^1.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "eslint": "^8.55.0",
+    "eslint-config-standard": "^17.1.0",
+    "happy-dom": "^12.10.3",
+    "vitest": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zacsluss/dataphreak.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Zacsluss/dataphreak/issues"
+  },
+  "homepage": "https://zacsluss.github.io/dataphreak/"
+}
