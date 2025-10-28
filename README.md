@@ -305,7 +305,7 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 
 #### Small Dataset (10K rows)
 | Metric | Value |
-|--------|-------|
+|:------:|:-----:|
 | Load Time | < 1 second |
 | Pattern Detection | < 0.5 seconds |
 | Quality Scoring | < 0.5 seconds |
@@ -317,7 +317,7 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 
 #### Large Dataset (100K rows)
 | Metric | Value |
-|--------|-------|
+|:------:|:-----:|
 | Load Time | 2-3 seconds |
 | Pattern Detection | 3-4 seconds |
 | Quality Scoring | 2-3 seconds |
