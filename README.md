@@ -308,30 +308,30 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 <table>
 <thead>
 <tr>
-<th style="text-align: center">Metric</th>
-<th style="text-align: center">Value</th>
+<th align="center" style="text-align: center">Metric</th>
+<th align="center" style="text-align: center">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center">Load Time</td>
-<td style="text-align: center">&lt; 1 second</td>
+<td align="center" style="text-align: center">Load Time</td>
+<td align="center" style="text-align: center">&lt; 1 second</td>
 </tr>
 <tr>
-<td style="text-align: center">Pattern Detection</td>
-<td style="text-align: center">&lt; 0.5 seconds</td>
+<td align="center" style="text-align: center">Pattern Detection</td>
+<td align="center" style="text-align: center">&lt; 0.5 seconds</td>
 </tr>
 <tr>
-<td style="text-align: center">Quality Scoring</td>
-<td style="text-align: center">&lt; 0.5 seconds</td>
+<td align="center" style="text-align: center">Quality Scoring</td>
+<td align="center" style="text-align: center">&lt; 0.5 seconds</td>
 </tr>
 <tr>
-<td style="text-align: center">Fuzzy Matching</td>
-<td style="text-align: center">2-3 seconds</td>
+<td align="center" style="text-align: center">Fuzzy Matching</td>
+<td align="center" style="text-align: center">2-3 seconds</td>
 </tr>
 <tr>
-<td style="text-align: center">Memory Usage</td>
-<td style="text-align: center">~50 MB</td>
+<td align="center" style="text-align: center">Memory Usage</td>
+<td align="center" style="text-align: center">~50 MB</td>
 </tr>
 </tbody>
 </table>
@@ -344,30 +344,30 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 <table>
 <thead>
 <tr>
-<th style="text-align: center">Metric</th>
-<th style="text-align: center">Value</th>
+<th align="center" style="text-align: center">Metric</th>
+<th align="center" style="text-align: center">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: center">Load Time</td>
-<td style="text-align: center">2-3 seconds</td>
+<td align="center" style="text-align: center">Load Time</td>
+<td align="center" style="text-align: center">2-3 seconds</td>
 </tr>
 <tr>
-<td style="text-align: center">Pattern Detection</td>
-<td style="text-align: center">3-4 seconds</td>
+<td align="center" style="text-align: center">Pattern Detection</td>
+<td align="center" style="text-align: center">3-4 seconds</td>
 </tr>
 <tr>
-<td style="text-align: center">Quality Scoring</td>
-<td style="text-align: center">2-3 seconds</td>
+<td align="center" style="text-align: center">Quality Scoring</td>
+<td align="center" style="text-align: center">2-3 seconds</td>
 </tr>
 <tr>
-<td style="text-align: center">Fuzzy Matching</td>
-<td style="text-align: center">15-20 seconds</td>
+<td align="center" style="text-align: center">Fuzzy Matching</td>
+<td align="center" style="text-align: center">15-20 seconds</td>
 </tr>
 <tr>
-<td style="text-align: center">Memory Usage</td>
-<td style="text-align: center">~400 MB</td>
+<td align="center" style="text-align: center">Memory Usage</td>
+<td align="center" style="text-align: center">~400 MB</td>
 </tr>
 </tbody>
 </table>
