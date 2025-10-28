@@ -301,7 +301,7 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 
 <table>
 <tr>
-<td width="50%">
+<td width="50%" align="center">
 
 #### Small Dataset (10K rows)
 | Metric | Value |
@@ -313,7 +313,7 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 | Memory Usage | ~50 MB |
 
 </td>
-<td width="50%">
+<td width="50%" align="center">
 
 #### Large Dataset (100K rows)
 | Metric | Value |
