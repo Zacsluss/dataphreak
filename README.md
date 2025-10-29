@@ -61,7 +61,7 @@ Built with vanilla JavaScript, Canvas API, and a lot of caffeine.
 
 <div align="center">
 
-**Professional data analysis in a single 1.29MB HTML file** • **1M+ rows capacity** • **100% offline processing** • **Zero dependencies**
+**Professional data analysis in a single 1.40MB HTML file** • **1M+ rows capacity** • **100% offline processing** • **2050 glassism UI**
 
 </div>
 
@@ -134,12 +134,13 @@ Built with vanilla JavaScript, Canvas API, and a lot of caffeine.
 <br/>
 
 **Zero external dependencies** — This is a single HTML file with:
-- **8,847 lines of code** (70% JS, 26% CSS, 4% HTML)
+- **11,661 lines of code** (70% JS, 26% CSS, 4% HTML)
 - **Embedded SheetJS library** for native Excel support
 - **Pure Canvas API** for data visualizations
 - **Native Web Workers** for background processing
+- **2050 glassism design** with frosted glass effects and smooth animations
 
-The entire project is self-contained in `dataphreak.html` (1.29MB). No npm packages, no build tools, no external CDNs.
+The entire project is self-contained in `dataphreak.html` (1.40MB). No npm packages, no build tools, no external CDNs.
 
 </details>
 
@@ -334,12 +335,12 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 <br/>
 
 ```
-dataphreak.html    1,290 KB (uncompressed)
-├─ JavaScript      903 KB  (70%)
-├─ CSS             335 KB  (26%)
-└─ HTML            52 KB   (4%)
+dataphreak.html    1,400 KB (uncompressed)
+├─ JavaScript      980 KB  (70%)
+├─ CSS             364 KB  (26%)
+└─ HTML            56 KB   (4%)
 ─────────────────────────────────────────────────────────
-Total              1.29 MB single file
+Total              1.40 MB single file
 ```
 
 **How I optimized it:**
