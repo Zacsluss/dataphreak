@@ -3422,6 +3422,59 @@
           Automatically detects and fixes emails, phones, dates, ZIP codes, URLs, and IDs. One-click standardization with confidence indicators.
         </p>
 
+        <h4 id="help-cleaning" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">6. Data Cleaning</h4>
+        <p><strong>Fix common data problems with one click!</strong> Select columns and choose which fixes to apply:</p>
+
+        <h5 style="color:#38bdf8;margin:16px 0 8px 0">🧹 Available Cleaning Options:</h5>
+        <ul>
+          <li><strong>Trim Spaces:</strong> Removes extra spaces before/after text
+            <br><em>Example: "  John Smith  " becomes "John Smith"</em></li>
+          <li><strong>Fix Letter Case:</strong> Smart formatting based on field type
+            <br><em>Names → Title Case, Emails → lowercase, IDs → UPPERCASE</em></li>
+          <li><strong>Remove Accents:</strong> Converts special characters to regular letters
+            <br><em>Example: "José" becomes "Jose"</em></li>
+          <li><strong>Convert Salesforce IDs:</strong> Extends 15-character IDs to 18-character format
+            <br><em>Useful if you work with Salesforce data</em></li>
+          <li><strong>Add ID Column:</strong> Adds a unique identifier column to your dataset
+            <br><em>Creates IDs like "S000001", "S000002" for each row</em></li>
+          <li><strong>Remove Duplicates:</strong> Removes exact duplicate values within each column
+            <br><em>Example: Keeps first occurrence, removes subsequent duplicates</em></li>
+        </ul>
+
+        <h5 style="color:#38bdf8;margin:16px 0 8px 0">🚀 Quick Start:</h5>
+        <p><strong>Step 1:</strong> Click checkboxes next to columns you want to clean<br>
+        <strong>Step 2:</strong> Choose which operations to apply<br>
+        <strong>Step 3:</strong> Click "Apply" to clean your data<br>
+        <strong>Step 4:</strong> Watch your data quality score improve!</p>
+
+        <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
+          <p><strong>💡 Pro Tip:</strong> Use "🧹 Clean All" button for instant cleaning of spacing and capitalization, then "Apply Patterns" to fix email, phone, and date formats.</p>
+        </div>
+
+        <!-- Unique keys section moved outside of Data Operations -->
+
+        <!-- Unique Identifiers moved to Data Cleaning section -->
+        <p>The assistant in the <strong>Data Cleaning &amp; ID Management</strong> panel helps you find one or two fields that can uniquely identify each row. It scans for fields or field pairs with no missing values and no duplicates. These are ideal as primary keys or External IDs. If none exist, the assistant offers to add a new <code>surrogate_id</code> column with sequential values.</p>
+
+        <!-- Security & Privacy section -->
+        <!-- Security & Privacy moved to Tips & Support section -->
+        <p>DATAPHREAK is designed to keep your data private and secure. All processing happens locally in your browser&mdash;no network calls are made. This section summarises the key security measures:</p>
+        <ul>
+          <li><strong>Offline-only operation</strong>: your datasets never leave your computer.</li>
+          <li><strong>Sanitised exports</strong>: exported CSV values are escaped to prevent formula injection and malicious scripts; cells that begin with <code>=</code>, <code>+</code>, <code>-</code>, or <code>@</code> are prefixed with a single quote to turn them into plain text.</li>
+          <li><strong>No macros or scripting engine</strong>: unlike traditional spreadsheets, DATAPHREAK has no macro support, eliminating a major attack vector.</li>
+          <li><strong>Strict Content Security Policy</strong>: the page is served with a Content Security Policy that blocks inline and remote scripts.</li>
+          <li><strong>Smart cross-file comparison</strong>: uses intelligent blocking by first character and length buckets to optimize performance when comparing large datasets.</li>
+          <li><strong>Error handling</strong>: file parsing is wrapped in <code>try</code>/<code>catch</code> blocks with friendly error messages.</li>
+          <li><strong>Local persistence</strong>: rule sets and preferences are stored only in your browser’s <code>localStorage</code>; nothing is uploaded to any server. You can disable persistence entirely or encrypt your saved data with a passphrase in the Settings panel.</li>
+        </ul>
+          <li><strong>Data Cleaning:</strong> Exports cleaning operations summary and current data state</li>
+          <li><strong>Rows with Issues:</strong> Exports validation issues with detailed error information</li>
+          <li><strong>Single-File Duplicates:</strong> Exports data with duplicate group markers</li>
+          <li><strong>Merge Files by Column:</strong> Exports merged datasets with match indicators</li>
+          <li><strong>Row Analysis:</strong> Exports comprehensive data dictionary with field statistics</li>
+        </ul>
+
         <h4 id="help-visualizations" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">7. Visualizations</h4>
         <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">
           Professional histograms and bar charts with statistical overlays. Interactive tooltips, smart grouping, and print-quality PDF export.
@@ -3494,59 +3547,6 @@
         <p>Your preferences are stored locally only and never sent to a server. If persistence is disabled, settings revert to defaults when the page is refreshed.</p>
         <!-- Keyboard Shortcuts moved to Advanced Features section -->
         <p>You can tab through inputs and use keyboard shortcuts like <kbd>Ctrl+L</kbd> to reload the file or <kbd>Esc</kbd> to close modals. Most buttons also display an informative tooltip when hovered.</p>
-
-        <h4 id="help-cleaning" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">6. Data Cleaning</h4>
-        <p><strong>Fix common data problems with one click!</strong> Select columns and choose which fixes to apply:</p>
-
-        <h5 style="color:#38bdf8;margin:16px 0 8px 0">🧹 Available Cleaning Options:</h5>
-        <ul>
-          <li><strong>Trim Spaces:</strong> Removes extra spaces before/after text
-            <br><em>Example: "  John Smith  " becomes "John Smith"</em></li>
-          <li><strong>Fix Letter Case:</strong> Smart formatting based on field type
-            <br><em>Names → Title Case, Emails → lowercase, IDs → UPPERCASE</em></li>
-          <li><strong>Remove Accents:</strong> Converts special characters to regular letters
-            <br><em>Example: "José" becomes "Jose"</em></li>
-          <li><strong>Convert Salesforce IDs:</strong> Extends 15-character IDs to 18-character format
-            <br><em>Useful if you work with Salesforce data</em></li>
-          <li><strong>Add ID Column:</strong> Adds a unique identifier column to your dataset
-            <br><em>Creates IDs like "S000001", "S000002" for each row</em></li>
-          <li><strong>Remove Duplicates:</strong> Removes exact duplicate values within each column
-            <br><em>Example: Keeps first occurrence, removes subsequent duplicates</em></li>
-        </ul>
-
-        <h5 style="color:#38bdf8;margin:16px 0 8px 0">🚀 Quick Start:</h5>
-        <p><strong>Step 1:</strong> Click checkboxes next to columns you want to clean<br>
-        <strong>Step 2:</strong> Choose which operations to apply<br>
-        <strong>Step 3:</strong> Click "Apply" to clean your data<br>
-        <strong>Step 4:</strong> Watch your data quality score improve!</p>
-
-        <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
-          <p><strong>💡 Pro Tip:</strong> Use "🧹 Clean All" button for instant cleaning of spacing and capitalization, then "Apply Patterns" to fix email, phone, and date formats.</p>
-        </div>
-
-        <!-- Unique keys section moved outside of Data Operations -->
-
-        <!-- Unique Identifiers moved to Data Cleaning section -->
-        <p>The assistant in the <strong>Data Cleaning &amp; ID Management</strong> panel helps you find one or two fields that can uniquely identify each row. It scans for fields or field pairs with no missing values and no duplicates. These are ideal as primary keys or External IDs. If none exist, the assistant offers to add a new <code>surrogate_id</code> column with sequential values.</p>
-
-        <!-- Security & Privacy section -->
-        <!-- Security & Privacy moved to Tips & Support section -->
-        <p>DATAPHREAK is designed to keep your data private and secure. All processing happens locally in your browser&mdash;no network calls are made. This section summarises the key security measures:</p>
-        <ul>
-          <li><strong>Offline-only operation</strong>: your datasets never leave your computer.</li>
-          <li><strong>Sanitised exports</strong>: exported CSV values are escaped to prevent formula injection and malicious scripts; cells that begin with <code>=</code>, <code>+</code>, <code>-</code>, or <code>@</code> are prefixed with a single quote to turn them into plain text.</li>
-          <li><strong>No macros or scripting engine</strong>: unlike traditional spreadsheets, DATAPHREAK has no macro support, eliminating a major attack vector.</li>
-          <li><strong>Strict Content Security Policy</strong>: the page is served with a Content Security Policy that blocks inline and remote scripts.</li>
-          <li><strong>Smart cross-file comparison</strong>: uses intelligent blocking by first character and length buckets to optimize performance when comparing large datasets.</li>
-          <li><strong>Error handling</strong>: file parsing is wrapped in <code>try</code>/<code>catch</code> blocks with friendly error messages.</li>
-          <li><strong>Local persistence</strong>: rule sets and preferences are stored only in your browser’s <code>localStorage</code>; nothing is uploaded to any server. You can disable persistence entirely or encrypt your saved data with a passphrase in the Settings panel.</li>
-        </ul>
-          <li><strong>Data Cleaning:</strong> Exports cleaning operations summary and current data state</li>
-          <li><strong>Rows with Issues:</strong> Exports validation issues with detailed error information</li>
-          <li><strong>Single-File Duplicates:</strong> Exports data with duplicate group markers</li>
-          <li><strong>Merge Files by Column:</strong> Exports merged datasets with match indicators</li>
-          <li><strong>Row Analysis:</strong> Exports comprehensive data dictionary with field statistics</li>
-        </ul>
 
         <h4 id="help-advanced" style="font-size:24px;font-weight:600;margin:32px 0 12px 0;color:#fff">9. Advanced Features</h4>
         <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:20px;line-height:1.6">Power-user features for complex data analysis scenarios.</p>
@@ -8005,10 +8005,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
             }
           }
           
-          // Update pill states only - no auto-scrolling
+          // Update pill states and scroll active pill into view
           navPills.forEach(pill => {
             if (pill.dataset.section === activeSection) {
               pill.classList.add('help-nav-active');
+              // Scroll the active pill into view within the horizontal nav container
+              pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             } else {
               pill.classList.remove('help-nav-active');
             }
