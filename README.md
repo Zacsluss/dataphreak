@@ -232,6 +232,11 @@ Finds near-matches using:
 
 ## 🎯 Use Cases
 
+<details>
+<summary><b>📋 See what you can do with DATAPHREAK</b></summary>
+
+<br/>
+
 <table>
 <tr>
 <td width="50%">
@@ -273,30 +278,32 @@ Finds near-matches using:
 </tr>
 </table>
 
+</details>
+
 ---
 
 ## 💭 Why I Built This
 
-As someone managing CRM platforms serving 3,000+ users across 22 countries, I've seen how expensive and bloated enterprise data tools can be. **Tableau Prep costs $25K-$75K annually. Alteryx runs $15K-$50K per seat.** Both require cloud uploads, lengthy implementations, and extensive training.
+Managing CRM platforms for 3,000+ users across 22 countries showed me how expensive enterprise data tools are. **Tableau Prep costs $25K-$75K annually. Alteryx runs $15K-$50K per seat.** Both require cloud uploads and extensive training.
 
-I built DATAPHREAK to prove that professional-grade data quality tools don't need enterprise licensing or cloud dependencies.
+I built DATAPHREAK to prove professional-grade data tools don't need enterprise licensing or cloud dependencies. Data professionals shouldn't have to upload sensitive information to third-party servers just to find duplicates or assess quality.
 
-**This project explores:**
+**This project demonstrates:**
 - ✅ **Fundamental algorithms** — Levenshtein distance, statistical profiling, join operations
 - ✅ **Single-file deployment** — Download today, works in 10 years
-- ✅ **Privacy by design** — Processing locally isn't just a feature, it's a philosophy
-- ✅ **Zero dependencies** — Embedded SheetJS means true offline capability
+- ✅ **Privacy by design** — Your data never leaves your machine
 - ✅ **Performance at scale** — 1M+ rows without external engines
-
-**The privacy angle matters.** Data professionals shouldn't have to upload sensitive customer information to third-party servers just to find duplicates or assess quality. Processing locally isn't just a feature—it's a philosophy about data ownership and control.
 
 ---
 
 ## 📊 Performance Benchmarks
 
-<div align="center">
+<details>
+<summary><b>⚡ Real numbers from testing with production datasets</b></summary>
 
-### Real numbers from testing with production datasets
+<br/>
+
+<div align="center">
 
 <table>
 <tr>
@@ -328,6 +335,8 @@ I built DATAPHREAK to prove that professional-grade data quality tools don't nee
 </table>
 
 </div>
+
+</details>
 
 <details>
 <summary><b>📦 File size breakdown</b></summary>
@@ -401,9 +410,12 @@ Make it yours (takes about 5 minutes):
 
 ## 🔧 Development & Testing
 
-### For Contributors
+<details>
+<summary><b>🛠️ For contributors - complete development infrastructure</b></summary>
 
-This project now includes a complete development infrastructure:
+<br/>
+
+This project includes a complete development infrastructure:
 
 ```bash
 # Install dependencies
@@ -419,7 +431,7 @@ npm run lint
 npm run validate
 ```
 
-**New Features:**
+**Features:**
 - ✅ **Vitest** testing framework with 70% coverage target
 - ✅ **ESLint** for code quality
 - ✅ **GitHub Actions** CI/CD pipeline
@@ -441,16 +453,16 @@ npm run test:coverage   # Generate coverage report
 
 See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for complete development documentation.
 
+</details>
+
 ---
 
 ## 📄 License & Usage
 
 **MIT License** — Fork it, customize it, do whatever you want with it. No credit needed (but a ⭐ appreciated).
 
-**Quick setup:** Download `dataphreak.html` → Open in browser → Upload your data → Done
-
 <details>
-<summary><b>📋 Full customization instructions</b></summary>
+<summary><b>📋 Customization instructions</b></summary>
 
 <br/>
 
