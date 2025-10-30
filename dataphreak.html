@@ -128,7 +128,7 @@
 
     /* Light Mode Golden Accent Glows */
     body.theme-light .card {
-      box-shadow: 0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.8), 0 0 20px rgba(218,165,32,0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(218,165,32,0.6), 0 0 20px rgba(218,165,32,0.05);
       border: 1px solid var(--border);
       transition: all 0.3s ease;
     }
@@ -137,6 +137,11 @@
       transform: translateY(-4px);
       box-shadow: 0 20px 40px rgba(0,0,0,0.15), inset 0 1px 0 rgba(184,134,11,0.3), 0 0 30px rgba(184,134,11,0.4);
       border-color: #b8860b;
+    }
+
+    /* Light Mode Card Flash - Gold instead of White */
+    body.theme-light .card::before {
+      background: linear-gradient(90deg, transparent, rgba(218,165,32,0.3), transparent) !important;
     }
 
     /* Light Mode Button 3D Press Effects */
