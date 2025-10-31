@@ -421,35 +421,49 @@ This project includes a complete development infrastructure:
 # Install dependencies
 npm install
 
-# Run tests
+# Run tests (19 passing!)
 npm test
 
 # Run linter
 npm run lint
 
-# Run everything
+# Fix linting issues automatically
+npm run lint:fix
+
+# Generate API documentation
+npm run docs:md
+
+# Run everything (lint + test)
 npm run validate
 ```
 
 **Features:**
-- ✅ **Vitest** testing framework with 70% coverage target
-- ✅ **ESLint** for code quality
+- ✅ **Vitest 3.2.4** testing framework (19 tests passing, 2 test suites)
+- ✅ **ESLint** for code quality with auto-fix
+- ✅ **Husky + lint-staged** for pre-commit hooks
+- ✅ **JSDoc** with automated API documentation generation
 - ✅ **GitHub Actions** CI/CD pipeline
 - ✅ **Utility modules** (Logger, Error Handler, Performance Monitor)
 - ✅ **Comprehensive documentation** (API, Accessibility, Development guides)
 
 **Documentation:**
 - 📖 [API Documentation](docs/API.md)
+- 📋 [Auto-generated API Reference](docs/api/API_REFERENCE.md)
 - 🎨 [Accessibility Guidelines](docs/ACCESSIBILITY.md)
 - 💻 [Development Guide](docs/DEVELOPMENT.md)
 - 📝 [Changelog](CHANGELOG.md)
 
 **Testing:**
 ```bash
-npm test                # Run all tests
+npm test                # Run all tests (19 passing)
 npm run test:ui         # Interactive test UI
 npm run test:coverage   # Generate coverage report
 ```
+
+**Pre-commit Hooks:**
+- Automatically runs ESLint with auto-fix
+- Runs related tests for changed files
+- Ensures code quality before commit
 
 See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for complete development documentation.
 

@@ -5,8 +5,18 @@
 
 import { logger } from './logger.js'
 
+/**
+ * Custom error class for DATAPHREAK-specific errors
+ * @extends Error
+ */
 export class DataphreakError extends Error {
-  constructor(message, code, details = {}) {
+  /**
+   * Create a DATAPHREAK error
+   * @param {string} message - Error message
+   * @param {string} code - Error code from ErrorCodes
+   * @param {Object} [details={}] - Additional error details
+   */
+  constructor (message, code, details = {}) {
     super(message)
     this.name = 'DataphreakError'
     this.code = code
@@ -15,18 +25,38 @@ export class DataphreakError extends Error {
   }
 }
 
+/**
+ * Standard error codes used throughout the application
+ * @enum {string}
+ */
 export const ErrorCodes = {
+  /** File exceeds maximum allowed size */
   FILE_TOO_LARGE: 'FILE_TOO_LARGE',
+  /** File format not supported */
   INVALID_FORMAT: 'INVALID_FORMAT',
+  /** Error parsing file contents */
   PARSE_ERROR: 'PARSE_ERROR',
+  /** Insufficient memory to complete operation */
   MEMORY_ERROR: 'MEMORY_ERROR',
+  /** Network request failed */
   NETWORK_ERROR: 'NETWORK_ERROR',
+  /** Data validation failed */
   VALIDATION_ERROR: 'VALIDATION_ERROR',
+  /** Unknown or unexpected error */
   UNKNOWN_ERROR: 'UNKNOWN_ERROR'
 }
 
+/**
+ * Centralized error handling with logging and user-friendly messages
+ */
 export class ErrorHandler {
-  static handle(error, context = {}) {
+  /**
+   * Handle an error with logging and user notification
+   * @param {Error} error - The error to handle
+   * @param {Object} [context={}] - Additional context about the error
+   * @returns {Object} Structured error information
+   */
+  static handle (error, context = {}) {
     // Log error with context
     logger.error('Error occurred:', {
       message: error.message,
@@ -52,7 +82,12 @@ export class ErrorHandler {
     }
   }
 
-  static getUserMessage(error) {
+  /**
+   * Get user-friendly error message for an error code
+   * @param {Error} error - Error with code property
+   * @returns {string} User-friendly error message
+   */
+  static getUserMessage (error) {
     const messages = {
       [ErrorCodes.FILE_TOO_LARGE]: 'File is too large. Maximum size is 100MB.',
       [ErrorCodes.INVALID_FORMAT]: 'Invalid file format. Please upload CSV, TSV, or Excel files.',
@@ -66,7 +101,13 @@ export class ErrorHandler {
     return messages[error.code] || error.message || messages[ErrorCodes.UNKNOWN_ERROR]
   }
 
-  static async wrapAsync(fn, context = {}) {
+  /**
+   * Wrap an async function with error handling
+   * @param {Function} fn - Async function to wrap
+   * @param {Object} [context={}] - Context for error handling
+   * @returns {Promise<*>} Result of function or error info
+   */
+  static async wrapAsync (fn, context = {}) {
     try {
       return await fn()
     } catch (error) {
@@ -74,7 +115,13 @@ export class ErrorHandler {
     }
   }
 
-  static wrap(fn, context = {}) {
+  /**
+   * Wrap a sync function with error handling
+   * @param {Function} fn - Function to wrap
+   * @param {Object} [context={}] - Context for error handling
+   * @returns {*} Result of function or error info
+   */
+  static wrap (fn, context = {}) {
     try {
       return fn()
     } catch (error) {

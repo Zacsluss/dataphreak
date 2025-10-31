@@ -3,6 +3,7 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig({
   test: {
     environment: 'happy-dom',
+    pool: 'forks',
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
@@ -20,6 +21,7 @@ export default defineConfig({
       }
     },
     include: ['tests/**/*.test.js'],
-    globals: true
+    globals: true,
+    isolate: true
   }
 })

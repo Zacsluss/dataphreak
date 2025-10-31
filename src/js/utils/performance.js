@@ -1,18 +1,28 @@
 /**
  * Performance Monitoring Utility
- * Tracks and reports performance metrics
+ * Tracks and reports performance metrics using the Performance API
  */
 
 import { logger } from './logger.js'
 
+/**
+ * Performance monitoring class for tracking operation timing
+ */
 export class PerformanceMonitor {
-  constructor() {
+  /**
+   * Create a performance monitor
+   */
+  constructor () {
     this.marks = new Map()
     this.measures = []
     this.enabled = typeof performance !== 'undefined'
   }
 
-  start(label) {
+  /**
+   * Start timing an operation
+   * @param {string} label - Unique label for the operation
+   */
+  start (label) {
     if (!this.enabled) return
 
     const markName = `${label}-start`
@@ -21,7 +31,12 @@ export class PerformanceMonitor {
     logger.debug(`Performance: Started ${label}`)
   }
 
-  end(label) {
+  /**
+   * End timing an operation and record duration
+   * @param {string} label - Label of the operation to end
+   * @returns {number|null} Duration in milliseconds, or null if failed
+   */
+  end (label) {
     if (!this.enabled || !this.marks.has(label)) return
 
     const markName = `${label}-end`
@@ -55,7 +70,13 @@ export class PerformanceMonitor {
     }
   }
 
-  async measure(label, fn) {
+  /**
+   * Measure the execution time of an async function
+   * @param {string} label - Label for the measurement
+   * @param {Function} fn - Async function to measure
+   * @returns {Promise<*>} Result of the function
+   */
+  async measure (label, fn) {
     this.start(label)
     try {
       const result = await fn()
@@ -67,14 +88,22 @@ export class PerformanceMonitor {
     }
   }
 
-  getMetrics() {
+  /**
+   * Get all recorded metrics
+   * @returns {Object} Object containing measures array and summary
+   */
+  getMetrics () {
     return {
       measures: [...this.measures],
       summary: this.getSummary()
     }
   }
 
-  getSummary() {
+  /**
+   * Get summary statistics grouped by label
+   * @returns {Object} Summary with count, total, min, max, avg for each label
+   */
+  getSummary () {
     const grouped = {}
 
     this.measures.forEach(({ label, duration }) => {
@@ -99,7 +128,10 @@ export class PerformanceMonitor {
     return grouped
   }
 
-  clear() {
+  /**
+   * Clear all recorded measurements
+   */
+  clear () {
     this.measures = []
     this.marks.clear()
     if (this.enabled) {
@@ -108,9 +140,16 @@ export class PerformanceMonitor {
     }
   }
 
-  report() {
+  /**
+   * Generate and display a performance report
+   * @returns {Object} Summary statistics
+   */
+  report () {
     const summary = this.getSummary()
-    console.table(summary)
+    // Use console.table for performance reporting - intentional for debugging
+    if (typeof console !== 'undefined' && typeof console.table === 'function') {
+      console.table(summary)
+    }
     return summary
   }
 }
