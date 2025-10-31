@@ -53,8 +53,10 @@ class Logger {
     const prefix = `${timestamp} ${this.prefix} [${levelName}]`
 
     // Safe console access - necessary for logging utility
+    // eslint-disable-next-line no-console
     const consoleMethod = console[levelName.toLowerCase()]
     if (typeof consoleMethod === 'function') {
+      // eslint-disable-next-line no-console
       consoleMethod.call(console, prefix, ...args)
     }
   }

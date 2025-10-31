@@ -147,7 +147,9 @@ export class PerformanceMonitor {
   report () {
     const summary = this.getSummary()
     // Use console.table for performance reporting - intentional for debugging
+    // eslint-disable-next-line no-console
     if (typeof console !== 'undefined' && typeof console.table === 'function') {
+      // eslint-disable-next-line no-console
       console.table(summary)
     }
     return summary
