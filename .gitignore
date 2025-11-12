@@ -55,9 +55,27 @@ temp/
 .debug/
 debug.log
 
-# Keep important directories
-!tests/
-!src/
-!docs/
-!scripts/
-!.github/
+# ==============================================
+# DEVELOPER FILES (keep locally, not on GitHub)
+# ==============================================
+
+# Development tooling
+.eslintrc.json
+.husky/
+jsdoc.json
+package.json
+package-lock.json
+vitest.config.js
+scripts/
+tests/
+src/
+.github/
+
+# Developer documentation
+CONTRIBUTING.md
+CHANGELOG.md
+docs/
+dataphreak_DOCUMENTATION.md
+
+# Personal files
+public/
