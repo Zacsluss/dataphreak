@@ -3252,7 +3252,7 @@
           <span>or</span>
         </div>
         <div style="display: flex; justify-content: center; margin: 8px 0;">
-          <button id="loadSample" type="button" class="quick-btn" style="flex: none;" title="Load 400 rows of sample customer data with intentional issues - perfect for learning how DATAPHREAK works!">Try Sample Data</button>
+          <button id="loadSample" type="button" class="quick-btn" style="flex: none;" title="Load 10 rows of clean sample employee data - perfect for testing features and learning how DATAPHREAK works!">Try Sample Data</button>
         </div>
       </div>
       <!-- Hide the underlying control buttons in Load Data. They remain in the DOM for functionality but are not visible to users. -->
@@ -3647,7 +3647,7 @@
         <ul>
           <li><strong>Drag &amp; Drop:</strong> Drag files directly into the drop zone</li>
           <li><strong>Choose File:</strong> Click button to browse and select files</li>
-          <li><strong>Try Sample Data:</strong> Load example dataset with 400 customer records</li>
+          <li><strong>Try Sample Data:</strong> Load example dataset with 10 employee records for testing</li>
           <li><strong>Supported Formats:</strong> CSV, TSV, Excel (.xlsx, .xls)</li>
         </ul>
         <div style="background:rgba(56,189,248,0.1);padding:12px;border-radius:6px;margin:12px 0">
@@ -7957,33 +7957,17 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
       });
       // Sample data
       const SAMPLE_CSV =
-`id,name,email,age,signup_date,plan,region,score
-1,Alice Smith,alice@example.com,29,2024-01-05,Pro,NA,62
-2,Bob Jones,bobjones@example,41,2023-12-11,Free,EU,48
-3,Charlie Day,charlie@example.com,,2025-03-20,Pro,APAC,55
-4,Dana Li,dana.li@example.com,35,2024-05-02,Enterprise,NA,77
-5,Eric Zhao,eric@example.com,27,2024-06-21,Pro,EU,52
-6,Fatima Noor,fatima.noor@example.com,31,2024-07-01,Free,APAC,45
-7,Gary Kim,gary.kim@example.com,29,2024-07-10,Free,NA,999
-8,Hiro Tanaka,hiro@example.com,38,2023-11-29,Pro,APAC,50
-9,Iris Patel,iris@example.com,29,2025-02-14,Pro,NA,61
-10,Juan Gomez,juan@example.com,29,2024-04-18,Free,EU,44
-11,Kai Chen,kai@example.com,41,2024-02-07,Enterprise,NA,78
-12,Lena Müller,lena.mueller@example.com,33,2024-05-30,Pro,EU,51
-13,Mohammed Ali,mo.ali@example.com,28,2024-06-11,Pro,ME,49
-14,Nina Rossi,nina.rossi@example.com,36,2025-01-03,Pro,EU,
-15,Oscar Diaz,oscar@example.com,29,2024-02-25,Free,NA,47
-16,Pat Quinn,pat.quinn@example.com,NaN,2023-12-12,Free,NA,46
-17,Quinn Lee,quinn.lee@example.com,28,2024-08-01,Basic,EU,50
-18,Ravi Singh,ravi@example.com,39,2024-03-15,Enterprise,APAC,80
-19,Sara O'Neil,sara.oneil@example.com,27,2024-04-01,Pro,NA,58
-20,Tae Park,tae.park@example.com,31,2024-02-02,Pro,APAC,53
-21,Juan Gomez,juan@example.com,29,2024-04-18,Free,EU,44
-22,Vincent Zhou,vincent@example.com,34,2024-07-15,Pro,NA,51
-23,Wei Zhang,wei@example.com,,2024-06-20,Free,APAC,43
-24,Xia Li,xia.li@example.com,28,2024-07-22,Pro,EU,52
-25,Yara Haddad,yara@example,33,2024-05-05,Pro,ME,54
-26,Zoe Brown,zoe.brown@example.com,27,2024-08-01,Enterprise,NA,75`;
+`id,name,email,age,company,city,status
+1,Sarah Johnson,sarah.j@techcorp.com,28,TechCorp,Seattle,Active
+2,Michael Chen,mchen@startup.io,35,StartupIO,San Francisco,Active
+3,Emily Rodriguez,emily.r@design.co,42,DesignCo,Austin,Inactive
+4,David Kim,d.kim@finance.com,31,FinanceHub,New York,Active
+5,Jennifer Martinez,jmartinez@consulting.com,29,ConsultCo,Chicago,Active
+6,Robert Taylor,rtaylor@media.net,45,MediaNet,Los Angeles,Active
+7,Amanda White,a.white@healthcare.org,38,HealthOrg,Boston,Pending
+8,Christopher Lee,clee@retailpro.com,33,RetailPro,Denver,Active
+9,Jessica Brown,jbrown@edutech.edu,27,EduTech,Portland,Active
+10,Daniel Garcia,dgarcia@logistics.io,40,LogiCorp,Miami,Inactive`;
       // Undo/Redo button handlers
       el('#undoBtn')?.addEventListener('click', () => {
         if (undoRedoManager.undo()) {
@@ -8028,31 +8012,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
           loadTime: new Date().toLocaleString()
         };
 
-        // Build a larger sample by repeating the base rows until we have a good dataset.
-        const replicated = [];
-        const targetSize = Math.max(400, rows.length * 20); // Scale based on original sample size
-        while (replicated.length < targetSize) {
-          for (const r of rows) {
-            replicated.push(r.slice());
-            if (replicated.length >= targetSize) break;
-          }
-        }
-        // Introduce small errors across the dataset for demonstration purposes.
-        replicated.forEach((row, idx) => {
-          // Every 10th row: corrupt the email address
-          if (idx % 10 === 0) row[2] = 'invalid_email';
-          // Every 15th row: blank out the age field
-          if (idx % 15 === 0) row[3] = '';
-          // Every 20th row: provide an invalid date string
-          if (idx % 20 === 0) row[4] = '2024-13-32';
-          // Every 25th row: assign an unknown plan value
-          if (idx % 25 === 0) row[5] = 'Unknown';
-        });
+        // Use the sample data as-is (10 rows) for easy testing
         // Use handleFileLoad() to assign the sample dataset as either the
         // primary or secondary dataset (or replace the active one if both
         // slots are already filled).  This ensures that loading the sample
         // integrates with dataset switching logic.
-        handleFileLoad(headers, replicated, '\uD83D\uDCCE sample_customers_400.csv');
+        handleFileLoad(headers, rows, '\uD83D\uDCCE sample_data_10.csv');
       });
       // Run rules
       el('#runRules')?.addEventListener('click', () => {
