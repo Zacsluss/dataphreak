@@ -13,10 +13,10 @@
 <!-- Main Action Buttons -->
 <p align="center">
   <a href="https://zacsluss.github.io/dataphreak/dataphreak.html">
-    <img src="https://img.shields.io/badge/🚀_VIEW-LIVE_DEMO-2e8b57?style=for-the-badge&labelColor=000000&logo=vercel&logoColor=white" alt="Live Site"/>
+    <img src="https://img.shields.io/badge/🚀_LAUNCH-TOOL-2e8b57?style=for-the-badge&labelColor=000000&logo=vercel&logoColor=white" alt="Launch Tool"/>
   </a>
-  <a href="https://github.com/Zacsluss/dataphreak/archive/refs/heads/main.zip">
-    <img src="https://img.shields.io/badge/⬇️_DOWNLOAD-PROJECT-d97706?style=for-the-badge&labelColor=000000&logo=github&logoColor=white" alt="Download"/>
+  <a href="https://github.com/Zacsluss/dataphreak/raw/main/dataphreak.html">
+    <img src="https://img.shields.io/badge/⬇️_DOWNLOAD-HTML-d97706?style=for-the-badge&labelColor=000000&logo=html5&logoColor=white" alt="Download HTML"/>
   </a>
 </p>
 
