@@ -9223,31 +9223,58 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         pHeaders.forEach(h => combinedHeaders.push('primary_' + h));
         sHeaders.forEach(h => combinedHeaders.push('secondary_' + h));
         combinedHeaders.push('duplicate_group');
-        // Combine rows: all primary rows first, then all secondary rows
+        // Combine rows horizontally (Power BI merge style): matches appear side-by-side
         const combinedRows = [];
+        const usedPrimary = new Set();
+        const usedSecondary = new Set();
+
+        // First, add all matched pairs in the same row (horizontal merge)
+        if (Array.isArray(res.pairs)) {
+          res.pairs.forEach(pair => {
+            const r = [];
+            const primaryRow = STATE.primaryRows[pair.a] || [];
+            const secondaryRow = STATE.secondaryRows[pair.b] || [];
+
+            // Primary columns
+            pHeaders.forEach((_, j) => r.push(primaryRow[j] ?? ''));
+            // Secondary columns (same row - this is the key difference)
+            sHeaders.forEach((_, j) => r.push(secondaryRow[j] ?? ''));
+            // Append group label
+            const g = groupMapPrimary[pair.a];
+            r.push(g ? `Group ${g}` : '');
+
+            combinedRows.push(r);
+            usedPrimary.add(pair.a);
+            usedSecondary.add(pair.b);
+          });
+        }
+
+        // Add unmatched primary rows (secondary columns blank)
         if (Array.isArray(STATE.primaryRows)) {
           STATE.primaryRows.forEach((row, idx) => {
+            if (usedPrimary.has(idx)) return; // Skip already merged
             const r = [];
             // Primary columns
             pHeaders.forEach((_, j) => r.push(row[j] ?? ''));
             // Fill secondary columns with blanks
             sHeaders.forEach(() => r.push(''));
-            // Append group label if exists
-            const g = groupMapPrimary[idx];
-            r.push(g ? `Group ${g}` : '');
+            // No group for unmatched
+            r.push('');
             combinedRows.push(r);
           });
         }
+
+        // Add unmatched secondary rows (primary columns blank)
         if (Array.isArray(STATE.secondaryRows)) {
           STATE.secondaryRows.forEach((row, idx) => {
+            if (usedSecondary.has(idx)) return; // Skip already merged
             const r = [];
             // Fill primary columns with blanks
             pHeaders.forEach(() => r.push(''));
             // Secondary columns
             sHeaders.forEach((_, j) => r.push(row[j] ?? ''));
-            // Append group label if exists
-            const g = groupMapSecondary[idx];
-            r.push(g ? `Group ${g}` : '');
+            // No group for unmatched
+            r.push('');
             combinedRows.push(r);
           });
         }
