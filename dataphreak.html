@@ -7064,8 +7064,26 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
        * indicate the file is acceptable.
        */
       function rejectIfTooBig(file) {
-        // No size limit - let users handle what their system can support
-        return false;
+        // Maximum file size: 500MB (prevents browser crashes with very large files)
+        const MAX_FILE_SIZE = 500 * 1024 * 1024; // 500MB in bytes
+
+        if (file.size > MAX_FILE_SIZE) {
+          const fileSizeMB = (file.size / (1024 * 1024)).toFixed(1);
+          const maxSizeMB = (MAX_FILE_SIZE / (1024 * 1024)).toFixed(0);
+
+          toast(
+            `File size (${fileSizeMB}MB) exceeds maximum allowed size (${maxSizeMB}MB).\n\n` +
+            `Tips for handling large files:\n` +
+            `• Split the file into smaller chunks\n` +
+            `• Remove unnecessary columns before uploading\n` +
+            `• Use streaming tools for files >500MB`,
+            'error'
+          );
+
+          return true; // Reject the file
+        }
+
+        return false; // File size is acceptable
       }
 
       function validateFileType(file) {
@@ -8567,6 +8585,13 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         const fileInput = el('#mergeFileInput');
         const file = fileInput.files[0];
         if (!file) return;
+
+        // Validate file size and type
+        if (!validateFileType(file) || rejectIfTooBig(file)) {
+          fileInput.value = ''; // Clear the input
+          return;
+        }
+
         parseMergeFile(file, (err, data) => {
           if (err || !data) {
             toast('Failed to parse merge file', 'error');
