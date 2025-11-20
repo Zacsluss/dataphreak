@@ -13,51 +13,51 @@
 // CONSTANTS
 // ====================================================================
 
-const DEFAULT_THRESHOLD = 0.85;
-const CACHE_SIZE = 10_000;
+const DEFAULT_THRESHOLD = 0.85
+const CACHE_SIZE = 10_000
 
 // ====================================================================
 // LRU CACHE
 // ====================================================================
 
 class LRUCache {
-  constructor(maxSize = 10000) {
-    this.cache = new Map();
-    this.maxSize = maxSize;
+  constructor (maxSize = 10000) {
+    this.cache = new Map()
+    this.maxSize = maxSize
   }
 
-  get(key) {
-    if (!this.cache.has(key)) return undefined;
+  get (key) {
+    if (!this.cache.has(key)) return undefined
 
     // Move to end (most recently used)
-    const value = this.cache.get(key);
-    this.cache.delete(key);
-    this.cache.set(key, value);
+    const value = this.cache.get(key)
+    this.cache.delete(key)
+    this.cache.set(key, value)
 
-    return value;
+    return value
   }
 
-  set(key, value) {
+  set (key, value) {
     // Remove if exists (to update position)
     if (this.cache.has(key)) {
-      this.cache.delete(key);
+      this.cache.delete(key)
     }
 
     // Evict oldest if at capacity
     if (this.cache.size >= this.maxSize) {
-      const firstKey = this.cache.keys().next().value;
-      this.cache.delete(firstKey);
+      const firstKey = this.cache.keys().next().value
+      this.cache.delete(firstKey)
     }
 
-    this.cache.set(key, value);
+    this.cache.set(key, value)
   }
 
-  clear() {
-    this.cache.clear();
+  clear () {
+    this.cache.clear()
   }
 }
 
-const similarityCache = new LRUCache(CACHE_SIZE);
+const similarityCache = new LRUCache(CACHE_SIZE)
 
 // ====================================================================
 // LEVENSHTEIN DISTANCE
@@ -76,56 +76,56 @@ const similarityCache = new LRUCache(CACHE_SIZE);
  * levenshteinDistance('kitten', 'sitting')  // Returns: 3
  * levenshteinDistance('IBM Corp', 'IBM Corporation')  // Returns: 6
  */
-export function levenshteinDistance(a, b, maxDistance = Infinity) {
+export function levenshteinDistance (a, b, maxDistance = Infinity) {
   // Normalize inputs
-  a = String(a || '').toLowerCase().trim();
-  b = String(b || '').toLowerCase().trim();
+  a = String(a || '').toLowerCase().trim()
+  b = String(b || '').toLowerCase().trim()
 
   // Quick checks
-  if (a === b) return 0;
-  if (a.length === 0) return b.length;
-  if (b.length === 0) return a.length;
+  if (a === b) return 0
+  if (a.length === 0) return b.length
+  if (b.length === 0) return a.length
 
   // Early termination if length difference exceeds max distance
   if (Math.abs(a.length - b.length) > maxDistance) {
-    return maxDistance + 1;
+    return maxDistance + 1
   }
 
   // Use shorter string as first parameter (optimization)
   if (a.length > b.length) {
-    [a, b] = [b, a];
+    [a, b] = [b, a]
   }
 
   // Initialize distance matrix (use 1D array for memory efficiency)
-  const m = a.length;
-  const n = b.length;
-  let prevRow = Array.from({ length: n + 1 }, (_, i) => i);
-  let currRow = new Array(n + 1);
+  const m = a.length
+  const n = b.length
+  let prevRow = Array.from({ length: n + 1 }, (_, i) => i)
+  let currRow = new Array(n + 1)
 
   for (let i = 1; i <= m; i++) {
-    currRow[0] = i;
-    let minDist = i;
+    currRow[0] = i
+    let minDist = i
 
     for (let j = 1; j <= n; j++) {
-      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1
       currRow[j] = Math.min(
-        prevRow[j] + 1,      // Deletion
-        currRow[j - 1] + 1,  // Insertion
+        prevRow[j] + 1, // Deletion
+        currRow[j - 1] + 1, // Insertion
         prevRow[j - 1] + cost // Substitution
-      );
-      minDist = Math.min(minDist, currRow[j]);
+      )
+      minDist = Math.min(minDist, currRow[j])
     }
 
     // Early termination if minimum distance in row exceeds max
     if (minDist > maxDistance) {
-      return maxDistance + 1;
+      return maxDistance + 1
     }
 
     // Swap rows
-    [prevRow, currRow] = [currRow, prevRow];
+    [prevRow, currRow] = [currRow, prevRow]
   }
 
-  return prevRow[n];
+  return prevRow[n]
 }
 
 /**
@@ -139,37 +139,37 @@ export function levenshteinDistance(a, b, maxDistance = Infinity) {
  * calculateSimilarity('test', 'test')  // Returns: 1.0
  * calculateSimilarity('IBM Corp', 'IBM Corporation')  // Returns: ~0.85
  */
-export function calculateSimilarity(a, b) {
+export function calculateSimilarity (a, b) {
   // Normalize
-  a = String(a || '').toLowerCase().trim();
-  b = String(b || '').toLowerCase().trim();
+  a = String(a || '').toLowerCase().trim()
+  b = String(b || '').toLowerCase().trim()
 
   // Check cache
-  const cacheKey = `${a}:${b}`;
-  const cached = similarityCache.get(cacheKey);
-  if (cached !== undefined) return cached;
+  const cacheKey = `${a}:${b}`
+  const cached = similarityCache.get(cacheKey)
+  if (cached !== undefined) return cached
 
   // Quick checks
   if (a === b) {
-    similarityCache.set(cacheKey, 1.0);
-    return 1.0;
+    similarityCache.set(cacheKey, 1.0)
+    return 1.0
   }
   if (a.length === 0 || b.length === 0) {
-    similarityCache.set(cacheKey, 0.0);
-    return 0.0;
+    similarityCache.set(cacheKey, 0.0)
+    return 0.0
   }
 
   // Calculate distance
-  const maxLen = Math.max(a.length, b.length);
-  const distance = levenshteinDistance(a, b, maxLen);
+  const maxLen = Math.max(a.length, b.length)
+  const distance = levenshteinDistance(a, b, maxLen)
 
   // Convert to similarity score
-  const similarity = 1.0 - (distance / maxLen);
+  const similarity = 1.0 - (distance / maxLen)
 
   // Cache result
-  similarityCache.set(cacheKey, similarity);
+  similarityCache.set(cacheKey, similarity)
 
-  return similarity;
+  return similarity
 }
 
 // ====================================================================
@@ -187,14 +187,14 @@ export function calculateSimilarity(a, b) {
  * blockingKey('IBM Corporation')  // Returns: "i:5" (first char 'i', length/3 = 5)
  * blockingKey('test')              // Returns: "t:1" (first char 't', length/3 = 1)
  */
-export function blockingKey(str) {
-  str = String(str || '').toLowerCase().trim();
-  if (str.length === 0) return '#:0';
+export function blockingKey (str) {
+  str = String(str || '').toLowerCase().trim()
+  if (str.length === 0) return '#:0'
 
-  const firstChar = str[0];
-  const lengthBucket = Math.floor(str.length / 3);
+  const firstChar = str[0]
+  const lengthBucket = Math.floor(str.length / 3)
 
-  return `${firstChar}:${lengthBucket}`;
+  return `${firstChar}:${lengthBucket}`
 }
 
 /**
@@ -205,22 +205,22 @@ export function blockingKey(str) {
  * @param {number} columnIndex - Column to index
  * @returns {Map<string, Array<{idx: number, val: string}>>} Spatial index
  */
-function buildSpatialIndex(rows, columnIndex) {
-  const index = new Map();
+function buildSpatialIndex (rows, columnIndex) {
+  const index = new Map()
 
   rows.forEach((row, idx) => {
-    const value = String(row[columnIndex] || '').trim();
-    if (value.length === 0) return; // Skip empty values
+    const value = String(row[columnIndex] || '').trim()
+    if (value.length === 0) return // Skip empty values
 
-    const key = blockingKey(value);
+    const key = blockingKey(value)
     if (!index.has(key)) {
-      index.set(key, []);
+      index.set(key, [])
     }
 
-    index.get(key).push({ idx, val: value });
-  });
+    index.get(key).push({ idx, val: value })
+  })
 
-  return index;
+  return index
 }
 
 // ====================================================================
@@ -245,43 +245,43 @@ function buildSpatialIndex(rows, columnIndex) {
  * const matches = findMatches(rows, 0, 0.85);
  * // Returns: [{ a: 0, b: 1, aval: 'IBM Corp', bval: 'I.B.M. Corporation', similarity: 0.85 }]
  */
-export function findMatches(rows, columnIndex, threshold = DEFAULT_THRESHOLD) {
+export function findMatches (rows, columnIndex, threshold = DEFAULT_THRESHOLD) {
   if (!Array.isArray(rows) || rows.length === 0) {
-    return [];
+    return []
   }
 
   if (columnIndex < 0 || columnIndex >= (rows[0]?.length || 0)) {
-    throw new Error(`Invalid column index: ${columnIndex}`);
+    throw new Error(`Invalid column index: ${columnIndex}`)
   }
 
   if (threshold < 0 || threshold > 1) {
-    throw new Error(`Threshold must be between 0 and 1, got: ${threshold}`);
+    throw new Error(`Threshold must be between 0 and 1, got: ${threshold}`)
   }
 
   // Build spatial index
-  const index = buildSpatialIndex(rows, columnIndex);
+  const index = buildSpatialIndex(rows, columnIndex)
 
   // Find matches within each block
-  const matches = [];
-  const seen = new Set(); // Prevent duplicate pairs
+  const matches = []
+  const seen = new Set() // Prevent duplicate pairs
 
   index.forEach((block) => {
     // Compare all pairs within block
     for (let i = 0; i < block.length; i++) {
       for (let j = i + 1; j < block.length; j++) {
-        const itemA = block[i];
-        const itemB = block[j];
+        const itemA = block[i]
+        const itemB = block[j]
 
         // Skip if same row (self-match)
-        if (itemA.idx === itemB.idx) continue;
+        if (itemA.idx === itemB.idx) continue
 
         // Skip if already compared (avoid duplicates)
-        const pairKey = `${Math.min(itemA.idx, itemB.idx)},${Math.max(itemA.idx, itemB.idx)}`;
-        if (seen.has(pairKey)) continue;
-        seen.add(pairKey);
+        const pairKey = `${Math.min(itemA.idx, itemB.idx)},${Math.max(itemA.idx, itemB.idx)}`
+        if (seen.has(pairKey)) continue
+        seen.add(pairKey)
 
         // Calculate similarity
-        const similarity = calculateSimilarity(itemA.val, itemB.val);
+        const similarity = calculateSimilarity(itemA.val, itemB.val)
 
         if (similarity >= threshold) {
           matches.push({
@@ -290,26 +290,26 @@ export function findMatches(rows, columnIndex, threshold = DEFAULT_THRESHOLD) {
             aval: itemA.val,
             bval: itemB.val,
             similarity: Math.round(similarity * 100) / 100 // Round to 2 decimals
-          });
+          })
         }
       }
     }
-  });
+  })
 
   // Sort by value (alphabetical) then row index
   matches.sort((x, y) => {
-    const valCompare = x.aval.localeCompare(y.aval);
-    if (valCompare !== 0) return valCompare;
-    return x.a - y.a;
-  });
+    const valCompare = x.aval.localeCompare(y.aval)
+    if (valCompare !== 0) return valCompare
+    return x.a - y.a
+  })
 
-  return matches;
+  return matches
 }
 
 /**
  * Clears the similarity cache.
  * Useful for memory management after processing large datasets.
  */
-export function clearCache() {
-  similarityCache.clear();
+export function clearCache () {
+  similarityCache.clear()
 }

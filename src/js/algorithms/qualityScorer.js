@@ -11,7 +11,7 @@
 // CONSTANTS
 // ====================================================================
 
-const NULL_MARKERS = new Set(['', ' ', 'NA', 'N/A', 'NULL', 'null', 'NaN', 'nan']);
+const NULL_MARKERS = new Set(['', ' ', 'NA', 'N/A', 'NULL', 'null', 'NaN', 'nan'])
 
 // Grade thresholds
 const GRADE_THRESHOLDS = {
@@ -20,7 +20,7 @@ const GRADE_THRESHOLDS = {
   C: 70,
   D: 60,
   F: 0
-};
+}
 
 // Grade colors for UI display
 const GRADE_COLORS = {
@@ -28,8 +28,8 @@ const GRADE_COLORS = {
   B: '#38bdf8', // blue
   C: '#f59e0b', // orange
   D: '#ef4444', // red
-  F: '#ef4444'  // red
-};
+  F: '#ef4444' // red
+}
 
 // ====================================================================
 // HELPER FUNCTIONS
@@ -49,7 +49,7 @@ const GRADE_COLORS = {
  * isNullish('hello')   // false
  */
 export function isNullish (v) {
-  return v == null || NULL_MARKERS.has(String(v).trim());
+  return v == null || NULL_MARKERS.has(String(v).trim())
 }
 
 /**
@@ -66,12 +66,12 @@ export function isNullish (v) {
  * getQualityGrade(50)   // 'F'
  */
 export function getQualityGrade (percentage) {
-  const p = parseFloat(percentage);
-  if (p >= GRADE_THRESHOLDS.A) return 'A';
-  if (p >= GRADE_THRESHOLDS.B) return 'B';
-  if (p >= GRADE_THRESHOLDS.C) return 'C';
-  if (p >= GRADE_THRESHOLDS.D) return 'D';
-  return 'F';
+  const p = parseFloat(percentage)
+  if (p >= GRADE_THRESHOLDS.A) return 'A'
+  if (p >= GRADE_THRESHOLDS.B) return 'B'
+  if (p >= GRADE_THRESHOLDS.C) return 'C'
+  if (p >= GRADE_THRESHOLDS.D) return 'D'
+  return 'F'
 }
 
 /**
@@ -87,11 +87,11 @@ export function getQualityGrade (percentage) {
  * getQualityGradeColor(50)  // '#ef4444' (red)
  */
 export function getQualityGradeColor (percentage) {
-  const p = parseFloat(percentage);
-  if (p >= GRADE_THRESHOLDS.A) return GRADE_COLORS.A;
-  if (p >= GRADE_THRESHOLDS.B) return GRADE_COLORS.B;
-  if (p >= GRADE_THRESHOLDS.C) return GRADE_COLORS.C;
-  return GRADE_COLORS.D; // D and F use same color
+  const p = parseFloat(percentage)
+  if (p >= GRADE_THRESHOLDS.A) return GRADE_COLORS.A
+  if (p >= GRADE_THRESHOLDS.B) return GRADE_COLORS.B
+  if (p >= GRADE_THRESHOLDS.C) return GRADE_COLORS.C
+  return GRADE_COLORS.D // D and F use same color
 }
 
 // ====================================================================
@@ -120,28 +120,28 @@ export function getQualityGradeColor (percentage) {
  * // 7 out of 9 cells are non-null: (7/9) * 100 = 77.78% ≈ 78%
  */
 export function calculateDataQualityScore (headers, rows) {
-  const totalCells = headers.length * rows.length;
+  const totalCells = headers.length * rows.length
   if (totalCells === 0) {
     return {
       score: 0,
       grade: 'F',
       breakdown: { completeness: 0 }
-    };
+    }
   }
 
   // Calculate completeness: percentage of non-null cells
-  let missingCells = 0;
+  let missingCells = 0
   for (const row of rows) {
     for (const cell of row) {
       if (isNullish(cell)) {
-        missingCells++;
+        missingCells++
       }
     }
   }
 
-  const completenessPercent = ((totalCells - missingCells) / totalCells * 100);
-  const score = Math.round(completenessPercent);
-  const grade = getQualityGrade(completenessPercent);
+  const completenessPercent = ((totalCells - missingCells) / totalCells * 100)
+  const score = Math.round(completenessPercent)
+  const grade = getQualityGrade(completenessPercent)
 
   return {
     score,
@@ -149,5 +149,5 @@ export function calculateDataQualityScore (headers, rows) {
     breakdown: {
       completeness: score
     }
-  };
+  }
 }
