@@ -224,9 +224,77 @@ Initial load:                ~200ms
 ## 🏗️ Architecture
 
 <details open>
-<summary><b>Modular Source Code Structure</b></summary>
+<summary><b>System Architecture & Data Flow</b></summary>
 
 <br/>
+
+### Data Processing Pipeline
+
+```mermaid
+graph TD
+    A[File Upload CSV/Excel] --> B[File Parser]
+    B --> C[Data Validation]
+    C --> D[State Management]
+
+    D --> E[Quality Scoring Engine]
+    D --> F[Fuzzy Matcher Engine]
+    D --> G[Pattern Detector]
+    D --> H[Statistical Profiler]
+
+    E --> I[A-F Grade Calculation]
+    F --> J[Spatial Index Builder]
+    J --> K[Levenshtein Distance]
+    K --> L[Duplicate Groups]
+
+    G --> M[Email/Phone/Date Detection]
+    H --> N[Distribution Analysis]
+
+    I --> O[Results Aggregation]
+    L --> O
+    M --> O
+    N --> O
+
+    O --> P[Virtual Scrolling Renderer]
+    P --> Q[Canvas Visualizations]
+
+    style B fill:#4a5f8f
+    style D fill:#2d3561
+    style F fill:#ff006e
+    style L fill:#00ff88
+```
+
+### Module Architecture
+
+```mermaid
+graph LR
+    Main[dataphreak.html] --> Parser[File Parser]
+    Main --> State[State Manager]
+
+    State --> Algo[Algorithms Module]
+    State --> Utils[Utilities Module]
+
+    Algo --> Fuzzy[fuzzyMatcher.js]
+    Algo --> Quality[qualityScorer.js]
+
+    Utils --> Browser[browserCompat.js]
+    Utils --> Error[errorHandler.js]
+    Utils --> Logger[logger.js]
+    Utils --> Perf[performance.js]
+
+    Fuzzy --> Cache[LRU Cache]
+    Fuzzy --> Spatial[Spatial Index]
+
+    Quality --> Grades[A-F Grading]
+
+    Main --> UI[UI Renderer]
+    UI --> Canvas[Canvas API]
+    UI --> Virtual[Virtual Scroll]
+
+    style Main fill:#4a5f8f
+    style Algo fill:#2d3561
+    style Utils fill:#1a1a2e
+    style Fuzzy fill:#ff006e
+```
 
 ### Project Organization
 
