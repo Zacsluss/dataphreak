@@ -25,6 +25,8 @@
   <img src="https://img.shields.io/github/stars/Zacsluss/dataphreak?style=social" alt="Stars"/>
   <img src="https://img.shields.io/github/forks/Zacsluss/dataphreak?style=social" alt="Forks"/>
   <img src="https://img.shields.io/github/watchers/Zacsluss/dataphreak?style=social" alt="Watchers"/>
+  <img src="https://img.shields.io/badge/tests-200%20passing-success?style=flat-square" alt="Tests"/>
+  <img src="https://img.shields.io/badge/coverage-97%25-brightgreen?style=flat-square" alt="Coverage"/>
   <img src="https://img.shields.io/github/license/Zacsluss/dataphreak?style=flat-square&color=555555" alt="License"/>
   <img src="https://img.shields.io/github/last-commit/Zacsluss/dataphreak?style=flat-square&color=666666" alt="Last Commit"/>
 </p>
