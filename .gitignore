@@ -25,17 +25,17 @@ yarn-error.log*
 .env.local
 .env.*.local
 
-# Claude Code workspace metadata (local development only)
+# IDE and workspace metadata
 .claude/
+.vscode/
+.idea/
 
 # OS generated files
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Editor directories and files
-.vscode/
-.idea/
+# Editor files
 *.swp
 *.swo
 *~

@@ -25,20 +25,21 @@ DATAPHREAK runs entirely client-side and does not store or transmit data to any 
 ## Known Limitations
 
 - **CSV Injection:** Formulas in CSV cells could execute in Excel when exported. Use "Export as Text" for sensitive data.
-- **File Size:** No validation on uploaded file size - very large files can crash the browser.
+- **File Size:** Maximum file size is 500MB to prevent browser crashes. For larger datasets, split files or use specialized tools.
 - **XSS in User Data:** If CSV contains HTML/JS, it may execute if rendered. Always sanitize in production use.
 
 ## Best Practices
 
 - Run DATAPHREAK from a trusted source (GitHub Pages or local file)
-- Don't paste DATAPHREAK into browser console from untrusted sources
+- Don't paste DATAPHREAK code into browser console from untrusted sources
 - For sensitive data, review exported files before sharing
 - Close sensitive tabs before using on shared computers
+- Use modern, updated browsers for latest security patches
 
 ## Security Updates
 
-Security updates will be released as patch versions (e.g., 1.0.1, 1.0.2). Check the [CHANGELOG](CHANGELOG.md) for details.
+Security updates will be released as patch versions (e.g., 1.0.1, 1.0.2). Check the [releases page](https://github.com/Zacsluss/dataphreak/releases) for details.
 
 ## Attribution
 
-Thank you to all security researchers who help keep DATAPHREAK secure. Responsible disclosure is appreciated.
+Thank you to security researchers who help improve DATAPHREAK's security. Responsible disclosure is appreciated.
