@@ -49,7 +49,7 @@ Built with vanilla JavaScript, Canvas API, and a little data science!
 
 <div align="center">
 
-<img src="dataphreak.gif" alt="DATAPHREAK Demo" width="800"/>
+<img src="dataphreak.gif" alt="DATAPHREAK in Action" width="800"/>
 
 *Real-time data quality analysis — drop a file to see instant insights*
 
