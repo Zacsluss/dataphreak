@@ -3,11 +3,10 @@
 **Enterprise-grade data analysis tool that processes 1M+ rows entirely in your browser**
 
 [![CI Status](https://github.com/Zacsluss/dataphreak/actions/workflows/ci.yml/badge.svg)](https://github.com/Zacsluss/dataphreak/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/Zacsluss/dataphreak?style=flat-square&color=blue)](LICENSE)
-[![Last Commit](https://img.shields.io/github/last-commit/Zacsluss/dataphreak?style=flat-square&color=orange)](https://github.com/Zacsluss/dataphreak/commits/main)
-[![Code Size](https://img.shields.io/github/languages/code-size/Zacsluss/dataphreak?style=flat-square&color=purple)](https://github.com/Zacsluss/dataphreak)
+[![License](https://img.shields.io/github/license/Zacsluss/dataphreak?style=flat-square)](LICENSE)
+[![Last Commit](https://img.shields.io/github/last-commit/Zacsluss/dataphreak?style=flat-square)](https://github.com/Zacsluss/dataphreak/commits/main)
+[![Code Size](https://img.shields.io/github/languages/code-size/Zacsluss/dataphreak?style=flat-square&color=blue)](https://github.com/Zacsluss/dataphreak)
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-0-brightgreen?style=flat-square)](package.json)
-[![Stars](https://img.shields.io/github/stars/Zacsluss/dataphreak?style=social)](https://github.com/Zacsluss/dataphreak/stargazers)
 
 <div align="center">
 
