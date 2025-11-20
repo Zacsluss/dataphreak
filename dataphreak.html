@@ -9424,24 +9424,12 @@ t.sheetStubs=true}if(t.type=="array"){t.type="binary";var a=xk(e,t);t.type="arra
         // No arbitrary comparison limit - process all cross-file matches
         const pairs = [];
         let comps = 0;
-        // Check if we're comparing the same dataset with itself
-        const isSelfComparison = A.length === B.length && A.every((a, idx) => B[idx] && a.s === B[idx].s);
-
-        // Warn about self-comparison which can produce excessive results
-        if (isSelfComparison && A.length > 1000) {
-          console.warn(`Cross-file comparison: Comparing file with itself (${A.length} rows). Consider using Single-File Duplicates instead for better performance.`);
-        }
 
         for (const a of A) {
           const s = norm(a.s);
           const bcands = mapB.get(bucket(s)) || [];
           for (const b of bcands) {
             comps++;
-
-            // Skip self-matches when comparing file with itself
-            if (isSelfComparison && a.idx === b.idx) {
-              continue;
-            }
 
             if (similarity(s, norm(b.s)) >= threshold) {
               pairs.push({ a: a.idx, b: b.idx, aval: a.s, bval: b.s });
