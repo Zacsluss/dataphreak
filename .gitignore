@@ -56,27 +56,23 @@ temp/
 debug.log
 
 # ==============================================
-# DEVELOPER FILES (keep locally, not on GitHub)
+# INTERNAL FILES (not needed in repository)
 # ==============================================
 
-# Development tooling
-.eslintrc.json
-.husky/
-jsdoc.json
-package.json
-package-lock.json
-vitest.config.js
-scripts/
-
-# Developer documentation (internal)
+# Internal documentation
 docs/
 dataphreak_DOCUMENTATION.md
+jsdoc.json
 
 # NOTE: The following are now tracked for open-source readiness:
 # - .github/workflows/ (CI/CD visibility)
 # - CONTRIBUTING.md (contributor guidelines)
 # - CHANGELOG.md (version history)
 # - src/ and tests/ (modular architecture demonstration)
+# - package.json and package-lock.json (dependency management)
+# - .eslintrc.json, vitest.config.js (tooling configs)
+# - scripts/ (build and validation scripts)
+# - .husky/ (git hooks for code quality)
 
 # Personal files (except resume for portfolio)
 public/*
