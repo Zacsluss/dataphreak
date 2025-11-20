@@ -67,16 +67,16 @@ package.json
 package-lock.json
 vitest.config.js
 scripts/
-.github/
 
-# Developer documentation
-CONTRIBUTING.md
-CHANGELOG.md
+# Developer documentation (internal)
 docs/
 dataphreak_DOCUMENTATION.md
 
-# NOTE: src/ and tests/ are now tracked for portfolio demonstration
-# They showcase modular architecture and testing rigor to hiring managers
+# NOTE: The following are now tracked for open-source readiness:
+# - .github/workflows/ (CI/CD visibility)
+# - CONTRIBUTING.md (contributor guidelines)
+# - CHANGELOG.md (version history)
+# - src/ and tests/ (modular architecture demonstration)
 
 # Personal files (except resume for portfolio)
 public/*
