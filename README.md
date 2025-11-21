@@ -32,9 +32,9 @@
 
 ---
 
-## 👋 What Is This?
+## 👋 Hey, I'm Zac
 
-DATAPHREAK is a **privacy-first data analysis tool** that runs 100% offline in your browser. Upload CSV or Excel files and instantly get quality scores, duplicate detection, pattern recognition, and statistical profiling—without ever sending your data to a server.
+I work on enterprise platforms by day and build unusually fun projects by night. DATAPHREAK is a **privacy-first data analysis tool** that processes **1M+ rows entirely in your browser**—no servers, no uploads, no subscriptions.
 
 **What makes it interesting:**
 - Fuzzy matching finds "IBM Corp" vs "I.B.M. Corporation" using spatial indexing (O(n log n))
@@ -476,7 +476,7 @@ Built by Zac Sluss as a demonstration of high-performance web engineering and pr
 <a href="mailto:zacharyjsluss@gmail.com">
   <img src="https://img.shields.io/badge/Email-zacharyjsluss@gmail.com-b91c1c?style=for-the-badge&logo=gmail&logoColor=white"/>
 </a>
-<a href="https://zacsluss.github.io/portfolio/resume.pdf">
+<a href="https://zacsluss.github.io/dataphreak/public/resume.pdf">
   <img src="https://img.shields.io/badge/Resume-Download_Resume-7c3aed?style=for-the-badge&logo=adobeacrobatreader&logoColor=white"/>
 </a>
 
