@@ -1023,9 +1023,6 @@ See [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md) for version history and r
 
 By day, I work as a **Principal CRM & Enterprise Platforms Solutions Architect** at Computershare, managing multi-million-dollar Salesforce ecosystems and enterprise integrations across 20+ countries. By night, I build projects like this.
 
-**What I'm into:**
-Data science • Privacy engineering • WebGL & Canvas API • Algorithm optimization • 360° drone photography • Music production
-
 **Always learning, always building.**
 
 ---
