@@ -950,11 +950,11 @@ console.log({
 
 ## License
 
+<div align="center">
+
 **MIT License** - Use it however you want. Fork it, customize it, ship it. No credit needed (but a ⭐ appreciated!).
 
 This tool is 100% open source and free to use for personal or commercial projects.
-
-<div align="center">
 
 <img src="https://img.shields.io/badge/License-MIT-555555?style=for-the-badge&logo=opensourceinitiative&logoColor=white"/>
 
