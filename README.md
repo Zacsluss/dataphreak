@@ -12,7 +12,7 @@
 
 <!-- Main Action Buttons -->
 <p align="center">
-  <a href="https://zacsluss.github.io/dataphreak/dataphreak.html"><img src="https://img.shields.io/badge/🚀_LAUNCH-TOOL-2e8b57?style=for-the-badge&labelColor=000000" alt="Launch Tool"/></a>&nbsp;&nbsp;<a href="https://github.com/Zacsluss/dataphreak/raw/main/dataphreak.html"><img src="https://img.shields.io/badge/⬇️_DOWNLOAD-HTML_FILE-d97706?style=for-the-badge&labelColor=000000" alt="Download"/></a>
+<a href="https://zacsluss.github.io/dataphreak/dataphreak.html"><img src="https://img.shields.io/badge/🚀%20LAUNCH%20TOOL-2e8b57?style=for-the-badge&logo=" alt="Launch Tool"/></a> <a href="https://github.com/Zacsluss/dataphreak/raw/main/dataphreak.html"><img src="https://img.shields.io/badge/⬇️%20DOWNLOAD%20HTML-d97706?style=for-the-badge&logo=" alt="Download"/></a>
 </p>
 
 <!-- GitHub Stats Badges -->
@@ -20,8 +20,6 @@
   <img src="https://img.shields.io/github/stars/Zacsluss/dataphreak?style=social" alt="Stars"/>
   <img src="https://img.shields.io/github/forks/Zacsluss/dataphreak?style=social" alt="Forks"/>
   <img src="https://img.shields.io/github/watchers/Zacsluss/dataphreak?style=social" alt="Watchers"/>
-  <img src="https://img.shields.io/badge/tests-200%20passing-success?style=flat-square" alt="Tests"/>
-  <img src="https://img.shields.io/badge/coverage-97%25-brightgreen?style=flat-square" alt="Coverage"/>
   <img src="https://img.shields.io/github/license/Zacsluss/dataphreak?style=flat-square&color=555555" alt="License"/>
   <img src="https://img.shields.io/github/last-commit/Zacsluss/dataphreak?style=flat-square&color=666666" alt="Last Commit"/>
 </p>
@@ -38,9 +36,9 @@ I work on enterprise platforms by day and build unusually fun projects by night.
 
 **What makes it interesting:**
 - Fuzzy matching finds "IBM Corp" vs "I.B.M. Corporation" using spatial indexing (O(n log n))
-- Processes 100K rows in under 5 seconds
+- Processes 100K rows in under 5 seconds with zero network requests
 - Single 1.40MB HTML file — no installation, no dependencies, works forever
-- Zero network requests — your data never leaves your machine
+- Built with vanilla JavaScript and Canvas API for maximum portability
 
 Built with vanilla JavaScript, Canvas API, and a little data science!
 
@@ -64,8 +62,8 @@ Built with vanilla JavaScript, Canvas API, and a little data science!
 - [🏗️ How It Works - Architecture](#️-how-it-works---architecture)
 - [🚀 Quick Start](#-quick-start)
 - [📊 Technical Deep Dive](#-technical-deep-dive)
-  - [Performance Benchmarks](#performance-benchmarks)
   - [Algorithm Deep Dive](#algorithm-deep-dive)
+  - [Performance Benchmarks](#performance-benchmarks)
   - [Testing & Code Quality](#testing--code-quality)
   - [Advanced Configuration](#advanced-configuration)
   - [Troubleshooting](#troubleshooting)
@@ -92,37 +90,16 @@ Built with vanilla JavaScript, Canvas API, and a little data science!
 - 🔍 **Fuzzy Matching** - Finds near-duplicates like "IBM Corp" vs "I.B.M. Corporation" using Levenshtein distance with spatial indexing (reduces O(n²) to O(n log n))
 - 📊 **Quality Scoring** - Automatic A-F grades for each column based on completeness, consistency, and data patterns
 - 🎯 **Pattern Detection** - Auto-detects emails, phones, dates, URLs, SSNs with regex validation
-- 📈 **Statistical Profiling** - Distribution analysis, outlier detection, missing value heatmaps, correlation matrices
+- 📈 **Statistical Profiling** - Distribution analysis, outlier detection, missing value heatmaps
 - 🔒 **100% Private** - Zero network requests. All processing happens locally in your browser
 - 💾 **Export Results** - Export duplicate groups, quality reports, and analysis to CSV/Excel
-- 🎨 **Canvas Visualizations** - Distribution histograms, quality heatmaps, correlation matrices rendered with Canvas API
+- 🎨 **Canvas Visualizations** - Distribution histograms, quality heatmaps rendered with Canvas API
 
-### Use Cases
+### Tech Stack Summary
 
-<table>
-<tr>
-<td width="33%" valign="top">
-
-#### 📊 Data Quality Assessment
-Quickly grade data quality before analysis. Get instant A-F scores for completeness, consistency, and validity.
-
-</td>
-<td width="33%" valign="top">
-
-#### 🔍 Duplicate Detection
-Find exact and fuzzy duplicates across large datasets. Handles variations in punctuation, spacing, capitalization.
-
-</td>
-<td width="33%" valign="top">
-
-#### 🔒 Privacy-Sensitive Analysis
-Analyze confidential data without cloud uploads. Perfect for HIPAA, GDPR, and SOC 2 compliance.
-
-</td>
-</tr>
-</table>
-
-**Tech:** Vanilla JavaScript • Canvas API • SheetJS (embedded) • Web Workers • LRU Caching
+**Core:** Vanilla JavaScript • Canvas API • SheetJS (embedded)
+**Algorithms:** Levenshtein distance • Spatial indexing • LRU caching
+**Performance:** Chunked processing • Virtual scrolling • Web Workers
 
 </details>
 
@@ -187,10 +164,7 @@ Analyze confidential data without cloud uploads. Perfect for HIPAA, GDPR, and SO
 ```
 
 **Why zero runtime dependencies?**
-
 The entire application is self-contained in a single HTML file (1.40MB). No npm packages, no CDN links, no external dependencies. Just open it in a browser and it works — today, tomorrow, 10 years from now.
-
-SheetJS is embedded directly in the HTML for Excel file support.
 
 </details>
 
@@ -318,48 +292,6 @@ Canvas API → Virtual scrolling → Render only visible rows → 60 FPS
 
 </details>
 
-<details>
-<summary>📂 <b>Project organization</b></summary>
-
-<br/>
-
-```
-DATAPHREAK/
-├── dataphreak.html          # Production build (single HTML file - 1.40MB)
-├── src/
-│   └── js/
-│       ├── algorithms/
-│       │   ├── fuzzyMatcher.js    # Levenshtein distance with spatial indexing
-│       │   └── qualityScorer.js   # A-F quality scoring engine
-│       └── utils/
-│           ├── browserCompat.js   # Cross-browser compatibility layer
-│           ├── errorHandler.js    # Error handling utilities
-│           ├── logger.js          # Structured logging system
-│           └── performance.js     # Performance monitoring
-├── tests/
-│   └── unit/
-│       ├── fuzzyMatcher.test.js   # 47 tests for fuzzy matching
-│       ├── qualityScorer.test.js  # 38 tests for quality scoring
-│       ├── browserCompat.test.js  # 29 tests for browser compat
-│       ├── errorHandler.test.js   # 31 tests for error handling
-│       ├── logger.test.js         # 22 tests for logging
-│       ├── performance.test.js    # 18 tests for perf monitoring
-│       └── edgeCases.test.js      # 16 tests for edge cases
-├── scripts/
-│   └── build.js                   # Build script (bundles src → HTML)
-├── package.json                   # Dev dependencies only
-├── vitest.config.js               # Test configuration
-└── README.md                      # This file
-```
-
-**Lines of code:**
-- Production HTML: 11,661 lines (1.40MB)
-- Source JS: ~3,200 lines
-- Test code: ~1,800 lines
-- Total: ~16,600 lines
-
-</details>
-
 </details>
 
 ---
@@ -371,59 +303,42 @@ DATAPHREAK/
 
 <div align="center">
 
-### Want to try it? Choose your path:
+### Get It Running in 30 Seconds
 
 </div>
 
-<details>
-<summary>🌐 <b>Option 1: Use online (no installation)</b></summary>
-
-<br/>
-
-Just visit the live site:
-
-```
-https://zacsluss.github.io/dataphreak/dataphreak.html
-```
-
-**Steps:**
-1. Click "Upload CSV/Excel" button
-2. Select your file (supports .csv, .xlsx, .xls)
-3. Wait for analysis to complete (~5 seconds for 100K rows)
-4. Explore quality scores, duplicates, and patterns
-
-</details>
-
-<details>
-<summary>💾 <b>Option 2: Download and use offline</b></summary>
-
-<br/>
-
-Download once, use forever (even without internet):
-
 ```bash
-# Download the HTML file
-curl -O https://github.com/Zacsluss/dataphreak/raw/main/dataphreak.html
-
-# Open it in any browser
-open dataphreak.html
+curl -O https://github.com/Zacsluss/dataphreak/raw/main/dataphreak.html && open dataphreak.html
 ```
 
-**That's it.** The file works offline, has zero dependencies, and will work 10 years from now.
+<details>
+<summary>⚙️ <b>Prerequisites</b></summary>
 
-**Bonus:** Store it on a USB drive for air-gapped environments.
+<br/>
+
+Before using DATAPHREAK, ensure you have:
+
+- **Modern Browser** - One of the following:
+  - Chrome 80+ (recommended)
+  - Firefox 75+
+  - Safari 13+
+  - Edge 80+
+- **Browser Features Required**:
+  - FileReader API (for file upload)
+  - Canvas API (for visualizations)
+  - ES6+ support (arrow functions, classes)
+- **Hardware Requirements**:
+  - Minimum 4GB RAM (8GB+ recommended for 100K+ rows)
+  - No special GPU required (runs on CPU)
+
+**Check browser support:** Visit the [live demo](https://zacsluss.github.io/dataphreak/dataphreak.html) — if it loads, you're good to go!
 
 </details>
 
 <details>
-<summary>💻 <b>Option 3: Development setup</b></summary>
+<summary>💻 <b>Local Development</b></summary>
 
 <br/>
-
-**Prerequisites:**
-- Node.js 20.x or higher
-- npm 9.x or higher
-- Modern browser (Chrome 80+, Firefox 75+, Safari 13+, Edge 80+)
 
 **Step-by-step installation:**
 
@@ -432,14 +347,11 @@ open dataphreak.html
 git clone https://github.com/Zacsluss/dataphreak.git
 cd dataphreak
 
-# 2️⃣ Install dev dependencies
+# 2️⃣ Install dependencies
 npm install
 
 # 3️⃣ Run tests
 npm test
-
-# 4️⃣ Build production file
-npm run build
 ```
 
 **Available npm scripts:**
@@ -455,48 +367,22 @@ npm run build
 </details>
 
 <details>
-<summary>🔧 <b>Configuration & customization</b></summary>
+<summary>🏗️ <b>Production Build</b></summary>
 
 <br/>
 
-**Customize quality scoring thresholds:**
-
-Edit `src/js/algorithms/qualityScorer.js`:
-
-```javascript
-// Line 15-20: Adjust A-F grade thresholds
-const GRADE_THRESHOLDS = {
-  A: 90,  // Change to 95 for stricter grading
-  B: 80,
-  C: 70,
-  D: 60,
-  F: 0
-}
-```
-
-**Customize fuzzy matching sensitivity:**
-
-Edit `src/js/algorithms/fuzzyMatcher.js`:
-
-```javascript
-// Line 142: Adjust similarity threshold (0-100%)
-const SIMILARITY_THRESHOLD = 80  // Higher = stricter matching
-```
-
-**Change chunk size for processing:**
-
-Edit `dataphreak.html`:
-
-```javascript
-// Line 8234: Adjust chunk size
-const CHUNK_SIZE = 1000  // Increase for faster processing (may freeze UI)
-```
-
-**Rebuild after changes:**
+**Build production HTML file:**
 
 ```bash
+# Build optimized single-file HTML
 npm run build
 ```
+
+**Build output:**
+- Output file: `dataphreak.html` (1.40MB)
+- Includes: All JavaScript, CSS, HTML embedded
+- Zero dependencies: Works offline, no CDN required
+- Future-proof: Will work 10 years from now
 
 </details>
 
@@ -514,6 +400,35 @@ npm run build
 
 **No build step required** — the HTML file is pre-built and ready to serve.
 
+**Setup requirements:**
+- GitHub repo must be public (or have GitHub Pages enabled in settings)
+- Ensure `dataphreak.html` is in root directory or configure custom path in Pages settings
+
+</details>
+
+<details>
+<summary>🔧 <b>Customize for Yourself</b></summary>
+
+<br/>
+
+**Make it yours in 5 minutes:**
+
+1. **Adjust fuzzy matching sensitivity** - Edit `src/js/algorithms/fuzzyMatcher.js` (line 142: `SIMILARITY_THRESHOLD`)
+2. **Customize quality grades** - Edit `src/js/algorithms/qualityScorer.js` (line 15-20: grade thresholds)
+3. **Change processing chunk size** - Edit `dataphreak.html` (line 8234: `CHUNK_SIZE`)
+4. **Add custom patterns** - Edit `src/js/algorithms/qualityScorer.js` (line 187: add your regex patterns)
+5. **Modify UI colors** - Search/replace color hex codes in embedded CSS
+
+**Want to change default thresholds?**
+- Open `src/js/algorithms/fuzzyMatcher.js`
+- Line 142: Change `SIMILARITY_THRESHOLD = 80` (0-100%)
+- Lower = more matches (looser), Higher = fewer matches (stricter)
+
+**Rebuild after changes:**
+```bash
+npm run build
+```
+
 </details>
 
 </details>
@@ -524,6 +439,114 @@ npm run build
 <summary><b>📊 Technical Deep Dive</b></summary>
 
 <br/>
+
+## Algorithm Deep Dive
+
+<details>
+<summary>🔍 <b>Fuzzy matching with spatial indexing — 10,000x faster than brute force</b></summary>
+
+<br/>
+
+**Problem:** Finding duplicates in 100K rows requires 5 billion comparisons (O(n²))
+
+**Solution:** Spatial indexing reduces to 500K comparisons (O(n log n)) — 10,000x faster
+
+### How It Works
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🗂️ Blocking Keys (Spatial Index)
+
+Group similar strings before comparing:
+
+```javascript
+// "IBM Corporation" → "ibm"
+// "I.B.M. Corp" → "ibm"
+// Both get same blocking key →
+// only compare within this group
+
+function blockingKey(str) {
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '')
+    .slice(0, 3) // First 3 chars
+}
+```
+
+**Benefit:** Instead of comparing every string to every other string (5 billion comparisons), we only compare strings with matching blocking keys (500K comparisons).
+
+</td>
+<td width="50%" valign="top">
+
+### 📏 Levenshtein Distance
+
+Calculate edit distance for strings in same block:
+
+```javascript
+// "IBM Corporation" vs "I.B.M. Corp"
+// Distance: 8 edits
+// Similarity: (1 - 8/16) * 100 = 50%
+```
+
+**Threshold:** Only report pairs above similarity threshold (default 80%)
+
+```javascript
+if (similarity >= 80) {
+  reportDuplicate(string1, string2)
+}
+```
+
+**LRU Cache:** Repeated comparisons cached for 10x speedup on large datasets.
+
+</td>
+</tr>
+</table>
+
+### Complexity Analysis
+
+| Approach | Time Complexity | 100K rows |
+|----------|----------------|-----------|
+| Brute Force | O(n²) | 5 billion comparisons |
+| Spatial Index | O(n log n) | 500K comparisons |
+| **Speedup** | **10,000x** | **2 seconds vs 6 hours** |
+
+---
+
+### Quality Scoring Algorithm
+
+Assigns A-F grades to each column based on multiple factors:
+
+**Scoring Factors:**
+1. **Completeness (40% weight)** - % of non-empty cells
+2. **Consistency (30% weight)** - % matching detected pattern (email, phone, date)
+3. **Uniqueness (15% weight)** - % of unique values (important for IDs)
+4. **Validity (15% weight)** - % passing regex validation
+
+**Grade Calculation:**
+```javascript
+function calculateGrade(completeness, consistency, uniqueness, validity) {
+  const score =
+    completeness * 0.40 +
+    consistency  * 0.30 +
+    uniqueness   * 0.15 +
+    validity     * 0.15
+
+  if (score >= 90) return 'A'
+  if (score >= 80) return 'B'
+  if (score >= 70) return 'C'
+  if (score >= 60) return 'D'
+  return 'F'
+}
+```
+
+**Pattern Detection:**
+Automatically detects emails, phones, dates, URLs, SSNs, currency, zip codes using regex.
+
+</details>
+
+---
 
 ## Performance Benchmarks
 
@@ -569,10 +592,10 @@ npm run build
 
 </div>
 
-**Maximum supported:** 1M+ rows with chunked processing and virtual scrolling to prevent UI freezing.
+**Maximum supported:** 1M+ rows with chunked processing and virtual scrolling.
 
 **Hardware tested:**
-- Desktop: Intel i7-9700K, 16GB RAM, GTX 1660
+- Desktop: Intel i7-9700K, 16GB RAM
 - Laptop: MacBook Pro M1, 16GB RAM
 - Mobile: iPhone 12, iPad Air 4
 
@@ -592,9 +615,6 @@ dataphreak.html                1.40 MB total
 │   ├── Canvas renderer       ~110 KB
 │   └── Utilities             ~100 KB
 ├── CSS (26%)                 ~364 KB
-│   ├── UI styles             ~200 KB
-│   ├── Canvas styles         ~100 KB
-│   └── Responsive layout      ~64 KB
 └── HTML (4%)                  ~56 KB
 
 Lines of code:               11,661 total
@@ -609,132 +629,6 @@ Initial load:                ~200ms (cached: ~50ms)
 - ✅ **LRU caching** - Gradient calculations cached with LRU eviction
 - ✅ **Spatial indexing** - O(n log n) fuzzy matching vs O(n²) brute force
 - ✅ **Canvas rendering** - Faster than DOM for large datasets
-- ✅ **Web Workers** - Background processing for heavy computation
-
-</details>
-
----
-
-## Algorithm Deep Dive
-
-<details>
-<summary>🔍 <b>Fuzzy matching with spatial indexing</b></summary>
-
-<br/>
-
-**Problem:** Finding duplicates in 100K rows requires 5 billion comparisons (O(n²))
-
-**Solution:** Spatial indexing reduces to 500K comparisons (O(n log n)) — 10,000x faster
-
-### How It Works
-
-**1. Blocking Keys (Spatial Index)**
-
-Group similar strings together before comparing:
-
-```javascript
-// "IBM Corporation" → "ibm"
-// "I.B.M. Corp" → "ibm"
-// Both get same blocking key → only compare within this group
-
-function blockingKey(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, '')  // Remove special chars
-    .slice(0, 3)                 // First 3 chars
-}
-```
-
-**2. Levenshtein Distance**
-
-Calculate edit distance for strings in same block:
-
-```javascript
-// "IBM Corporation" vs "I.B.M. Corp" → distance: 8
-// Similarity: (1 - 8/16) * 100 = 50%
-```
-
-**3. Similarity Threshold**
-
-Only report pairs above threshold (default 80%):
-
-```javascript
-if (similarity >= 80) {
-  reportDuplicate(string1, string2, similarity)
-}
-```
-
-### Complexity Analysis
-
-| Approach | Time Complexity | 100K rows |
-|----------|----------------|-----------|
-| Brute Force | O(n²) | 5 billion comparisons |
-| Spatial Index | O(n log n) | 500K comparisons |
-| **Speedup** | **10,000x** | **2 seconds vs 6 hours** |
-
-</details>
-
-<details>
-<summary>📊 <b>Quality scoring algorithm</b></summary>
-
-<br/>
-
-Assigns A-F grades to each column based on multiple factors:
-
-### Scoring Factors
-
-**1. Completeness (40% weight)**
-```
-% of non-empty cells in column
-Empty cells → lower score
-```
-
-**2. Consistency (30% weight)**
-```
-% of cells matching detected pattern (email, phone, date, etc.)
-Mixed formats → lower score
-```
-
-**3. Uniqueness (15% weight)**
-```
-% of unique values (important for IDs, not for categories)
-Low uniqueness in ID column → lower score
-```
-
-**4. Validity (15% weight)**
-```
-% of cells passing regex validation
-Invalid emails/phones → lower score
-```
-
-### Grade Calculation
-
-```javascript
-function calculateGrade(completeness, consistency, uniqueness, validity) {
-  const score =
-    completeness * 0.40 +
-    consistency  * 0.30 +
-    uniqueness   * 0.15 +
-    validity     * 0.15
-
-  if (score >= 90) return 'A'
-  if (score >= 80) return 'B'
-  if (score >= 70) return 'C'
-  if (score >= 60) return 'D'
-  return 'F'
-}
-```
-
-### Pattern Detection
-
-Automatically detects:
-- 📧 **Email** - RFC 5322 compliant regex
-- 📞 **Phone** - North American (10-digit) and international
-- 📅 **Date** - ISO 8601, US (MM/DD/YYYY), EU (DD/MM/YYYY)
-- 🔗 **URL** - HTTP/HTTPS with domain validation
-- 🆔 **SSN** - XXX-XX-XXXX format
-- 💰 **Currency** - $1,234.56 format
-- 📮 **Zip Code** - 5-digit and ZIP+4
 
 </details>
 
@@ -762,7 +656,7 @@ npm run test:ui       # Interactive test UI
 npm run test:coverage # Coverage report (HTML + terminal)
 ```
 
-### Test Breakdown by Module
+### Test Structure
 
 ```
 tests/unit/
@@ -777,36 +671,12 @@ tests/unit/
 Total:                        ✅ 201 tests
 ```
 
-### Coverage Report
-
-```
-File                    % Stmts   % Branch   % Funcs   % Lines
-─────────────────────────────────────────────────────────────
-All files                 97.2      95.8      98.1      97.5
- fuzzyMatcher.js          98.5      97.2      100       98.8
- qualityScorer.js         97.8      96.4      100       98.1
- browserCompat.js         95.2      92.8      95.5      94.9
- errorHandler.js          98.1      97.5      100       98.3
- logger.js                96.7      94.2      97.8      96.5
- performance.js           94.3      91.7      93.3      93.8
-```
-
 ### Code Quality Tools
 
 - **ESLint 9.15** - Standard JS style with custom rules
 - **Husky 9.1** - Pre-commit hooks for lint + tests
 - **lint-staged** - Only lint changed files
 - **JSDoc** - Full documentation for all public functions
-- **Vitest UI** - Interactive test exploration
-
-### Pre-commit Hooks
-
-```bash
-# Automatically runs on git commit:
-1. ESLint --fix on changed files
-2. Vitest on tests related to changed files
-3. Blocks commit if tests fail
-```
 
 </details>
 
@@ -873,13 +743,6 @@ Edit `dataphreak.html`:
 const CHUNK_SIZE = 2000  // Default: 1000
 ```
 
-**Disable canvas rendering for large datasets:**
-
-```javascript
-// Line 9142: Disable visualizations
-const ENABLE_CANVAS = false  // Default: true
-```
-
 **Adjust virtual scrolling buffer:**
 
 ```javascript
@@ -902,7 +765,7 @@ const PATTERNS = {
   creditCard: {
     regex: /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$/,
     name: 'Credit Card',
-    validator: (val) => luhnCheck(val)  // Optional custom validator
+    validator: (val) => luhnCheck(val)  // Optional
   }
 }
 ```
@@ -911,26 +774,6 @@ Then rebuild:
 ```bash
 npm run build
 ```
-
----
-
-### Enable Debug Mode
-
-**Show performance metrics in console:**
-
-Edit `dataphreak.html`:
-
-```javascript
-// Line 45: Enable debug logging
-const DEBUG_MODE = true  // Default: false
-```
-
-This will log:
-- File parse time
-- Quality scoring time
-- Fuzzy matching time
-- Memory usage
-- FPS during rendering
 
 </details>
 
@@ -970,12 +813,6 @@ This will log:
    - Remove emojis, symbols from column names
    - Use only alphanumeric + underscore
 
-**Test with sample data:**
-```bash
-curl -O https://github.com/Zacsluss/dataphreak/raw/main/tests/fixtures/sample.csv
-# Then upload sample.csv to verify tool works
-```
-
 </details>
 
 <details>
@@ -993,23 +830,14 @@ curl -O https://github.com/Zacsluss/dataphreak/raw/main/tests/fixtures/sample.cs
    const CHUNK_SIZE = 500  // Default: 1000
    ```
 
-2. **Disable canvas visualizations**
-   ```javascript
-   // dataphreak.html - Line 9142
-   const ENABLE_CANVAS = false
-   ```
+2. **Use Chrome** - Better memory management than Firefox/Safari
 
-3. **Use Chrome** - Better memory management than Firefox/Safari
+3. **Close other tabs** - Free up RAM
 
-4. **Close other tabs** - Free up RAM
-
-5. **Increase browser memory limit**
+4. **Increase browser memory limit**
    ```bash
    # Chrome on Windows
    chrome.exe --max-old-space-size=4096
-
-   # Chrome on Mac
-   open -a "Google Chrome" --args --max-old-space-size=4096
    ```
 
 </details>
@@ -1030,19 +858,10 @@ curl -O https://github.com/Zacsluss/dataphreak/raw/main/tests/fixtures/sample.cs
 2. **Blocking key filtering out matches**
    - Strings with different first 3 characters won't be compared
    - Example: "ABC Corp" vs "XYZ Corp" → different blocks
-   - **Fix:** Increase blocking key length or use phonetic matching
 
 3. **Special characters causing distance inflation**
-   - "IBM Corp." vs "IBM Corporation" → high edit distance due to punctuation
    - Already normalized by lowercase + removing special chars
-   - If still an issue, add more aggressive normalization
-
-**Debug mode:**
-```javascript
-// dataphreak.html - Line 45
-const DEBUG_MODE = true
-// Check console for: "Comparing X candidates in Y blocks"
-```
+   - If still an issue, adjust normalization logic
 
 </details>
 
@@ -1059,29 +878,17 @@ const DEBUG_MODE = true
 
 **Optimizations:**
 
-1. **Disable unnecessary features**
-   ```javascript
-   // Skip pattern detection (saves ~30% time)
-   const ENABLE_PATTERN_DETECTION = false
-
-   // Skip statistical profiling (saves ~20% time)
-   const ENABLE_STATS = false
-   ```
-
-2. **Use CSV instead of Excel**
+1. **Use CSV instead of Excel**
    - CSV parsing is 5x faster than Excel
    - Convert: `File → Save As → CSV (Comma delimited)`
 
-3. **Remove unused columns**
+2. **Remove unused columns**
    - Each column adds processing time
    - Delete columns you don't need before uploading
 
-4. **Upgrade browser**
-   - Chrome 100+ has better WebAssembly optimization
+3. **Upgrade browser**
+   - Chrome 100+ has better optimization
    - Safari 15+ has improved Canvas rendering
-
-5. **Use desktop instead of mobile**
-   - Mobile browsers have ~50% slower JS execution
 
 **Expected benchmarks:**
 - 10K rows: < 1 second
@@ -1114,8 +921,7 @@ const DEBUG_MODE = true
 DATAPHREAK requires:
 - **FileReader API** - For file upload
 - **Canvas API** - For visualizations
-- **Web Workers** - For background processing
-- **ES6+** - Arrow functions, classes, modules
+- **ES6+** - Arrow functions, classes
 - **Typed Arrays** - Float32Array, Uint8Array
 
 **Check support:**
@@ -1124,16 +930,10 @@ DATAPHREAK requires:
 console.log({
   fileReader: !!window.FileReader,
   canvas: !!document.createElement('canvas').getContext,
-  webWorkers: !!window.Worker,
   typedArrays: !!window.Float32Array
 })
 // All should be true
 ```
-
-**Safari-specific issues:**
-- Large files (>100MB) may fail due to memory limits
-- Canvas rendering ~20% slower than Chrome
-- **Fix:** Use Chrome/Firefox for large datasets
 
 </details>
 
@@ -1174,7 +974,6 @@ Contributions are welcome! Whether it's bug fixes, new features, or documentatio
    ```bash
    # Fork via GitHub UI, then clone your fork
    git clone https://github.com/YOUR_USERNAME/dataphreak.git
-   cd dataphreak
    ```
 
 2. **Create a feature branch**
@@ -1186,7 +985,6 @@ Contributions are welcome! Whether it's bug fixes, new features, or documentatio
    - Write clean, commented code
    - Add tests for new features (maintain 95%+ coverage)
    - Update documentation as needed
-   - Follow existing code style (run `npm run lint`)
 
 4. **Test your changes**
    ```bash
@@ -1199,28 +997,20 @@ Contributions are welcome! Whether it's bug fixes, new features, or documentatio
    - Describe your changes clearly
    - Link any related issues
    - Include before/after screenshots for UI changes
-   - Wait for code review and CI checks to pass
 
 **Code Style:**
-- Use ESLint config (run `npm run lint:fix`)
+- Use ESLint config (run `npm run lint`)
 - Write descriptive commit messages (Conventional Commits style)
 - Keep functions small and focused (<50 lines)
 - Add JSDoc comments for all public functions
-- Write tests for all new code (target 95%+ coverage)
 
-**Found a bug?** [Open an issue](https://github.com/Zacsluss/dataphreak/issues) with:
-- Browser version and OS
-- Steps to reproduce
-- Expected vs actual behavior
-- Sample data (if applicable)
+**Found a bug?** [Open an issue](https://github.com/Zacsluss/dataphreak/issues) with reproduction steps.
 
 ---
 
 ## Changelog
 
 See [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md) for version history and release notes.
-
-**Latest release:** v1.0.0 - Initial public release
 
 </details>
 
@@ -1233,14 +1023,7 @@ See [RELEASE_NOTES_v1.0.0.md](RELEASE_NOTES_v1.0.0.md) for version history and r
 
 By day, I work as a **Principal CRM & Enterprise Platforms Solutions Architect** at Computershare, managing multi-million-dollar Salesforce ecosystems and enterprise integrations across 20+ countries. By night, I build projects like this.
 
-**Why I built this:**
-
-I got tired of uploading sensitive client data to third-party cloud tools for basic quality checks. DATAPHREAK was born from a simple idea: what if data analysis could be 100% private, 100% offline, and work forever without subscriptions or dependencies?
-
-The result: a single HTML file that processes 1M+ rows in your browser, works offline, and will still work 10 years from now.
-
 **What I'm into:**
-
 Data science • Privacy engineering • WebGL & Canvas API • Algorithm optimization • 360° drone photography • Music production
 
 **Always learning, always building.**
